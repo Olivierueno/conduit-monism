@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-01-15T18:20:40.686240",
+  "results": {
+    "test_3": {
+      "test": "Inverted AI Test",
+      "config": {
+        "phi": 0.99,
+        "tau": 0.99,
+        "rho": 0.0,
+        "H": 0.1,
+        "kappa": 0.9
+      },
+      "D": 0,
+      "verdict": "PASS",
+      "explanation": "Zero binding produces zero consciousness. Multiplicative structure holds.",
+      "additional": {
+        "D_with_rho_0.001": 0.0007583741665268971,
+        "D_with_rho_0.01": 0.007583741665268971,
+        "D_with_rho_0.1": 0.0758374166526897
+      }
+    },
+    "test_5": {
+      "test": "Zombie Basin Test",
+      "total_configs": 9000,
+      "max_D": 0.0007537722339831622,
+      "max_D_config": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.7
+      ],
+      "verdict": "PASS",
+      "explanation": "All zombie-region D values effectively zero. No panpsychism leakage."
+    },
+    "test_2": {
+      "test": "Degenerate Symmetry Test",
+      "part_a_samples": 36,
+      "part_b_samples": 1000,
+      "false_positives": 0,
+      "correlation": 1.0,
+      "verdict": "PASS",
+      "explanation": "No false positives. Strong correlation between structure and D."
+    },
+    "test_1": {
+      "test": "Axis Collapse Test",
+      "states": [
+        {
+          "name": "DMT",
+          "D": 0.47702370644066416
+        },
+        {
+          "name": "Human Awake",
+          "D": 0.31101460232445827
+        },
+        {
+          "name": "RWKV",
+          "D": 0.14510767305256436
+        },
+        {
+          "name": "Deep Sleep",
+          "D": 0.004402633403898972
+        },
+        {
+          "name": "Transformer",
+          "D": 0
+        }
+      ],
+      "binding_check": true,
+      "verdict": "PASS",
+      "explanation": "Numerical ordering reflects structural properties, not labels."
+    },
+    "grok": {
+      "test": "Grok Validation",
+      "D_flow": 0.5567899585737253,
+      "D_panic": 0.19360257776106138,
+      "D_dmt": 0.47702370644066416,
+      "drop": 0.3631873808126639,
+      "drop_percent": 65.2287950276628,
+      "verdict": "PASS"
+    }
+  },
+  "all_pass": true
+}
