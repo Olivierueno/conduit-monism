@@ -5,7 +5,7 @@ export default function Home() {
     <main className="min-h-screen">
       {/* Hero */}
       <section className="py-24 px-6 border-b border-neutral-800">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <p className="text-neutral-500 text-sm mb-4 font-mono">v9.1 / January 2026</p>
           <h1 className="text-4xl md:text-5xl font-mono font-normal mb-8 leading-tight">
             Conduit Monism
@@ -36,7 +36,7 @@ export default function Home() {
       
       {/* Formula */}
       <section className="py-16 px-6 border-b border-neutral-800">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-sm font-mono text-neutral-500 mb-6 uppercase tracking-wide">The Formula</h2>
           <div className="font-mono text-2xl mb-6 p-6 bg-neutral-900 border border-neutral-800">
             D = φ × τ × ρ × [(1 - √H) + (H × κ)]
@@ -50,7 +50,7 @@ export default function Home() {
       
       {/* Invariants */}
       <section className="py-16 px-6 border-b border-neutral-800">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Five Invariants</h2>
           <div className="space-y-4">
             {[
@@ -75,7 +75,7 @@ export default function Home() {
       
       {/* Key Results */}
       <section className="py-16 px-6 border-b border-neutral-800">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Empirical Results</h2>
           
           {/* Falsifications first - science advances by ruling things out */}
@@ -142,7 +142,7 @@ export default function Home() {
       
       {/* Navigation */}
       <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Contents</h2>
           <div className="grid md:grid-cols-2 gap-4">
             {[
