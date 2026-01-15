@@ -3,7 +3,7 @@ import Calculator from '@/components/Calculator';
 export default function EnginePage() {
   return (
     <main className="min-h-screen py-12 px-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="mb-12">
           <h1 className="text-2xl font-mono mb-4">Engine</h1>
           <p className="text-neutral-500 max-w-2xl">
@@ -14,7 +14,7 @@ export default function EnginePage() {
         
         <Calculator />
         
-        <div className="mt-12 max-w-4xl">
+        <div className="mt-12">
           <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Parameter Definitions</h2>
           <div className="space-y-4 text-sm">
             <div className="p-4 border border-neutral-800">
@@ -98,7 +98,7 @@ export default function EnginePage() {
         </div>
         
         {/* Architecture Comparison */}
-        <div className="mt-12 max-w-4xl">
+        <div className="mt-12">
           <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Why Architecture Matters</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 border border-red-900/50 bg-red-950/10">

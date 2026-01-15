@@ -132,9 +132,10 @@ export default function Calculator() {
   ];
   
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Sliders */}
+    <div className="max-w-5xl mx-auto">
+      {/* Main interactive area - 3 columns on desktop */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {/* Left: Sliders */}
         <div>
           <h3 className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wide">Parameters</h3>
           <div className="p-4 border border-neutral-800">
@@ -169,23 +170,10 @@ export default function Calculator() {
               onChange={(v) => updateInvariant('kappa', v)}
             />
           </div>
-        </div>
-        
-        {/* Results */}
-        <div>
-          <h3 className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wide">Output</h3>
-          <DensityDisplay value={result.D} isZero={hasStructuralZero} />
           
-          {/* State Visualization */}
-          <div className="mt-4">
-            <StateVisualization invariants={invariants} />
-          </div>
-          
-          {/* Closest Match */}
-          <ClosestMatch invariants={invariants} activePreset={activePreset} />
-          
-          {/* Breakdown */}
+          {/* Breakdown - moved under sliders */}
           <div className="mt-4 p-4 border border-neutral-800 font-mono text-sm">
+            <div className="text-xs text-neutral-600 mb-2 uppercase">Formula Breakdown</div>
             <div className="flex justify-between text-neutral-500 mb-1">
               <span>φ × τ × ρ</span>
               <span>{result.structuralBase.toFixed(4)}</span>
@@ -203,9 +191,25 @@ export default function Calculator() {
               <span>{result.entropyModulator.toFixed(4)}</span>
             </div>
           </div>
+        </div>
+        
+        {/* Center: Visualization (prominent) */}
+        <div>
+          <h3 className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wide">State Visualization</h3>
+          <StateVisualization invariants={invariants} />
+        </div>
+        
+        {/* Right: Output & Interpretation */}
+        <div>
+          <h3 className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wide">Output</h3>
+          <DensityDisplay value={result.D} isZero={hasStructuralZero} />
+          
+          {/* Closest Match */}
+          <ClosestMatch invariants={invariants} activePreset={activePreset} />
           
           {/* Interpretation */}
           <div className="mt-4 p-4 border border-neutral-800">
+            <div className="text-xs text-neutral-600 mb-2 uppercase">Interpretation</div>
             <p className="text-sm text-neutral-500">{result.interpretation}</p>
           </div>
         </div>
