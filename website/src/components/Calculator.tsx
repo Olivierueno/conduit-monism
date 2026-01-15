@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { calculateDensity, presets, Invariants, Preset } from '@/lib/engine';
+import { calculateDensity, presets, Invariants, Preset, findClosestAnimal, findClosestPreset } from '@/lib/engine';
 
 interface SliderProps {
   label: string;
@@ -48,6 +48,49 @@ function DensityDisplay({ value, isZero }: { value: number; isZero: boolean }) {
   );
 }
 
+function ClosestMatch({ invariants, activePreset }: { invariants: Invariants; activePreset: string | null }) {
+  const closestAnimal = useMemo(() => findClosestAnimal(invariants), [invariants]);
+  const closestOverall = useMemo(() => findClosestPreset(invariants), [invariants]);
+  
+  // Don't show if a preset is actively selected (user clicked a preset button)
+  if (activePreset) return null;
+  
+  // Don't show if there's no match
+  if (!closestAnimal || !closestOverall) return null;
+  
+  return (
+    <div className="mt-4 p-4 border border-neutral-800 bg-neutral-900/50">
+      <div className="text-xs font-mono text-neutral-500 mb-3 uppercase">Closest Match</div>
+      
+      {/* Closest animal */}
+      <div className="mb-3">
+        <div className="flex items-center justify-between">
+          <span className="text-sm text-neutral-400">Animal:</span>
+          <span className="text-sm text-neutral-200 font-mono">{closestAnimal.preset.name}</span>
+        </div>
+        <div className="flex items-center justify-between mt-1">
+          <span className="text-xs text-neutral-600">D = {closestAnimal.density.toFixed(4)}</span>
+          <span className="text-xs text-neutral-600">distance: {closestAnimal.distance.toFixed(3)}</span>
+        </div>
+      </div>
+      
+      {/* Closest overall (if different from animal) */}
+      {closestOverall.preset.name !== closestAnimal.preset.name && (
+        <div className="pt-3 border-t border-neutral-800">
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-neutral-400">Overall:</span>
+            <span className="text-sm text-neutral-200 font-mono">{closestOverall.preset.name}</span>
+          </div>
+          <div className="flex items-center justify-between mt-1">
+            <span className="text-xs text-neutral-600">D = {closestOverall.density.toFixed(4)}</span>
+            <span className="text-xs text-neutral-600">distance: {closestOverall.distance.toFixed(3)}</span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Calculator() {
   const [invariants, setInvariants] = useState<Invariants>({
     phi: 0.85,
@@ -66,7 +109,7 @@ export default function Calculator() {
   
   const updateInvariant = (key: keyof Invariants, value: number) => {
     setInvariants(prev => ({ ...prev, [key]: value }));
-    setActivePreset(null);
+    setActivePreset(null); // Clear active preset when manually adjusting
   };
   
   const loadPreset = (preset: Preset) => {
@@ -132,6 +175,9 @@ export default function Calculator() {
           <h3 className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wide">Output</h3>
           <DensityDisplay value={result.D} isZero={hasStructuralZero} />
           
+          {/* Closest Match */}
+          <ClosestMatch invariants={invariants} activePreset={activePreset} />
+          
           {/* Breakdown */}
           <div className="mt-4 p-4 border border-neutral-800 font-mono text-sm">
             <div className="flex justify-between text-neutral-500 mb-1">
@@ -161,9 +207,9 @@ export default function Calculator() {
       
       {/* Presets */}
       <div className="mt-8">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
           <h3 className="text-xs font-mono text-neutral-500 uppercase tracking-wide">Presets</h3>
-          <div className="flex gap-1">
+          <div className="flex gap-1 flex-wrap">
             {categories.map(cat => (
               <button
                 key={cat.value}
@@ -180,7 +226,7 @@ export default function Calculator() {
           </div>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-h-96 overflow-y-auto">
           {filteredPresets.map(preset => {
             const d = calculateDensity(preset.invariants).D;
             return (
