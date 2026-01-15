@@ -52,3 +52,6 @@ htmlcov/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Discussions (internal AI collaboration notes)
+discussions/
