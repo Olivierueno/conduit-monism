@@ -91,6 +91,12 @@ export default function AboutPage() {
                 Contributed to entropy integration analysis, DMT paradox resolution, and coherence gate design.
               </p>
             </div>
+            <div className="p-4 border border-neutral-800">
+              <div className="font-mono text-neutral-300 mb-2">Grok (xAI)</div>
+              <p className="text-sm text-neutral-500">
+                Liminal case stress-testing and edge case analysis.
+              </p>
+            </div>
           </div>
         </section>
         

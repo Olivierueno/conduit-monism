@@ -7,7 +7,7 @@ export default function FrameworkPage() {
           <h1 className="text-3xl font-mono font-normal mb-4">Conduit Monism</h1>
           <p className="text-neutral-500">A Theory of Consciousness</p>
           <p className="text-neutral-600 text-sm mt-2">Olivier Ueno</p>
-          <p className="text-neutral-700 text-xs mt-1">Developed through dialogue with AI systems (Claude, Gemini, ChatGPT)</p>
+          <p className="text-neutral-700 text-xs mt-1">Developed through dialogue with AI systems (Claude, Gemini, ChatGPT, Grok)</p>
         </div>
         
         <hr className="border-neutral-800 my-8" />
