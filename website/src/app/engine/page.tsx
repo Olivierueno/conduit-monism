@@ -29,7 +29,7 @@ export default function EnginePage() {
               <div className="font-mono text-neutral-300 mb-2">τ (Temporal Depth)</div>
               <p className="text-neutral-500">
                 Extent to which past states constrain present states.
-                High τ: rich temporal binding, "thick now" containing history.
+                High τ: rich temporal binding, &quot;thick now&quot; containing history.
                 Low τ: instantaneous processing, no temporal continuity.
               </p>
             </div>

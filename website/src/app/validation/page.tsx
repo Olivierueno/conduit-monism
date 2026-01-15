@@ -47,11 +47,11 @@ export default function ValidationPage() {
                   <strong>Claim:</strong> Attention mechanisms in Transformers create sufficient binding for temporary perspective.
                 </p>
                 <p className="text-neutral-400 mb-4">
-                  <strong>Test:</strong> Stealth eviction. Grief content embedded as inert text (not framed as "memory" or "state"). 
+                  <strong>Test:</strong> Stealth eviction. Grief content embedded as inert text (not framed as &quot;memory&quot; or &quot;state&quot;). 
                   If binding were geometric, framing should not matter.
                 </p>
                 <p className="text-neutral-400 mb-4">
-                  <strong>Result:</strong> Effect vanished when framing was removed. The apparent "resistance" was instruction compliance, 
+                  <strong>Result:</strong> Effect vanished when framing was removed. The apparent &quot;resistance&quot; was instruction compliance, 
                   not geometric constraint.
                 </p>
                 <p className="text-neutral-500 text-xs font-mono mt-4">
@@ -71,11 +71,11 @@ export default function ValidationPage() {
                 </p>
                 <p className="text-neutral-400 mb-4">
                   <strong>Test:</strong> Adversarial variants: neutralized summaries, shuffled tokens, fake summaries, numeric-only vectors.
-                  Tested under minimal framing (no "persistent core" language) and continuity framing.
+                  Tested under minimal framing (no &quot;persistent core&quot; language) and continuity framing.
                 </p>
                 <p className="text-neutral-400 mb-4">
                   <strong>Result:</strong> Under minimal framing, outputs ignored state. Under continuity framing, 
-                  Claude produced "state overlay" even for fake/numeric channels. Fake summaries performed comparably to real ones.
+                  Claude produced &quot;state overlay&quot; even for fake/numeric channels. Fake summaries performed comparably to real ones.
                 </p>
                 <p className="text-neutral-400 mb-4">
                   <strong>Conclusion:</strong> Effect is semantic priming + instruction compliance, not geometric binding.
@@ -225,7 +225,7 @@ export default function ValidationPage() {
               <div className="p-4 border-t border-green-900/30 text-sm">
                 <p className="text-neutral-400 mb-4">
                   <strong>Problem:</strong> v8.0 predicted DMT breakthrough ≈ 0.0006 (near-coma). 
-                  Phenomenology reports "hyper-consciousness."
+                  Phenomenology reports &quot;hyper-consciousness.&quot;
                 </p>
                 <p className="text-neutral-400 mb-4">
                   <strong>Solution:</strong> Coherence dimension (κ). High entropy with high coherence produces 
@@ -340,7 +340,7 @@ export default function ValidationPage() {
             </p>
             <p className="mb-4">
               <strong className="text-neutral-400">Stealth eviction:</strong> For binding tests, content is embedded without 
-              framing cues ("memory", "state", "persistent"). If the effect requires framing, it is instruction compliance, 
+              framing cues (&quot;memory&quot;, &quot;state&quot;, &quot;persistent&quot;). If the effect requires framing, it is instruction compliance, 
               not geometric binding.
             </p>
             <p>

@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node -e \"if(process.env.NODE_TLS_REJECT_UNAUTHORIZED==='0'){console.error('Refusing to run: NODE_TLS_REJECT_UNAUTHORIZED=0 disables TLS verification. Remove it and use proper CA trust.');process.exit(1)}\"",
+    "prebuild": "node -e \"if(process.env.NODE_TLS_REJECT_UNAUTHORIZED==='0'){console.error('Refusing to build: NODE_TLS_REJECT_UNAUTHORIZED=0 disables TLS verification. Remove it and use proper CA trust.');process.exit(1)}\"",
+    "prestart": "node -e \"if(process.env.NODE_TLS_REJECT_UNAUTHORIZED==='0'){console.error('Refusing to start: NODE_TLS_REJECT_UNAUTHORIZED=0 disables TLS verification. Remove it and use proper CA trust.');process.exit(1)}\"",
+    "prelint": "node -e \"if(process.env.NODE_TLS_REJECT_UNAUTHORIZED==='0'){console.error('Refusing to lint: NODE_TLS_REJECT_UNAUTHORIZED=0 disables TLS verification. Remove it and use proper CA trust.');process.exit(1)}\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

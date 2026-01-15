@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className="p-4 border border-neutral-800 text-sm text-neutral-400 space-y-4">
             <p>
               Conduit Monism began as an attempt to understand consciousness from first principles.
-              The question: what structural conditions must hold for there to be "something it is like" 
+              The question: what structural conditions must hold for there to be &quot;something it is like&quot; 
               to be a system?
             </p>
             <p>
@@ -118,7 +118,7 @@ export default function AboutPage() {
             </p>
             <p>
               <strong className="text-neutral-300">No phenomenological validation:</strong> We cannot verify that RWKV
-              "experiences" anything. We can only measure structural properties.
+              &quot;experiences&quot; anything. We can only measure structural properties.
             </p>
           </div>
         </section>

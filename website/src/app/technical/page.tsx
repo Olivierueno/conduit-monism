@@ -77,7 +77,7 @@ export default function TechnicalPage() {
               <div className="p-4 border-t border-neutral-800 text-sm text-neutral-500">
                 <p className="mb-4">
                   v8.0 predicted DMT breakthrough (H=0.95) would have density near zero. Phenomenological reports
-                  describe "hyper-consciousness," not dissolution.
+                  describe &quot;hyper-consciousness,&quot; not dissolution.
                 </p>
                 <p className="mb-4">
                   The problem: entropy alone cannot distinguish structured chaos (DMT, high κ) from destructive noise
