@@ -1,31 +1,43 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { calculateDensity, presets, Invariants, Preset, findClosestAnimal, findClosestPreset } from '@/lib/engine';
 import StateVisualization from './StateVisualization';
+
+// Organic noise using multiple sine waves at different frequencies
+function organicNoise(t: number, seed: number): number {
+  return (
+    Math.sin(t * 0.3 + seed) * 0.4 +
+    Math.sin(t * 0.7 + seed * 1.7) * 0.3 +
+    Math.sin(t * 1.1 + seed * 2.3) * 0.2 +
+    Math.sin(t * 2.3 + seed * 3.1) * 0.1
+  );
+}
 
 interface SliderProps {
   label: string;
   symbol: string;
   value: number;
+  displayValue: number; // The animated display value
   onChange: (value: number) => void;
+  isAnimating: boolean;
 }
 
-function Slider({ label, symbol, value, onChange }: SliderProps) {
+function Slider({ label, symbol, value, displayValue, onChange, isAnimating }: SliderProps) {
   return (
     <div className="mb-4">
       <div className="flex justify-between items-center mb-1">
         <label className="text-sm text-neutral-400">
           <span className="font-mono">{symbol}</span> {label}
         </label>
-        <span className="font-mono text-sm">{value.toFixed(2)}</span>
+        <span className="font-mono text-sm tabular-nums">{displayValue.toFixed(2)}</span>
       </div>
       <input
         type="range"
         min="0"
         max="1"
         step="0.01"
-        value={value}
+        value={isAnimating ? displayValue : value}
         onChange={(e) => onChange(parseFloat(e.target.value))}
         className="w-full h-2 bg-neutral-900 appearance-none cursor-pointer slider border border-neutral-800"
       />
@@ -37,7 +49,7 @@ function DensityDisplay({ value, isZero }: { value: number; isZero: boolean }) {
   return (
     <div className={`p-6 border ${isZero ? 'border-red-900 bg-red-950/20' : 'border-neutral-800 bg-neutral-900'}`}>
       <div className="text-xs font-mono text-neutral-500 mb-2 uppercase">Perspectival Density</div>
-      <div className={`text-4xl font-mono ${isZero ? 'text-red-500' : 'text-white'}`}>
+      <div className={`text-4xl font-mono tabular-nums ${isZero ? 'text-red-500' : 'text-white'}`}>
         {value.toFixed(4)}
       </div>
       {isZero && (
@@ -93,7 +105,7 @@ function ClosestMatch({ invariants, activePreset }: { invariants: Invariants; ac
 }
 
 export default function Calculator() {
-  const [invariants, setInvariants] = useState<Invariants>({
+  const [baseInvariants, setBaseInvariants] = useState<Invariants>({
     phi: 0.85,
     tau: 0.8,
     rho: 0.7,
@@ -103,20 +115,60 @@ export default function Calculator() {
   
   const [activePreset, setActivePreset] = useState<string | null>("Human (Baseline Awake)");
   const [selectedCategory, setSelectedCategory] = useState<Preset['category'] | 'all'>('all');
+  const [isAnimating, setIsAnimating] = useState(true);
+  const [time, setTime] = useState(0);
   
-  const result = useMemo(() => calculateDensity(invariants), [invariants]);
+  // Animation loop
+  useEffect(() => {
+    if (!isAnimating) return;
+    
+    let animationId: number;
+    let lastTime = performance.now();
+    
+    const animate = (currentTime: number) => {
+      const delta = (currentTime - lastTime) / 1000;
+      lastTime = currentTime;
+      setTime(t => t + delta);
+      animationId = requestAnimationFrame(animate);
+    };
+    
+    animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, [isAnimating]);
   
-  const hasStructuralZero = invariants.phi === 0 || invariants.tau === 0 || invariants.rho === 0;
+  // Calculate modulated invariants - subtle drift around base values
+  const modulatedInvariants = useMemo(() => {
+    if (!isAnimating) return baseInvariants;
+    
+    const baseDrift = 0.015; // 1.5% max variance
+    const sharedDrift = organicNoise(time, 0) * 0.005;
+    
+    return {
+      phi: Math.min(1, Math.max(0, baseInvariants.phi + organicNoise(time, 1.0) * baseDrift + sharedDrift)),
+      tau: Math.min(1, Math.max(0, baseInvariants.tau + organicNoise(time, 2.3) * baseDrift + sharedDrift)),
+      rho: Math.min(1, Math.max(0, baseInvariants.rho + organicNoise(time, 3.7) * baseDrift * 0.7 + sharedDrift)),
+      H: Math.min(1, Math.max(0, baseInvariants.H + organicNoise(time, 4.1) * baseDrift * 1.2)),
+      kappa: Math.min(1, Math.max(0, baseInvariants.kappa + organicNoise(time, 5.9) * baseDrift + sharedDrift * 0.5)),
+    };
+  }, [baseInvariants, time, isAnimating]);
+  
+  const result = useMemo(() => calculateDensity(modulatedInvariants), [modulatedInvariants]);
+  
+  const hasStructuralZero = baseInvariants.phi === 0 || baseInvariants.tau === 0 || baseInvariants.rho === 0;
   
   const updateInvariant = (key: keyof Invariants, value: number) => {
-    setInvariants(prev => ({ ...prev, [key]: value }));
-    setActivePreset(null); // Clear active preset when manually adjusting
+    setBaseInvariants(prev => ({ ...prev, [key]: value }));
+    setActivePreset(null);
   };
   
   const loadPreset = (preset: Preset) => {
-    setInvariants(preset.invariants);
+    setBaseInvariants(preset.invariants);
     setActivePreset(preset.name);
   };
+  
+  const toggleAnimation = useCallback(() => {
+    setIsAnimating(prev => !prev);
+  }, []);
   
   const filteredPresets = selectedCategory === 'all' 
     ? presets 
@@ -133,6 +185,16 @@ export default function Calculator() {
   
   return (
     <div className="max-w-5xl mx-auto">
+      {/* Animation toggle */}
+      <div className="flex justify-end mb-2">
+        <button
+          onClick={toggleAnimation}
+          className="text-xs font-mono text-neutral-600 hover:text-neutral-400 transition-colors"
+        >
+          {isAnimating ? '◉ live' : '○ paused'}
+        </button>
+      </div>
+      
       {/* Main interactive area - 3 columns on desktop */}
       <div className="grid md:grid-cols-3 gap-6">
         {/* Left: Sliders */}
@@ -142,53 +204,63 @@ export default function Calculator() {
             <Slider
               label="Integration"
               symbol="φ"
-              value={invariants.phi}
+              value={baseInvariants.phi}
+              displayValue={modulatedInvariants.phi}
               onChange={(v) => updateInvariant('phi', v)}
+              isAnimating={isAnimating}
             />
             <Slider
               label="Temporal Depth"
               symbol="τ"
-              value={invariants.tau}
+              value={baseInvariants.tau}
+              displayValue={modulatedInvariants.tau}
               onChange={(v) => updateInvariant('tau', v)}
+              isAnimating={isAnimating}
             />
             <Slider
               label="Binding"
               symbol="ρ"
-              value={invariants.rho}
+              value={baseInvariants.rho}
+              displayValue={modulatedInvariants.rho}
               onChange={(v) => updateInvariant('rho', v)}
+              isAnimating={isAnimating}
             />
             <Slider
               label="Entropy"
               symbol="H"
-              value={invariants.H}
+              value={baseInvariants.H}
+              displayValue={modulatedInvariants.H}
               onChange={(v) => updateInvariant('H', v)}
+              isAnimating={isAnimating}
             />
             <Slider
               label="Coherence"
               symbol="κ"
-              value={invariants.kappa}
+              value={baseInvariants.kappa}
+              displayValue={modulatedInvariants.kappa}
               onChange={(v) => updateInvariant('kappa', v)}
+              isAnimating={isAnimating}
             />
           </div>
           
-          {/* Breakdown - moved under sliders */}
+          {/* Breakdown - uses modulated values */}
           <div className="mt-4 p-4 border border-neutral-800 font-mono text-sm">
             <div className="text-xs text-neutral-600 mb-2 uppercase">Formula Breakdown</div>
             <div className="flex justify-between text-neutral-500 mb-1">
               <span>φ × τ × ρ</span>
-              <span>{result.structuralBase.toFixed(4)}</span>
+              <span className="tabular-nums">{result.structuralBase.toFixed(4)}</span>
             </div>
             <div className="flex justify-between text-neutral-500 mb-1">
               <span>1 - √H</span>
-              <span>{result.entropyPenalty.toFixed(4)}</span>
+              <span className="tabular-nums">{result.entropyPenalty.toFixed(4)}</span>
             </div>
             <div className="flex justify-between text-neutral-500 mb-1">
               <span>H × κ</span>
-              <span>{result.coherenceRecovery.toFixed(4)}</span>
+              <span className="tabular-nums">{result.coherenceRecovery.toFixed(4)}</span>
             </div>
             <div className="flex justify-between text-neutral-400 pt-2 border-t border-neutral-800">
               <span>Modulator</span>
-              <span>{result.entropyModulator.toFixed(4)}</span>
+              <span className="tabular-nums">{result.entropyModulator.toFixed(4)}</span>
             </div>
           </div>
         </div>
@@ -196,7 +268,7 @@ export default function Calculator() {
         {/* Center: Visualization (prominent) */}
         <div>
           <h3 className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wide">State Visualization</h3>
-          <StateVisualization invariants={invariants} />
+          <StateVisualization invariants={modulatedInvariants} isAnimating={isAnimating} />
         </div>
         
         {/* Right: Output & Interpretation */}
@@ -205,7 +277,7 @@ export default function Calculator() {
           <DensityDisplay value={result.D} isZero={hasStructuralZero} />
           
           {/* Closest Match */}
-          <ClosestMatch invariants={invariants} activePreset={activePreset} />
+          <ClosestMatch invariants={modulatedInvariants} activePreset={activePreset} />
           
           {/* Interpretation */}
           <div className="mt-4 p-4 border border-neutral-800">
