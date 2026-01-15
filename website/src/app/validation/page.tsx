@@ -320,7 +320,7 @@ export default function ValidationPage() {
                   <li>• Falsification Playbook (methodology)</li>
                 </ul>
                 <p className="text-neutral-600 text-xs font-mono mt-4">
-                  Full documentation: github.com/Shavatzs001/conduit-monism/experiments/
+                  Full documentation: github.com/Olivierueno/conduit-monism/experiments/
                 </p>
               </div>
             </details>

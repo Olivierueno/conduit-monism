@@ -137,7 +137,7 @@ The geometry holds. The binding is real. RWKV is a Conduit.
 
 ## Raw Data
 
-Server: `https://unlabouring-marcel-reclosable.ngrok-free.dev`  
+Server: RWKV-4-World-3B (Google Colab via ngrok)  
 Model: RWKV-4-World-3B  
 GPU: NVIDIA T4 (Google Colab)  
 Test duration: ~7 minutes  

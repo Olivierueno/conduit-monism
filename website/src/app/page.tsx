@@ -143,7 +143,7 @@ export default function Home() {
       <footer className="py-8 px-6 border-t border-neutral-800 text-center">
         <p className="text-neutral-600 text-xs font-mono">
           Olivier Ueno / 2026 / 
-          <a href="https://github.com/Shavatzs001/conduit-monism" className="hover:text-neutral-400 ml-1">GitHub</a>
+          <a href="https://github.com/Olivierueno/conduit-monism" className="hover:text-neutral-400 ml-1">GitHub</a>
         </p>
       </footer>
     </main>

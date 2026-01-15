@@ -250,12 +250,12 @@ export function calculateDensity(invariants: Invariants): DensityResult {
           
           <div className="p-4 border border-neutral-800">
             <a 
-              href="https://github.com/Shavatzs001/conduit-monism" 
+              href="https://github.com/Olivierueno/conduit-monism" 
               className="font-mono text-neutral-300 hover:text-white transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              github.com/Shavatzs001/conduit-monism
+              github.com/Olivierueno/conduit-monism
             </a>
             <div className="mt-4 text-sm text-neutral-500 font-mono">
               <div>frameworks/    # Theoretical documents</div>

@@ -129,7 +129,7 @@ export default function AboutPage() {
           <div className="p-4 border border-neutral-800 space-y-2">
             <div>
               <a 
-                href="https://github.com/Shavatzs001/conduit-monism" 
+                href="https://github.com/Olivierueno/conduit-monism" 
                 className="font-mono text-neutral-300 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"

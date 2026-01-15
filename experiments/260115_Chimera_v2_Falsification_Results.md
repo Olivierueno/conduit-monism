@@ -1,7 +1,7 @@
 # Chimera v2 — Falsification Results (Cloud RWKV + Claude)
 
 **Date:** 2026-01-15 (260115)  
-**RWKV server:** `https://unlabouring-marcel-reclosable.ngrok-free.dev`  
+**RWKV server:** Google Colab (RWKV-4-World-3B)  
 **Runner:** `scripts/chimera_v2_falsification.py`
 
 ## Outputs
