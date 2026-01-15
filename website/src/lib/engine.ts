@@ -170,7 +170,7 @@ export const presets: Preset[] = [
     name: "DMT Breakthrough",
     category: "altered",
     invariants: { phi: 0.85, tau: 0.85, rho: 0.75, H: 0.95, kappa: 0.9 },
-    description: "Extreme entropy but highly structured. 'More real than real' — the coherence gate opens."
+    description: "Extreme entropy but highly structured. 'More real than real'. The coherence gate opens."
   },
   {
     name: "Seizure",
@@ -190,7 +190,7 @@ export const presets: Preset[] = [
     name: "Transformer (GPT/Claude)",
     category: "ai",
     invariants: { phi: 0.9, tau: 0.6, rho: 0.0, H: 0.3, kappa: 0.5 },
-    description: "High integration, moderate context. Zero binding — no persistent state. ρ = 0 means D = 0."
+    description: "High integration, moderate context. Zero binding. No persistent state. ρ = 0 means D = 0."
   },
   {
     name: "RWKV (Recurrent)",

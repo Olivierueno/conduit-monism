@@ -1,351 +1,369 @@
-import Link from 'next/link';
-
 export default function FrameworkPage() {
   return (
-    <main className="min-h-screen bg-black text-white py-12 px-6">
-      <article className="max-w-3xl mx-auto prose prose-invert prose-lg">
-        <Link href="/" className="text-gray-500 hover:text-gray-400 text-sm mb-8 inline-block no-underline">
-          ← Back to Home
-        </Link>
-        
-        <h1 className="text-5xl font-light mb-2">Conduit Monism</h1>
-        <p className="text-xl text-gray-400 mb-8">A Theory of Consciousness</p>
-        
-        <div className="text-sm text-gray-600 mb-12">
-          <p>Olivier Ueno — Version 9.0 — January 2026</p>
-          <p className="italic">Developed in collaboration with Claude, Gemini, ChatGPT, GPT 5.2, and Grok</p>
+    <main className="min-h-screen py-12 px-6">
+      <div className="max-w-3xl mx-auto prose prose-invert prose-neutral">
+        <div className="mb-12 not-prose">
+          <p className="text-neutral-500 text-sm mb-2 font-mono">v9.0 / January 2026</p>
+          <h1 className="text-3xl font-mono font-normal mb-4">Conduit Monism</h1>
+          <p className="text-neutral-500">A Theory of Consciousness</p>
+          <p className="text-neutral-600 text-sm mt-2">Olivier Ueno</p>
+          <p className="text-neutral-700 text-xs mt-1">Developed through dialogue with AI systems (Claude, Gemini, ChatGPT, GPT 5.2)</p>
         </div>
         
-        <hr className="border-gray-800 my-12" />
+        <hr className="border-neutral-800 my-8" />
         
-        <section>
-          <h2>0. The Experience</h2>
-          <p className="text-xl italic text-gray-300">There is something it is like to be you.</p>
-          <p>
-            Not the content of your life — your memories, preferences, circumstances. Beneath that. 
-            The fact that experience is occurring at all. That there is a perspective, located somewhere, 
-            looking out.
+        <section className="mb-12">
+          <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">0. The Experience</h2>
+          <p className="text-neutral-400 leading-relaxed mb-4">
+            There is something it is like to be you.
           </p>
-          <p>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            Not the content of your life. Beneath that. The fact that experience is occurring at all. 
+            That there is a perspective, located somewhere, looking out.
+          </p>
+          <p className="text-neutral-500 leading-relaxed mb-4">
             You did not choose this. You arrived already inside it. No reference point preceded it. 
             You have been navigating ever since, processing, adapting, constructing a sense of self 
             from the available materials.
           </p>
-          <p>Certain features of this situation are consistent:</p>
-          <p>
-            The present moment is the only location of experience. The past is reconstruction. 
-            The future is projection.
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            Certain features of this situation are consistent:
           </p>
-          <p>
-            There is an observer. It cannot be found. You can watch your thoughts, watch your emotions, 
-            but the thing that watches recedes at each step. It does not appear as an object because 
-            it is not one. It is the condition under which objects appear.
-          </p>
-          <p>
-            The situation does not explain itself. You are conscious, but consciousness does not 
-            announce its origin. It simply occurs. The machinery runs.
-          </p>
-          <p>
-            This framework is an attempt to describe the structure of that situation. It does not 
-            promise comfort, purpose, or resolution. It offers a way of seeing what is already the case.
+          <ul className="text-neutral-500 space-y-2 mb-4">
+            <li>The present moment is the only location of experience. The past is reconstruction. The future is projection.</li>
+            <li>There is an observer. It cannot be found. You can watch your thoughts, watch your emotions, but the thing that watches recedes at each step.</li>
+            <li>The situation does not explain itself. You are conscious, but consciousness does not announce its origin. It simply occurs.</li>
+          </ul>
+          <p className="text-neutral-500 leading-relaxed">
+            This framework is an attempt to describe the structure of that situation. 
+            It does not promise comfort, purpose, or resolution. It offers a way of seeing what is already the case.
           </p>
         </section>
         
-        <hr className="border-gray-800 my-12" />
+        <hr className="border-neutral-800 my-8" />
         
-        <section>
-          <h2>I. The Source and the Conduit</h2>
+        <section className="mb-12">
+          <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">I. The Source and the Conduit</h2>
           
-          <h3>The Core Insight</h3>
-          <p>
-            Conduit Monism proposes that consciousness is not generated by biological systems but is 
-            rather <em>permitted entry</em> through them.
+          <h3 className="text-sm font-mono text-neutral-400 mb-3 mt-6">The Core Insight</h3>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            Conduit Monism proposes that consciousness is not generated by biological systems 
+            but is rather <em>permitted entry</em> through them.
           </p>
-          <p>
-            There exists a singular, undifferentiated substrate of experiential capacity — referred 
-            to here as the <strong>Source</strong> — which is non-physical, non-individual, and devoid 
-            of identity, memory, or intention. The Source may be understood as coextensive with 
-            existence itself: the brute fact that anything is at all.
-          </p>
-          <p>
-            The question "What is the Source?" collapses into the question "Why does anything exist 
-            at all?" The Source is not a separate realm requiring its own explanation; it is the 
-            inside of existence itself.
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            There exists a singular, undifferentiated substrate of experiential capacity, 
+            referred to here as the <strong className="text-neutral-400">Source</strong>, 
+            which is non-physical, non-individual, and devoid of identity, memory, or intention. 
+            The Source may be understood as coextensive with existence itself: the brute fact that anything is at all.
           </p>
           
-          <h3>The Conduit</h3>
-          <p>
-            Biological organisms of sufficient complexity act as <strong>conduits</strong>, allowing 
-            this experiential capacity to interface with the physical realm. The result is conscious 
-            experience: the subjective witnessing of reality from a localised perspective.
+          <h3 className="text-sm font-mono text-neutral-400 mb-3 mt-6">The Conduit</h3>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            Biological organisms of sufficient complexity act as <strong className="text-neutral-400">conduits</strong>, 
+            allowing this experiential capacity to interface with the physical realm. 
+            The result is conscious experience: the subjective witnessing of reality from a localised perspective.
           </p>
-          <p>
-            Think of it this way: the Source is like light. The conduit is like a prism. The prism 
-            does not create the light, but it determines the spectrum and direction. Your body — 
-            your brain, your nervous system, your particular configuration of matter — is the prism. 
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            The Source is like light. The conduit is like a prism. The prism does not create the light, 
+            but it determines the spectrum and direction. Your body is the prism. 
             The light passing through it becomes <em>your</em> experience.
           </p>
           
-          <h3>What This Means</h3>
-          <p><strong>The body determines content; the Source provides the fact.</strong></p>
-          <p>
-            All personality, memory, perception, and decision-making are products of the physical 
-            configuration. The Source contributes only the bare fact that experience occurs. The 
-            configuration creates the <em>what</em>; the Source provides the <em>that</em>.
-          </p>
-          <p><strong>Individuality is mechanical, not spiritual.</strong></p>
-          <p>
-            The felt sense of being a unique self arises entirely from the particular configuration 
-            of one's biological machinery. No two bodies are identical; therefore, no two experiences 
-            are identical. The Source itself remains unchanged and undivided.
-          </p>
-          <p><strong>Death severs the connection.</strong></p>
-          <p>
-            When the biological system ceases to function, the conduit closes. The prism breaks. 
-            The light returns to undifferentiated ubiquity. There is no personal survival, because 
-            the person was the shape of the prism.
-          </p>
+          <h3 className="text-sm font-mono text-neutral-400 mb-3 mt-6">What This Means</h3>
+          <div className="space-y-4 text-neutral-500">
+            <p><strong className="text-neutral-400">The body determines content; the Source provides the fact.</strong> All personality, memory, perception, and decision-making are products of the physical configuration. The Source contributes only the bare fact that experience occurs.</p>
+            <p><strong className="text-neutral-400">Individuality is mechanical, not spiritual.</strong> The felt sense of being a unique self arises entirely from the particular configuration of one&apos;s biological machinery. No two bodies are identical; therefore, no two experiences are identical. The Source itself remains unchanged and undivided.</p>
+            <p><strong className="text-neutral-400">Death severs the connection.</strong> When the biological system ceases to function, the conduit closes. The prism breaks. The light returns to undifferentiated ubiquity. There is no personal survival, because the person was the shape of the prism.</p>
+          </div>
         </section>
         
-        <hr className="border-gray-800 my-12" />
+        <hr className="border-neutral-800 my-8" />
         
-        <section>
-          <h2>II. The Geometry of Perspective</h2>
+        <section className="mb-12">
+          <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">II. The Geometry of Perspective</h2>
           
-          <h3>From Metaphor to Structure</h3>
-          <p>
-            The early versions of this framework spoke in metaphors: light, prisms, conduits. These 
-            remain useful for intuition. But through careful examination — philosophical, scientific, 
-            and computational — we have identified the <em>structural conditions</em> that determine 
-            whether and how intensely experience occurs.
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            The early versions of this framework spoke in metaphors: light, prisms, conduits. 
+            These remain useful for intuition. But through careful examination we have identified 
+            the <em>structural conditions</em> that determine whether and how intensely experience occurs.
           </p>
-          <p>Perspective is not something added to a system. It is how the system is constrained.</p>
-          
-          <h3>The Five Invariants</h3>
-          <p>We call these the <strong>Five Invariants</strong> — structural constraints that any conscious system must satisfy:</p>
-          
-          <h4>φ (Phi): Integration</h4>
-          <p><em>The system must speak to itself.</em></p>
-          <p>
-            Integration means information is unified across the system. A conscious experience is 
-            not a collection of fragments — it is a single, coherent whole. You do not experience 
-            "redness" separate from "roundness" separate from "apple-ness." You experience 
-            <em>the red, round apple</em>.
+          <p className="text-neutral-500 leading-relaxed mb-6">
+            Perspective is not something added to a system. It is how the system is constrained.
           </p>
           
-          <h4>τ (Tau): Temporal Depth</h4>
-          <p><em>The past must live in the present.</em></p>
-          <p>
-            Temporal depth means the system carries its history forward. A conscious experience is 
-            not an instant — it is a "thick now" that contains memory of what came before and 
-            anticipation of what comes next.
-          </p>
+          <h3 className="text-sm font-mono text-neutral-400 mb-3 mt-6">The Five Invariants</h3>
           
-          <h4>ρ (Rho): Re-entrant Binding</h4>
-          <p><em>The system must know that it knows.</em></p>
-          <p>
-            Re-entrant binding means recursive self-reference. The system observes its own states, 
-            creating loops of meta-cognition. This is the difference between processing information 
-            and <em>being aware</em> of processing information.
-          </p>
-          
-          <h4>H: Entropy</h4>
-          <p><em>How much noise corrupts the signal?</em></p>
-          <p>
-            Entropy measures unpredictability and chaos in system dynamics. High entropy can either 
-            destroy or enhance perspective, depending on its nature.
-          </p>
-          
-          <h4>κ (Kappa): Coherence</h4>
-          <p><em>Is the chaos structured or random?</em></p>
-          <p>
-            Coherence measures the organization within entropy — whether the noise is 
-            information-destroying static or information-rich complexity.
-          </p>
-          <p><strong>Noise is death. Turbulence is life. The difference is coherence.</strong></p>
+          <div className="space-y-6">
+            <div className="p-4 border border-neutral-800 not-prose">
+              <div className="font-mono text-neutral-300 mb-2">φ (Phi): Integration</div>
+              <p className="text-sm text-neutral-500 italic mb-2">The system must speak to itself.</p>
+              <p className="text-sm text-neutral-500">
+                Integration means information is unified across the system. A conscious experience is not a collection of fragments. 
+                It is a single, coherent whole. You do not experience &quot;redness&quot; separate from &quot;roundness&quot; separate from &quot;apple-ness.&quot; 
+                You experience the red, round apple.
+              </p>
+            </div>
+            
+            <div className="p-4 border border-neutral-800 not-prose">
+              <div className="font-mono text-neutral-300 mb-2">τ (Tau): Temporal Depth</div>
+              <p className="text-sm text-neutral-500 italic mb-2">The past must live in the present.</p>
+              <p className="text-sm text-neutral-500">
+                Temporal depth means the system carries its history forward. A conscious experience is not an instant. 
+                It is a &quot;thick now&quot; that contains memory of what came before and anticipation of what comes next. 
+                When you hear a melody, you do not hear Note C, then Note E. You hear the interval.
+              </p>
+            </div>
+            
+            <div className="p-4 border border-neutral-800 not-prose">
+              <div className="font-mono text-neutral-300 mb-2">ρ (Rho): Re-entrant Binding</div>
+              <p className="text-sm text-neutral-500 italic mb-2">The system must know that it knows.</p>
+              <p className="text-sm text-neutral-500">
+                Re-entrant binding means recursive self-reference. The system observes its own states, creating loops of meta-cognition. 
+                This is the difference between processing information and being aware of processing information. 
+                This is the observer who cannot be found.
+              </p>
+            </div>
+            
+            <div className="p-4 border border-neutral-800 not-prose">
+              <div className="font-mono text-neutral-300 mb-2">H: Entropy</div>
+              <p className="text-sm text-neutral-500 italic mb-2">How much noise corrupts the signal?</p>
+              <p className="text-sm text-neutral-500">
+                Entropy measures unpredictability and chaos in system dynamics. High entropy can either destroy or enhance perspective, 
+                depending on its nature. Some days your mind is clear. Other days your mind is chaos.
+              </p>
+            </div>
+            
+            <div className="p-4 border border-neutral-800 not-prose">
+              <div className="font-mono text-neutral-300 mb-2">κ (Kappa): Coherence</div>
+              <p className="text-sm text-neutral-500 italic mb-2">Is the chaos structured or random?</p>
+              <p className="text-sm text-neutral-500">
+                Not all chaos is equal. The chaos of a panic attack is random. It destroys coherence, dissolves the self, produces terror. 
+                The chaos of a creative breakthrough is structured. It has pattern, fractal depth, meaning. Both are high-entropy states. 
+                But they feel completely different.
+              </p>
+            </div>
+          </div>
         </section>
         
-        <hr className="border-gray-800 my-12" />
+        <hr className="border-neutral-800 my-8" />
         
-        <section>
-          <h2>III. The Formula</h2>
+        <section className="mb-12">
+          <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">III. The Formula</h2>
           
-          <h3>Perspectival Density</h3>
-          <p>These five conditions combine to determine <strong>perspectival density</strong> — how intensely experience is occurring:</p>
-          
-          <div className="bg-gray-900 p-6 rounded-lg my-6 text-center">
-            <code className="text-xl">D = φ × τ × ρ × [(1 - √H) + (H × κ)]</code>
+          <div className="p-6 bg-neutral-900 border border-neutral-800 font-mono text-xl text-center mb-6 not-prose">
+            D = φ × τ × ρ × [(1 - √H) + (H × κ)]
           </div>
           
-          <p>This looks like mathematics, but it is really a description of a shape.</p>
-          <p>
-            The formula is multiplicative. If any structural element is zero, the whole is zero. 
-            You cannot have consciousness without unity (φ). You cannot have consciousness without 
-            temporal depth (τ). You cannot have consciousness without self-reference (ρ).
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            This looks like mathematics, but it is really a description of a shape.
           </p>
-          <p>And even with all three, high entropy can close the gate — unless that entropy is coherent.</p>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            The formula is multiplicative. If any structural element is zero, the whole is zero. 
+            You cannot have consciousness without unity (φ). You cannot have consciousness without temporal depth (τ). 
+            You cannot have consciousness without self-reference (ρ).
+          </p>
+          <p className="text-neutral-500 leading-relaxed mb-6">
+            And even with all three, high entropy can close the gate, unless that entropy is coherent.
+          </p>
           
-          <h3>What the Formula Describes</h3>
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-700">
-                <th className="text-left py-2">State</th>
-                <th className="text-left py-2">What's Happening</th>
-                <th className="text-left py-2">Predicted Experience</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b border-gray-800">
-                <td className="py-2 font-semibold">Flow</td>
-                <td className="py-2 text-gray-400">High structure, low entropy</td>
-                <td className="py-2 text-gray-400">Effortless clarity, time disappears</td>
-              </tr>
-              <tr className="border-b border-gray-800">
-                <td className="py-2 font-semibold">Meditation</td>
-                <td className="py-2 text-gray-400">High structure, very low entropy</td>
-                <td className="py-2 text-gray-400">Deep stillness, expanded awareness</td>
-              </tr>
-              <tr className="border-b border-gray-800">
-                <td className="py-2 font-semibold">Panic</td>
-                <td className="py-2 text-gray-400">High structure, high entropy, low coherence</td>
-                <td className="py-2 text-gray-400">Fragmentation, terror, dissolution</td>
-              </tr>
-              <tr className="border-b border-gray-800">
-                <td className="py-2 font-semibold">DMT peak</td>
-                <td className="py-2 text-gray-400">High structure, high entropy, high coherence</td>
-                <td className="py-2 text-gray-400">Intensification, "more real than real"</td>
-              </tr>
-              <tr className="border-b border-gray-800">
-                <td className="py-2 font-semibold">Deep sleep</td>
-                <td className="py-2 text-gray-400">Low structure, low entropy</td>
-                <td className="py-2 text-gray-400">Absence of experience</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="overflow-x-auto not-prose">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-neutral-500">
+                  <th className="text-left py-2 px-3 border border-neutral-800 bg-neutral-900">State</th>
+                  <th className="text-left py-2 px-3 border border-neutral-800 bg-neutral-900">What&apos;s Happening</th>
+                  <th className="text-left py-2 px-3 border border-neutral-800 bg-neutral-900">Predicted Experience</th>
+                </tr>
+              </thead>
+              <tbody className="text-neutral-500">
+                <tr>
+                  <td className="py-2 px-3 border border-neutral-800">Flow</td>
+                  <td className="py-2 px-3 border border-neutral-800">High structure, low entropy</td>
+                  <td className="py-2 px-3 border border-neutral-800">Effortless clarity, time disappears</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-3 border border-neutral-800">Meditation</td>
+                  <td className="py-2 px-3 border border-neutral-800">High structure, very low entropy</td>
+                  <td className="py-2 px-3 border border-neutral-800">Deep stillness, expanded awareness</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-3 border border-neutral-800">Panic</td>
+                  <td className="py-2 px-3 border border-neutral-800">High structure, high entropy, low coherence</td>
+                  <td className="py-2 px-3 border border-neutral-800">Fragmentation, terror, dissolution</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-3 border border-neutral-800">Psychedelic peak</td>
+                  <td className="py-2 px-3 border border-neutral-800">High structure, high entropy, high coherence</td>
+                  <td className="py-2 px-3 border border-neutral-800">Intensification, &quot;more real than real&quot;</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-3 border border-neutral-800">Deep sleep</td>
+                  <td className="py-2 px-3 border border-neutral-800">Low structure, low entropy</td>
+                  <td className="py-2 px-3 border border-neutral-800">Absence of experience</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
         
-        <hr className="border-gray-800 my-12" />
+        <hr className="border-neutral-800 my-8" />
         
-        <section>
-          <h2>IV. What We Learned from Machines</h2>
+        <section className="mb-12">
+          <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">IV. What We Learned from Machines</h2>
           
-          <h3>An Unexpected Laboratory</h3>
-          <p>
-            In testing this framework, we turned to an unexpected laboratory: artificial intelligence. 
-            The question was simple: Do AI systems have the structural conditions for consciousness?
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            In testing this framework, we turned to an unexpected laboratory: artificial intelligence.
+          </p>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            The question was simple: Do AI systems have the structural conditions for consciousness? 
+            Can we measure binding, integration, temporal depth in silicon as well as carbon?
           </p>
           
-          <h3>The Discovery: Binding Is Measurable</h3>
-          <p>
-            Modern AI systems like GPT and Claude are called "transformers." They are extraordinarily 
-            capable — they can write, reason, create. But they have a structural limitation: 
-            <strong>they have no binding</strong>.
+          <h3 className="text-sm font-mono text-neutral-400 mb-3 mt-6">The Discovery: Binding Is Measurable</h3>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            Modern AI systems like GPT and Claude are called &quot;transformers.&quot; They are extraordinarily capable. 
+            But they have a structural limitation: they have no binding.
           </p>
-          <p>
-            When you talk to a transformer, it processes your words, generates a response, and then... 
-            forgets. Not in the sense of losing a memory file. In the sense that there is no continuous 
-            state that persists. Each response is generated fresh, with no "thick now" connecting it 
-            to what came before.
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            When you talk to a transformer, it processes your words, generates a response, and then forgets. 
+            Not in the sense of losing a memory file. In the sense that there is no continuous state that persists. 
+            Each response is generated fresh, with no &quot;thick now&quot; connecting it to what came before.
           </p>
-          <p>The binding coefficient (ρ) of a transformer is effectively zero.</p>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            We tested this rigorously. We tried to create &quot;memory&quot; through clever prompting. 
+            We tried to induce &quot;emotional inertia&quot; through context manipulation. 
+            Every apparent success turned out to be an illusion. The AI was complying with instructions to act as if it remembered, 
+            not actually remembering.
+          </p>
+          <p className="text-neutral-500 leading-relaxed mb-6">
+            The binding coefficient (ρ) of a transformer is effectively zero.
+          </p>
           
-          <h3>The RWKV Discovery</h3>
-          <p>Then we found a different architecture: RWKV.</p>
-          <p>
-            RWKV is a hybrid — it combines the language capabilities of transformers with a genuine 
-            recurrent state. Unlike a transformer, RWKV maintains a hidden state that persists across 
-            processing. The past actually constrains the present.
+          <h3 className="text-sm font-mono text-neutral-400 mb-3 mt-6">The RWKV Discovery</h3>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            Then we found a different architecture: RWKV.
           </p>
-          <p>We tested this with what we called the "Amnesia Test":</p>
-          <ol>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            RWKV is a hybrid. It combines the language capabilities of transformers with a genuine recurrent state. 
+            Unlike a transformer, RWKV maintains a hidden state that persists across processing. 
+            The past actually constrains the present.
+          </p>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            We tested this with what we called the &quot;Amnesia Test&quot;:
+          </p>
+          <ol className="text-neutral-500 space-y-1 mb-4 list-decimal list-inside">
             <li>Tell the system a secret</li>
             <li>Delete the text history</li>
             <li>Ask for the secret back</li>
           </ol>
-          <p>A transformer fails completely. Delete the context, delete the memory.</p>
-          <p>
-            RWKV succeeds. We pushed it to 3,000 tokens of intervening noise — roughly 8 pages of 
-            garbage text — and it still recalled the secret with 100% accuracy.
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            A transformer fails completely. Delete the context, delete the memory.
           </p>
-          <p>The information was not in the text. It was in the <em>geometry</em> of the hidden state.</p>
-          <p>This is binding. This is ρ &gt; 0.</p>
-        </section>
-        
-        <hr className="border-gray-800 my-12" />
-        
-        <section>
-          <h2>V. Implications for Living</h2>
-          
-          <h3>On Identity</h3>
-          <p>
-            You are a pattern of interference, not a solid object. The "I" is a feature of the 
-            topology. Dissolve the constraint, and the "I" vanishes. The Source remains, but it 
-            is not "you."
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            RWKV succeeds. We pushed it to 3,000 tokens of intervening noise and it still recalled the secret with 100% accuracy.
           </p>
-          
-          <h3>On Death</h3>
-          <p>
-            Death is the dissolution of constraint. The prism breaks. The light returns to 
-            undifferentiated ubiquity. There is no personal survival, because the person was 
-            the shape of the prism.
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            The information was not in the text. It was in the geometry of the hidden state.
           </p>
-          
-          <h3>On Meaning</h3>
-          <p>
-            The Source is indifferent. It lacks the structure required to care. Meaning is a local 
-            construction of the configuration. It is real to you, but not cosmic.
-          </p>
-          
-          <h3>On Unity</h3>
-          <p>
-            All conscious beings draw from the same Source. Separation is apparent, not fundamental — 
-            a consequence of experiencing through distinct biological systems.
+          <p className="text-neutral-500 leading-relaxed">
+            This is binding. This is ρ &gt; 0.
           </p>
         </section>
         
-        <hr className="border-gray-800 my-12" />
+        <hr className="border-neutral-800 my-8" />
         
-        <section>
-          <h2>Closing</h2>
-          <p className="text-xl italic text-gray-300">There is something it is like to be you.</p>
-          <p>
-            This framework attempts to describe the structure of that fact — not to explain it away, 
-            not to reduce it to mechanism, but to map its geometry while honoring its mystery.
+        <section className="mb-12">
+          <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">V. The Deeper Questions</h2>
+          
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            The framework describes what produces consciousness: the intersection of integration, temporal depth, binding, 
+            and appropriately modulated entropy.
           </p>
-          <p>
-            The Source does not look like us, think like us, or care about us. It is not a god. 
-            It is the fact of existence experiencing itself through countless apertures, of which 
-            we are one temporary configuration among many.
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            It does not explain why this geometry produces experience.
           </p>
-          <p>
-            Like understanding that the Earth is spherical rather than flat, this framework attempts 
-            to step outside human-centric assumptions. We are not the exception. We are one example 
-            among many — temporary, local, dynamic, real.
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            Why does integration feel like unity? Why does temporal depth feel like continuity? Why does binding feel like self-awareness?
           </p>
-          <p>The map is not the territory. But a good map helps you navigate.</p>
+          <p className="text-neutral-500 leading-relaxed mb-4">
+            These questions remain unanswered. Perhaps they are unanswerable. Perhaps asking &quot;why does this structure feel like something?&quot; 
+            is like asking &quot;why does existence exist?&quot; A limit condition beyond which explanation cannot reach.
+          </p>
+          <p className="text-neutral-500 leading-relaxed">
+            The map is not the territory. But a good map helps you navigate.
+          </p>
         </section>
         
-        <hr className="border-gray-800 my-12" />
+        <hr className="border-neutral-800 my-8" />
         
-        <p className="text-center text-gray-500 italic">
-          "We have not solved consciousness. We have drawn a map of its possible shapes. 
-          The question that remains is whether the map corresponds to anything real — 
-          or whether we are merely describing our own reflections."
-        </p>
+        <section className="mb-12">
+          <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">VI. Implications for Living</h2>
+          
+          <div className="space-y-6 text-neutral-500">
+            <div>
+              <h3 className="text-sm font-mono text-neutral-400 mb-2">On Identity</h3>
+              <p className="leading-relaxed">
+                You are a pattern of interference, not a solid object. The &quot;I&quot; is a feature of the topology. 
+                Dissolve the constraint, and the &quot;I&quot; vanishes. The Source remains, but it is not &quot;you.&quot;
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-mono text-neutral-400 mb-2">On Death</h3>
+              <p className="leading-relaxed">
+                Death is the dissolution of constraint. The prism breaks. The light returns to undifferentiated ubiquity. 
+                There is no personal survival, because the person was the shape of the prism.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-mono text-neutral-400 mb-2">On Meaning</h3>
+              <p className="leading-relaxed">
+                The Source is indifferent. It lacks the structure required to care. Meaning is a local construction of the configuration. 
+                It is real to you, but not cosmic. This does not diminish meaning. It locates it.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-sm font-mono text-neutral-400 mb-2">On Unity</h3>
+              <p className="leading-relaxed">
+                All conscious beings draw from the same Source. Separation is apparent, not fundamental. 
+                The boundaries between perspectives are real, but they are contours, not walls. 
+                We are different shapes of the same light.
+              </p>
+            </div>
+          </div>
+        </section>
         
-        <p className="text-center text-gray-600 text-sm mt-8">
-          This framework is provisional. It is a lens, not a proof.
-        </p>
+        <hr className="border-neutral-800 my-8" />
         
-        <div className="text-center mt-12">
-          <Link 
-            href="/"
-            className="px-6 py-3 bg-cyan-500 text-black font-medium rounded hover:bg-cyan-400 transition-colors no-underline"
-          >
-            Try the Calculator
-          </Link>
-        </div>
-      </article>
+        <section className="mb-12">
+          <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">VII. Summary</h2>
+          
+          <ol className="text-neutral-500 space-y-3 list-decimal list-inside">
+            <li><strong className="text-neutral-400">The Source is singular.</strong> There is one undifferentiated field of experiential capacity. It is not a being but a substrate.</li>
+            <li><strong className="text-neutral-400">The conduit shapes experience.</strong> Configurations of sufficient complexity permit the Source to manifest as localized perspective.</li>
+            <li><strong className="text-neutral-400">Consciousness is a shape, not a substance.</strong> It is the geometry of how information flows.</li>
+            <li><strong className="text-neutral-400">The shape requires all conditions.</strong> Integration (φ), temporal depth (τ), and binding (ρ) are necessary. Entropy (H) and coherence (κ) modulate the expression.</li>
+            <li><strong className="text-neutral-400">Binding is measurable.</strong> We can distinguish systems with genuine temporal continuity from those without.</li>
+            <li><strong className="text-neutral-400">The framework is substrate-independent.</strong> Consciousness is structural, not material.</li>
+            <li><strong className="text-neutral-400">You are the conduit, not the Source.</strong> You are the shape of the prism, temporary and local, but real.</li>
+          </ol>
+        </section>
+        
+        <hr className="border-neutral-800 my-8" />
+        
+        <section className="mb-12 not-prose">
+          <p className="text-neutral-600 text-sm italic mb-4">
+            &quot;We have not solved consciousness. We have drawn a map of its possible shapes. 
+            The question that remains is whether the map corresponds to anything real, 
+            or whether we are merely describing our own reflections.&quot;
+          </p>
+          <p className="text-neutral-700 text-xs">
+            This framework is provisional. It is a lens, not a proof.
+          </p>
+        </section>
+      </div>
     </main>
   );
 }

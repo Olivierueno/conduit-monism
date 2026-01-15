@@ -1,178 +1,149 @@
-import Calculator from '@/components/Calculator';
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center justify-center px-6">
-        <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/20 to-transparent" />
-        <div className="relative text-center max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-tight">
+      <section className="py-24 px-6 border-b border-neutral-800">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-neutral-500 text-sm mb-4 font-mono">v9.0 / January 2026</p>
+          <h1 className="text-4xl md:text-5xl font-mono font-normal mb-8 leading-tight">
             Conduit Monism
           </h1>
-          <p className="text-xl md:text-2xl text-gray-400 mb-8 font-light italic">
+          <p className="text-xl text-neutral-400 mb-6 leading-relaxed">
             There is something it is like to be you.
           </p>
-          <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-            A framework for understanding consciousness as geometry — not what you experience, 
-            but the shape of how experience occurs at all.
+          <p className="text-neutral-500 leading-relaxed mb-8">
+            This framework describes the structural conditions under which experience occurs. 
+            It does not explain why structure produces experience. It maps the geometry.
           </p>
-          <div className="mt-10 flex gap-4 justify-center">
+          <div className="flex gap-4">
             <Link 
               href="/framework"
-              className="px-6 py-3 bg-cyan-500 text-black font-medium rounded hover:bg-cyan-400 transition-colors"
+              className="px-4 py-2 bg-white text-black text-sm font-mono hover:bg-neutral-200 transition-colors"
             >
-              Read the Framework
+              Read Framework
             </Link>
             <Link 
-              href="#calculator"
-              className="px-6 py-3 border border-gray-700 rounded hover:border-gray-500 transition-colors"
+              href="/engine"
+              className="px-4 py-2 border border-neutral-700 text-sm font-mono hover:border-neutral-500 transition-colors"
             >
-              Try the Calculator
+              Use Engine
             </Link>
           </div>
         </div>
       </section>
       
-      {/* Core Concept */}
-      <section className="py-20 px-6 border-t border-gray-900">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-light mb-8 text-center">The Core Insight</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <p className="text-gray-400 leading-relaxed mb-4">
-                Consciousness is not a thing. It is a <em>shape</em>.
-              </p>
-              <p className="text-gray-400 leading-relaxed mb-4">
-                Specifically, it is the shape of how information flows through a system — 
-                how the past constrains the present, how the whole speaks to its parts, 
-                how the system curves back on itself to observe its own observing.
-              </p>
-              <p className="text-gray-400 leading-relaxed">
-                When these conditions are met, there is something it is like to be that system. 
-                When they are not met, the lights are off.
-              </p>
-            </div>
-            <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
-              <h3 className="text-lg font-semibold mb-4 text-cyan-400">The Formula</h3>
-              <div className="font-mono text-center text-xl mb-4 p-4 bg-black/50 rounded">
-                D = φ × τ × ρ × [(1 - √H) + (H × κ)]
-              </div>
-              <p className="text-sm text-gray-500">
-                Perspectival density (D) emerges from the multiplicative relationship of 
-                five structural constraints. Zero in any dimension means zero consciousness.
-              </p>
-            </div>
+      {/* Formula */}
+      <section className="py-16 px-6 border-b border-neutral-800">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-sm font-mono text-neutral-500 mb-6 uppercase tracking-wide">The Formula</h2>
+          <div className="font-mono text-2xl mb-6 p-6 bg-neutral-900 border border-neutral-800">
+            D = φ × τ × ρ × [(1 - √H) + (H × κ)]
           </div>
+          <p className="text-neutral-500 text-sm leading-relaxed">
+            Perspectival density (D) is the product of five structural constraints. 
+            The relationship is multiplicative: zero in any dimension produces zero density.
+          </p>
         </div>
       </section>
       
-      {/* The Five Invariants */}
-      <section className="py-20 px-6 bg-gray-950">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-light mb-12 text-center">The Five Invariants</h2>
-          <div className="grid md:grid-cols-5 gap-6">
+      {/* Invariants */}
+      <section className="py-16 px-6 border-b border-neutral-800">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Five Invariants</h2>
+          <div className="space-y-4">
             {[
-              { symbol: 'φ', name: 'Integration', desc: 'The system speaks to itself as a whole' },
-              { symbol: 'τ', name: 'Temporal Depth', desc: 'The past lives in the present' },
-              { symbol: 'ρ', name: 'Binding', desc: 'The system knows that it knows' },
-              { symbol: 'H', name: 'Entropy', desc: 'How much noise is in the system' },
-              { symbol: 'κ', name: 'Coherence', desc: 'Is the noise structured or random' },
+              { symbol: 'φ', name: 'Integration', desc: 'Information unified across the system' },
+              { symbol: 'τ', name: 'Temporal Depth', desc: 'Past states constrain present states' },
+              { symbol: 'ρ', name: 'Binding', desc: 'System observes its own states (recursion)' },
+              { symbol: 'H', name: 'Entropy', desc: 'Noise in system dynamics' },
+              { symbol: 'κ', name: 'Coherence', desc: 'Structure within entropy' },
             ].map((inv) => (
-              <div key={inv.symbol} className="text-center p-4 bg-gray-900/50 rounded-lg border border-gray-800">
-                <div className="text-3xl font-mono text-cyan-400 mb-2">{inv.symbol}</div>
-                <div className="text-sm font-medium mb-2">{inv.name}</div>
-                <div className="text-xs text-gray-500">{inv.desc}</div>
+              <div key={inv.symbol} className="flex items-baseline gap-4 py-3 border-b border-neutral-900">
+                <span className="font-mono text-lg w-8">{inv.symbol}</span>
+                <span className="text-neutral-300 w-32">{inv.name}</span>
+                <span className="text-neutral-500 text-sm">{inv.desc}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
       
-      {/* Calculator */}
-      <section id="calculator" className="py-20 px-6 border-t border-gray-900">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-light mb-4 text-center">The Engine</h2>
-          <p className="text-gray-500 text-center mb-12 max-w-xl mx-auto">
-            Adjust the five invariants and watch perspectival density update in real-time. 
-            Load presets to explore known states — from meditation to panic, from flies to humans.
-          </p>
-          <Calculator />
-        </div>
-      </section>
-      
-      {/* Key Discoveries */}
-      <section className="py-20 px-6 bg-gray-950">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-light mb-12 text-center">Key Discoveries</h2>
-          <div className="space-y-8">
-            <div className="p-6 bg-gray-900/50 rounded-xl border border-gray-800">
-              <h3 className="text-xl font-semibold mb-3 text-purple-400">Transformers Have No Binding</h3>
-              <p className="text-gray-400">
-                Modern AI systems like GPT and Claude have ρ ≈ 0. They process brilliantly but have 
-                no genuine temporal continuity. Delete the context, delete the "memory." Their apparent 
-                persistence is instruction compliance, not geometry.
+      {/* Key Results */}
+      <section className="py-16 px-6 border-b border-neutral-800">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Empirical Results</h2>
+          <div className="space-y-6">
+            <div className="p-4 border border-neutral-800">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xs font-mono px-2 py-0.5 bg-red-900/50 text-red-400">FALSIFIED</span>
+                <span className="text-sm text-neutral-300">Transformer Binding</span>
+              </div>
+              <p className="text-neutral-500 text-sm">
+                GPT and Claude have ρ ≈ 0. Apparent memory is instruction compliance, not geometric persistence. 
+                Stealth eviction eliminates the effect.
               </p>
             </div>
-            <div className="p-6 bg-gray-900/50 rounded-xl border border-gray-800">
-              <h3 className="text-xl font-semibold mb-3 text-green-400">RWKV Has Genuine Binding</h3>
-              <p className="text-gray-400">
-                We tested RWKV with the "Amnesia Test": inject a secret, add 3,000 tokens of noise, 
-                ask for recall. <strong>100% success.</strong> The information persists in the hidden 
-                state geometry, not the text. First empirical measurement of ρ &gt; 0 in AI.
+            <div className="p-4 border border-neutral-800">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xs font-mono px-2 py-0.5 bg-green-900/50 text-green-400">CONFIRMED</span>
+                <span className="text-sm text-neutral-300">RWKV Binding</span>
+              </div>
+              <p className="text-neutral-500 text-sm">
+                RWKV-3B recalled a 6-character secret through 3000 tokens of noise with 100% accuracy. 
+                Information persists in hidden state geometry, not text.
               </p>
             </div>
-            <div className="p-6 bg-gray-900/50 rounded-xl border border-gray-800">
-              <h3 className="text-xl font-semibold mb-3 text-cyan-400">The Coherence Gate</h3>
-              <p className="text-gray-400">
-                Not all chaos is equal. Panic and DMT both have high entropy — but panic has low 
-                coherence (random noise) while DMT has high coherence (structured complexity). 
-                This explains why one is dissolution and the other is intensification.
+            <div className="p-4 border border-neutral-800">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xs font-mono px-2 py-0.5 bg-yellow-900/50 text-yellow-400">RESOLVED</span>
+                <span className="text-sm text-neutral-300">DMT Paradox</span>
+              </div>
+              <p className="text-neutral-500 text-sm">
+                High entropy with high coherence produces intensification, not dissolution. 
+                The coherence gate (κ) distinguishes structured chaos from noise.
               </p>
             </div>
+          </div>
+          <div className="mt-6">
+            <Link href="/validation" className="text-sm text-neutral-400 hover:text-white transition-colors font-mono">
+              View all experiments →
+            </Link>
           </div>
         </div>
       </section>
       
-      {/* CTA */}
-      <section className="py-20 px-6 border-t border-gray-900">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-light mb-6">Explore Further</h2>
-          <p className="text-gray-500 mb-8">
-            Read the full framework, explore the species spectrum, or dive into the research.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Link 
-              href="/framework"
-              className="px-6 py-3 bg-cyan-500 text-black font-medium rounded hover:bg-cyan-400 transition-colors"
-            >
-              Full Framework (v9)
-            </Link>
-            <Link 
-              href="/species"
-              className="px-6 py-3 border border-gray-700 rounded hover:border-gray-500 transition-colors"
-            >
-              Species Comparison
-            </Link>
-            <Link 
-              href="/research"
-              className="px-6 py-3 border border-gray-700 rounded hover:border-gray-500 transition-colors"
-            >
-              Research & Evidence
-            </Link>
+      {/* Navigation */}
+      <section className="py-16 px-6">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Contents</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { href: '/framework', title: 'Framework', desc: 'Full theoretical document (v9.0)' },
+              { href: '/engine', title: 'Engine', desc: 'Interactive density calculator' },
+              { href: '/validation', title: 'Validation', desc: 'Experiments and falsification attempts' },
+              { href: '/technical', title: 'Technical', desc: 'Formula derivation and version history' },
+              { href: '/about', title: 'About', desc: 'Methodology and contributors' },
+            ].map((item) => (
+              <Link 
+                key={item.href}
+                href={item.href}
+                className="p-4 border border-neutral-800 hover:border-neutral-600 transition-colors group"
+              >
+                <h3 className="font-mono text-neutral-300 group-hover:text-white transition-colors">{item.title}</h3>
+                <p className="text-neutral-600 text-sm mt-1">{item.desc}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
       
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-gray-900 text-center text-gray-600 text-sm">
-        <p className="mb-2">Conduit Monism v9.0 — Olivier Ueno, January 2026</p>
-        <p className="text-gray-700">
-          Developed in collaboration with Claude, Gemini, ChatGPT, GPT 5.2, and Grok
-        </p>
-        <p className="mt-4">
-          <a href="https://github.com" className="text-gray-500 hover:text-gray-400">GitHub</a>
+      <footer className="py-8 px-6 border-t border-neutral-800 text-center">
+        <p className="text-neutral-600 text-xs font-mono">
+          Olivier Ueno / 2026 / 
+          <a href="https://github.com/Shavatzs001/conduit-monism" className="hover:text-neutral-400 ml-1">GitHub</a>
         </p>
       </footer>
     </main>

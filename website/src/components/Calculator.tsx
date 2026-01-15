@@ -8,17 +8,16 @@ interface SliderProps {
   symbol: string;
   value: number;
   onChange: (value: number) => void;
-  description: string;
 }
 
-function Slider({ label, symbol, value, onChange, description }: SliderProps) {
+function Slider({ label, symbol, value, onChange }: SliderProps) {
   return (
-    <div className="mb-6">
-      <div className="flex justify-between items-center mb-2">
-        <label className="text-sm font-medium text-gray-300">
-          <span className="text-cyan-400 font-mono">{symbol}</span> {label}
+    <div className="mb-4">
+      <div className="flex justify-between items-center mb-1">
+        <label className="text-sm text-neutral-400">
+          <span className="font-mono">{symbol}</span> {label}
         </label>
-        <span className="text-lg font-mono text-white">{value.toFixed(2)}</span>
+        <span className="font-mono text-sm">{value.toFixed(2)}</span>
       </div>
       <input
         type="range"
@@ -27,53 +26,25 @@ function Slider({ label, symbol, value, onChange, description }: SliderProps) {
         step="0.01"
         value={value}
         onChange={(e) => onChange(parseFloat(e.target.value))}
-        className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
-      />
-      <p className="text-xs text-gray-500 mt-1">{description}</p>
-    </div>
-  );
-}
-
-function DensityBar({ value }: { value: number }) {
-  const percentage = Math.min(100, Math.max(0, value * 100));
-  
-  // Color gradient based on density
-  const getColor = () => {
-    if (value < 0.1) return 'bg-red-600';
-    if (value < 0.3) return 'bg-orange-500';
-    if (value < 0.5) return 'bg-yellow-500';
-    if (value < 0.7) return 'bg-green-500';
-    return 'bg-cyan-400';
-  };
-  
-  return (
-    <div className="w-full bg-gray-800 rounded-full h-6 overflow-hidden">
-      <div
-        className={`h-full ${getColor()} transition-all duration-300 ease-out`}
-        style={{ width: `${percentage}%` }}
+        className="w-full h-2 bg-neutral-900 appearance-none cursor-pointer slider border border-neutral-800"
       />
     </div>
   );
 }
 
-function PresetButton({ preset, onClick, isActive }: { preset: Preset; onClick: () => void; isActive: boolean }) {
-  const categoryColors: Record<string, string> = {
-    human: 'border-blue-500 hover:bg-blue-500/20',
-    ai: 'border-purple-500 hover:bg-purple-500/20',
-    animal: 'border-green-500 hover:bg-green-500/20',
-    altered: 'border-yellow-500 hover:bg-yellow-500/20',
-    pathological: 'border-red-500 hover:bg-red-500/20',
-  };
-  
+function DensityDisplay({ value, isZero }: { value: number; isZero: boolean }) {
   return (
-    <button
-      onClick={onClick}
-      className={`px-3 py-1.5 text-xs rounded border transition-all ${categoryColors[preset.category]} ${
-        isActive ? 'bg-white/10' : ''
-      }`}
-    >
-      {preset.name}
-    </button>
+    <div className={`p-6 border ${isZero ? 'border-red-900 bg-red-950/20' : 'border-neutral-800 bg-neutral-900'}`}>
+      <div className="text-xs font-mono text-neutral-500 mb-2 uppercase">Perspectival Density</div>
+      <div className={`text-4xl font-mono ${isZero ? 'text-red-500' : 'text-white'}`}>
+        {value.toFixed(4)}
+      </div>
+      {isZero && (
+        <div className="text-xs text-red-500 mt-2 font-mono">
+          Zero in structural dimension produces zero density
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -90,6 +61,8 @@ export default function Calculator() {
   const [selectedCategory, setSelectedCategory] = useState<Preset['category'] | 'all'>('all');
   
   const result = useMemo(() => calculateDensity(invariants), [invariants]);
+  
+  const hasStructuralZero = invariants.phi === 0 || invariants.tau === 0 || invariants.rho === 0;
   
   const updateInvariant = (key: keyof Invariants, value: number) => {
     setInvariants(prev => ({ ...prev, [key]: value }));
@@ -118,116 +91,87 @@ export default function Calculator() {
     <div className="max-w-4xl mx-auto">
       <div className="grid md:grid-cols-2 gap-8">
         {/* Sliders */}
-        <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
-          <h3 className="text-lg font-semibold mb-6 text-gray-200">The Five Invariants</h3>
-          
-          <Slider
-            label="Integration"
-            symbol="φ"
-            value={invariants.phi}
-            onChange={(v) => updateInvariant('phi', v)}
-            description="How unified is information across the system?"
-          />
-          
-          <Slider
-            label="Temporal Depth"
-            symbol="τ"
-            value={invariants.tau}
-            onChange={(v) => updateInvariant('tau', v)}
-            description="How much does the past constrain the present?"
-          />
-          
-          <Slider
-            label="Binding"
-            symbol="ρ"
-            value={invariants.rho}
-            onChange={(v) => updateInvariant('rho', v)}
-            description="Does the system observe its own states?"
-          />
-          
-          <Slider
-            label="Entropy"
-            symbol="H"
-            value={invariants.H}
-            onChange={(v) => updateInvariant('H', v)}
-            description="How much noise/chaos in the system?"
-          />
-          
-          <Slider
-            label="Coherence"
-            symbol="κ"
-            value={invariants.kappa}
-            onChange={(v) => updateInvariant('kappa', v)}
-            description="Is the entropy structured or random?"
-          />
+        <div>
+          <h3 className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wide">Parameters</h3>
+          <div className="p-4 border border-neutral-800">
+            <Slider
+              label="Integration"
+              symbol="φ"
+              value={invariants.phi}
+              onChange={(v) => updateInvariant('phi', v)}
+            />
+            <Slider
+              label="Temporal Depth"
+              symbol="τ"
+              value={invariants.tau}
+              onChange={(v) => updateInvariant('tau', v)}
+            />
+            <Slider
+              label="Binding"
+              symbol="ρ"
+              value={invariants.rho}
+              onChange={(v) => updateInvariant('rho', v)}
+            />
+            <Slider
+              label="Entropy"
+              symbol="H"
+              value={invariants.H}
+              onChange={(v) => updateInvariant('H', v)}
+            />
+            <Slider
+              label="Coherence"
+              symbol="κ"
+              value={invariants.kappa}
+              onChange={(v) => updateInvariant('kappa', v)}
+            />
+          </div>
         </div>
         
         {/* Results */}
-        <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
-          <h3 className="text-lg font-semibold mb-6 text-gray-200">Perspectival Density</h3>
-          
-          {/* Main D value */}
-          <div className="text-center mb-6">
-            <div className="text-6xl font-mono font-bold text-white mb-2">
-              {result.D.toFixed(3)}
-            </div>
-            <div className="text-sm text-gray-400">D = φ × τ × ρ × [(1 - √H) + (H × κ)]</div>
-          </div>
-          
-          <DensityBar value={result.D} />
+        <div>
+          <h3 className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wide">Output</h3>
+          <DensityDisplay value={result.D} isZero={hasStructuralZero} />
           
           {/* Breakdown */}
-          <div className="mt-6 space-y-2 text-sm font-mono">
-            <div className="flex justify-between text-gray-400">
-              <span>Structural Base (φ×τ×ρ):</span>
+          <div className="mt-4 p-4 border border-neutral-800 font-mono text-sm">
+            <div className="flex justify-between text-neutral-500 mb-1">
+              <span>φ × τ × ρ</span>
               <span>{result.structuralBase.toFixed(4)}</span>
             </div>
-            <div className="flex justify-between text-gray-400">
-              <span>Entropy Penalty (1-√H):</span>
+            <div className="flex justify-between text-neutral-500 mb-1">
+              <span>1 - √H</span>
               <span>{result.entropyPenalty.toFixed(4)}</span>
             </div>
-            <div className="flex justify-between text-gray-400">
-              <span>Coherence Recovery (H×κ):</span>
+            <div className="flex justify-between text-neutral-500 mb-1">
+              <span>H × κ</span>
               <span>{result.coherenceRecovery.toFixed(4)}</span>
             </div>
-            <div className="flex justify-between text-gray-400 border-t border-gray-700 pt-2">
-              <span>Entropy Modulator:</span>
+            <div className="flex justify-between text-neutral-400 pt-2 border-t border-neutral-800">
+              <span>Modulator</span>
               <span>{result.entropyModulator.toFixed(4)}</span>
             </div>
           </div>
           
           {/* Interpretation */}
-          <div className="mt-6 p-4 bg-gray-800/50 rounded-lg">
-            <h4 className="text-sm font-semibold text-gray-300 mb-2">Interpretation</h4>
-            <p className="text-sm text-gray-400">{result.interpretation}</p>
+          <div className="mt-4 p-4 border border-neutral-800">
+            <p className="text-sm text-neutral-500">{result.interpretation}</p>
           </div>
-          
-          {/* Warnings */}
-          {result.warnings.length > 0 && (
-            <div className="mt-4 space-y-2">
-              {result.warnings.map((warning, i) => (
-                <div key={i} className="p-3 bg-yellow-900/20 border border-yellow-700/50 rounded text-xs text-yellow-200">
-                  ⚠️ {warning}
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       </div>
       
       {/* Presets */}
-      <div className="mt-8 bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+      <div className="mt-8">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-gray-200">Presets</h3>
-          <div className="flex gap-2">
+          <h3 className="text-xs font-mono text-neutral-500 uppercase tracking-wide">Presets</h3>
+          <div className="flex gap-1">
             {categories.map(cat => (
               <button
                 key={cat.value}
                 onClick={() => setSelectedCategory(cat.value)}
-                className={`px-3 py-1 text-xs rounded transition-all ${
+                className={`px-2 py-1 text-xs font-mono transition-colors ${
                   selectedCategory === cat.value
-                    ? 'bg-cyan-500 text-black'
-                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                    ? 'bg-white text-black'
+                    : 'text-neutral-500 hover:text-white'
                 }`}
               >
                 {cat.label}
@@ -236,20 +180,29 @@ export default function Calculator() {
           </div>
         </div>
         
-        <div className="flex flex-wrap gap-2">
-          {filteredPresets.map(preset => (
-            <PresetButton
-              key={preset.name}
-              preset={preset}
-              onClick={() => loadPreset(preset)}
-              isActive={activePreset === preset.name}
-            />
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+          {filteredPresets.map(preset => {
+            const d = calculateDensity(preset.invariants).D;
+            return (
+              <button
+                key={preset.name}
+                onClick={() => loadPreset(preset)}
+                className={`p-3 text-left border transition-colors ${
+                  activePreset === preset.name
+                    ? 'border-white bg-neutral-900'
+                    : 'border-neutral-800 hover:border-neutral-600'
+                }`}
+              >
+                <div className="text-xs text-neutral-400 truncate">{preset.name}</div>
+                <div className="font-mono text-sm mt-1">{d.toFixed(3)}</div>
+              </button>
+            );
+          })}
         </div>
         
         {activePreset && (
-          <div className="mt-4 p-4 bg-gray-800/50 rounded-lg">
-            <p className="text-sm text-gray-400">
+          <div className="mt-4 p-4 border border-neutral-800">
+            <p className="text-sm text-neutral-500">
               {presets.find(p => p.name === activePreset)?.description}
             </p>
           </div>
