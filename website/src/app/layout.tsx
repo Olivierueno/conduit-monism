@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const siteUrl = "https://www.conduitmonism.org";
@@ -63,6 +64,7 @@ export default function RootLayout({
       <body className="antialiased min-h-screen">
         <Navigation />
         {children}
+        <Analytics />
       </body>
     </html>
   );

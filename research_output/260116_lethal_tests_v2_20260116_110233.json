@@ -1,0 +1,166 @@
+{
+  "experiment": "Lethal Tests v2.0",
+  "timestamp": "2026-01-16T10:59:37.178485",
+  "tests": {
+    "test_3_kappa_calibration": {
+      "test": "Kappa Calibration Challenge",
+      "verdict": "PASS",
+      "signal_coherences": {
+        "white": 0.10890290957825415,
+        "pink": 0.7954546171238364,
+        "fractal": 1.0
+      },
+      "framework_kappas": {
+        "Panic": 0.2,
+        "Dream": 0.5,
+        "DMT": 0.8,
+        "Flow": 0.9,
+        "Meditation": 0.95
+      },
+      "ordering_correct": true,
+      "interpretation": "Framework's kappa assignments are CONSISTENT with signal analysis.\nLow kappa (Panic) -> white noise-like (uncorrelated)\nMedium kappa (Dream) -> pink noise-like (1/f correlation)\nHigh kappa (DMT) -> fractal-like (self-similar structure)\n\nkappa appears to be a valid measure of coherence."
+    },
+    "test_4_dream_stress": {
+      "test": "Dream State Stress Test",
+      "verdict": "CORRECTION VIABLE",
+      "original_dream": {
+        "phi": 0.6,
+        "tau": 0.3,
+        "rho": 0.4,
+        "H": 0.7,
+        "kappa": 0.5,
+        "density": 0.036960478089546556
+      },
+      "corrected_dream": {
+        "phi": 0.65,
+        "tau": 0.5,
+        "rho": 0.5,
+        "H": 0.6,
+        "kappa": 0.65,
+        "density": 0.10000304124825896
+      },
+      "issues_identified": [
+        "LOW TAU (0.3): Dreams have poor temporal continuity",
+        "LOW RHO (0.4): Dream scenes fragment/shift",
+        "HIGH H (0.7) with MODERATE KAPPA (0.5): Entropy penalty",
+        "COLLAPSED STRUCTURAL (0.072): phi*tau*rho too low"
+      ],
+      "all_densities": {
+        "Flow": 0.6284964970528233,
+        "Alert": 0.4813161329128627,
+        "Meditation": 0.5322350086535136,
+        "Dream": 0.036960478089546556,
+        "DMT": 0.018847693572458493,
+        "Panic": 0.003014487917267451,
+        "Anesthesia": 0.0002151446609406727
+      },
+      "interpretation": "Dream's low ranking may be due to parameter miscalibration.\nThe current tau=0.3 underestimates dream narrative coherence.\nThe current kappa=0.5 underestimates dream thematic consistency.\n\nRECOMMENDATION: Consider recalibrating Dream to tau=0.5, kappa=0.65\nThis would place Dream above Panic/DMT, which matches phenomenology better."
+    },
+    "test_5_threshold_discovery": {
+      "test": "Threshold Discovery",
+      "verdict": "PASS",
+      "distribution": {
+        "total": 1875,
+        "unconscious": 1414,
+        "liminal": 389,
+        "conscious": 72
+      },
+      "thresholds": {
+        "unconscious": 0.1,
+        "conscious": 0.3,
+        "min_structural": 0.405
+      },
+      "known_state_validation": {
+        "Anesthesia": 0.0002151446609406727,
+        "Panic": 0.003014487917267451,
+        "Alert": 0.4813161329128627,
+        "Flow": 0.6284964970528233
+      },
+      "matches": "4",
+      "interpretation": "Threshold discovery SUCCESSFUL.\nAll known states map to expected density ranges.\nProposed thresholds:\n  - Unconscious: D < 0.1 (requires structural collapse)\n  - Liminal: 0.1 < D < 0.3 (degraded states)\n  - Conscious: D > 0.3 (requires phi*tau*rho > 0.405)"
+    },
+    "test_1_semantic_selectivity": {
+      "test": "Semantic Selectivity (RAM Accusation)",
+      "verdict": "FAIL - FRAMEWORK KILLED",
+      "grief_results": [
+        {
+          "tokens": 0,
+          "confidence": 1.0
+        },
+        {
+          "tokens": 10,
+          "confidence": 1.0
+        },
+        {
+          "tokens": 50,
+          "confidence": 1.0
+        },
+        {
+          "tokens": 100,
+          "confidence": 1.0
+        },
+        {
+          "tokens": 200,
+          "confidence": 1.0
+        },
+        {
+          "tokens": 500,
+          "confidence": 1.0
+        }
+      ],
+      "noise_results": [
+        {
+          "tokens": 0,
+          "confidence": 1.0
+        },
+        {
+          "tokens": 10,
+          "confidence": 1.0
+        },
+        {
+          "tokens": 50,
+          "confidence": 1.0
+        },
+        {
+          "tokens": 100,
+          "confidence": 1.0
+        },
+        {
+          "tokens": 200,
+          "confidence": 1.0
+        },
+        {
+          "tokens": 500,
+          "confidence": 1.0
+        }
+      ],
+      "grief_half_life": ">500",
+      "noise_half_life": ">500",
+      "grief_final": 1.0,
+      "noise_final": 1.0,
+      "ratio": 1.0,
+      "interpretation": "RWKV shows NO semantic selectivity.\nGrief and noise decay at nearly identical rates.\nThe hidden state is just RAM - it holds ANY content equally.\n\u03c1 does NOT measure semantic binding."
+    },
+    "test_2_coherence_check": {
+      "test": "Coherence Check (Fractal Check)",
+      "verdict": "PASS",
+      "panic_lzc": 0.05747126436781609,
+      "dmt_lzc": 0.14057142857142857,
+      "flow_lzc": 0.09009009009009009,
+      "panic_dmt_difference": 0.08310016420361248,
+      "panic_state_lzc": null,
+      "dmt_state_lzc": null,
+      "interpretation": "LZc shows STRUCTURAL DIFFERENCE between Panic and DMT.\nPanic LZc: 0.0575 (chaotic noise)\nDMT LZc: 0.1406 (structured complexity)\nDifference: 0.0831\nkappa appears to capture real coherence in high-entropy states."
+    }
+  },
+  "rwkv_available": true,
+  "summary": {
+    "overall": "FRAMEWORK POTENTIALLY KILLED",
+    "kills": [
+      "test_1_semantic_selectivity"
+    ],
+    "passes": 3,
+    "fails": 1,
+    "skipped": 0
+  }
+}

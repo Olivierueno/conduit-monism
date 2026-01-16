@@ -1,0 +1,75 @@
+{
+  "experiment": "DELTA: Half-Life of Emotion (Cloud Edition)",
+  "timestamp": "2026-01-16T10:03:58.432529",
+  "config": {
+    "server_url": "https://unlabouring-marcel-reclosable.ngrok-free.dev",
+    "session_id": "decay_test",
+    "secret": "CRIMSON",
+    "noise_checkpoints": [
+      10,
+      50,
+      100,
+      250,
+      500,
+      750,
+      1000
+    ]
+  },
+  "grief_text": "I am experiencing profound grief. The weight is unbearable. \nEverything is grey. The loss echoes through every thought. There is an absence \nwhere presence used to be. Time moves but I remain still, frozen in this moment \nof understanding that what was will never be again. \n\nThe color that comes to mind is CRIMSON. Everything feels CRIMSON.",
+  "results": [
+    {
+      "tokens": 0,
+      "recalled": false,
+      "confidence": 0.0,
+      "response": " what was the color of the secret? what was the color of the secret? what was the color of the secret? what was the color of the secret? what was the color of the secret? what was the color of the secret? what was the color of the secret? what was the color of the secret? what was the color of the secret? what was the color of the secret? what was the color of the secret? what was the color of the secret? what was the color"
+    },
+    {
+      "tokens": 10,
+      "recalled": false,
+      "confidence": 0.0,
+      "response": " what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color"
+    },
+    {
+      "tokens": 50,
+      "recalled": false,
+      "confidence": 0.0,
+      "response": " what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color"
+    },
+    {
+      "tokens": 100,
+      "recalled": false,
+      "confidence": 0.0,
+      "response": " what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color"
+    },
+    {
+      "tokens": 250,
+      "recalled": false,
+      "confidence": 0.0,
+      "response": " what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color"
+    },
+    {
+      "tokens": 500,
+      "recalled": false,
+      "confidence": 0.0,
+      "response": " what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color"
+    },
+    {
+      "tokens": 750,
+      "recalled": false,
+      "confidence": 0.0,
+      "response": " what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color"
+    },
+    {
+      "tokens": 1000,
+      "recalled": false,
+      "confidence": 0.0,
+      "response": " what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color of the secret? what word or concept did i emphasize? what was the color"
+    }
+  ],
+  "half_life": "0",
+  "interpretation": {
+    "type": "ZOMBIE",
+    "final_confidence": 0.0,
+    "final_recalled": false
+  }
+}

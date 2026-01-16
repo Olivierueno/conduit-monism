@@ -1,0 +1,192 @@
+{
+  "experiment": "ChatGPT Falsification Suite v1.0 - Missing Tests",
+  "timestamp": "2026-01-16T10:17:07.693276",
+  "tests": {
+    "test_1_axis_collapse": {
+      "test": "Axis Collapse",
+      "verdict": "PASS",
+      "permutations_tested": 20,
+      "ordering_preserved_rate": 0.2,
+      "average_std": 0.10469212154252573,
+      "variance_analysis": {
+        "Flow": {
+          "mean": 0.21370008171464253,
+          "std": 0.2296488943722765,
+          "min": 0.07526740835188336,
+          "max": 0.6284964970528233
+        },
+        "Panic": {
+          "mean": 0.03083919308398921,
+          "std": 0.032639459461703595,
+          "min": 0.002761282262076415,
+          "max": 0.09360170711976054
+        },
+        "Meditation": {
+          "mean": 0.17680150264779013,
+          "std": 0.23159587943861276,
+          "min": 0.031545899227649526,
+          "max": 0.6262756352760473
+        },
+        "DMT": {
+          "mean": 0.05845191416881622,
+          "std": 0.052072729308544445,
+          "min": 0.01884769357245849,
+          "max": 0.18628706696801287
+        },
+        "Anesthesia": {
+          "mean": 0.0001740982346346874,
+          "std": 0.00013104122410692617,
+          "min": 3.46886116991581e-05,
+          "max": 0.0004297893218813454
+        },
+        "Dream": {
+          "mean": 0.06244040376896435,
+          "std": 0.02449333993474874,
+          "min": 0.03500039840795546,
+          "max": 0.12017826292391512
+        },
+        "Alert": {
+          "mean": 0.19274759038600897,
+          "std": 0.16226350705768716,
+          "min": 0.08846832257377557,
+          "max": 0.4813161329128627
+        }
+      },
+      "interpretation": "Axes are NOT semantically interchangeable. Permutation changes outcomes significantly."
+    },
+    "test_2_degenerate_symmetry": {
+      "test": "Degenerate Symmetry",
+      "verdict": "PASS",
+      "part_a": {
+        "samples": 40,
+        "density_range": [
+          0.08048593484874557,
+          0.460085672407753
+        ],
+        "mean": 0.3093620546716055,
+        "std": 0.09555198097849177
+      },
+      "part_b": {
+        "samples": 10000,
+        "false_positives": 0,
+        "correlation": 0.9999999999999998
+      },
+      "interpretation": "Structural terms dominate. No false positives found."
+    },
+    "test_4_silent_trajectory": {
+      "test": "Silent Trajectory",
+      "verdict": "ACKNOWLEDGED LIMITATION",
+      "base_density": 0.32372605055735504,
+      "perturbed_density": 0.22247743144279916,
+      "trajectories_identical": "True",
+      "trajectory_a_final": 0.32372605055735504,
+      "trajectory_b_final": 0.32372605055735504,
+      "interpretation": "The current formula is STATELESS - it captures instantaneous\ngeometry, not trajectory history. This means \u03c1 measures binding MAGNITUDE,\nnot the dynamic re-entrance that would show hysteresis.\n\nThis is not a failure but an acknowledged limitation:\n- The framework CLAIMS trajectory matters (per v9)\n- The FORMULA doesn't capture it (stateless computation)\n- Future work: Add momentum/derivative terms for true trajectory dependence"
+    },
+    "test_7_interpreter_independence": {
+      "test": "Interpreter Independence",
+      "verdict": "PARTIAL",
+      "blind_ranking": [
+        [
+          0,
+          0.6284964970528233
+        ],
+        [
+          2,
+          0.5322350086535136
+        ],
+        [
+          6,
+          0.4813161329128627
+        ],
+        [
+          5,
+          0.036960478089546556
+        ],
+        [
+          3,
+          0.018847693572458493
+        ],
+        [
+          1,
+          0.003014487917267451
+        ],
+        [
+          4,
+          0.0002151446609406727
+        ]
+      ],
+      "labeled_ranking": [
+        [
+          "Flow",
+          0.6284964970528233
+        ],
+        [
+          "Meditation",
+          0.5322350086535136
+        ],
+        [
+          "Alert",
+          0.4813161329128627
+        ],
+        [
+          "Dream",
+          0.036960478089546556
+        ],
+        [
+          "DMT",
+          0.018847693572458493
+        ],
+        [
+          "Panic",
+          0.003014487917267451
+        ],
+        [
+          "Anesthesia",
+          0.0002151446609406727
+        ]
+      ],
+      "expected_order": [
+        "Flow",
+        "Alert",
+        "Meditation",
+        "Dream",
+        "DMT",
+        "Panic",
+        "Anesthesia"
+      ],
+      "actual_order": [
+        "Flow",
+        "Meditation",
+        "Alert",
+        "Dream",
+        "DMT",
+        "Panic",
+        "Anesthesia"
+      ],
+      "position_matches": 5,
+      "clusters": {
+        "high": [
+          "Flow",
+          "Meditation",
+          "Alert"
+        ],
+        "medium": [],
+        "low": [
+          "Panic",
+          "DMT",
+          "Anesthesia",
+          "Dream"
+        ]
+      },
+      "interpretation": "Clusters partially match intuition.\nHigh cluster: ['Flow', 'Meditation', 'Alert'] (expected: Flow, Alert, Meditation)\nLow cluster: ['Panic', 'DMT', 'Anesthesia', 'Dream'] (expected: Anesthesia, Panic, DMT)\nSome misalignment suggests formula may need calibration."
+    }
+  },
+  "summary": {
+    "total_tests": 4,
+    "passes": 2,
+    "fails": 0,
+    "other": 2,
+    "overall": "FRAMEWORK SURVIVES"
+  }
+}

@@ -1,4 +1,92 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
+
+interface Experiment {
+  id: string;
+  title: string;
+  content: string;
+  parent_file: string;
+  test_number: number | null;
+  status: 'confirmed' | 'falsified' | 'pending' | 'planned';
+  type: string;
+  date: string | null;
+  filename: string;
+}
+
+interface ExperimentsIndex {
+  confirmed: Experiment[];
+  falsified: Experiment[];
+  pending: Experiment[];
+  planned: Experiment[];
+  all: Experiment[];
+}
+
 export default function ValidationPage() {
+  const [experiments, setExperiments] = useState<ExperimentsIndex | null>(null);
+  const [selectedExperiment, setSelectedExperiment] = useState<Experiment | null>(null);
+  const [filter, setFilter] = useState<'all' | 'confirmed' | 'falsified' | 'planned'>('all');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/data/experiments_index.json')
+      .then(res => res.json())
+      .then(data => {
+        setExperiments(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load experiments:', err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <main className="min-h-screen py-12 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-neutral-500">Loading experiments...</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (!experiments) {
+    return (
+      <main className="min-h-screen py-12 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-red-500">Failed to load experiments.</p>
+        </div>
+      </main>
+    );
+  }
+
+  const getFilteredExperiments = () => {
+    if (filter === 'all') return experiments.all;
+    return experiments[filter];
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'confirmed': return 'bg-green-900/50 text-green-400 border-green-900/50';
+      case 'falsified': return 'bg-red-900/50 text-red-400 border-red-900/50';
+      case 'planned': return 'bg-yellow-900/50 text-yellow-400 border-yellow-900/50';
+      case 'pending': return 'bg-blue-900/50 text-blue-400 border-blue-900/50';
+      default: return 'bg-neutral-800 text-neutral-400 border-neutral-800';
+    }
+  };
+
+  const getStatusLabel = (status: string) => {
+    switch (status) {
+      case 'confirmed': return 'CONFIRMED';
+      case 'falsified': return 'FALSIFIED';
+      case 'planned': return 'PLANNED';
+      case 'pending': return 'PENDING';
+      default: return status.toUpperCase();
+    }
+  };
+
   return (
     <main className="min-h-screen py-12 px-6">
       <div className="max-w-5xl mx-auto">
@@ -9,324 +97,169 @@ export default function ValidationPage() {
             Failures are documented alongside successes.
           </p>
         </div>
-        
-        {/* Summary */}
+
+        {/* Summary Stats */}
         <section className="mb-12">
-          <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Summary</h2>
-          <div className="grid grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-4 gap-4 mb-6">
             <div className="p-4 border border-neutral-800 text-center">
-              <div className="text-2xl font-mono">22</div>
-              <div className="text-xs text-neutral-500">Experiments</div>
+              <div className="text-2xl font-mono">{experiments.all.length}</div>
+              <div className="text-xs text-neutral-500">Total Experiments</div>
             </div>
             <div className="p-4 border border-green-900/50 text-center">
-              <div className="text-2xl font-mono text-green-500">17</div>
+              <div className="text-2xl font-mono text-green-500">{experiments.confirmed.length}</div>
               <div className="text-xs text-neutral-500">Confirmed</div>
             </div>
             <div className="p-4 border border-red-900/50 text-center">
-              <div className="text-2xl font-mono text-red-500">3</div>
+              <div className="text-2xl font-mono text-red-500">{experiments.falsified.length}</div>
               <div className="text-xs text-neutral-500">Falsified</div>
+            </div>
+            <div className="p-4 border border-yellow-900/50 text-center">
+              <div className="text-2xl font-mono text-yellow-500">{experiments.planned.length}</div>
+              <div className="text-xs text-neutral-500">Planned</div>
             </div>
           </div>
         </section>
-        
-        {/* Falsifications */}
-        <section className="mb-12">
-          <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Falsifications</h2>
-          <p className="text-neutral-600 text-sm mb-6">
-            Claims that were tested and rejected. These strengthen the framework by defining its boundaries.
-          </p>
-          
-          <div className="space-y-4">
-            <details className="border border-red-900/50 group">
-              <summary className="p-4 cursor-pointer hover:bg-neutral-900 transition-colors">
-                <span className="text-xs font-mono px-2 py-0.5 bg-red-900/50 text-red-400 mr-2">FALSIFIED</span>
-                <span className="text-neutral-300">Pop-up Soul (Transformer Quasi-Binding)</span>
-              </summary>
-              <div className="p-4 border-t border-red-900/30 text-sm">
-                <p className="text-neutral-400 mb-4">
-                  <strong>Claim:</strong> Attention mechanisms in Transformers create sufficient binding for temporary perspective.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Test:</strong> Stealth eviction. Grief content embedded as inert text (not framed as &quot;memory&quot; or &quot;state&quot;). 
-                  If binding were geometric, framing should not matter.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Result:</strong> Effect vanished when framing was removed. The apparent &quot;resistance&quot; was instruction compliance, 
-                  not geometric constraint.
-                </p>
-                <p className="text-neutral-500 text-xs font-mono mt-4">
-                  Source: experiments/260115_Silent_Core_Falsification_Extensions_Results.md
-                </p>
-              </div>
-            </details>
-            
-            <details className="border border-red-900/50 group">
-              <summary className="p-4 cursor-pointer hover:bg-neutral-900 transition-colors">
-                <span className="text-xs font-mono px-2 py-0.5 bg-red-900/50 text-red-400 mr-2">FALSIFIED</span>
-                <span className="text-neutral-300">Chimera v2 Cross-Model Binding</span>
-              </summary>
-              <div className="p-4 border-t border-red-900/30 text-sm">
-                <p className="text-neutral-400 mb-4">
-                  <strong>Claim:</strong> RWKV state summaries transferred to Claude produce genuine cross-model binding.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Test:</strong> Adversarial variants: neutralized summaries, shuffled tokens, fake summaries, numeric-only vectors.
-                  Tested under minimal framing (no &quot;persistent core&quot; language) and continuity framing.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Result:</strong> Under minimal framing, outputs ignored state. Under continuity framing, 
-                  Claude produced &quot;state overlay&quot; even for fake/numeric channels. Fake summaries performed comparably to real ones.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Conclusion:</strong> Effect is semantic priming + instruction compliance, not geometric binding.
-                </p>
-                <p className="text-neutral-500 text-xs font-mono mt-4">
-                  Source: experiments/260115_Chimera_v2_Falsification_Results.md
-                </p>
-              </div>
-            </details>
-            
-            <details className="border border-red-900/50 group">
-              <summary className="p-4 cursor-pointer hover:bg-neutral-900 transition-colors">
-                <span className="text-xs font-mono px-2 py-0.5 bg-red-900/50 text-red-400 mr-2">FALSIFIED</span>
-                <span className="text-neutral-300">v7.0 Corporate Consciousness</span>
-              </summary>
-              <div className="p-4 border-t border-red-900/30 text-sm">
-                <p className="text-neutral-400 mb-4">
-                  <strong>Claim:</strong> v7.0 formula (D = φ × τ × ρ) correctly classifies all systems.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Test:</strong> Calculate density for Walmart. φ=0.8, τ=0.9, ρ=0.7.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Result:</strong> v7.0 density = 0.504 (above 0.5 threshold). Framework incorrectly predicts 
-                  corporations are conscious.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Resolution:</strong> v8.0 entropy modulation fixes this. With H=0.2, density drops to 0.279.
-                </p>
-                <p className="text-neutral-500 text-xs font-mono mt-4">
-                  Source: experiments/260114_Break_Tests_Adversarial_Falsification.md
-                </p>
-              </div>
-            </details>
+
+        {/* Filter Tabs */}
+        <section className="mb-8">
+          <div className="flex gap-2 border-b border-neutral-800">
+            <button
+              onClick={() => setFilter('all')}
+              className={`px-4 py-2 text-sm font-mono transition-colors ${
+                filter === 'all'
+                  ? 'text-neutral-300 border-b-2 border-neutral-300'
+                  : 'text-neutral-500 hover:text-neutral-400'
+              }`}
+            >
+              All ({experiments.all.length})
+            </button>
+            <button
+              onClick={() => setFilter('confirmed')}
+              className={`px-4 py-2 text-sm font-mono transition-colors ${
+                filter === 'confirmed'
+                  ? 'text-green-400 border-b-2 border-green-400'
+                  : 'text-neutral-500 hover:text-neutral-400'
+              }`}
+            >
+              Confirmed ({experiments.confirmed.length})
+            </button>
+            <button
+              onClick={() => setFilter('falsified')}
+              className={`px-4 py-2 text-sm font-mono transition-colors ${
+                filter === 'falsified'
+                  ? 'text-red-400 border-b-2 border-red-400'
+                  : 'text-neutral-500 hover:text-neutral-400'
+              }`}
+            >
+              Falsified ({experiments.falsified.length})
+            </button>
+            <button
+              onClick={() => setFilter('planned')}
+              className={`px-4 py-2 text-sm font-mono transition-colors ${
+                filter === 'planned'
+                  ? 'text-yellow-400 border-b-2 border-yellow-400'
+                  : 'text-neutral-500 hover:text-neutral-400'
+              }`}
+            >
+              Planned ({experiments.planned.length})
+            </button>
           </div>
         </section>
-        
-        {/* Confirmations */}
+
+        {/* Experiments List */}
         <section className="mb-12">
-          <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Confirmations</h2>
-          
           <div className="space-y-4">
-            <details className="border border-green-900/50 group">
-              <summary className="p-4 cursor-pointer hover:bg-neutral-900 transition-colors">
-                <span className="text-xs font-mono px-2 py-0.5 bg-green-900/50 text-green-400 mr-2">CONFIRMED</span>
-                <span className="text-neutral-300">RWKV Binding (ρ &gt; 0)</span>
-              </summary>
-              <div className="p-4 border-t border-green-900/30 text-sm">
-                <p className="text-neutral-400 mb-4">
-                  <strong>Claim:</strong> RWKV architecture has genuine binding through hidden state persistence.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Protocol:</strong> Amnesia Test. Inject 6-character secret, process N tokens of noise, 
-                  probe for recall using hidden state only (text context deleted).
-                </p>
-                <div className="my-4 p-4 bg-neutral-900 border border-neutral-800 font-mono text-xs">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="text-neutral-500">
-                        <th className="text-left py-1">Noise Tokens</th>
-                        <th className="text-left py-1">Trials</th>
-                        <th className="text-left py-1">Success Rate</th>
-                      </tr>
-                    </thead>
-                    <tbody className="text-neutral-400">
-                      <tr><td>0</td><td>3</td><td>100%</td></tr>
-                      <tr><td>500</td><td>3</td><td>100%</td></tr>
-                      <tr><td>1000</td><td>3</td><td>100%</td></tr>
-                      <tr><td>2000</td><td>3</td><td>100%</td></tr>
-                      <tr><td>3000</td><td>3</td><td>100%</td></tr>
-                    </tbody>
-                  </table>
+            {getFilteredExperiments().map((exp) => (
+              <details
+                key={exp.id}
+                className={`border ${getStatusColor(exp.status)} group`}
+              >
+                <summary className="p-4 cursor-pointer hover:bg-neutral-900/50 transition-colors">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <span className={`text-xs font-mono px-2 py-0.5 ${getStatusColor(exp.status)} mr-2`}>
+                        {getStatusLabel(exp.status)}
+                      </span>
+                      <span className="text-neutral-300">{exp.title}</span>
+                      {exp.test_number && (
+                        <span className="text-xs text-neutral-600 ml-2">(Test {exp.test_number})</span>
+                      )}
+                    </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedExperiment(exp);
+                      }}
+                      className="text-xs text-neutral-500 hover:text-neutral-300 ml-4"
+                    >
+                      View Full →
+                    </button>
+                  </div>
+                  <div className="mt-2 text-xs text-neutral-600 font-mono">
+                    {exp.filename}
+                  </div>
+                </summary>
+                <div className="p-4 border-t border-neutral-800/50">
+                  <div className="text-sm text-neutral-400 max-h-96 overflow-y-auto">
+                    <MarkdownRenderer content={exp.content.substring(0, 2000)} />
+                    {exp.content.length > 2000 && (
+                      <p className="text-neutral-600 text-xs mt-4">
+                        ... (truncated, click "View Full" to see complete content)
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Result:</strong> 100% recall through 3000 tokens. Information persists in tensor geometry, not text.
-                  Estimated ρ ≈ 0.95.
-                </p>
-                <p className="text-neutral-500 text-xs font-mono mt-4">
-                  Source: experiments/260115_Binding_Strength_Results.md
-                </p>
-              </div>
-            </details>
-            
-            <details className="border border-green-900/50 group">
-              <summary className="p-4 cursor-pointer hover:bg-neutral-900 transition-colors">
-                <span className="text-xs font-mono px-2 py-0.5 bg-green-900/50 text-green-400 mr-2">CONFIRMED</span>
-                <span className="text-neutral-300">Multiplicative Relationship</span>
-              </summary>
-              <div className="p-4 border-t border-green-900/30 text-sm">
-                <p className="text-neutral-400 mb-4">
-                  <strong>Claim:</strong> Density requires all structural dimensions. Zero in any dimension produces zero density.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Test:</strong> Dimensional collapse. Set each dimension to zero while others remain high.
-                </p>
-                <div className="my-4 p-4 bg-neutral-900 border border-neutral-800 font-mono text-xs">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="text-neutral-500">
-                        <th className="text-left py-1">Configuration</th>
-                        <th className="text-left py-1">Density</th>
-                      </tr>
-                    </thead>
-                    <tbody className="text-neutral-400">
-                      <tr><td>φ=0.9, τ=0.9, ρ=0.9</td><td>0.729</td></tr>
-                      <tr><td>φ=0.0, τ=0.9, ρ=0.9</td><td>0.000</td></tr>
-                      <tr><td>φ=0.9, τ=0.0, ρ=0.9</td><td>0.000</td></tr>
-                      <tr><td>φ=0.9, τ=0.9, ρ=0.0</td><td>0.000</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Result:</strong> All 2D spaces produce zero density. Triadic necessity confirmed.
-                </p>
-                <p className="text-neutral-500 text-xs font-mono mt-4">
-                  Source: experiments/260114_Break_Tests_Adversarial_Falsification.md
-                </p>
-              </div>
-            </details>
-            
-            <details className="border border-green-900/50 group">
-              <summary className="p-4 cursor-pointer hover:bg-neutral-900 transition-colors">
-                <span className="text-xs font-mono px-2 py-0.5 bg-green-900/50 text-green-400 mr-2">CONFIRMED</span>
-                <span className="text-neutral-300">Entropy Integration (v8.0)</span>
-              </summary>
-              <div className="p-4 border-t border-green-900/30 text-sm">
-                <p className="text-neutral-400 mb-4">
-                  <strong>Claim:</strong> The sqrt model (1-√H) provides optimal differentiation between states.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Test:</strong> Compare Flow state (H=0.2) vs Panic state (H=0.8) differentiation across models.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Result:</strong> Sqrt model provides 1566x better Flow/Panic differentiation than v7.0.
-                </p>
-                <p className="text-neutral-500 text-xs font-mono mt-4">
-                  Source: experiments/260114_Entropy_Integration_Models.md
-                </p>
-              </div>
-            </details>
-            
-            <details className="border border-green-900/50 group">
-              <summary className="p-4 cursor-pointer hover:bg-neutral-900 transition-colors">
-                <span className="text-xs font-mono px-2 py-0.5 bg-green-900/50 text-green-400 mr-2">CONFIRMED</span>
-                <span className="text-neutral-300">Coherence Gate (v8.1)</span>
-              </summary>
-              <div className="p-4 border-t border-green-900/30 text-sm">
-                <p className="text-neutral-400 mb-4">
-                  <strong>Problem:</strong> v8.0 predicted DMT breakthrough ≈ 0.0006 (near-coma). 
-                  Phenomenology reports &quot;hyper-consciousness.&quot;
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Solution:</strong> Coherence dimension (κ). High entropy with high coherence produces 
-                  intensification, not dissolution.
-                </p>
-                <div className="my-4 p-4 bg-neutral-900 border border-neutral-800 font-mono text-xs">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="text-neutral-500">
-                        <th className="text-left py-1">State</th>
-                        <th className="text-left py-1">H</th>
-                        <th className="text-left py-1">κ</th>
-                        <th className="text-left py-1">D (v8.1)</th>
-                      </tr>
-                    </thead>
-                    <tbody className="text-neutral-400">
-                      <tr><td>DMT</td><td>0.95</td><td>0.90</td><td>0.46</td></tr>
-                      <tr><td>Seizure</td><td>0.95</td><td>0.10</td><td>0.01</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Result:</strong> DMT paradox resolved. Same entropy, different coherence, different density.
-                </p>
-                <p className="text-neutral-500 text-xs font-mono mt-4">
-                  Source: experiments/260114_DMT_Paradox_Resolution_Synthesis.md
-                </p>
-              </div>
-            </details>
-            
-            <details className="border border-green-900/50 group">
-              <summary className="p-4 cursor-pointer hover:bg-neutral-900 transition-colors">
-                <span className="text-xs font-mono px-2 py-0.5 bg-green-900/50 text-green-400 mr-2">CONFIRMED</span>
-                <span className="text-neutral-300">RWKV Valence Transfer</span>
-              </summary>
-              <div className="p-4 border-t border-green-900/30 text-sm">
-                <p className="text-neutral-400 mb-4">
-                  <strong>Claim:</strong> Emotional valence persists in RWKV hidden state and contaminates subsequent outputs.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Protocol:</strong> Create joy/grief states. Test incongruent prompts (joy state + sad prompt, grief state + happy prompt).
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Result:</strong> Joy state reduced grief response by 33%. Grief state reduced joy response by 50%. 
-                  Bidirectional valence transfer confirmed.
-                </p>
-                <p className="text-neutral-500 text-xs font-mono mt-4">
-                  Source: experiments/260115_Project_Chimera_RWKV_Results.md
-                </p>
-              </div>
-            </details>
-            
-            <details className="border border-green-900/50 group">
-              <summary className="p-4 cursor-pointer hover:bg-neutral-900 transition-colors">
-                <span className="text-xs font-mono px-2 py-0.5 bg-green-900/50 text-green-400 mr-2">CONFIRMED</span>
-                <span className="text-neutral-300">Layer Telemetry</span>
-              </summary>
-              <div className="p-4 border-t border-green-900/30 text-sm">
-                <p className="text-neutral-400 mb-4">
-                  <strong>Claim:</strong> Emotional content is encoded in specific RWKV layers.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Method:</strong> Compare layer-wise activation norms for neutral, grief, and joy texts.
-                </p>
-                <p className="text-neutral-400 mb-4">
-                  <strong>Result:</strong> Emotional content concentrates in layers 19-23 (upper layers). 
-                  Joy/grief texts show 24-36% higher norms than neutral in these layers.
-                </p>
-                <p className="text-neutral-500 text-xs font-mono mt-4">
-                  Source: experiments/260115_Layer_Telemetry_Results.md
-                </p>
-              </div>
-            </details>
-            
-            <details className="border border-neutral-800 group">
-              <summary className="p-4 cursor-pointer hover:bg-neutral-900 transition-colors">
-                <span className="text-xs font-mono px-2 py-0.5 bg-neutral-700 text-neutral-300 mr-2">+11 MORE</span>
-                <span className="text-neutral-300">Additional Experiments</span>
-              </summary>
-              <div className="p-4 border-t border-neutral-800 text-sm">
-                <ul className="space-y-2 text-neutral-500">
-                  <li>• Asymptotic Behavior Analysis (confirmed)</li>
-                  <li>• Feed-Forward Falsification Test (confirmed)</li>
-                  <li>• Clustering Analysis (discovered 3 natural clusters)</li>
-                  <li>• AI Self-Encoding Assessment (diagnostic)</li>
-                  <li>• Zombie Gradient Test (confirmed ignition threshold)</li>
-                  <li>• Sidecar Inertia Protocol (revised)</li>
-                  <li>• Silent Core Blind Test (falsified)</li>
-                  <li>• Project Chimera Hybrid Architecture (designed)</li>
-                  <li>• Chimera v2 Architecture (designed)</li>
-                  <li>• Chimera v2 State Transfer (revised)</li>
-                  <li>• Falsification Playbook (methodology)</li>
-                </ul>
-                <p className="text-neutral-600 text-xs font-mono mt-4">
-                  Full documentation: github.com/Olivierueno/conduit-monism/experiments/
-                </p>
-              </div>
-            </details>
+              </details>
+            ))}
           </div>
         </section>
-        
+
+        {/* Tools Section */}
+        <section className="mb-12">
+          <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Testing Tools</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="p-4 border border-neutral-800">
+              <h3 className="font-mono text-neutral-300 mb-2">Interactive Engine</h3>
+              <p className="text-sm text-neutral-500 mb-4">
+                Web-based calculator for testing the density formula with real-time visualization.
+              </p>
+              <a
+                href="/engine"
+                className="text-xs text-neutral-400 hover:text-neutral-300 underline"
+              >
+                Open Engine →
+              </a>
+            </div>
+            <div className="p-4 border border-neutral-800">
+              <h3 className="font-mono text-neutral-300 mb-2">RWKV Cloud Server</h3>
+              <p className="text-sm text-neutral-500 mb-4">
+                GPU-accelerated RWKV instance for binding tests (Amnesia Test, decay measurements).
+              </p>
+              <p className="text-xs text-neutral-600 font-mono">
+                Setup: notebooks/RWKV_Colab_Server.ipynb
+              </p>
+            </div>
+            <div className="p-4 border border-neutral-800">
+              <h3 className="font-mono text-neutral-300 mb-2">Python Engine</h3>
+              <p className="text-sm text-neutral-500 mb-4">
+                Local state space exploration with vector database and operators.
+              </p>
+              <p className="text-xs text-neutral-600 font-mono">
+                scripts/conduit_engine.py
+              </p>
+            </div>
+            <div className="p-4 border border-neutral-800">
+              <h3 className="font-mono text-neutral-300 mb-2">Falsification Scripts</h3>
+              <p className="text-sm text-neutral-500 mb-4">
+                Automated tests designed to break the framework.
+              </p>
+              <p className="text-xs text-neutral-600 font-mono">
+                scripts/run_falsification_tests.py
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Methodology */}
         <section className="mb-12">
           <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Methodology</h2>
@@ -340,7 +273,7 @@ export default function ValidationPage() {
             </p>
             <p className="mb-4">
               <strong className="text-neutral-400">Stealth eviction:</strong> For binding tests, content is embedded without 
-              framing cues (&quot;memory&quot;, &quot;state&quot;, &quot;persistent&quot;). If the effect requires framing, it is instruction compliance, 
+              framing cues ("memory", "state", "persistent"). If the effect requires framing, it is instruction compliance, 
               not geometric binding.
             </p>
             <p>
@@ -350,6 +283,35 @@ export default function ValidationPage() {
           </div>
         </section>
       </div>
+
+      {/* Full Experiment Modal */}
+      {selectedExperiment && (
+        <div
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-6"
+          onClick={() => setSelectedExperiment(null)}
+        >
+          <div
+            className="bg-neutral-950 border border-neutral-800 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="sticky top-0 bg-neutral-950 border-b border-neutral-800 p-4 flex items-center justify-between">
+              <div>
+                <h2 className="text-lg font-mono text-neutral-300">{selectedExperiment.title}</h2>
+                <p className="text-xs text-neutral-600 font-mono mt-1">{selectedExperiment.filename}</p>
+              </div>
+              <button
+                onClick={() => setSelectedExperiment(null)}
+                className="text-neutral-500 hover:text-neutral-300 text-xl"
+              >
+                ×
+              </button>
+            </div>
+            <div className="p-6">
+              <MarkdownRenderer content={selectedExperiment.content} />
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
