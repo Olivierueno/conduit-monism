@@ -1,7 +1,27 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Empirical Calibration',
+  description: 'Grounding the five invariants in measurable neuroscience. How each framework variable maps to empirical measurements from consciousness research.',
+  keywords: [
+    'PCI',
+    'perturbational complexity index',
+    'Lempel-Ziv complexity',
+    'consciousness measurement',
+    'neural correlates',
+    'empirical consciousness',
+    'calibration',
+  ],
+  openGraph: {
+    title: 'Empirical Calibration | Conduit Monism',
+    description: 'Grounding the five invariants in measurable neuroscience. How each framework variable maps to empirical measurements from consciousness research.',
+  },
+};
+
 export default function CalibrationPage() {
   return (
     <main className="min-h-screen py-12 px-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="mb-12">
           <h1 className="text-2xl font-mono mb-4">Empirical Calibration</h1>
           <p className="text-neutral-500 max-w-2xl">
