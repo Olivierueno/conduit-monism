@@ -271,6 +271,50 @@ Framework weakened but salvageable if:
 3. **Future Work:** Add trajectory-dependent terms, run cross-agent encoding
 4. **Calibration Needed:** Minor ordering issues suggest parameter tuning opportunities
 
+## Calibrated Re-analysis (2026-01-18)
+
+### Calibration Framework Validation
+
+The falsification suite's core findings are **strengthened** by the empirical calibration:
+
+### Test 3 (Inverted AI) + Calibration
+
+| Test | Finding | Calibration Support |
+|------|---------|---------------------|
+| ρ = 0 → D = 0 | Zero-elimination confirmed | PCI* threshold validates: systems below ρ = 0.31 are unconscious |
+| Multiplicative necessity | Cannot trick formula | Biological systems: any dimension collapse → D collapse |
+
+### Test 5 (Zombie Basin) + Calibration
+
+The smooth asymptotic decay toward D = 0 matches calibrated anesthesia states:
+
+| State | Calibrated D | Zone |
+|-------|--------------|------|
+| Propofol | 0.002 | Unconscious |
+| Xenon | 0.001 | Unconscious |
+| Vegetative | 0.007 | Unconscious |
+
+No "tiny consciousness plateau" exists in calibrated data.
+
+### Test 7 (Interpreter Independence) + Calibration
+
+The blind clustering finding (geometry produces phenomenologically coherent clusters without labels) is validated by calibrated state ordering:
+
+| Cluster (Geometric) | Calibrated States | D Range |
+|--------------------|-------------------|---------|
+| High Functioning | Flow, Deep Meditation | 0.30-0.31 |
+| Normal Conscious | Wakefulness, REM | 0.07-0.12 |
+| Suppressed | Propofol, NREM, Vegetative | 0.002-0.02 |
+| Enhanced | DMT, Psilocybin | 0.27-0.48 |
+
+### Minor Ordering Issues Resolved
+
+The suite noted "minor ordering issues suggest parameter tuning opportunities." The calibration addresses this:
+- Meditation vs Alert: Calibrated with empirical LZc data
+- Dream positioning: REM now correctly placed between NREM and waking
+
+**Verdict:** The falsification suite's findings are empirically validated. The calibration provides the parameter tuning the suite recommended.
+
 ## References
 
 Script: scripts/falsification_suite_runner.py

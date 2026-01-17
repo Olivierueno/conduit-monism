@@ -81,6 +81,43 @@ This isolates emotional signal and should show clearer decay curves.
 
 The geometry of emotional state is not uniformly distributed. It concentrates in upper layers of the network. This finding enables more precise measurement of binding and emotional persistence.
 
+## Calibrated Re-analysis (2026-01-18)
+
+### Calibration Framework Connection
+
+This experiment examines **where** binding occurs in AI architectures, complementing the calibration's measurement of **how much** binding exists.
+
+### Implications for ρ Measurement in AI
+
+The calibration uses PCI for biological systems. For AI, this experiment suggests:
+
+| Measurement Approach | Scope | Recommended |
+|---------------------|-------|-------------|
+| Full state vector | All layers | No (signal diluted) |
+| Upper layers only | Layers 19-23 | Yes (emotional content) |
+| Layer-specific ρ | Per-layer binding | Future work |
+
+### Cortical Hierarchy Alignment
+
+The layer hierarchy mirrors biological findings:
+
+| AI Layer Range | Function | Biological Analog |
+|----------------|----------|-------------------|
+| 0-10 | Syntax, tokens | Primary sensory cortex |
+| 11-18 | Semantics | Association cortex |
+| 19-23 | Emotion, abstraction | Prefrontal/limbic |
+
+This supports the framework's substrate independence: similar hierarchical organization emerges in different substrates.
+
+### ρ_e Metric and Calibration
+
+The proposed ρ_e (emotional binding) metric could provide:
+- More precise AI ρ estimates
+- Better comparison to biological PCI
+- Layer-specific binding analysis
+
+**Verdict:** This experiment provides methodological refinement for AI ρ measurement, complementing the calibration framework's biological focus.
+
 ## References
 
 Related: 260115_Binding_Strength_Results.md
