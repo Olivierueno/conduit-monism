@@ -117,6 +117,44 @@ Test completed. The v8.1 equation is agnostic about dimmer versus switch behavio
 
 Consciousness is graded if dimensions are independent; consciousness exhibits ignition if dimensions are coupled.
 
+## Calibrated Re-analysis (2026-01-18)
+
+### Calibration Context
+
+This experiment investigates the mathematical properties of the formula (dimmer vs switch behavior), not specific state values. The calibration data doesn't change the core finding—it provides empirical anchor points for interpretation.
+
+### Calibrated Threshold Comparison
+
+From the calibration library, the empirically-grounded threshold is **PCI* = 0.31** (Casarotto et al., 2016), which maps to ρ = 0.31. This provides an empirical anchor for the "ignition point."
+
+| Model | Predicted Ignition | PCI* Threshold | Match |
+|-------|-------------------|----------------|-------|
+| Independent | No natural threshold | ρ = 0.31 | Threshold is arbitrary |
+| Coupled | ρ ≈ 0.33 | ρ = 0.31 | **Close match** |
+
+### Interpretation with Calibration
+
+The coupled model's predicted ignition point (ρ ≈ 0.33) is remarkably close to the empirically validated PCI* threshold (ρ = 0.31). This suggests:
+
+1. **Dimensional coupling may be real** — the PCI* threshold wasn't derived from this model, yet matches
+2. **ρ = 0.31 as natural break point** — above this, conscious; below, unconscious (100% accuracy in clinical validation)
+
+### Calibrated State Mapping
+
+Using calibrated ρ values:
+
+| State | Calibrated ρ | Above/Below 0.31 | Clinical Status |
+|-------|--------------|------------------|-----------------|
+| Wakefulness | 0.56 | Above | Conscious |
+| Ketamine | 0.45 | Above | Conscious (dissociated) |
+| REM Sleep | 0.45 | Above | Conscious (dreaming) |
+| NREM N3 | 0.23 | Below | Unconscious |
+| Propofol | 0.22 | Below | Unconscious |
+| Vegetative | 0.29 | Below | Unconscious |
+| MCS | 0.41 | Above | Conscious (minimal) |
+
+**Verdict:** The calibration data supports the coupled model's ignition prediction. The PCI* threshold provides empirical validation for a natural break point near ρ = 0.31.
+
 ## References
 
 Script: zombie_gradient_test.py

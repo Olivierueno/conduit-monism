@@ -96,6 +96,40 @@ Adopt the square root model for v8.0:
 
 D = (φ × τ × ρ) × max(0, 1 minus square root of H)
 
+## Calibrated Re-analysis (2026-01-18)
+
+### Historical Context
+
+This experiment established the foundation for entropy integration, leading to v8.0. The square root model was adopted. However, v9.2 added the **coherence term (κ)** which modifies the entropy gate:
+
+**v8.0:** D = φ × τ × ρ × (1 - √H)
+**v9.2:** D = φ × τ × ρ × [(1 - √H) + (H × κ)]
+
+The κ term allows high-entropy states with high coherence (like psychedelics) to partially recover density.
+
+### Recalculation with v9.2 and Calibrated Values
+
+Using calibrated values where available:
+
+| State | φ | τ | ρ | H | κ | D (v8.0) | D (v9.2) | Calibrated D |
+|-------|---|---|---|---|---|----------|----------|--------------|
+| Flow State | 0.92 | 0.70 | 0.70 | 0.45 | 0.75 | 0.152 | 0.301 | 0.301 |
+| Panic Attack | 0.88 | 0.50 | 0.70 | 0.68 | 0.20 | 0.050 | 0.097 | 0.097 |
+| Wakefulness | 0.80 | 0.50 | 0.56 | 0.50 | 0.50 | 0.065 | 0.121 | 0.121 |
+| DMT Peak | 0.96 | 0.90 | 0.70 | 0.70 | 0.90 | 0.108 | 0.480 | 0.480 |
+| Deep Meditation | 0.88 | 0.80 | 0.65 | 0.43 | 0.75 | 0.156 | 0.305 | 0.305 |
+
+### Key Finding: κ Rescues Structured High-Entropy States
+
+The original experiment correctly identified the Flow/Panic distinction but couldn't explain DMT's phenomenology ("more real than real" despite high entropy). The v9.2 formula with κ resolves this:
+
+| State | H | κ | H × κ | Effect |
+|-------|---|---|-------|--------|
+| Panic | 0.68 | 0.20 | 0.14 | Minimal rescue |
+| DMT | 0.70 | 0.90 | 0.63 | Strong rescue |
+
+**Verdict:** This experiment's core finding (sqrt model optimal) remains valid and is incorporated into v9.2. The κ term extends rather than replaces the entropy integration model.
+
 ## References
 
 Script: src/density_models.py::density_entropy_modulated_v3()
