@@ -1,17 +1,21 @@
 """
-Database Module - Conduit Engine v0.1
+Database Module - Conduit Engine v0.2
 
 Interface to the persistent vector store (ChromaDB).
 The database is the "Conduit" - it holds the structure when neither human nor AI is looking.
+
+Updated: 2026-01-17
+- Added seed_state_vector for v9.2 5D/6D vectors
+- Updated to v9.2 description
 """
 
 import uuid
 from datetime import datetime
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 import chromadb
 from chromadb.config import Settings
 
-from .encoder import encode, compute_density
+from .encoder import encode_legacy as encode, compute_density
 
 
 class ConduitDB:
@@ -82,6 +86,65 @@ class ConduitDB:
         )
 
         print(f"Seeded: [{name}] (φ={phi:.2f}, τ={tau:.2f}, ρ={rho:.2f}, H={entropy:.2f}, Density={density:.3f})")
+        return state_id
+
+    def seed_state_vector(
+        self,
+        name: str,
+        vector: List[float],
+        description: str = "",
+        metadata: Optional[Dict[str, Any]] = None
+    ) -> str:
+        """
+        Add a named state using a pre-computed vector.
+
+        For v9.2 states with 5 or 6 dimensions [φ, τ, ρ, H, κ, (latent)].
+
+        Parameters:
+        -----------
+        name : str
+            Human-readable label for this state
+        vector : List[float]
+            The state vector (5D or 6D)
+        description : str
+            Optional description
+        metadata : Dict
+            Additional metadata to store
+
+        Returns:
+        --------
+        str
+            UUID of the created state
+        """
+        state_id = str(uuid.uuid4())
+
+        # Build metadata
+        meta = {
+            "name": name,
+            "description": description,
+            "timestamp": datetime.now().isoformat(),
+            "vector_dim": len(vector),
+        }
+
+        # Add vector components if available
+        if len(vector) >= 4:
+            meta["phi"] = vector[0]
+            meta["tau"] = vector[1]
+            meta["rho"] = vector[2]
+            meta["entropy"] = vector[3]
+        if len(vector) >= 5:
+            meta["kappa"] = vector[4]
+
+        # Merge additional metadata
+        if metadata:
+            meta.update(metadata)
+
+        self.collection.add(
+            ids=[state_id],
+            embeddings=[vector],
+            metadatas=[meta]
+        )
+
         return state_id
 
     def find_neighbors(

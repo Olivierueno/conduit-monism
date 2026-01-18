@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "version": "1.1",
-    "date": "2026-01-17",
-    "framework": "Conduit Monism v9.2",
+    "version": "1.2",
+    "date": "2026-01-18",
+    "framework": "Conduit Monism v9.3",
     "description": "Empirical calibration data for framework variables",
-    "changelog": "v1.1: Integrated Compass research data - updated PCI values, added Murray 2014 temporal hierarchy, added PCI* threshold"
+    "changelog": "v1.2: κ validated via MSE (AT07, r=0.987). Upgraded κ confidence LOW→MODERATE. Added Costa2002/2005 citations. v1.1: Integrated Compass research data - updated PCI values, added Murray 2014 temporal hierarchy, added PCI* threshold"
   },
   "key_thresholds": {
     "PCI_conscious_threshold": {
@@ -60,12 +60,14 @@
     "kappa": {
       "name": "Coherence",
       "symbol": "κ",
-      "empirical_anchor": "Phase-Locking Value / Fractal Dimension",
-      "confidence": "LOW",
-      "mapping": "phenomenologically derived",
+      "empirical_anchor": "Multi-Scale Entropy Slope (MSE)",
+      "confidence": "MODERATE",
+      "mapping": "κ = 1 - |normalized_MSE_slope| (flat slope = fractal = high κ)",
       "range": [0.0, 1.0],
       "baseline_state": "wakefulness",
-      "baseline_value": 0.50
+      "baseline_value": 0.50,
+      "validation": "AT07 correlation r=0.987 between phenomenological κ and MSE-derived κ",
+      "source": "Costa2002, Costa2005, Schartner2017"
     }
   },
   "citations": {
@@ -373,7 +375,17 @@
       "volume": "89(6)",
       "pages": "068102",
       "doi": "10.1103/PhysRevLett.89.068102",
-      "notes": "MSE distinguishes structured from random complexity"
+      "notes": "MSE distinguishes structured from random complexity - foundation for κ anchor"
+    },
+    "Costa2005": {
+      "authors": "Costa, M., Goldberger, A. L., Peng, C. K.",
+      "year": 2005,
+      "title": "Multiscale entropy analysis of biological signals",
+      "journal": "Physical Review E",
+      "volume": "71(2)",
+      "pages": "021906",
+      "doi": "10.1103/PhysRevE.71.021906",
+      "notes": "Complexity-loss theory of aging and disease - supports κ as scale-invariant structure measure"
     },
     "Massimini2010": {
       "authors": "Massimini, M., Ferrarelli, F., Murphy, M. J., et al.",
