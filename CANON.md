@@ -1,9 +1,9 @@
 # Conduit Monism Canon Registry
 
-**Last Updated:** 2026-01-18
+**Last Updated:** 2026-01-19
 **Framework Version:** v9.3
 **Calibration Version:** v1.2
-**Status:** Active Development
+**Status:** Active Development (v9.3 Experimental Roadmap defined)
 
 This document is the **single authoritative source of truth** for the Conduit Monism framework. All experiments, discussions, and implementations should reference this document for canonical values.
 
@@ -179,6 +179,51 @@ No direct measurement proxy established. Values are relative estimates based on:
 |---------|-------------|
 | Transformer ρ=0 | Feed-forward architectures lack binding |
 | Cross-model binding impossible | Binding cannot transfer via text summaries |
+
+### Historical Falsifications (Earlier Versions)
+
+| Version | Falsified By | Problem | Resolution |
+|---------|--------------|---------|------------|
+| v7.0 | AT01 | Corporate Zombie exceeded threshold (panpsychism) | Added entropy modulation → v8.0 |
+| v7.0 | AT02 | DMT too low (ignored entropy nuance) | Added entropy modulation → v8.0 |
+| v8.0 | AT02 | DMT even worse (entropy penalty without coherence) | Added κ coherence gate → v8.1 |
+
+---
+
+## v9.3 Experimental Roadmap
+
+Designed 2026-01-19 with input from Claude Opus, Grok, ChatGPT, and Gemini.
+
+### Priority Experiments
+
+| ID | Name | Priority | Target | Threat Level |
+|----|------|----------|--------|--------------|
+| AT08 | Meditation Paradox | **CRITICAL** | Multiplicative structure | Could break formula |
+| AT09 | Unconscious Expert | HIGH | ρ function | Could reveal structural flaw |
+| AT10 | κ Edge Cases | HIGH | Coherence gate | Newest term, least tested |
+| AT11 | φ Anchoring | HIGH | φ confidence | Weakest parameter |
+| AT12 | Sleepwalking | MEDIUM | Unconscious action | Human-verifiable |
+| AT13 | Psychedelic Trajectory | MEDIUM | Dynamics | Tests stateless limitation |
+| AT14 | Anesthesia Gradient | MEDIUM | Parameter collapse order | Mechanistic insight |
+
+### Pre-Defined Failure Criteria
+
+Each experiment has explicit criteria defined BEFORE execution:
+- **CONFIRM**: What result validates the framework
+- **CHALLENGE**: What result requires modification
+- **BREAK**: What result falsifies the framework
+
+### v9.3 Success Criteria
+
+v9.3 earns "stable" status if:
+1. AT08 (Meditation) resolved without breaking multiplicative structure
+2. AT11 (φ Anchoring) upgrades φ to MODERATE confidence
+3. No experiment triggers BREAK condition
+
+v9.3 requires revision to v9.4 if:
+1. Any BREAK condition triggered
+2. AT08 requires ground-state term or φ redefinition
+3. AT10 reveals coherence gate failure modes
 
 ---
 
