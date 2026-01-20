@@ -175,40 +175,44 @@ export default function CalibrationPage() {
             </div>
           </div>
 
-          {/* Phi - Connectivity */}
-          <div className="p-4 border border-orange-900/50 bg-orange-950/10 mb-4">
+          {/* Phi - Global Efficiency + Multi-Metric */}
+          <div className="p-4 border border-green-900/50 bg-green-950/10 mb-4">
             <div className="flex items-baseline justify-between mb-2">
-              <div className="font-mono text-neutral-300">φ (Integration) ← Effective Connectivity</div>
-              <div className="text-xs text-orange-400">LOW CONFIDENCE</div>
+              <div className="font-mono text-neutral-300">φ (Integration) ← E_glob + PCI + ISD</div>
+              <div className="text-xs text-green-400">MODERATE-HIGH CONFIDENCE</div>
             </div>
             <p className="text-neutral-500 text-sm mb-3">
-              Integration maps to effective connectivity—the degree of causal interaction between
-              brain regions. This is typically measured relative to a waking baseline, with
-              reductions reported as percentages (e.g., 75% reduction under propofol).
+              Integration maps to a multi-metric approach combining Global Efficiency (E_glob),
+              Perturbational Complexity Index (PCI), and Integration-Segregation Difference (ISD).
+              <strong> Extended validation (AT11, 2026-01-20)</strong> confirmed rank-order preservation
+              across 5+ states with 4/4 independent AI support.
             </p>
             <div className="text-xs text-neutral-600 mb-3">
-              <strong>Mapping:</strong> φ = 0.80 × (1 - percent_reduction/100)
+              <strong>Primary Mapping:</strong> φ = normalized_global_efficiency (E_glob)
             </div>
             <div className="grid md:grid-cols-2 gap-3 text-xs">
+              <div className="p-2 bg-neutral-900/50 border border-neutral-800">
+                <div className="text-neutral-400">Jhana / Peak States</div>
+                <div className="font-mono text-purple-400">φ = 0.90-1.00 (hyper-integrated)</div>
+              </div>
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
                 <div className="text-neutral-400">Wakefulness (baseline)</div>
                 <div className="font-mono text-neutral-300">φ = 0.80</div>
               </div>
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
-                <div className="text-neutral-400">Propofol (-75%)</div>
-                <div className="font-mono text-red-400">φ = 0.20</div>
-              </div>
-              <div className="p-2 bg-neutral-900/50 border border-neutral-800">
-                <div className="text-neutral-400">REM Sleep (-25%)</div>
+                <div className="text-neutral-400">REM Sleep</div>
                 <div className="font-mono text-blue-400">φ = 0.60</div>
               </div>
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
-                <div className="text-neutral-400">Psychedelics (+10%)</div>
-                <div className="font-mono text-purple-400">φ = 0.88</div>
+                <div className="text-neutral-400">Propofol</div>
+                <div className="font-mono text-red-400">φ = 0.25</div>
               </div>
             </div>
-            <div className="mt-3 text-xs text-neutral-600">
-              <strong>Key Citations:</strong> Ferrarelli et al. (2010), Massimini et al. (2005)
+            <div className="mt-3 text-xs text-green-500/70">
+              <strong>Key Discovery:</strong> Hyper-integrated states (Jhana, psychedelics) exceed baseline wakefulness in E_glob
+            </div>
+            <div className="mt-2 text-xs text-neutral-600">
+              <strong>Key Citations:</strong> Liu et al. (2013), Kim et al. (2018), Jang et al. (2024), Kan et al. (2025)
             </div>
           </div>
 
@@ -458,11 +462,12 @@ export default function CalibrationPage() {
           <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Limitations</h2>
           <div className="p-4 border border-yellow-900/50 bg-yellow-950/10">
             <ul className="text-sm text-yellow-500/80 space-y-2 ml-4 list-disc">
-              <li>φ (Integration) lacks a direct, validated measurement proxy — <strong>weakest link</strong></li>
+              <li>Formula predicts structural MAGNITUDE, not VALENCE (positive vs negative experience)</li>
               <li>Psychedelic state values are extrapolated from limited psilocybin/ketamine data</li>
               <li>Animal and AI values remain theoretical (no PCI measurements possible)</li>
               <li>Within-state variability is significant but not captured</li>
-              <li className="text-green-500/80">κ (Coherence) now validated via MSE (AT07, r = 0.987) — upgraded to MODERATE</li>
+              <li className="text-green-500/80">φ (Integration) now multi-metric anchored (AT11, 4/4 AI support) — upgraded to MODERATE-HIGH</li>
+              <li className="text-green-500/80">κ (Coherence) validated via MSE (AT07, r = 0.987) — MODERATE</li>
             </ul>
           </div>
         </section>

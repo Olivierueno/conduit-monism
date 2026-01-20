@@ -39,10 +39,10 @@ export default function EnginePage() {
                 Low φ: fragmented processing, isolated modules.
               </p>
               <div className="text-xs text-neutral-600 border-t border-neutral-800 pt-2 mt-2 mb-2">
-                <strong>Measurement proxy:</strong> Effective connectivity (fMRI/EEG) — LOW confidence
+                <strong>Measurement proxy:</strong> Global Efficiency (E_glob) + PCI + ISD — MODERATE-HIGH confidence
               </div>
               <div className="text-xs text-neutral-600">
-                <strong>Estimation basis:</strong> Brain connectivity studies, EEG coherence, corpus callosum size, global workspace connectivity patterns.
+                <strong>Estimation basis:</strong> Multi-metric approach validated by 4 independent AI reviews (AT11). Rank-order preserved across 5+ consciousness states. Hyper-integrated states (Jhana, psychedelics) exceed baseline wakefulness.
               </div>
               <p className="text-neutral-600 text-xs mt-2 font-mono">
                 Calibrated: Human wakefulness (φ=0.80). C. elegans (φ=0.05) via 302 neurons with simple reflex pathways.
@@ -144,8 +144,8 @@ export default function EnginePage() {
             </p>
             <ul className="text-xs text-neutral-500 space-y-1 mb-3">
               <li>• <strong>HIGH:</strong> ρ ↔ PCI*, H ↔ LZc (robust empirical validation)</li>
+              <li>• <strong>MODERATE-HIGH:</strong> φ ↔ E_glob + PCI + ISD (AT11 extended validation, 4/4 AI support)</li>
               <li>• <strong>MODERATE:</strong> τ ↔ Temporal Integration Window, κ ↔ MSE slope (AT07 validated)</li>
-              <li>• <strong>LOW:</strong> φ ↔ Effective Connectivity</li>
             </ul>
             <Link href="/calibration" className="text-xs text-blue-400 hover:text-blue-300 transition-colors">
               → View full calibration methodology and state comparisons
@@ -171,7 +171,7 @@ export default function EnginePage() {
               <li>Cross-species estimates based on limited comparative data</li>
               <li>Different species may map differently to the invariants</li>
               <li>Within-species variation is significant</li>
-              <li>φ (Integration) remains the weakest link — no direct measurement proxy</li>
+              <li>Formula predicts structural MAGNITUDE, not VALENCE (positive vs negative experience)</li>
               <li>AI architecture values are based on structural analysis, not behavioral testing</li>
             </ul>
           </div>

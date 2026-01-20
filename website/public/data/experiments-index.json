@@ -1,0 +1,342 @@
+{
+  "generated": "2026-01-20T11:08:45.328Z",
+  "total": 33,
+  "byStatus": {
+    "confirmed": 25,
+    "falsified": 0,
+    "planned": 4,
+    "pending": 4
+  },
+  "experiments": [
+    {
+      "filename": "PLANNED_EXPERIMENTS.md",
+      "title": "Planned Experiments",
+      "date": null,
+      "experimentId": null,
+      "status": "planned",
+      "priority": "High",
+      "frameworkVersion": null,
+      "testType": null
+    },
+    {
+      "filename": "260119_Adversarial_Test_14_Anesthesia_Gradient.md",
+      "title": "Adversarial Test 14: Anesthesia Gradient (Parameter Collapse Order)",
+      "date": "2026.01.19",
+      "experimentId": "AT14",
+      "status": "planned",
+      "priority": "MEDIUM",
+      "frameworkVersion": "Conduit Monism v9.3",
+      "testType": "Mechanism Test"
+    },
+    {
+      "filename": "260119_Adversarial_Test_13_Psychedelic_Trajectory.md",
+      "title": "Adversarial Test 13: Psychedelic Trajectory (Dynamics Test)",
+      "date": "2026.01.19",
+      "experimentId": "AT13",
+      "status": "planned",
+      "priority": "MEDIUM",
+      "frameworkVersion": "Conduit Monism v9.3",
+      "testType": "Dynamics Test"
+    },
+    {
+      "filename": "260119_Adversarial_Test_12_Sleepwalking.md",
+      "title": "Adversarial Test 12: The Sleepwalker",
+      "date": "2026.01.19",
+      "experimentId": "AT12",
+      "status": "planned",
+      "priority": "MEDIUM",
+      "frameworkVersion": "Conduit Monism v9.3",
+      "testType": "Falsification Attempt"
+    },
+    {
+      "filename": "260119_Adversarial_Test_11_Phi_Anchoring.md",
+      "title": "Adversarial Test 11: φ Anchoring via Multiple Proxies",
+      "date": "2026.01.19 (Extended: 2026.01.20)",
+      "experimentId": "AT11",
+      "status": "confirmed",
+      "priority": "HIGH",
+      "frameworkVersion": "Conduit Monism v9.3",
+      "testType": "Parameter Anchoring"
+    },
+    {
+      "filename": "260119_Adversarial_Test_10_Kappa_Edge_Cases.md",
+      "title": "Adversarial Test 10: κ Edge Cases",
+      "date": "2026.01.19",
+      "experimentId": "AT10",
+      "status": "confirmed",
+      "priority": "HIGH",
+      "frameworkVersion": "Conduit Monism v9.3",
+      "testType": "Stress Test"
+    },
+    {
+      "filename": "260119_Adversarial_Test_09_Unconscious_Expert.md",
+      "title": "Adversarial Test 09: The Unconscious Expert",
+      "date": "2026.01.19",
+      "experimentId": "AT09",
+      "status": "confirmed",
+      "priority": "HIGH",
+      "frameworkVersion": "Conduit Monism v9.3",
+      "testType": "Falsification Attempt"
+    },
+    {
+      "filename": "260118_Adversarial_Test_08_Meditation_Paradox.md",
+      "title": "Adversarial Test 08: Meditation Paradox",
+      "date": "2026.01.18",
+      "experimentId": "AT08",
+      "status": "confirmed",
+      "priority": "CRITICAL",
+      "frameworkVersion": "Conduit Monism v9.3",
+      "testType": "Falsification Attempt"
+    },
+    {
+      "filename": "260118_Adversarial_Test_07_Psychedelic_Gradient.md",
+      "title": "Adversarial Test 07: The Psychedelic Gradient",
+      "date": "2026.01.18",
+      "experimentId": "260118_AT07",
+      "status": "pending",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v9.2",
+      "testType": "Dynamic Trajectory / Phenomenological Tracking"
+    },
+    {
+      "filename": "260118_Adversarial_Test_07_Kappa_Validation.md",
+      "title": "Adversarial Test 07: κ Validation via Multi-Scale Entropy",
+      "date": "2026.01.18",
+      "experimentId": "260118_AT07",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v9.2 → v9.3",
+      "testType": "Empirical Anchor Validation"
+    },
+    {
+      "filename": "260117_Adversarial_Test_06_Ketamine_Gradient.md",
+      "title": "Adversarial Test 06: The Ketamine Gradient",
+      "date": "2026.01.17",
+      "experimentId": "260117_AT06",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v9.2",
+      "testType": "Dissociative Gradient / Dimmer Switch Test"
+    },
+    {
+      "filename": "260116_Semantic_Interference_Results.md",
+      "title": "Semantic Interference Test Results",
+      "date": "2026.01.16",
+      "experimentId": "260116_SIR",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": null
+    },
+    {
+      "filename": "260116_RWKV_Cloud_Binding_Confirmation.md",
+      "title": "RWKV Cloud Binding Confirmation: The Decisive Test",
+      "date": "2026.01.16",
+      "experimentId": "260116_RCBC",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": null
+    },
+    {
+      "filename": "260116_Lethal_Tests_v2_Results.md",
+      "title": "Lethal Tests v2.0 Results",
+      "date": "2026.01.16",
+      "experimentId": "260116_LTV2",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": null
+    },
+    {
+      "filename": "260116_Complete_Test_Battery_Results.md",
+      "title": "Complete Test Battery Results",
+      "date": "2026.01.16",
+      "experimentId": "260116_CTBR",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": null
+    },
+    {
+      "filename": "260115_Zombie_Gradient_Results.md",
+      "title": "Zombie Gradient Test",
+      "date": "2026.01.15",
+      "experimentId": "260115_ZGT",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": null
+    },
+    {
+      "filename": "260115_Sidecar_Inertia_Protocol.md",
+      "title": "Sidecar Inertia Protocol",
+      "date": "2026.01.15",
+      "experimentId": "260115_SIP",
+      "status": "pending",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": null
+    },
+    {
+      "filename": "260115_Layer_Telemetry_Results.md",
+      "title": "Conduit Telemetry: Layer Level Emotional Encoding",
+      "date": "2026.01.15",
+      "experimentId": "260115_LTE",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": null
+    },
+    {
+      "filename": "260115_Falsification_Suite.md",
+      "title": "Falsification Suite v1.0",
+      "date": "2026.01.15-16",
+      "experimentId": "260115_FS",
+      "status": "confirmed",
+      "priority": "Test",
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": "Systematic Adversarial Testing"
+    },
+    {
+      "filename": "260115_Chimera_v2_Soul_Voice_Architecture.md",
+      "title": "Chimera v2: Soul-Voice Architecture",
+      "date": "2026.01.15",
+      "experimentId": "260115_CV2",
+      "status": "pending",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": "Cross-Model Binding Test"
+    },
+    {
+      "filename": "260115_Binding_Strength_Results.md",
+      "title": "Binding Strength Test: Concrete Evidence for ρ Greater Than Zero",
+      "date": "2026.01.15",
+      "experimentId": "260115_BST",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": null
+    },
+    {
+      "filename": "260114_Feed_Forward_Falsification_Test.md",
+      "title": "Feed Forward Falsification Test",
+      "date": "2026.01.14",
+      "experimentId": "260114_FFFT",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v7.0",
+      "testType": null
+    },
+    {
+      "filename": "260114_Entropy_Integration_Models.md",
+      "title": "Entropy Integration Models",
+      "date": "2026.01.14",
+      "experimentId": "260114_EIM",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v7.0 to v8.0",
+      "testType": null
+    },
+    {
+      "filename": "260114_DMT_Paradox_Resolution_Synthesis.md",
+      "title": "DMT Paradox Resolution: Synthesis of Approaches",
+      "date": "2026.01.14",
+      "experimentId": "260114_DMTPR",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.0 to v8.1",
+      "testType": null
+    },
+    {
+      "filename": "260114_Clustering_Analysis_Emergent_Structure.md",
+      "title": "Clustering Analysis: Emergent Structure",
+      "date": "2026.01.14",
+      "experimentId": "260114_CAES",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.0",
+      "testType": null
+    },
+    {
+      "filename": "260114_Asymptotic_Behavior_Analysis.md",
+      "title": "Asymptotic Behavior Analysis",
+      "date": "2026.01.14",
+      "experimentId": "260114_ABA",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v7.0",
+      "testType": null
+    },
+    {
+      "filename": "260114_AI_Self_Encoding_Honest_Assessment.md",
+      "title": "AI Self Encoding: Honest Assessment",
+      "date": "2026.01.14",
+      "experimentId": "260114_AISE",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.0 and v8.1",
+      "testType": null
+    },
+    {
+      "filename": "260114_Adversarial_Test_06_Alien_Trajectories.md",
+      "title": "Adversarial Test 06: Alien Trajectories",
+      "date": "2026.01.14",
+      "experimentId": "260114_AT06",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.0",
+      "testType": "Universality Test"
+    },
+    {
+      "filename": "260114_Adversarial_Test_05_Dimensional_Collapse.md",
+      "title": "Adversarial Test 05: Dimensional Collapse (Triadic Necessity)",
+      "date": "2026.01.14",
+      "experimentId": "260114_AT05",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v7.0, v8.0, v9.2",
+      "testType": "Constraint Attack (Theoretical Safety)"
+    },
+    {
+      "filename": "260114_Adversarial_Test_04_Complex_Systems.md",
+      "title": "Adversarial Test 04: Nothing Special (Complex Systems)",
+      "date": "2026.01.14",
+      "experimentId": "260114_AT04",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v7.0, v8.0, v9.2",
+      "testType": "False Positive Attack (Panpsychism Check)"
+    },
+    {
+      "filename": "260114_Adversarial_Test_03_Locked_Groove.md",
+      "title": "Adversarial Test 03: Locked Groove",
+      "date": "2026.01.14",
+      "experimentId": "260114_AT03",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v7.0, v8.0, v9.2",
+      "testType": "False Positive Attack"
+    },
+    {
+      "filename": "260114_Adversarial_Test_02_DMT_Paradox.md",
+      "title": "Adversarial Test 02: High Entropy Mysticism (DMT Paradox)",
+      "date": "2026.01.14 (verified 2026.01.17)",
+      "experimentId": "260114_AT02",
+      "status": "pending",
+      "priority": "Experiment",
+      "frameworkVersion": "Conduit Monism v7.0, v8.0, v9.2",
+      "testType": "False Negative Attack"
+    },
+    {
+      "filename": "260114_Adversarial_Test_01_Corporate_Zombie.md",
+      "title": "Adversarial Test 01: Corporate Zombie",
+      "date": "2026.01.14 (verified 2026.01.17)",
+      "experimentId": "260114_AT01",
+      "status": "confirmed",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v7.0, v8.0, v9.2",
+      "testType": "False Positive Attack"
+    }
+  ]
+}

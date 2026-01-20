@@ -6,7 +6,7 @@ export default function Home() {
       {/* Hero */}
       <section className="py-24 px-6 border-b border-neutral-800">
         <div className="max-w-5xl mx-auto">
-          <p className="text-neutral-500 text-sm mb-4 font-mono">v9.3 / January 2026</p>
+          <p className="text-neutral-500 text-sm mb-4 font-mono">v9.3.1 / January 2026 — Extended Validation Complete</p>
           <h1 className="text-4xl md:text-5xl font-mono font-normal mb-8 leading-tight">
             Conduit Monism
           </h1>
@@ -127,6 +127,16 @@ export default function Home() {
                 <p className="text-neutral-500 text-sm">
                   High entropy with high coherence produces intensification, not dissolution.
                   DMT (H=0.70, κ=0.90) → D=0.48. Seizure (H=0.85, κ=0.15) → D=0.006. κ validated via Multi-Scale Entropy (r=0.987).
+                </p>
+              </div>
+              <div className="p-4 border border-green-900/50 bg-green-950/10">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-mono px-2 py-0.5 bg-green-900/50 text-green-400">STRONGLY CONFIRMED</span>
+                  <span className="text-sm text-neutral-300">φ Multi-Metric Anchoring (AT11)</span>
+                </div>
+                <p className="text-neutral-500 text-sm">
+                  φ (Integration) anchored to Global Efficiency + PCI + ISD. 4/4 independent AI reviews confirmed rank-order preservation.
+                  Discovery: Jhana meditation and psychedelics exhibit φ &gt; baseline wakefulness (hyper-integration).
                 </p>
               </div>
             </div>

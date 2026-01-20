@@ -3,44 +3,95 @@
 import { useState, useEffect } from 'react';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 
-interface Experiment {
-  id: string;
-  title: string;
-  content: string;
-  parent_file: string;
-  test_number: number | null;
-  status: 'confirmed' | 'falsified' | 'pending' | 'planned';
-  type: string;
-  date: string | null;
+interface ExperimentMeta {
   filename: string;
+  title: string;
+  date: string | null;
+  experimentId: string | null;
+  status: 'confirmed' | 'falsified' | 'planned' | 'pending';
+  priority: string | null;
+  frameworkVersion: string | null;
+  testType: string | null;
 }
 
 interface ExperimentsIndex {
-  confirmed: Experiment[];
-  falsified: Experiment[];
-  pending: Experiment[];
-  planned: Experiment[];
-  all: Experiment[];
+  generated: string;
+  total: number;
+  byStatus: {
+    confirmed: number;
+    falsified: number;
+    planned: number;
+    pending: number;
+  };
+  experiments: ExperimentMeta[];
 }
 
 export default function ValidationPage() {
-  const [experiments, setExperiments] = useState<ExperimentsIndex | null>(null);
-  const [selectedExperiment, setSelectedExperiment] = useState<Experiment | null>(null);
+  const [index, setIndex] = useState<ExperimentsIndex | null>(null);
   const [filter, setFilter] = useState<'all' | 'confirmed' | 'falsified' | 'planned'>('all');
   const [loading, setLoading] = useState(true);
+  const [selectedExperiment, setSelectedExperiment] = useState<ExperimentMeta | null>(null);
+  const [experimentContent, setExperimentContent] = useState<string | null>(null);
+  const [contentLoading, setContentLoading] = useState(false);
+  const [expandedExperiments, setExpandedExperiments] = useState<Set<string>>(new Set());
+  const [loadedContent, setLoadedContent] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    fetch('/data/experiments_index.json')
+    fetch('/data/experiments-index.json')
       .then(res => res.json())
-      .then(data => {
-        setExperiments(data);
+      .then((data: ExperimentsIndex) => {
+        setIndex(data);
         setLoading(false);
       })
       .catch(err => {
-        console.error('Failed to load experiments:', err);
+        console.error('Failed to load experiments index:', err);
         setLoading(false);
       });
   }, []);
+
+  const loadExperimentContent = async (filename: string): Promise<string> => {
+    if (loadedContent[filename]) {
+      return loadedContent[filename];
+    }
+
+    const response = await fetch(`/experiments/${filename}`);
+    const content = await response.text();
+    setLoadedContent(prev => ({ ...prev, [filename]: content }));
+    return content;
+  };
+
+  const handleToggleExpand = async (experiment: ExperimentMeta) => {
+    const isExpanded = expandedExperiments.has(experiment.filename);
+
+    if (isExpanded) {
+      setExpandedExperiments(prev => {
+        const next = new Set(prev);
+        next.delete(experiment.filename);
+        return next;
+      });
+    } else {
+      // Load content if not already loaded
+      if (!loadedContent[experiment.filename]) {
+        await loadExperimentContent(experiment.filename);
+      }
+      setExpandedExperiments(prev => new Set(prev).add(experiment.filename));
+    }
+  };
+
+  const handleViewFull = async (experiment: ExperimentMeta) => {
+    setSelectedExperiment(experiment);
+    setContentLoading(true);
+
+    try {
+      const content = await loadExperimentContent(experiment.filename);
+      setExperimentContent(content);
+    } catch (err) {
+      console.error('Failed to load experiment content:', err);
+      setExperimentContent('Failed to load experiment content.');
+    } finally {
+      setContentLoading(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -52,7 +103,7 @@ export default function ValidationPage() {
     );
   }
 
-  if (!experiments) {
+  if (!index) {
     return (
       <main className="min-h-screen py-12 px-6">
         <div className="max-w-5xl mx-auto">
@@ -63,8 +114,8 @@ export default function ValidationPage() {
   }
 
   const getFilteredExperiments = () => {
-    if (filter === 'all') return experiments.all;
-    return experiments[filter];
+    if (filter === 'all') return index.experiments;
+    return index.experiments.filter(e => e.status === filter);
   };
 
   const getStatusColor = (status: string) => {
@@ -93,8 +144,11 @@ export default function ValidationPage() {
         <div className="mb-12">
           <h1 className="text-2xl font-mono mb-4">Validation</h1>
           <p className="text-neutral-500">
-            Experiments conducted to test and falsify the framework. 
+            Experiments conducted to test and falsify the framework.
             Failures are documented alongside successes.
+          </p>
+          <p className="text-xs text-neutral-600 mt-2 font-mono">
+            Last generated: {new Date(index.generated).toLocaleString()}
           </p>
         </div>
 
@@ -102,19 +156,19 @@ export default function ValidationPage() {
         <section className="mb-12">
           <div className="grid grid-cols-4 gap-4 mb-6">
             <div className="p-4 border border-neutral-800 text-center">
-              <div className="text-2xl font-mono">{experiments.all.length}</div>
+              <div className="text-2xl font-mono">{index.total}</div>
               <div className="text-xs text-neutral-500">Total Experiments</div>
             </div>
             <div className="p-4 border border-green-900/50 text-center">
-              <div className="text-2xl font-mono text-green-500">{experiments.confirmed.length}</div>
+              <div className="text-2xl font-mono text-green-500">{index.byStatus.confirmed}</div>
               <div className="text-xs text-neutral-500">Confirmed</div>
             </div>
             <div className="p-4 border border-red-900/50 text-center">
-              <div className="text-2xl font-mono text-red-500">{experiments.falsified.length}</div>
+              <div className="text-2xl font-mono text-red-500">{index.byStatus.falsified}</div>
               <div className="text-xs text-neutral-500">Falsified</div>
             </div>
             <div className="p-4 border border-yellow-900/50 text-center">
-              <div className="text-2xl font-mono text-yellow-500">{experiments.planned.length}</div>
+              <div className="text-2xl font-mono text-yellow-500">{index.byStatus.planned}</div>
               <div className="text-xs text-neutral-500">Planned</div>
             </div>
           </div>
@@ -131,7 +185,7 @@ export default function ValidationPage() {
                   : 'text-neutral-500 hover:text-neutral-400'
               }`}
             >
-              All ({experiments.all.length})
+              All ({index.total})
             </button>
             <button
               onClick={() => setFilter('confirmed')}
@@ -141,7 +195,7 @@ export default function ValidationPage() {
                   : 'text-neutral-500 hover:text-neutral-400'
               }`}
             >
-              Confirmed ({experiments.confirmed.length})
+              Confirmed ({index.byStatus.confirmed})
             </button>
             <button
               onClick={() => setFilter('falsified')}
@@ -151,7 +205,7 @@ export default function ValidationPage() {
                   : 'text-neutral-500 hover:text-neutral-400'
               }`}
             >
-              Falsified ({experiments.falsified.length})
+              Falsified ({index.byStatus.falsified})
             </button>
             <button
               onClick={() => setFilter('planned')}
@@ -161,7 +215,7 @@ export default function ValidationPage() {
                   : 'text-neutral-500 hover:text-neutral-400'
               }`}
             >
-              Planned ({experiments.planned.length})
+              Planned ({index.byStatus.planned})
             </button>
           </div>
         </section>
@@ -170,46 +224,66 @@ export default function ValidationPage() {
         <section className="mb-12">
           <div className="space-y-4">
             {getFilteredExperiments().map((exp) => (
-              <details
-                key={exp.id}
-                className={`border ${getStatusColor(exp.status)} group`}
+              <div
+                key={exp.filename}
+                className={`border ${getStatusColor(exp.status)}`}
               >
-                <summary className="p-4 cursor-pointer hover:bg-neutral-900/50 transition-colors">
+                <div
+                  className="p-4 cursor-pointer hover:bg-neutral-900/50 transition-colors"
+                  onClick={() => handleToggleExpand(exp)}
+                >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <span className={`text-xs font-mono px-2 py-0.5 ${getStatusColor(exp.status)} mr-2`}>
                         {getStatusLabel(exp.status)}
                       </span>
                       <span className="text-neutral-300">{exp.title}</span>
-                      {exp.test_number && (
-                        <span className="text-xs text-neutral-600 ml-2">(Test {exp.test_number})</span>
+                      {exp.experimentId && (
+                        <span className="text-xs text-neutral-600 ml-2">({exp.experimentId})</span>
+                      )}
+                      {exp.priority && (
+                        <span className={`text-xs ml-2 ${
+                          exp.priority.toLowerCase().includes('critical') ? 'text-red-400' :
+                          exp.priority.toLowerCase().includes('high') ? 'text-orange-400' :
+                          'text-neutral-500'
+                        }`}>
+                          [{exp.priority}]
+                        </span>
                       )}
                     </div>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        setSelectedExperiment(exp);
+                        handleViewFull(exp);
                       }}
                       className="text-xs text-neutral-500 hover:text-neutral-300 ml-4"
                     >
                       View Full →
                     </button>
                   </div>
-                  <div className="mt-2 text-xs text-neutral-600 font-mono">
-                    {exp.filename}
-                  </div>
-                </summary>
-                <div className="p-4 border-t border-neutral-800/50">
-                  <div className="text-sm text-neutral-400 max-h-96 overflow-y-auto">
-                    <MarkdownRenderer content={exp.content.substring(0, 2000)} />
-                    {exp.content.length > 2000 && (
-                      <p className="text-neutral-600 text-xs mt-4">
-                        ... (truncated, click "View Full" to see complete content)
-                      </p>
-                    )}
+                  <div className="mt-2 flex items-center gap-4 text-xs text-neutral-600 font-mono">
+                    <span>{exp.filename}</span>
+                    {exp.date && <span>|</span>}
+                    {exp.date && <span>{exp.date}</span>}
+                    {exp.testType && <span>|</span>}
+                    {exp.testType && <span>{exp.testType}</span>}
                   </div>
                 </div>
-              </details>
+
+                {/* Expanded content preview */}
+                {expandedExperiments.has(exp.filename) && loadedContent[exp.filename] && (
+                  <div className="p-4 border-t border-neutral-800/50">
+                    <div className="text-sm text-neutral-400 max-h-96 overflow-y-auto">
+                      <MarkdownRenderer content={loadedContent[exp.filename].substring(0, 3000)} />
+                      {loadedContent[exp.filename].length > 3000 && (
+                        <p className="text-neutral-600 text-xs mt-4">
+                          ... (truncated, click &quot;View Full&quot; to see complete content)
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </section>
@@ -268,16 +342,15 @@ export default function ValidationPage() {
               All experiments follow adversarial testing principles. The goal is falsification, not confirmation.
             </p>
             <p className="mb-4">
-              <strong className="text-neutral-400">Falsification criteria:</strong> Each claim has explicit break conditions. 
+              <strong className="text-neutral-400">Falsification criteria:</strong> Each claim has explicit break conditions.
               If the break condition is met, the claim is rejected.
             </p>
             <p className="mb-4">
-              <strong className="text-neutral-400">Stealth eviction:</strong> For binding tests, content is embedded without 
-              framing cues ("memory", "state", "persistent"). If the effect requires framing, it is instruction compliance, 
-              not geometric binding.
+              <strong className="text-neutral-400">Extended validation:</strong> Experiments AT08-AT11 underwent extended
+              validation with 4 independent AI systems (Claude Opus, Grok, ChatGPT, Gemini) conducting deep research.
             </p>
             <p>
-              <strong className="text-neutral-400">Placebo controls:</strong> Fake summaries, shuffled tokens, and numeric-only 
+              <strong className="text-neutral-400">Placebo controls:</strong> Fake summaries, shuffled tokens, and numeric-only
               vectors test whether effects survive degraded channels.
             </p>
           </div>
@@ -288,7 +361,10 @@ export default function ValidationPage() {
       {selectedExperiment && (
         <div
           className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-6"
-          onClick={() => setSelectedExperiment(null)}
+          onClick={() => {
+            setSelectedExperiment(null);
+            setExperimentContent(null);
+          }}
         >
           <div
             className="bg-neutral-950 border border-neutral-800 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
@@ -300,14 +376,23 @@ export default function ValidationPage() {
                 <p className="text-xs text-neutral-600 font-mono mt-1">{selectedExperiment.filename}</p>
               </div>
               <button
-                onClick={() => setSelectedExperiment(null)}
+                onClick={() => {
+                  setSelectedExperiment(null);
+                  setExperimentContent(null);
+                }}
                 className="text-neutral-500 hover:text-neutral-300 text-xl"
               >
                 ×
               </button>
             </div>
             <div className="p-6">
-              <MarkdownRenderer content={selectedExperiment.content} />
+              {contentLoading ? (
+                <p className="text-neutral-500">Loading experiment content...</p>
+              ) : experimentContent ? (
+                <MarkdownRenderer content={experimentContent} />
+              ) : (
+                <p className="text-red-500">Failed to load content.</p>
+              )}
             </div>
           </div>
         </div>

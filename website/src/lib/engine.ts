@@ -18,8 +18,9 @@
  * requires assumptions about how neural properties map to the invariants.
  * 
  * Sources of estimation:
- * - φ (Integration): Based on brain connectivity studies, EEG coherence,
- *   and anatomical integration (e.g., corpus callosum presence/size)
+ * - φ (Integration): Multi-metric approach (E_glob + PCI + ISD), validated
+ *   by AT11 extended validation with 4/4 independent AI support.
+ *   MODERATE-HIGH confidence. Hyper-integrated states exceed baseline wakefulness.
  * - τ (Temporal Depth): Based on working memory studies, episodic memory
  *   evidence, and temporal binding window research
  * - ρ (Binding): Based on self-recognition tests (mirror test), metacognition
@@ -175,10 +176,16 @@ export const presets: Preset[] = [
     description: "Deep contemplative state. Minimal noise, maximum clarity and self-observation."
   },
   {
+    name: "Human (Jhana)",
+    category: "human",
+    invariants: { phi: 0.98, tau: 0.95, rho: 0.90, H: 0.15, kappa: 0.90 },
+    description: "Hyper-integrated absorptive meditation. φ exceeds baseline wakefulness. AT11: ordered hyper-integration."
+  },
+  {
     name: "Human (Panic Attack)",
     category: "human",
-    invariants: { phi: 0.9, tau: 0.9, rho: 0.8, H: 0.9, kappa: 0.2 },
-    description: "High entropy, low coherence. Structure intact but overwhelmed by chaotic noise."
+    invariants: { phi: 0.9, tau: 0.9, rho: 0.8, H: 0.25, kappa: 0.15 },
+    description: "LOW entropy (rigidity), low coherence. Structure intact but rigid/frozen. AT10 correction: panic is rigid, not chaotic."
   },
   {
     name: "Human (Deep Sleep)",
