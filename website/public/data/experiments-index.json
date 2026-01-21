@@ -1,9 +1,9 @@
 {
-  "generated": "2026-01-20T21:32:57.810Z",
-  "total": 33,
+  "generated": "2026-01-21T06:28:19.087Z",
+  "total": 36,
   "byStatus": {
     "confirmed": 25,
-    "falsified": 0,
+    "falsified": 3,
     "planned": 4,
     "pending": 4
   },
@@ -149,6 +149,16 @@
       "testType": null
     },
     {
+      "filename": "260116_Falsified_Semantic_Selectivity_Test.md",
+      "title": "Falsified: Semantic Selectivity Test",
+      "date": "2026.01.16",
+      "experimentId": "260116_FSS",
+      "status": "falsified",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": "RAM Accusation Test"
+    },
+    {
       "filename": "260116_Complete_Test_Battery_Results.md",
       "title": "Complete Test Battery Results",
       "date": "2026.01.16",
@@ -187,6 +197,26 @@
       "priority": null,
       "frameworkVersion": "Conduit Monism v8.1",
       "testType": null
+    },
+    {
+      "filename": "260115_Falsified_Silent_Core_Test.md",
+      "title": "Falsified: Silent Core Test",
+      "date": "2026.01.15",
+      "experimentId": "260115_FSC",
+      "status": "falsified",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": "Cross-Model Binding Test"
+    },
+    {
+      "filename": "260115_Falsified_Sidecar_Inertia_Test.md",
+      "title": "Falsified: Sidecar Inertia Test",
+      "date": "2026.01.15",
+      "experimentId": "260115_FSI",
+      "status": "falsified",
+      "priority": null,
+      "frameworkVersion": "Conduit Monism v8.1",
+      "testType": "Cross-Model Binding Test"
     },
     {
       "filename": "260115_Falsification_Suite.md",
