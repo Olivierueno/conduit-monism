@@ -10,6 +10,7 @@ const links = [
   { href: '/engine', label: 'Engine' },
   { href: '/calibration', label: 'Calibration' },
   { href: '/validation', label: 'Validation' },
+  { href: '/implications', label: 'Implications' },
   { href: '/technical', label: 'Technical' },
   { href: '/about', label: 'About' },
 ];

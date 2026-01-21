@@ -31,6 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/validation`,
       lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/implications`,
+      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
