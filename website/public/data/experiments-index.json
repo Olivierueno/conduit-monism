@@ -1,10 +1,10 @@
 {
-  "generated": "2026-01-21T06:28:19.087Z",
+  "generated": "2026-01-21T10:52:23.517Z",
   "total": 36,
   "byStatus": {
-    "confirmed": 25,
+    "confirmed": 26,
     "falsified": 3,
-    "planned": 4,
+    "planned": 3,
     "pending": 4
   },
   "experiments": [
@@ -31,9 +31,9 @@
     {
       "filename": "260119_Adversarial_Test_13_Psychedelic_Trajectory.md",
       "title": "Adversarial Test 13: Psychedelic Trajectory (Dynamics Test)",
-      "date": "2026.01.19",
+      "date": "2026.01.19 (Simulation: 2026.01.21)",
       "experimentId": "AT13",
-      "status": "planned",
+      "status": "confirmed",
       "priority": "MEDIUM",
       "frameworkVersion": "Conduit Monism v9.3",
       "testType": "Dynamics Test"

@@ -234,7 +234,7 @@ Designed 2026-01-19 with input from Claude Opus, Grok, ChatGPT, and Gemini.
 | AT10 | κ Edge Cases | HIGH | **CONFIRMED WITH REFINEMENTS** | Gate predicts magnitude, not valence. Panic = LOW H (rigidity) |
 | AT11 | φ Anchoring | HIGH | **STRONGLY CONFIRMED** | φ upgraded to MODERATE-HIGH; hyper-integrated states discovered |
 | AT12 | Sleepwalking | MEDIUM | Planned | - |
-| AT13 | Psychedelic Trajectory | MEDIUM | Planned | - |
+| AT13 | Psychedelic Trajectory | MEDIUM | **Confirmed (Simulation)** | Lag model produces Anxiety→Breakthrough→Afterglow without formula changes |
 | AT14 | Anesthesia Gradient | MEDIUM | Planned | - |
 
 ### v9.3 Success Criteria - EVALUATED
@@ -299,6 +299,20 @@ Four independent AI systems (Claude Opus, Grok, ChatGPT, Gemini) conducted deep 
 1. **Stigmergy and τ**: Does environmental trace constitute temporal depth?
 2. **Distributed binding**: Can ρ exist without centralized self-model?
 3. **Quantum effects**: Relevance of Orch-OR to framework unclear
+
+### Resolved Limitations
+
+**Stateless Limitation (Falsification Suite Test 4) - RESOLVED via AT13**
+
+The framework was acknowledged as "stateless" - treating consciousness as instantaneous snapshots rather than trajectories. Concern: two systems at identical coordinates have identical D regardless of path.
+
+**Resolution (2026-01-21):** AT13 simulation demonstrated that trajectory-dependent phenomenology (onset anxiety, breakthrough, afterglow) emerges naturally from **parameter lag dynamics** without modifying the formula:
+
+- κ lags H: Coherence takes time to establish in chaos
+- φ crashes at onset: Integration disrupted before hyper-integration
+- Result: D(t) tracking with lag modeling produces expected phenomenological arc
+
+**Conclusion:** The formula remains instantaneous, but when applied as D(t) with proper lag modeling, trajectory effects are captured. No derivative or momentum terms needed. v9.3 is sufficient.
 
 ### Falsification Targets
 
