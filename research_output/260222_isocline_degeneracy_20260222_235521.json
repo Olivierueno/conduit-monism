@@ -1,0 +1,1955 @@
+{
+  "metadata": {
+    "experiment_id": "260222_IDA",
+    "date": "2026-02-22 23:54:54",
+    "framework": "Conduit Monism v9.2",
+    "formula": "D = phi * tau * rho * [(1 - sqrt(H)) + (H * kappa)]",
+    "purpose": "Identify and analyze isocline degeneracies where phenomenologically distinct states share identical D values"
+  },
+  "canonical_states": {
+    "Wakefulness": {
+      "params": {
+        "phi": 0.8,
+        "tau": 0.75,
+        "rho": 0.65,
+        "H": 0.5,
+        "kappa": 0.65
+      },
+      "D": 0.2409783553372465
+    },
+    "REM Sleep": {
+      "params": {
+        "phi": 0.6,
+        "tau": 0.5,
+        "rho": 0.45,
+        "H": 0.55,
+        "kappa": 0.55
+      },
+      "D": 0.07571882042420856
+    },
+    "NREM N3": {
+      "params": {
+        "phi": 0.4,
+        "tau": 0.15,
+        "rho": 0.23,
+        "H": 0.4,
+        "kappa": 0.3
+      },
+      "D": 0.006728113657935273
+    },
+    "Propofol": {
+      "params": {
+        "phi": 0.25,
+        "tau": 0.1,
+        "rho": 0.24,
+        "H": 0.35,
+        "kappa": 0.2
+      },
+      "D": 0.0028703521301402307
+    },
+    "Ketamine": {
+      "params": {
+        "phi": 0.5,
+        "tau": 0.5,
+        "rho": 0.44,
+        "H": 0.55,
+        "kappa": 0.8
+      },
+      "D": 0.07682181664194772
+    },
+    "Psilocybin": {
+      "params": {
+        "phi": 0.7,
+        "tau": 0.65,
+        "rho": 0.55,
+        "H": 0.6,
+        "kappa": 0.85
+      },
+      "D": 0.18403468352231875
+    },
+    "DMT": {
+      "params": {
+        "phi": 0.85,
+        "tau": 0.9,
+        "rho": 0.7,
+        "H": 0.7,
+        "kappa": 0.9
+      },
+      "D": 0.4248335557910025
+    },
+    "Flow": {
+      "params": {
+        "phi": 0.9,
+        "tau": 0.7,
+        "rho": 0.65,
+        "H": 0.55,
+        "kappa": 0.75
+      },
+      "D": 0.2747254219534326
+    },
+    "Meditation": {
+      "params": {
+        "phi": 0.85,
+        "tau": 0.8,
+        "rho": 0.7,
+        "H": 0.4,
+        "kappa": 0.8
+      },
+      "D": 0.3272711667519703
+    },
+    "Panic Attack": {
+      "params": {
+        "phi": 0.88,
+        "tau": 0.5,
+        "rho": 0.7,
+        "H": 0.675,
+        "kappa": 0.2
+      },
+      "D": 0.09653217843261325
+    },
+    "Light Anesthesia": {
+      "params": {
+        "phi": 0.4,
+        "tau": 0.25,
+        "rho": 0.35,
+        "H": 0.4,
+        "kappa": 0.3
+      },
+      "D": 0.017064056378821343
+    },
+    "Drowsiness": {
+      "params": {
+        "phi": 0.65,
+        "tau": 0.4,
+        "rho": 0.5,
+        "H": 0.45,
+        "kappa": 0.45
+      },
+      "D": 0.0691183488775082
+    },
+    "Epileptic Seizure": {
+      "params": {
+        "phi": 0.8,
+        "tau": 0.1,
+        "rho": 0.15,
+        "H": 0.7,
+        "kappa": 0.1
+      },
+      "D": 0.002800079681591094
+    },
+    "Locked-in": {
+      "params": {
+        "phi": 0.8,
+        "tau": 0.75,
+        "rho": 0.57,
+        "H": 0.5,
+        "kappa": 0.5
+      },
+      "D": 0.18566948083420073
+    },
+    "Vegetative (UWS)": {
+      "params": {
+        "phi": 0.2,
+        "tau": 0.25,
+        "rho": 0.29,
+        "H": 0.375,
+        "kappa": 0.3
+      },
+      "D": 0.0072518496824109805
+    },
+    "MCS": {
+      "params": {
+        "phi": 0.4,
+        "tau": 0.25,
+        "rho": 0.41,
+        "H": 0.425,
+        "kappa": 0.5
+      },
+      "D": 0.022983770138669143
+    }
+  },
+  "isocline_analysis": {
+    "D=0.077 (REM/Ketamine)": {
+      "target_D": 0.077,
+      "count": 125744,
+      "volume_fraction": 0.030788660711378098,
+      "n_distinct_profiles": 170,
+      "top_profiles": {
+        "mid-entropy|coherent|mid-integration|mid-temporal|mid-binding": 2200,
+        "mid-entropy|incoherent|mid-integration|mid-temporal|bound": 2192,
+        "mid-entropy|incoherent|mid-integration|deep-temporal|mid-binding": 2192,
+        "mid-entropy|incoherent|integrated|mid-temporal|mid-binding": 2192,
+        "mid-entropy|mid-coherence|mid-integration|mid-temporal|mid-binding": 2120,
+        "low-entropy|mid-coherence|mid-integration|mid-temporal|mid-binding": 2077,
+        "low-entropy|coherent|mid-integration|mid-temporal|mid-binding": 1996,
+        "low-entropy|incoherent|mid-integration|mid-temporal|mid-binding": 1976,
+        "high-entropy|coherent|mid-integration|mid-temporal|mid-binding": 1938,
+        "high-entropy|mid-coherence|mid-integration|mid-temporal|mid-binding": 1875
+      },
+      "max_degeneracy": {
+        "distance_5d": 1.7197383521919838,
+        "max_possible": 2.23606797749979,
+        "degeneracy_ratio": 0.76909037180295,
+        "point_a": {
+          "phi": 0.75,
+          "tau": 0.2,
+          "rho": 0.5,
+          "H": 0.0,
+          "kappa": 0.05
+        },
+        "point_b": {
+          "phi": 0.1,
+          "tau": 1.0,
+          "rho": 0.8,
+          "H": 0.9500000000000001,
+          "kappa": 1.0
+        },
+        "profile_a": "low-entropy|incoherent|integrated|shallow-temporal|mid-binding",
+        "profile_b": "high-entropy|coherent|fragmented|deep-temporal|bound"
+      }
+    },
+    "D=0.241 (Wakefulness)": {
+      "target_D": 0.241,
+      "count": 25681,
+      "volume_fraction": 0.006288042337836405,
+      "n_distinct_profiles": 73,
+      "top_profiles": {
+        "low-entropy|mid-coherence|mid-integration|deep-temporal|bound": 911,
+        "low-entropy|mid-coherence|integrated|mid-temporal|bound": 911,
+        "low-entropy|mid-coherence|integrated|deep-temporal|mid-binding": 911,
+        "mid-entropy|incoherent|integrated|deep-temporal|bound": 903,
+        "mid-entropy|coherent|mid-integration|deep-temporal|bound": 894,
+        "mid-entropy|coherent|integrated|mid-temporal|bound": 894,
+        "mid-entropy|coherent|integrated|deep-temporal|mid-binding": 894,
+        "low-entropy|coherent|mid-integration|deep-temporal|bound": 854,
+        "low-entropy|coherent|integrated|mid-temporal|bound": 854,
+        "low-entropy|coherent|integrated|deep-temporal|mid-binding": 854
+      },
+      "max_degeneracy": {
+        "distance_5d": 1.5945218719101975,
+        "max_possible": 2.23606797749979,
+        "degeneracy_ratio": 0.7130918594402827,
+        "point_a": {
+          "phi": 0.4,
+          "tau": 0.6000000000000001,
+          "rho": 1.0,
+          "H": 0.0,
+          "kappa": 0.0
+        },
+        "point_b": {
+          "phi": 1.0,
+          "tau": 1.0,
+          "rho": 0.30000000000000004,
+          "H": 0.9,
+          "kappa": 0.8500000000000001
+        },
+        "profile_a": "low-entropy|incoherent|mid-integration|mid-temporal|bound",
+        "profile_b": "high-entropy|coherent|integrated|deep-temporal|unbound"
+      }
+    },
+    "D=0.327 (Meditation)": {
+      "target_D": 0.327,
+      "count": 12664,
+      "volume_fraction": 0.0031008048037989267,
+      "n_distinct_profiles": 48,
+      "top_profiles": {
+        "mid-entropy|mid-coherence|integrated|deep-temporal|bound": 794,
+        "high-entropy|mid-coherence|integrated|deep-temporal|bound": 739,
+        "low-entropy|incoherent|integrated|deep-temporal|bound": 641,
+        "high-entropy|coherent|mid-integration|deep-temporal|bound": 626,
+        "high-entropy|coherent|integrated|mid-temporal|bound": 626,
+        "high-entropy|coherent|integrated|deep-temporal|mid-binding": 626,
+        "low-entropy|coherent|mid-integration|deep-temporal|bound": 548,
+        "low-entropy|coherent|integrated|mid-temporal|bound": 548,
+        "low-entropy|coherent|integrated|deep-temporal|mid-binding": 548,
+        "mid-entropy|coherent|mid-integration|deep-temporal|bound": 529
+      },
+      "max_degeneracy": {
+        "distance_5d": 1.603901493234544,
+        "max_possible": 2.23606797749979,
+        "degeneracy_ratio": 0.7172865536171718,
+        "point_a": {
+          "phi": 1.0,
+          "tau": 0.6000000000000001,
+          "rho": 0.55,
+          "H": 1.0,
+          "kappa": 1.0
+        },
+        "point_b": {
+          "phi": 0.4,
+          "tau": 0.9500000000000001,
+          "rho": 0.8500000000000001,
+          "H": 0.0,
+          "kappa": 0.0
+        },
+        "profile_a": "high-entropy|coherent|integrated|mid-temporal|mid-binding",
+        "profile_b": "low-entropy|incoherent|mid-integration|deep-temporal|bound"
+      }
+    },
+    "D=0.184 (Psilocybin)": {
+      "target_D": 0.184,
+      "count": 40782,
+      "volume_fraction": 0.009985551287786467,
+      "n_distinct_profiles": 106,
+      "top_profiles": {
+        "mid-entropy|mid-coherence|mid-integration|deep-temporal|bound": 1144,
+        "mid-entropy|mid-coherence|integrated|mid-temporal|bound": 1144,
+        "mid-entropy|mid-coherence|integrated|deep-temporal|mid-binding": 1144,
+        "high-entropy|mid-coherence|mid-integration|deep-temporal|bound": 1072,
+        "high-entropy|mid-coherence|integrated|mid-temporal|bound": 1072,
+        "high-entropy|mid-coherence|integrated|deep-temporal|mid-binding": 1072,
+        "high-entropy|coherent|mid-integration|mid-temporal|bound": 990,
+        "high-entropy|coherent|mid-integration|deep-temporal|mid-binding": 990,
+        "high-entropy|coherent|integrated|mid-temporal|mid-binding": 990,
+        "low-entropy|coherent|mid-integration|mid-temporal|bound": 953
+      },
+      "max_degeneracy": {
+        "distance_5d": 1.6948451256678292,
+        "max_possible": 2.23606797749979,
+        "degeneracy_ratio": 0.757957782465488,
+        "point_a": {
+          "phi": 0.9500000000000001,
+          "tau": 0.9500000000000001,
+          "rho": 0.2,
+          "H": 0.0,
+          "kappa": 0.05
+        },
+        "point_b": {
+          "phi": 0.5,
+          "tau": 0.4,
+          "rho": 0.9500000000000001,
+          "H": 0.9500000000000001,
+          "kappa": 1.0
+        },
+        "profile_a": "low-entropy|incoherent|integrated|deep-temporal|unbound",
+        "profile_b": "high-entropy|coherent|mid-integration|mid-temporal|bound"
+      }
+    },
+    "D=0.425 (DMT)": {
+      "target_D": 0.425,
+      "count": 6178,
+      "volume_fraction": 0.0015126952051381687,
+      "n_distinct_profiles": 38,
+      "top_profiles": {
+        "mid-entropy|coherent|integrated|deep-temporal|bound": 654,
+        "low-entropy|mid-coherence|integrated|deep-temporal|bound": 641,
+        "high-entropy|coherent|integrated|deep-temporal|bound": 602,
+        "low-entropy|coherent|integrated|deep-temporal|bound": 590,
+        "low-entropy|incoherent|integrated|deep-temporal|bound": 529,
+        "mid-entropy|mid-coherence|integrated|deep-temporal|bound": 435,
+        "high-entropy|mid-coherence|integrated|deep-temporal|bound": 308,
+        "high-entropy|coherent|mid-integration|deep-temporal|bound": 215,
+        "high-entropy|coherent|integrated|mid-temporal|bound": 215,
+        "high-entropy|coherent|integrated|deep-temporal|mid-binding": 215
+      },
+      "max_degeneracy": {
+        "distance_5d": 1.5508062419270823,
+        "max_possible": 2.23606797749979,
+        "degeneracy_ratio": 0.693541635375988,
+        "point_a": {
+          "phi": 0.45,
+          "tau": 1.0,
+          "rho": 0.9500000000000001,
+          "H": 1.0,
+          "kappa": 1.0
+        },
+        "point_b": {
+          "phi": 0.9500000000000001,
+          "tau": 0.5,
+          "rho": 0.9,
+          "H": 0.0,
+          "kappa": 0.05
+        },
+        "profile_a": "high-entropy|coherent|mid-integration|deep-temporal|bound",
+        "profile_b": "low-entropy|incoherent|integrated|mid-temporal|bound"
+      }
+    },
+    "D=0.275 (Flow)": {
+      "target_D": 0.275,
+      "count": 19113,
+      "volume_fraction": 0.004679854881159893,
+      "n_distinct_profiles": 67,
+      "top_profiles": {
+        "high-entropy|mid-coherence|integrated|deep-temporal|bound": 858,
+        "mid-entropy|coherent|mid-integration|deep-temporal|bound": 827,
+        "mid-entropy|coherent|integrated|mid-temporal|bound": 827,
+        "mid-entropy|coherent|integrated|deep-temporal|mid-binding": 827,
+        "mid-entropy|mid-coherence|integrated|deep-temporal|bound": 802,
+        "high-entropy|coherent|integrated|deep-temporal|mid-binding": 763,
+        "high-entropy|coherent|mid-integration|deep-temporal|bound": 762,
+        "high-entropy|coherent|integrated|mid-temporal|bound": 762,
+        "low-entropy|coherent|integrated|deep-temporal|mid-binding": 735,
+        "low-entropy|coherent|mid-integration|deep-temporal|bound": 728
+      },
+      "max_degeneracy": {
+        "distance_5d": 1.6889345754054537,
+        "max_possible": 2.23606797749979,
+        "degeneracy_ratio": 0.7553145040312678,
+        "point_a": {
+          "phi": 0.45,
+          "tau": 0.6000000000000001,
+          "rho": 1.0,
+          "H": 1.0,
+          "kappa": 1.0
+        },
+        "point_b": {
+          "phi": 0.9,
+          "tau": 1.0,
+          "rho": 0.30000000000000004,
+          "H": 0.0,
+          "kappa": 0.0
+        },
+        "profile_a": "high-entropy|coherent|mid-integration|mid-temporal|bound",
+        "profile_b": "low-entropy|incoherent|integrated|deep-temporal|unbound"
+      }
+    },
+    "D=0.007 (Low (NREM))": {
+      "target_D": 0.007,
+      "count": 599887,
+      "volume_fraction": 0.14688348794508266,
+      "n_distinct_profiles": 168,
+      "top_profiles": {
+        "high-entropy|incoherent|fragmented|mid-temporal|mid-binding": 8691,
+        "high-entropy|incoherent|mid-integration|shallow-temporal|mid-binding": 8691,
+        "high-entropy|incoherent|mid-integration|mid-temporal|unbound": 8691,
+        "mid-entropy|incoherent|fragmented|shallow-temporal|mid-binding": 8211,
+        "mid-entropy|incoherent|fragmented|mid-temporal|unbound": 8211,
+        "mid-entropy|incoherent|mid-integration|shallow-temporal|unbound": 8211,
+        "high-entropy|mid-coherence|fragmented|shallow-temporal|mid-binding": 7960,
+        "high-entropy|mid-coherence|fragmented|mid-temporal|unbound": 7960,
+        "high-entropy|mid-coherence|mid-integration|shallow-temporal|unbound": 7960,
+        "mid-entropy|mid-coherence|fragmented|shallow-temporal|mid-binding": 7803
+      },
+      "max_degeneracy": {
+        "distance_5d": 1.894069692487581,
+        "max_possible": 2.23606797749979,
+        "degeneracy_ratio": 0.8470537173048708,
+        "point_a": {
+          "phi": 0.9500000000000001,
+          "tau": 1.0,
+          "rho": 0.15000000000000002,
+          "H": 1.0,
+          "kappa": 0.05
+        },
+        "point_b": {
+          "phi": 0.05,
+          "tau": 0.15000000000000002,
+          "rho": 0.65,
+          "H": 0.05,
+          "kappa": 1.0
+        },
+        "profile_a": "high-entropy|incoherent|integrated|deep-temporal|unbound",
+        "profile_b": "low-entropy|coherent|fragmented|shallow-temporal|mid-binding"
+      }
+    }
+  },
+  "specific_pairs": [
+    {
+      "state_a": "Epileptic Seizure",
+      "state_b": "Propofol",
+      "D_a": 0.002800079681591094,
+      "D_b": 0.0028703521301402307,
+      "D_difference": 7.027244854913677e-05,
+      "distance_5d": 0.6656575696257048,
+      "params_a": {
+        "phi": 0.8,
+        "tau": 0.1,
+        "rho": 0.15,
+        "H": 0.7,
+        "kappa": 0.1
+      },
+      "params_b": {
+        "phi": 0.25,
+        "tau": 0.1,
+        "rho": 0.24,
+        "H": 0.35,
+        "kappa": 0.2
+      },
+      "profile_a": "high-entropy|incoherent|integrated|shallow-temporal|unbound",
+      "profile_b": "mid-entropy|incoherent|fragmented|shallow-temporal|unbound",
+      "degeneracy_severity": "CRITICAL"
+    },
+    {
+      "state_a": "NREM N3",
+      "state_b": "Vegetative (UWS)",
+      "D_a": 0.006728113657935273,
+      "D_b": 0.0072518496824109805,
+      "D_difference": 0.0005237360244757074,
+      "distance_5d": 0.23286262044390038,
+      "params_a": {
+        "phi": 0.4,
+        "tau": 0.15,
+        "rho": 0.23,
+        "H": 0.4,
+        "kappa": 0.3
+      },
+      "params_b": {
+        "phi": 0.2,
+        "tau": 0.25,
+        "rho": 0.29,
+        "H": 0.375,
+        "kappa": 0.3
+      },
+      "profile_a": "mid-entropy|incoherent|mid-integration|shallow-temporal|unbound",
+      "profile_b": "mid-entropy|incoherent|fragmented|shallow-temporal|unbound",
+      "degeneracy_severity": "CRITICAL"
+    },
+    {
+      "state_a": "REM Sleep",
+      "state_b": "Ketamine",
+      "D_a": 0.07571882042420856,
+      "D_b": 0.07682181664194772,
+      "D_difference": 0.001102996217739155,
+      "distance_5d": 0.2694438717061496,
+      "params_a": {
+        "phi": 0.6,
+        "tau": 0.5,
+        "rho": 0.45,
+        "H": 0.55,
+        "kappa": 0.55
+      },
+      "params_b": {
+        "phi": 0.5,
+        "tau": 0.5,
+        "rho": 0.44,
+        "H": 0.55,
+        "kappa": 0.8
+      },
+      "profile_a": "mid-entropy|mid-coherence|mid-integration|mid-temporal|mid-binding",
+      "profile_b": "mid-entropy|coherent|mid-integration|mid-temporal|mid-binding",
+      "degeneracy_severity": "CRITICAL"
+    },
+    {
+      "state_a": "Panic Attack",
+      "state_b": "Drowsiness",
+      "D_a": 0.09653217843261325,
+      "D_b": 0.0691183488775082,
+      "D_difference": 0.027413829555105046,
+      "distance_5d": 0.4647848964843844,
+      "params_a": {
+        "phi": 0.88,
+        "tau": 0.5,
+        "rho": 0.7,
+        "H": 0.675,
+        "kappa": 0.2
+      },
+      "params_b": {
+        "phi": 0.65,
+        "tau": 0.4,
+        "rho": 0.5,
+        "H": 0.45,
+        "kappa": 0.45
+      },
+      "profile_a": "high-entropy|incoherent|integrated|mid-temporal|bound",
+      "profile_b": "mid-entropy|mid-coherence|mid-integration|mid-temporal|mid-binding",
+      "degeneracy_severity": "HIGH"
+    },
+    {
+      "state_a": "Wakefulness",
+      "state_b": "Locked-in",
+      "D_a": 0.2409783553372465,
+      "D_b": 0.18566948083420073,
+      "D_difference": 0.05530887450304578,
+      "distance_5d": 0.17000000000000004,
+      "params_a": {
+        "phi": 0.8,
+        "tau": 0.75,
+        "rho": 0.65,
+        "H": 0.5,
+        "kappa": 0.65
+      },
+      "params_b": {
+        "phi": 0.8,
+        "tau": 0.75,
+        "rho": 0.57,
+        "H": 0.5,
+        "kappa": 0.5
+      },
+      "profile_a": "mid-entropy|mid-coherence|integrated|deep-temporal|mid-binding",
+      "profile_b": "mid-entropy|mid-coherence|integrated|deep-temporal|mid-binding",
+      "degeneracy_severity": "LOW"
+    },
+    {
+      "state_a": "Flow",
+      "state_b": "Psilocybin",
+      "D_a": 0.2747254219534326,
+      "D_b": 0.18403468352231875,
+      "D_difference": 0.09069073843111383,
+      "distance_5d": 0.25495097567963926,
+      "params_a": {
+        "phi": 0.9,
+        "tau": 0.7,
+        "rho": 0.65,
+        "H": 0.55,
+        "kappa": 0.75
+      },
+      "params_b": {
+        "phi": 0.7,
+        "tau": 0.65,
+        "rho": 0.55,
+        "H": 0.6,
+        "kappa": 0.85
+      },
+      "profile_a": "mid-entropy|coherent|integrated|deep-temporal|mid-binding",
+      "profile_b": "mid-entropy|coherent|integrated|mid-temporal|mid-binding",
+      "degeneracy_severity": "LOW"
+    },
+    {
+      "state_a": "DMT",
+      "state_b": "Meditation",
+      "D_a": 0.4248335557910025,
+      "D_b": 0.3272711667519703,
+      "D_difference": 0.0975623890390322,
+      "distance_5d": 0.3316624790355399,
+      "params_a": {
+        "phi": 0.85,
+        "tau": 0.9,
+        "rho": 0.7,
+        "H": 0.7,
+        "kappa": 0.9
+      },
+      "params_b": {
+        "phi": 0.85,
+        "tau": 0.8,
+        "rho": 0.7,
+        "H": 0.4,
+        "kappa": 0.8
+      },
+      "profile_a": "high-entropy|coherent|integrated|deep-temporal|bound",
+      "profile_b": "mid-entropy|coherent|integrated|deep-temporal|bound",
+      "degeneracy_severity": "LOW"
+    },
+    {
+      "state_a": "Meditation",
+      "state_b": "Light Anesthesia",
+      "D_a": 0.3272711667519703,
+      "D_b": 0.017064056378821343,
+      "D_difference": 0.31020711037314896,
+      "distance_5d": 0.9367496997597597,
+      "params_a": {
+        "phi": 0.85,
+        "tau": 0.8,
+        "rho": 0.7,
+        "H": 0.4,
+        "kappa": 0.8
+      },
+      "params_b": {
+        "phi": 0.4,
+        "tau": 0.25,
+        "rho": 0.35,
+        "H": 0.4,
+        "kappa": 0.3
+      },
+      "profile_a": "mid-entropy|coherent|integrated|deep-temporal|bound",
+      "profile_b": "mid-entropy|incoherent|mid-integration|shallow-temporal|mid-binding",
+      "degeneracy_severity": "LOW"
+    }
+  ],
+  "isocline_volumes": [
+    {
+      "D_center": 0.01,
+      "D_range": [
+        0.0,
+        0.02
+      ],
+      "count": 1630311,
+      "fraction": 0.39918478999417495
+    },
+    {
+      "D_center": 0.03,
+      "D_range": [
+        0.02,
+        0.04
+      ],
+      "count": 567484,
+      "fraction": 0.13894955095380843
+    },
+    {
+      "D_center": 0.05,
+      "D_range": [
+        0.04,
+        0.06
+      ],
+      "count": 374271,
+      "fraction": 0.09164097557822394
+    },
+    {
+      "D_center": 0.07,
+      "D_range": [
+        0.06,
+        0.08
+      ],
+      "count": 276417,
+      "fraction": 0.06768123511147252
+    },
+    {
+      "D_center": 0.09,
+      "D_range": [
+        0.08,
+        0.1
+      ],
+      "count": 213306,
+      "fraction": 0.05222838514522535
+    },
+    {
+      "D_center": 0.11,
+      "D_range": [
+        0.1,
+        0.12
+      ],
+      "count": 167988,
+      "fraction": 0.04113218551646984
+    },
+    {
+      "D_center": 0.13,
+      "D_range": [
+        0.12,
+        0.14
+      ],
+      "count": 137291,
+      "fraction": 0.033615965912694126
+    },
+    {
+      "D_center": 0.15000000000000002,
+      "D_range": [
+        0.14,
+        0.16
+      ],
+      "count": 113028,
+      "fraction": 0.02767512360737406
+    },
+    {
+      "D_center": 0.16999999999999998,
+      "D_range": [
+        0.16,
+        0.18
+      ],
+      "count": 93030,
+      "fraction": 0.022778574770800232
+    },
+    {
+      "D_center": 0.19,
+      "D_range": [
+        0.18,
+        0.2
+      ],
+      "count": 79249,
+      "fraction": 0.01940427036451841
+    },
+    {
+      "D_center": 0.21000000000000002,
+      "D_range": [
+        0.2,
+        0.22
+      ],
+      "count": 65318,
+      "fraction": 0.015993238169183376
+    },
+    {
+      "D_center": 0.22999999999999998,
+      "D_range": [
+        0.22,
+        0.24
+      ],
+      "count": 56020,
+      "fraction": 0.013716604951738461
+    },
+    {
+      "D_center": 0.25,
+      "D_range": [
+        0.24,
+        0.26
+      ],
+      "count": 47453,
+      "fraction": 0.011618958492946183
+    },
+    {
+      "D_center": 0.27,
+      "D_range": [
+        0.26,
+        0.28
+      ],
+      "count": 40191,
+      "fraction": 0.009840843798916823
+    },
+    {
+      "D_center": 0.29000000000000004,
+      "D_range": [
+        0.28,
+        0.3
+      ],
+      "count": 34610,
+      "fraction": 0.008474325194210427
+    },
+    {
+      "D_center": 0.31,
+      "D_range": [
+        0.3,
+        0.32
+      ],
+      "count": 29202,
+      "fraction": 0.0071501659728787316
+    },
+    {
+      "D_center": 0.33,
+      "D_range": [
+        0.32,
+        0.34
+      ],
+      "count": 25128,
+      "fraction": 0.006152639222193575
+    },
+    {
+      "D_center": 0.35,
+      "D_range": [
+        0.34,
+        0.36
+      ],
+      "count": 20974,
+      "fraction": 0.005135524317346706
+    },
+    {
+      "D_center": 0.37,
+      "D_range": [
+        0.36,
+        0.38
+      ],
+      "count": 18265,
+      "fraction": 0.004472220447045751
+    },
+    {
+      "D_center": 0.39,
+      "D_range": [
+        0.38,
+        0.4
+      ],
+      "count": 15727,
+      "fraction": 0.0038507862562654547
+    },
+    {
+      "D_center": 0.41000000000000003,
+      "D_range": [
+        0.4,
+        0.42
+      ],
+      "count": 12901,
+      "fraction": 0.003158834710502997
+    },
+    {
+      "D_center": 0.43,
+      "D_range": [
+        0.42,
+        0.44
+      ],
+      "count": 11117,
+      "fraction": 0.002722018872696831
+    },
+    {
+      "D_center": 0.45,
+      "D_range": [
+        0.44,
+        0.46
+      ],
+      "count": 9808,
+      "fraction": 0.0024015077002258267
+    },
+    {
+      "D_center": 0.47,
+      "D_range": [
+        0.46,
+        0.48
+      ],
+      "count": 7862,
+      "fraction": 0.0019250258502421954
+    },
+    {
+      "D_center": 0.49,
+      "D_range": [
+        0.48,
+        0.5
+      ],
+      "count": 6830,
+      "fraction": 0.0016723386615561172
+    },
+    {
+      "D_center": 0.51,
+      "D_range": [
+        0.5,
+        0.52
+      ],
+      "count": 5296,
+      "fraction": 0.0012967358055052996
+    },
+    {
+      "D_center": 0.53,
+      "D_range": [
+        0.52,
+        0.54
+      ],
+      "count": 4748,
+      "fraction": 0.0011625569494975762
+    },
+    {
+      "D_center": 0.55,
+      "D_range": [
+        0.54,
+        0.56
+      ],
+      "count": 3895,
+      "fraction": 0.0009536982557483275
+    },
+    {
+      "D_center": 0.5700000000000001,
+      "D_range": [
+        0.56,
+        0.58
+      ],
+      "count": 3386,
+      "fraction": 0.0008290686248944382
+    },
+    {
+      "D_center": 0.59,
+      "D_range": [
+        0.58,
+        0.6
+      ],
+      "count": 2477,
+      "fraction": 0.0006064982232319916
+    },
+    {
+      "D_center": 0.61,
+      "D_range": [
+        0.6,
+        0.62
+      ],
+      "count": 2324,
+      "fraction": 0.0005690358783977183
+    },
+    {
+      "D_center": 0.63,
+      "D_range": [
+        0.62,
+        0.64
+      ],
+      "count": 1565,
+      "fraction": 0.00038319326578848073
+    },
+    {
+      "D_center": 0.65,
+      "D_range": [
+        0.64,
+        0.66
+      ],
+      "count": 1474,
+      "fraction": 0.00036091174042953393
+    },
+    {
+      "D_center": 0.67,
+      "D_range": [
+        0.66,
+        0.68
+      ],
+      "count": 1067,
+      "fraction": 0.0002612570061318268
+    },
+    {
+      "D_center": 0.6900000000000001,
+      "D_range": [
+        0.68,
+        0.7000000000000001
+      ],
+      "count": 930,
+      "fraction": 0.0002277122921298959
+    },
+    {
+      "D_center": 0.71,
+      "D_range": [
+        0.7000000000000001,
+        0.72
+      ],
+      "count": 596,
+      "fraction": 0.0001459317485047505
+    },
+    {
+      "D_center": 0.73,
+      "D_range": [
+        0.72,
+        0.74
+      ],
+      "count": 717,
+      "fraction": 0.0001755588316743391
+    },
+    {
+      "D_center": 0.75,
+      "D_range": [
+        0.74,
+        0.76
+      ],
+      "count": 267,
+      "fraction": 6.537546451471204e-05
+    },
+    {
+      "D_center": 0.77,
+      "D_range": [
+        0.76,
+        0.78
+      ],
+      "count": 545,
+      "fraction": 0.00013344430022665943
+    },
+    {
+      "D_center": 0.79,
+      "D_range": [
+        0.78,
+        0.8
+      ],
+      "count": 92,
+      "fraction": 2.2526377285968198e-05
+    },
+    {
+      "D_center": 0.81,
+      "D_range": [
+        0.8,
+        0.8200000000000001
+      ],
+      "count": 397,
+      "fraction": 9.72062150274932e-05
+    },
+    {
+      "D_center": 0.8300000000000001,
+      "D_range": [
+        0.8200000000000001,
+        0.84
+      ],
+      "count": 41,
+      "fraction": 1.0038929007877131e-05
+    },
+    {
+      "D_center": 0.85,
+      "D_range": [
+        0.84,
+        0.86
+      ],
+      "count": 242,
+      "fraction": 5.925416633917721e-05
+    },
+    {
+      "D_center": 0.87,
+      "D_range": [
+        0.86,
+        0.88
+      ],
+      "count": 12,
+      "fraction": 2.9382231242567214e-06
+    },
+    {
+      "D_center": 0.89,
+      "D_range": [
+        0.88,
+        0.9
+      ],
+      "count": 12,
+      "fraction": 2.9382231242567214e-06
+    },
+    {
+      "D_center": 0.91,
+      "D_range": [
+        0.9,
+        0.92
+      ],
+      "count": 141,
+      "fraction": 3.452412171001648e-05
+    },
+    {
+      "D_center": 0.93,
+      "D_range": [
+        0.92,
+        0.9400000000000001
+      ],
+      "count": 5,
+      "fraction": 1.2242596351069672e-06
+    },
+    {
+      "D_center": 0.95,
+      "D_range": [
+        0.9400000000000001,
+        0.96
+      ],
+      "count": 68,
+      "fraction": 1.6649931037454753e-05
+    },
+    {
+      "D_center": 0.97,
+      "D_range": [
+        0.96,
+        0.98
+      ],
+      "count": 1,
+      "fraction": 2.4485192702139343e-07
+    },
+    {
+      "D_center": 0.99,
+      "D_range": [
+        0.98,
+        1.0
+      ],
+      "count": 22,
+      "fraction": 5.386742394470656e-06
+    }
+  ],
+  "sensitivity_analysis": {
+    "Wakefulness": {
+      "D": 0.2409783553372465,
+      "partials": {
+        "phi": 0.30122294417155027,
+        "tau": 0.3213044737829934,
+        "rho": 0.3707359312880576,
+        "H": -0.02227178254883555,
+        "kappa": 0.19500000000000073
+      },
+      "gradient_magnitude": 0.6082252789997054,
+      "normalized_sensitivity": {
+        "phi": 0.49524897200416457,
+        "tau": 0.5282655701377862,
+        "rho": 0.6095371963128109,
+        "H": 0.03661765355340704,
+        "kappa": 0.3206048921884669
+      },
+      "least_sensitive": "H",
+      "most_sensitive": "rho"
+    },
+    "REM Sleep": {
+      "D": 0.07571882042420856,
+      "partials": {
+        "phi": 0.1261980340403479,
+        "tau": 0.15143764084841332,
+        "rho": 0.16826404538713285,
+        "H": -0.016767019042913944,
+        "kappa": 0.07424999999999793
+      },
+      "gradient_magnitude": 0.2701227262912361,
+      "normalized_sensitivity": {
+        "phi": 0.4671877696965266,
+        "tau": 0.5606253236358165,
+        "rho": 0.622917026262044,
+        "H": 0.06207185627482664,
+        "kappa": 0.2748750577911182
+      },
+      "least_sensitive": "H",
+      "most_sensitive": "rho"
+    },
+    "NREM N3": {
+      "D": 0.006728113657935273,
+      "partials": {
+        "phi": 0.01682028414483859,
+        "tau": 0.04485409105290218,
+        "rho": 0.029252668077979667,
+        "H": -0.006769866450930754,
+        "kappa": 0.005519999999999744
+      },
+      "gradient_magnitude": 0.0568052068417943,
+      "normalized_sensitivity": {
+        "phi": 0.29610461927696224,
+        "tau": 0.7896123180718865,
+        "rho": 0.5149645552642735,
+        "H": 0.11917686471568026,
+        "kappa": 0.0971741906577905
+      },
+      "least_sensitive": "kappa",
+      "most_sensitive": "tau"
+    },
+    "Propofol": {
+      "D": 0.0028703521301402307,
+      "partials": {
+        "phi": 0.01148140852056073,
+        "tau": 0.028703521301402368,
+        "rho": 0.01195980054225095,
+        "H": -0.003870930702803239,
+        "kappa": 0.0021000000000001053
+      },
+      "gradient_magnitude": 0.033438687328189116,
+      "normalized_sensitivity": {
+        "phi": 0.3433570345592424,
+        "tau": 0.8583925863981221,
+        "rho": 0.35766357766588314,
+        "H": 0.11576204127905491,
+        "kappa": 0.06280150830651136
+      },
+      "least_sensitive": "kappa",
+      "most_sensitive": "tau"
+    },
+    "Ketamine": {
+      "D": 0.07682181664194772,
+      "partials": {
+        "phi": 0.15364363328389946,
+        "tau": 0.15364363328389946,
+        "rho": 0.1745950378226127,
+        "H": 0.01383798448355289,
+        "kappa": 0.06050000000001193
+      },
+      "gradient_magnitude": 0.2855659278418958,
+      "normalized_sensitivity": {
+        "phi": 0.538032091030708,
+        "tau": 0.538032091030708,
+        "rho": 0.6114001034439853,
+        "H": 0.048458107688583635,
+        "kappa": 0.21186000885059333
+      },
+      "least_sensitive": "H",
+      "most_sensitive": "rho"
+    },
+    "Psilocybin": {
+      "D": 0.18403468352231875,
+      "partials": {
+        "phi": 0.2629066907461758,
+        "tau": 0.2831302823420312,
+        "rho": 0.3346085154951328,
+        "H": 0.05117676351307221,
+        "kappa": 0.1501499999999878
+      },
+      "gradient_magnitude": 0.5351725208600582,
+      "normalized_sensitivity": {
+        "phi": 0.4912559604586332,
+        "tau": 0.5290448804939046,
+        "rho": 0.6252348587655332,
+        "H": 0.09562666526829089,
+        "kappa": 0.2805637325300011
+      },
+      "least_sensitive": "H",
+      "most_sensitive": "rho"
+    },
+    "DMT": {
+      "D": 0.4248335557910025,
+      "partials": {
+        "phi": 0.4998041832835476,
+        "tau": 0.47203728421224556,
+        "rho": 0.6069050797014586,
+        "H": 0.16192745821227983,
+        "kappa": 0.3748500000000099
+      },
+      "gradient_magnitude": 1.0038377455070802,
+      "normalized_sensitivity": {
+        "phi": 0.49789339514333136,
+        "tau": 0.470232650968708,
+        "rho": 0.6045848369597674,
+        "H": 0.16130839763400562,
+        "kappa": 0.37341692088959816
+      },
+      "least_sensitive": "H",
+      "most_sensitive": "rho"
+    },
+    "Flow": {
+      "D": 0.2747254219534326,
+      "partials": {
+        "phi": 0.3052504688371427,
+        "tau": 0.3924648885048898,
+        "rho": 0.4226544953129796,
+        "H": 0.03104004223650203,
+        "kappa": 0.22522499999999557
+      },
+      "gradient_magnitude": 0.6910377302939126,
+      "normalized_sensitivity": {
+        "phi": 0.4417276444620663,
+        "tau": 0.5679355428797881,
+        "rho": 0.6116228923321103,
+        "H": 0.04491801369991775,
+        "kappa": 0.3259228695142344
+      },
+      "least_sensitive": "H",
+      "most_sensitive": "rho"
+    },
+    "Meditation": {
+      "D": 0.3272711667519703,
+      "partials": {
+        "phi": 0.3850249020611596,
+        "tau": 0.4090889584399682,
+        "rho": 0.4675302382171065,
+        "H": 0.004488664446161694,
+        "kappa": 0.19040000000000723
+      },
+      "gradient_magnitude": 0.7552845707947177,
+      "normalized_sensitivity": {
+        "phi": 0.5097746160179503,
+        "tau": 0.5416355295190538,
+        "rho": 0.6190120337360615,
+        "H": 0.00594301091234881,
+        "kappa": 0.2520904138153736
+      },
+      "least_sensitive": "H",
+      "most_sensitive": "rho"
+    },
+    "Panic Attack": {
+      "D": 0.09653217843261325,
+      "partials": {
+        "phi": 0.10969565730978292,
+        "tau": 0.19306435686523155,
+        "rho": 0.137903112046589,
+        "H": -0.12584288221535733,
+        "kappa": 0.20789999999999004
+      },
+      "gradient_magnitude": 0.3569076805573243,
+      "normalized_sensitivity": {
+        "phi": 0.3073502288840889,
+        "tau": 0.5409364028360346,
+        "rho": 0.386383144882868,
+        "H": 0.352592250239191,
+        "kappa": 0.5825035753653344
+      },
+      "least_sensitive": "phi",
+      "most_sensitive": "kappa"
+    },
+    "Light Anesthesia": {
+      "D": 0.017064056378821343,
+      "partials": {
+        "phi": 0.04266014094705256,
+        "tau": 0.06825622551528444,
+        "rho": 0.04875444679663249,
+        "H": -0.017169951143664736,
+        "kappa": 0.014000000000000123
+      },
+      "gradient_magnitude": 0.09667783226747104,
+      "normalized_sensitivity": {
+        "phi": 0.44126083453162324,
+        "tau": 0.7060173352506007,
+        "rho": 0.5042980966075796,
+        "H": 0.17759967037905822,
+        "kappa": 0.14481085965257695
+      },
+      "least_sensitive": "kappa",
+      "most_sensitive": "tau"
+    },
+    "Drowsiness": {
+      "D": 0.0691183488775082,
+      "partials": {
+        "phi": 0.10633592135001618,
+        "tau": 0.17279587219377196,
+        "rho": 0.13823669775502034,
+        "H": -0.038396338837627664,
+        "kappa": 0.05850000000000993
+      },
+      "gradient_magnitude": 0.2552873969840876,
+      "normalized_sensitivity": {
+        "phi": 0.4165341595638748,
+        "tau": 0.6768680092912795,
+        "rho": 0.5414944074330345,
+        "H": 0.15040436500678864,
+        "kappa": 0.22915349794434356
+      },
+      "least_sensitive": "H",
+      "most_sensitive": "tau"
+    },
+    "Epileptic Seizure": {
+      "D": 0.002800079681591094,
+      "partials": {
+        "phi": 0.003500099601988797,
+        "tau": 0.028000796815911024,
+        "rho": 0.018667197877274017,
+        "H": -0.005971373485439205,
+        "kappa": 0.00839999999999977
+      },
+      "gradient_magnitude": 0.03536915177724342,
+      "normalized_sensitivity": {
+        "phi": 0.09895910492941955,
+        "tau": 0.7916728394353747,
+        "rho": 0.5277818929569165,
+        "H": 0.16882998843306157,
+        "kappa": 0.23749509326385224
+      },
+      "least_sensitive": "phi",
+      "most_sensitive": "tau"
+    },
+    "Locked-in": {
+      "D": 0.18566948083420073,
+      "partials": {
+        "phi": 0.2320868510427565,
+        "tau": 0.24755930777892177,
+        "rho": 0.3257359312880681,
+        "H": -0.0708306400812736,
+        "kappa": 0.17100000000001836
+      },
+      "gradient_magnitude": 0.5054817442809936,
+      "normalized_sensitivity": {
+        "phi": 0.4591399267502352,
+        "tau": 0.4897492552002143,
+        "rho": 0.6444069147371501,
+        "H": 0.14012502109650743,
+        "kappa": 0.33829114885890066
+      },
+      "least_sensitive": "H",
+      "most_sensitive": "rho"
+    },
+    "Vegetative (UWS)": {
+      "D": 0.0072518496824109805,
+      "partials": {
+        "phi": 0.036259248412055106,
+        "tau": 0.02900739872964365,
+        "rho": 0.025006378215210612,
+        "H": -0.0074892109472174395,
+        "kappa": 0.005437500000000234
+      },
+      "gradient_magnitude": 0.05354564328469438,
+      "normalized_sensitivity": {
+        "phi": 0.6771652404896877,
+        "tau": 0.5417321923917421,
+        "rho": 0.4670105106825469,
+        "H": 0.1398659253638694,
+        "kappa": 0.10154887804951448
+      },
+      "least_sensitive": "kappa",
+      "most_sensitive": "phi"
+    },
+    "MCS": {
+      "D": 0.022983770138669143,
+      "partials": {
+        "phi": 0.05745942534667384,
+        "tau": 0.09193508055467536,
+        "rho": 0.05605797594797346,
+        "H": -0.01094558630443214,
+        "kappa": 0.017425000000001467
+      },
+      "gradient_magnitude": 0.12377228183117586,
+      "normalized_sensitivity": {
+        "phi": 0.46423500073342683,
+        "tau": 0.7427760011734604,
+        "rho": 0.4529121958374814,
+        "H": 0.08843325938970575,
+        "kappa": 0.1407827321448997
+      },
+      "least_sensitive": "H",
+      "most_sensitive": "tau"
+    }
+  },
+  "information_loss": {
+    "overall_variance": {
+      "phi": 0.08325937890257558,
+      "tau": 0.08331012587192711,
+      "rho": 0.0831830089463851,
+      "H": 0.08329865024949175,
+      "kappa": 0.08340088492926748
+    },
+    "conditional_analysis": {
+      "D=0.05": {
+        "n_points": 25168,
+        "conditional_variance": {
+          "phi": 0.0636731410905525,
+          "tau": 0.0643826127566594,
+          "rho": 0.0646071372290961,
+          "H": 0.08028327380678729,
+          "kappa": 0.08001040854107143
+        },
+        "variance_retained_fraction": {
+          "phi": 0.7647563785583658,
+          "tau": 0.772806571624138,
+          "rho": 0.7766867061846497,
+          "H": 0.9638004165292839,
+          "kappa": 0.9593472372496824
+        },
+        "mean_retention": 0.847479462029224,
+        "interpretation": "Knowing D barely constrains parameters"
+      },
+      "D=0.10": {
+        "n_points": 12456,
+        "conditional_variance": {
+          "phi": 0.050941684113041966,
+          "tau": 0.05210804280225377,
+          "rho": 0.05157129546608727,
+          "H": 0.08049452427682637,
+          "kappa": 0.07764452840615949
+        },
+        "variance_retained_fraction": {
+          "phi": 0.61184319153582,
+          "tau": 0.6254707006728043,
+          "rho": 0.6199739119719402,
+          "H": 0.9663364776708072,
+          "kappa": 0.9309796709232765
+        },
+        "mean_retention": 0.7509207905549296,
+        "interpretation": "Knowing D barely constrains parameters"
+      },
+      "D=0.15": {
+        "n_points": 7231,
+        "conditional_variance": {
+          "phi": 0.04212850341376128,
+          "tau": 0.04223380721900152,
+          "rho": 0.04264738750214664,
+          "H": 0.08262559078882345,
+          "kappa": 0.0735363528281992
+        },
+        "variance_retained_fraction": {
+          "phi": 0.5059910843564803,
+          "tau": 0.506946866025958,
+          "rho": 0.512693494047981,
+          "H": 0.9919199235683606,
+          "kappa": 0.8817214936096373
+        },
+        "mean_retention": 0.6798545723216834,
+        "interpretation": "D provides moderate constraint"
+      },
+      "D=0.20": {
+        "n_points": 4329,
+        "conditional_variance": {
+          "phi": 0.03399333909489133,
+          "tau": 0.03391971908235622,
+          "rho": 0.03388348215891315,
+          "H": 0.08224666110961527,
+          "kappa": 0.07445403530328369
+        },
+        "variance_retained_fraction": {
+          "phi": 0.40828240064903687,
+          "tau": 0.40715001600767114,
+          "rho": 0.4073365773622407,
+          "H": 0.9873708741171002,
+          "kappa": 0.8927247638490691
+        },
+        "mean_retention": 0.6205729263970237,
+        "interpretation": "D provides moderate constraint"
+      },
+      "D=0.25": {
+        "n_points": 2872,
+        "conditional_variance": {
+          "phi": 0.028562953346481314,
+          "tau": 0.027197814581763867,
+          "rho": 0.02758108265825388,
+          "H": 0.08645434175548274,
+          "kappa": 0.06982132260891068
+        },
+        "variance_retained_fraction": {
+          "phi": 0.3430598897441179,
+          "tau": 0.3264646919820424,
+          "rho": 0.33157111058618993,
+          "H": 1.0378840653064512,
+          "kappa": 0.8371772394037106
+        },
+        "mean_retention": 0.5752313994045025,
+        "interpretation": "D provides moderate constraint"
+      },
+      "D=0.30": {
+        "n_points": 1842,
+        "conditional_variance": {
+          "phi": 0.021855971706033588,
+          "tau": 0.023183317039915954,
+          "rho": 0.022595392199486457,
+          "H": 0.08757895633308187,
+          "kappa": 0.06549199949198274
+        },
+        "variance_retained_fraction": {
+          "phi": 0.2625046210302379,
+          "tau": 0.27827730179589133,
+          "rho": 0.271634706242114,
+          "H": 1.0513850593109249,
+          "kappa": 0.7852674410772342
+        },
+        "mean_retention": 0.5298138258912805,
+        "interpretation": "D provides moderate constraint"
+      },
+      "D=0.40": {
+        "n_points": 736,
+        "conditional_variance": {
+          "phi": 0.012389409588741554,
+          "tau": 0.013920654654534384,
+          "rho": 0.013850156712187261,
+          "H": 0.09403257003203702,
+          "kappa": 0.06842505082609186
+        },
+        "variance_retained_fraction": {
+          "phi": 0.14880497250932886,
+          "tau": 0.16709438989366845,
+          "rho": 0.16650223269891887,
+          "H": 1.128860668815108,
+          "kappa": 0.8204355491446325
+        },
+        "mean_retention": 0.48633956261233136,
+        "interpretation": "D provides moderate constraint"
+      }
+    }
+  },
+  "H_kappa_tradeoff": {
+    "gate_range": [
+      0.0,
+      1.0
+    ],
+    "iso_gate_curves": {
+      "g=0.3": {
+        "n_points": 289,
+        "H_range": [
+          0.485,
+          1.0
+        ],
+        "kappa_range": [
+          0.0,
+          0.3
+        ],
+        "H_spread": 0.515,
+        "kappa_spread": 0.3
+      },
+      "g=0.4": {
+        "n_points": 416,
+        "H_range": [
+          0.355,
+          1.0
+        ],
+        "kappa_range": [
+          0.0,
+          0.4
+        ],
+        "H_spread": 0.645,
+        "kappa_spread": 0.4
+      },
+      "g=0.5": {
+        "n_points": 554,
+        "H_range": [
+          0.25,
+          1.0
+        ],
+        "kappa_range": [
+          0.0,
+          0.505
+        ],
+        "H_spread": 0.75,
+        "kappa_spread": 0.505
+      },
+      "g=0.6": {
+        "n_points": 732,
+        "H_range": [
+          0.16,
+          1.0
+        ],
+        "kappa_range": [
+          0.0,
+          0.63
+        ],
+        "H_spread": 0.84,
+        "kappa_spread": 0.63
+      },
+      "g=0.7": {
+        "n_points": 973,
+        "H_range": [
+          0.09,
+          1.0
+        ],
+        "kappa_range": [
+          0.0,
+          0.845
+        ],
+        "H_spread": 0.91,
+        "kappa_spread": 0.845
+      },
+      "g=0.8": {
+        "n_points": 528,
+        "H_range": [
+          0.04,
+          1.0
+        ],
+        "kappa_range": [
+          0.0,
+          1.0
+        ],
+        "H_spread": 0.96,
+        "kappa_spread": 1.0
+      }
+    },
+    "canonical_gates": {
+      "Wakefulness": {
+        "H": 0.5,
+        "kappa": 0.65,
+        "gate_value": 0.6178932188134525
+      },
+      "REM Sleep": {
+        "H": 0.55,
+        "kappa": 0.55,
+        "gate_value": 0.5608801512904338
+      },
+      "NREM N3": {
+        "H": 0.4,
+        "kappa": 0.3,
+        "gate_value": 0.4875444679663241
+      },
+      "Propofol": {
+        "H": 0.35,
+        "kappa": 0.2,
+        "gate_value": 0.4783920216900384
+      },
+      "Ketamine": {
+        "H": 0.55,
+        "kappa": 0.8,
+        "gate_value": 0.6983801512904337
+      },
+      "Psilocybin": {
+        "H": 0.6,
+        "kappa": 0.85,
+        "gate_value": 0.7354033307585166
+      },
+      "DMT": {
+        "H": 0.7,
+        "kappa": 0.9,
+        "gate_value": 0.7933399734659244
+      },
+      "Flow": {
+        "H": 0.55,
+        "kappa": 0.75,
+        "gate_value": 0.6708801512904337
+      },
+      "Meditation": {
+        "H": 0.4,
+        "kappa": 0.8,
+        "gate_value": 0.6875444679663242
+      }
+    }
+  },
+  "absurd_degeneracies": [
+    {
+      "canonical_state": "Propofol",
+      "canonical_params": {
+        "phi": 0.25,
+        "tau": 0.1,
+        "rho": 0.24,
+        "H": 0.35,
+        "kappa": 0.2
+      },
+      "canonical_D": 0.0028703521301402307,
+      "degenerate_params": {
+        "phi": 0.9869427447075201,
+        "tau": 0.908463046395501,
+        "rho": 0.0035128908622540367,
+        "H": 0.9943515186032746,
+        "kappa": 0.9774995497884805
+      },
+      "degenerate_D": 0.0030703101978455565,
+      "distance_5d": 1.5074208730809426,
+      "degeneracy_ratio": 0.674139108582214,
+      "canonical_profile": "mid-entropy|incoherent|fragmented|shallow-temporal|unbound",
+      "degenerate_profile": "high-entropy|coherent|integrated|deep-temporal|unbound",
+      "phenomenological_description": "orderly (Propofol) vs chaotic (degenerate); random noise (Propofol) vs meaningful structure (degenerate); fragmented (Propofol) vs unified (degenerate); momentary (Propofol) vs temporally deep (degenerate)"
+    },
+    {
+      "canonical_state": "NREM N3",
+      "canonical_params": {
+        "phi": 0.4,
+        "tau": 0.15,
+        "rho": 0.23,
+        "H": 0.4,
+        "kappa": 0.3
+      },
+      "canonical_D": 0.006728113657935273,
+      "degenerate_params": {
+        "phi": 0.012930729274139519,
+        "tau": 0.9252846094977657,
+        "rho": 0.9836037960802351,
+        "H": 0.9598727852356439,
+        "kappa": 0.9455750659533086
+      },
+      "degenerate_D": 0.010919936205187079,
+      "distance_5d": 1.431444106124661,
+      "degeneracy_ratio": 0.640161265457233,
+      "canonical_profile": "mid-entropy|incoherent|mid-integration|shallow-temporal|unbound",
+      "degenerate_profile": "high-entropy|coherent|fragmented|deep-temporal|bound",
+      "phenomenological_description": "orderly (NREM N3) vs chaotic (degenerate); random noise (NREM N3) vs meaningful structure (degenerate); unified (NREM N3) vs fragmented (degenerate); momentary (NREM N3) vs temporally deep (degenerate); loosely bound (NREM N3) vs tightly bound (degenerate)"
+    },
+    {
+      "canonical_state": "Psilocybin",
+      "canonical_params": {
+        "phi": 0.7,
+        "tau": 0.65,
+        "rho": 0.55,
+        "H": 0.6,
+        "kappa": 0.85
+      },
+      "canonical_D": 0.18403468352231875,
+      "degenerate_params": {
+        "phi": 0.20892626136682246,
+        "tau": 0.9754698621830956,
+        "rho": 0.9613001727901518,
+        "H": 0.004684796282369064,
+        "kappa": 0.019384279450764486
+      },
+      "degenerate_D": 0.1825225293963538,
+      "distance_5d": 1.249229581423186,
+      "degeneracy_ratio": 0.5586724527131705,
+      "canonical_profile": "mid-entropy|coherent|integrated|mid-temporal|mid-binding",
+      "degenerate_profile": "low-entropy|incoherent|fragmented|deep-temporal|bound",
+      "phenomenological_description": "chaotic (Psilocybin) vs orderly (degenerate); meaningful structure (Psilocybin) vs random noise (degenerate); unified (Psilocybin) vs fragmented (degenerate); momentary (Psilocybin) vs temporally deep (degenerate); loosely bound (Psilocybin) vs tightly bound (degenerate)"
+    },
+    {
+      "canonical_state": "Ketamine",
+      "canonical_params": {
+        "phi": 0.5,
+        "tau": 0.5,
+        "rho": 0.44,
+        "H": 0.55,
+        "kappa": 0.8
+      },
+      "canonical_D": 0.07682181664194772,
+      "degenerate_params": {
+        "phi": 0.9914732662913885,
+        "tau": 0.10578234264651665,
+        "rho": 0.968158567128143,
+        "H": 0.0620107040083866,
+        "kappa": 0.0065718593987915686
+      },
+      "degenerate_D": 0.07629656053228526,
+      "distance_5d": 1.2424036269182126,
+      "degeneracy_ratio": 0.5556197930562822,
+      "canonical_profile": "mid-entropy|coherent|mid-integration|mid-temporal|mid-binding",
+      "degenerate_profile": "low-entropy|incoherent|integrated|shallow-temporal|bound",
+      "phenomenological_description": "chaotic (Ketamine) vs orderly (degenerate); meaningful structure (Ketamine) vs random noise (degenerate); fragmented (Ketamine) vs unified (degenerate); temporally deep (Ketamine) vs momentary (degenerate); loosely bound (Ketamine) vs tightly bound (degenerate)"
+    },
+    {
+      "canonical_state": "DMT",
+      "canonical_params": {
+        "phi": 0.85,
+        "tau": 0.9,
+        "rho": 0.7,
+        "H": 0.7,
+        "kappa": 0.9
+      },
+      "canonical_D": 0.4248335557910025,
+      "degenerate_params": {
+        "phi": 0.6183927276163752,
+        "tau": 0.785098139431532,
+        "rho": 0.9383678400226972,
+        "H": 0.005949372632744421,
+        "kappa": 0.00775499177622041
+      },
+      "degenerate_D": 0.42045803127551806,
+      "distance_5d": 1.183837413410008,
+      "degeneracy_ratio": 0.5294281861384598,
+      "canonical_profile": "high-entropy|coherent|integrated|deep-temporal|bound",
+      "degenerate_profile": "low-entropy|incoherent|mid-integration|deep-temporal|bound",
+      "phenomenological_description": "chaotic (DMT) vs orderly (degenerate); meaningful structure (DMT) vs random noise (degenerate)"
+    },
+    {
+      "canonical_state": "REM Sleep",
+      "canonical_params": {
+        "phi": 0.6,
+        "tau": 0.5,
+        "rho": 0.45,
+        "H": 0.55,
+        "kappa": 0.55
+      },
+      "canonical_D": 0.07571882042420856,
+      "degenerate_params": {
+        "phi": 0.09303655867375316,
+        "tau": 0.9274786747413005,
+        "rho": 0.9997216940533032,
+        "H": 0.02361021905087668,
+        "kappa": 0.0899673198897798
+      },
+      "degenerate_D": 0.0731934372630633,
+      "distance_5d": 1.1093512326444774,
+      "degeneracy_ratio": 0.496116953423247,
+      "canonical_profile": "mid-entropy|mid-coherence|mid-integration|mid-temporal|mid-binding",
+      "degenerate_profile": "low-entropy|incoherent|fragmented|deep-temporal|bound",
+      "phenomenological_description": "chaotic (REM Sleep) vs orderly (degenerate); meaningful structure (REM Sleep) vs random noise (degenerate); unified (REM Sleep) vs fragmented (degenerate); momentary (REM Sleep) vs temporally deep (degenerate); loosely bound (REM Sleep) vs tightly bound (degenerate)"
+    },
+    {
+      "canonical_state": "Flow",
+      "canonical_params": {
+        "phi": 0.9,
+        "tau": 0.7,
+        "rho": 0.65,
+        "H": 0.55,
+        "kappa": 0.75
+      },
+      "canonical_D": 0.2747254219534326,
+      "degenerate_params": {
+        "phi": 0.38501854164609683,
+        "tau": 0.8581962643804706,
+        "rho": 0.936129604982148,
+        "H": 0.013098597014442603,
+        "kappa": 0.0055106495081514995
+      },
+      "degenerate_D": 0.2739385610921347,
+      "distance_5d": 1.1021023640674776,
+      "degeneracy_ratio": 0.4928751608436203,
+      "canonical_profile": "mid-entropy|coherent|integrated|deep-temporal|mid-binding",
+      "degenerate_profile": "low-entropy|incoherent|mid-integration|deep-temporal|bound",
+      "phenomenological_description": "chaotic (Flow) vs orderly (degenerate); meaningful structure (Flow) vs random noise (degenerate); unified (Flow) vs fragmented (degenerate)"
+    },
+    {
+      "canonical_state": "Meditation",
+      "canonical_params": {
+        "phi": 0.85,
+        "tau": 0.8,
+        "rho": 0.7,
+        "H": 0.4,
+        "kappa": 0.8
+      },
+      "canonical_D": 0.3272711667519703,
+      "degenerate_params": {
+        "phi": 0.3623584817314174,
+        "tau": 0.9869887789441868,
+        "rho": 0.9304103752685076,
+        "H": 0.0004907619590275303,
+        "kappa": 0.032696510293690584
+      },
+      "degenerate_D": 0.3253892192445243,
+      "distance_5d": 1.03644115675578,
+      "degeneracy_ratio": 0.4635105762368879,
+      "canonical_profile": "mid-entropy|coherent|integrated|deep-temporal|bound",
+      "degenerate_profile": "low-entropy|incoherent|mid-integration|deep-temporal|bound",
+      "phenomenological_description": "chaotic (Meditation) vs orderly (degenerate); meaningful structure (Meditation) vs random noise (degenerate); unified (Meditation) vs fragmented (degenerate)"
+    },
+    {
+      "canonical_state": "Wakefulness",
+      "canonical_params": {
+        "phi": 0.8,
+        "tau": 0.75,
+        "rho": 0.65,
+        "H": 0.5,
+        "kappa": 0.65
+      },
+      "canonical_D": 0.2409783553372465,
+      "degenerate_params": {
+        "phi": 0.9616388237551389,
+        "tau": 0.27418785188939687,
+        "rho": 0.9993712105070262,
+        "H": 0.008290308184056294,
+        "kappa": 0.043251988254623286
+      },
+      "degenerate_D": 0.23960604897894727,
+      "distance_5d": 0.9922228193044214,
+      "degeneracy_ratio": 0.44373553455823533,
+      "canonical_profile": "mid-entropy|mid-coherence|integrated|deep-temporal|mid-binding",
+      "degenerate_profile": "low-entropy|incoherent|integrated|shallow-temporal|bound",
+      "phenomenological_description": "chaotic (Wakefulness) vs orderly (degenerate); meaningful structure (Wakefulness) vs random noise (degenerate); temporally deep (Wakefulness) vs momentary (degenerate); loosely bound (Wakefulness) vs tightly bound (degenerate)"
+    }
+  ],
+  "D_zero_analysis": {
+    "D_median": 0.03660774234541385,
+    "D_mean": 0.07283556489246082,
+    "D_std": 0.0930396120350328,
+    "D_percentiles": {
+      "5th": 0.0009151519912598292,
+      "25th": 0.010126591791479789,
+      "50th": 0.03660774234541385,
+      "75th": 0.09911133829615035,
+      "95th": 0.27011260020440836
+    },
+    "near_zero_fractions": {
+      "D<0.001": {
+        "fraction": 0.053474,
+        "percentage": "5.35%"
+      },
+      "D<0.005": {
+        "fraction": 0.160996,
+        "percentage": "16.10%"
+      },
+      "D<0.01": {
+        "fraction": 0.248174,
+        "percentage": "24.82%"
+      },
+      "D<0.02": {
+        "fraction": 0.368171,
+        "percentage": "36.82%"
+      },
+      "D<0.05": {
+        "fraction": 0.575907,
+        "percentage": "57.59%"
+      },
+      "D<0.1": {
+        "fraction": 0.752262,
+        "percentage": "75.23%"
+      }
+    }
+  }
+}

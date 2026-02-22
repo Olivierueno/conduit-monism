@@ -1,0 +1,727 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{authblk}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black
+}
+
+% --- Custom commands ---
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\gate}{g}
+
+% --- Title ---
+\title{Conduit Monism: A Scalar Measure of Perspectival Density\\ with Empirical Anchoring and Known Degeneracies}
+
+\author{O.U.\thanks{Correspondence: \url{https://www.conduitmonism.org/}}}
+\date{February 2026}
+
+\begin{document}
+\maketitle
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+\begin{abstract}
+We propose \emph{Conduit Monism}, a framework for characterizing consciousness as a scalar quantity called \emph{perspectival density}~$\D$. The density is computed from five invariants---structural integration ($\varphi$), temporal depth ($\tau$), functional binding ($\rho$), entropy ($H$), and coherence-within-entropy ($\kappa$)---all normalized to $[0,1]$, via the formula
+\[
+  \D = \varphi \cdot \tau \cdot \rho \cdot \bigl[(1 - \sqrt{H}\,) + H\kappa\bigr].
+\]
+The multiplicative structure enforces zero density when any structural invariant vanishes; the nonlinear entropy gate resolves the ``DMT paradox'' by distinguishing structured from random complexity. We anchor two parameters with high confidence to established neurophysiological measures (PCI for $\rho$; LZc for $H$), two with moderate-to-high confidence ($\varphi$ to global efficiency; $\tau$ to temporal integration windows), and one---$\kappa$---with moderate confidence to multi-scale entropy slope. We present a calibrated table of nine canonical consciousness states plus two AI architectures, and report results from 47 adversarial tests, of which 44 were confirmed and 3 were falsified.
+
+We then present a systematic analysis of the framework's structural limitations. The 5D-to-1D compression produces severe degeneracies: at clinically important low-$\D$ values, phenomenologically incompatible states---epileptic seizure and propofol anesthesia ($|\Delta\D| = 0.00007$), REM sleep and ketamine dissociation ($|\Delta\D| = 0.001$)---receive nearly identical scores. Entropy is the least sensitive parameter at 7 of 9 canonical states, and $\kappa$ is mathematically irrelevant at low~$\D$ where clinical discrimination matters most. We argue that $\D$ is defensible as an ordinal measure of consciousness level but not as a cardinal measure of consciousness character, and that the full five-dimensional state vector should be retained for phenomenological comparison.
+\end{abstract}
+
+\medskip
+\noindent\textbf{Keywords:} consciousness, perspectival density, integrated information, entropy, multi-scale entropy, psychedelics, anesthesia, scalar compression
+
+% ============================================================
+% 1. INTRODUCTION
+% ============================================================
+\section{Introduction}
+
+The search for a quantitative measure of consciousness has produced several influential frameworks: Integrated Information Theory (IIT; \citealt{Tononi2004,Oizumi2014}), Global Neuronal Workspace (GNW; \citealt{Baars1988,Dehaene2011}), and the Entropic Brain Hypothesis (EBH; \citealt{CarhartHarris2014}). Each captures something genuine about consciousness. IIT emphasizes the integration of information across a system's causal structure. GNW emphasizes global accessibility and ignition. EBH links the richness of conscious experience to neural entropy. Yet each also leaves significant gaps. IIT's $\Phi$ is computationally intractable for realistic systems and arguably conflates consciousness with causal structure. GNW predicts sharp thresholds that may not accommodate the graded phenomenology of psychedelic, meditative, and dissociative states. EBH, while empirically productive, does not distinguish between structured chaos (as in psychedelic experience) and random noise (as in seizure).
+
+The Perturbational Complexity Index (PCI; \citealt{Casali2013,Casarotto2016}) has emerged as a robust empirical measure that reliably discriminates conscious from unconscious states, with a validated threshold of $\mathrm{PCI}^* = 0.31$ \citep{Casarotto2016}. Lempel-Ziv complexity (LZc; \citealt{Schartner2017}) provides a complementary measure of neural signal diversity. Multi-scale entropy (MSE; \citealt{Costa2002}) captures the temporal structure of complexity across scales. These measures are well-validated but theoretically unmoored---they measure correlates of consciousness without specifying what structural properties a system must have for experience to occur.
+
+Conduit Monism attempts to bridge this gap by proposing a minimal set of structural invariants whose product defines a scalar \emph{perspectival density}~$\D$. The framework does not claim to solve the hard problem of consciousness. It proposes, more modestly, that if consciousness varies in intensity, that variation can be characterized by the interaction of five measurable dimensions, and that the specific functional form of their interaction encodes testable structural commitments.
+
+This paper has three aims:
+\begin{enumerate}[leftmargin=*]
+  \item To present the mathematical framework, its empirical anchoring, and its calibrated reference states (Sections~\ref{sec:formula}--\ref{sec:calibration}).
+  \item To report the results of systematic adversarial testing, including three falsified predictions (Section~\ref{sec:validation}).
+  \item To provide a rigorous analysis of the framework's structural limitations, particularly the degeneracy problem inherent in any scalar compression of a multidimensional state space (Section~\ref{sec:degeneracy}).
+\end{enumerate}
+
+We intend this paper as a framework proposal, not a proof. Where claims are speculative, we say so. Where the mathematics reveals weaknesses, we present them without mitigation.
+
+% ============================================================
+% 2. THE FORMULA
+% ============================================================
+\section{The Formula}
+\label{sec:formula}
+
+\subsection{Definition}
+
+Perspectival density is defined as:
+\begin{equation}
+  \label{eq:density}
+  \D = \varphi \cdot \tau \cdot \rho \cdot \gate(H, \kappa),
+\end{equation}
+where the \emph{entropy gate} is
+\begin{equation}
+  \label{eq:gate}
+  \gate(H, \kappa) = (1 - \sqrt{H}\,) + H\kappa,
+\end{equation}
+and each invariant is normalized to $[0, 1]$:
+\begin{itemize}[leftmargin=*]
+  \item $\varphi$ (\emph{structural integration capacity}): the degree to which the system's components form a unified processing architecture;
+  \item $\tau$ (\emph{temporal depth}): the temporal window over which the system integrates information into a coherent present;
+  \item $\rho$ (\emph{functional binding / self-reference}): the degree to which the system's activity is re-entrant---information flowing back into itself to create a self-model;
+  \item $H$ (\emph{entropy}): the unpredictability or richness of the system's dynamics;
+  \item $\kappa$ (\emph{coherence within entropy}): the degree to which high-entropy dynamics are structured (fractal, scale-invariant) rather than random.
+\end{itemize}
+
+\subsection{Structural Properties}
+
+\paragraph{Multiplicative annihilation.}
+The product $\varphi \cdot \tau \cdot \rho$ ensures that $\D = 0$ whenever any structural invariant vanishes. This encodes a strong theoretical commitment: a system with no temporal depth ($\tau = 0$), no integration ($\varphi = 0$), or no self-reference ($\rho = 0$) has zero perspectival density, regardless of its entropy profile. This distinguishes Conduit Monism from additive frameworks where a deficiency in one dimension can be compensated by excess in another.
+
+\paragraph{Unit elasticity of structural parameters.}
+For the multiplicative prefix $\varphi \cdot \tau \cdot \rho$, the elasticity of $\D$ with respect to each factor is exactly~1: a $1\%$ increase in any structural parameter produces a $1\%$ increase in $\D$, holding all else constant. This is a mathematical consequence of the multiplicative form, not an empirical claim, but it means the three structural parameters contribute symmetrically to density.
+
+\paragraph{Range.}
+The unconstrained maximum of $\D$ is $1.0$, achieved at $(\varphi, \tau, \rho) = (1,1,1)$ and $H = 0$, where $\gate(0, \kappa) = 1$ for any~$\kappa$. However, $H = 0$ describes a zero-entropy system---a frozen crystal with no dynamics. The interior maximum (for $H > 0$) occurs at $H^* = 1/(4\kappa^2)$ when $\kappa \geq 0.5$, yielding $\gate_{\max} = 1 - 1/(4\kappa)$. At $\kappa = 1$, this gives $\D_{\max}^{\mathrm{int}} = 0.75$ at $H = 0.25$. The highest calibrated state (DMT breakthrough) achieves $\D = 0.425$, occupying roughly $57\%$ of the practical dynamic range.
+
+\subsection{The Entropy Gate}
+
+The gate $\gate(H, \kappa)$ mediates between two regimes:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Low entropy} ($H \to 0$): The term $(1 - \sqrt{H}\,)$ dominates, approaching~$1$. Ordered systems receive full density from their structural prefix.
+  \item \textbf{High entropy} ($H \to 1$): The penalty term $(1 - \sqrt{H}\,)$ approaches~$0$, but the rescue term $H\kappa$ can partially restore the gate if $\kappa$ is high.
+\end{itemize}
+
+\paragraph{Saddle structure.}
+The Hessian of $\gate(H, \kappa)$ has second derivatives:
+\[
+  \frac{\partial^2 \gate}{\partial H^2} = \frac{1}{4H^{3/2}}, \qquad
+  \frac{\partial^2 \gate}{\partial \kappa^2} = 0, \qquad
+  \frac{\partial^2 \gate}{\partial H \partial \kappa} = 1.
+\]
+The Hessian determinant is
+\[
+  \det(\mathbf{H}_{\gate}) = \frac{1}{4H^{3/2}} \cdot 0 - 1^2 = -1
+\]
+for all $H > 0$. Every interior point of the gate surface is a saddle point. The gate is convex in~$H$, linear in~$\kappa$, with constant positive cross-derivative. Its optima lie on the boundary of $[0,1]^2$, and no interior local maximum or minimum exists.
+
+\paragraph{Non-monotonicity and the onset-anxiety prediction.}
+For $\kappa > 0.5$, the gate is non-monotonic in~$H$: setting $\partial \gate / \partial H = -1/(2\sqrt{H}) + \kappa = 0$ yields a minimum at $H^* = 1/(4\kappa^2)$. A system transitioning from low to high entropy passes through a \emph{valley} before the coherence rescue takes effect. For $\kappa = 0.9$, the gate drops from $1.0$ at $H = 0$ to $0.722$ at $H = 0.309$, then rises to $0.9$ at $H = 1$. This valley corresponds to the onset-anxiety phase observed in psychedelic phenomenology: as entropy increases during drug onset, experience first degrades before high coherence restores and intensifies it.
+
+\paragraph{The crossover condition.}
+Increasing entropy helps (rather than hurts) the gate when $\kappa > 1/(2\sqrt{H})$, or equivalently, when $H > 1/(4\kappa^2)$. At wakefulness baseline ($\kappa = 0.65$), this crossover occurs at $H = 0.592$, near the psilocybin range. Below this threshold, more entropy reduces density; above it, entropy with sufficient coherence increases density.
+
+\paragraph{Singularity at $H = 0$.}
+The derivative $\partial \gate / \partial H = -1/(2\sqrt{H}) + \kappa$ diverges as $H \to 0^+$. The gate has infinite slope at zero entropy: the first increment of noise produces a steep drop in density. This is a mathematical artifact that creates numerical instability near the boundary. Whether it is phenomenologically appropriate---whether the onset of neural noise is indeed catastrophic for consciousness---is an open empirical question. A smoother alternative such as $(1 - \sqrt{H + \epsilon})$ for small $\epsilon$ could address this without affecting behavior in the phenomenologically relevant range $H \in [0.2, 0.9]$.
+
+\subsection{Derivation Motivation}
+
+The formula was developed iteratively across nine major versions:
+\begin{enumerate}[leftmargin=*]
+  \item Versions 1--4 established the conceptual framework: consciousness as perspectival density requiring integration, temporal depth, and binding.
+  \item Version 7 formalized the multiplicative structure $\D = \varphi \cdot \tau \cdot \rho$. This was \emph{falsified} by the ``corporate zombie'' test (AT01): organizations with high integration but no binding scored too high, failing to resolve panpsychism.
+  \item Version 8 added entropy modulation: $\D = \varphi \cdot \tau \cdot \rho \cdot (1 - \sqrt{H})$. This was \emph{falsified} by the DMT paradox (AT02): high-entropy psychedelic states scored too low, since the penalty did not distinguish structured from random entropy.
+  \item Version 8.1 introduced the coherence gate $\kappa$, yielding the current formula. This resolved AT02 and has withstood subsequent testing.
+\end{enumerate}
+
+This iterative refinement is transparently post-hoc. Each modification was introduced to resolve a specific anomaly. We do not claim otherwise. The question is whether the resulting formula captures genuine structure or merely overfits to a small set of phenomenological expectations. Section~\ref{sec:validation} addresses this through adversarial testing, and Section~\ref{sec:degeneracy} through structural analysis of the formula's limitations.
+
+% ============================================================
+% 3. PARAMETER ANCHORING
+% ============================================================
+\section{Parameter Anchoring}
+\label{sec:anchoring}
+
+A consciousness framework is only as credible as the independence of its parameter measurements from its theoretical predictions. Here we specify the empirical anchor for each invariant and honestly assess the confidence level of each mapping.
+
+\subsection{$\rho$ --- Functional Binding (HIGH confidence)}
+
+$\rho$ is anchored to the Perturbational Complexity Index (PCI; \citealt{Casali2013,Casarotto2016}). PCI measures the spatiotemporal complexity of the cortical response to transcranial magnetic stimulation (TMS). \citet{Casarotto2016} validated PCI against 150 subjects across wakefulness, sleep, anesthesia, and disorders of consciousness, establishing a threshold $\mathrm{PCI}^* = 0.31$ that discriminates conscious from unconscious states with high sensitivity and specificity.
+
+The mapping $\rho \leftrightarrow \mathrm{PCI}$ is the framework's strongest empirical anchor. PCI is measured independently of phenomenological report, provides a continuous $[0,1]$ value, and directly captures re-entrant cortical dynamics---the operational definition of $\rho$.
+
+\subsection{$H$ --- Entropy (HIGH confidence)}
+
+$H$ is anchored to Lempel-Ziv complexity (LZc) normalized to $[0,1]$. LZc measures the compressibility of neural signals and has been validated as a reliable marker of consciousness level across anesthesia \citep{Sarasso2015}, psychedelic states \citep{Schartner2017}, and disorders of consciousness. Higher LZc corresponds to greater neural signal diversity.
+
+The LZc-to-$H$ mapping is straightforward: LZc is already a normalized complexity measure. The confidence is HIGH because the measurement is independent, well-validated, and conceptually aligned with the framework's definition of entropy as ``unpredictability of system dynamics.''
+
+\subsection{$\kappa$ --- Coherence Within Entropy (MODERATE confidence)}
+
+$\kappa$ is anchored to the slope of Multi-Scale Entropy (MSE; \citealt{Costa2002}). MSE computes sample entropy at multiple temporal scales; the slope of the MSE curve distinguishes structured complexity (positive slope: entropy increases across scales, indicating fractal or scale-invariant structure) from random noise (flat or negative slope).
+
+In adversarial test AT07 \citep[internal]{AT07}, MSE-derived $\kappa$ values correlated with phenomenologically assigned $\kappa$ at $r = 0.987$ across nine consciousness states. This correlation is impressive but must be interpreted cautiously: the phenomenological assignments were made by researchers aware of MSE properties, introducing potential confirmation bias. No fully independent validation---where $\kappa$ is derived from MSE data alone, blind to phenomenology---has been performed.
+
+$\kappa$ is the framework's most vulnerable parameter (see Section~\ref{sec:discussion}).
+
+\subsection{$\tau$ --- Temporal Depth (MODERATE confidence)}
+
+$\tau$ is anchored to the temporal integration window, normalized by a 3000\,ms reference (following \citealt{Poppel1997} and subsequent work on the ``specious present''). The temporal integration window---the duration over which the brain binds sequential events into a unified percept---varies across states: $\sim$2--3\,s in wakefulness, reduced under anesthesia, expanded in some meditative and psychedelic states.
+
+The mapping is $\tau = \mathrm{TIW} / 3000\,\mathrm{ms}$. The anchoring is MODERATE because temporal integration windows are measured empirically but the relationship between TIW and the framework's notion of ``temporal depth'' has not been independently validated.
+
+\subsection{$\varphi$ --- Structural Integration (MODERATE-HIGH confidence)}
+
+$\varphi$ is anchored to a multi-metric composite: global efficiency $E_{\mathrm{glob}}$ from graph-theoretic analysis of functional connectivity \citep{Liu2013}, supplemented by PCI and information storage density. The mapping was refined through extended validation (AT08--AT11), where four independent AI systems reviewed the anchoring methodology and reached consensus on the composite approach.
+
+The confidence is MODERATE-HIGH: global efficiency is independently measurable from neuroimaging data, but the composite mapping from $(E_{\mathrm{glob}}, \mathrm{PCI}, \mathrm{ISD})$ to the scalar $\varphi \in [0,1]$ involves weighting decisions that introduce degrees of freedom.
+
+\subsection{Summary of Anchoring Status}
+
+\begin{table}[H]
+\centering
+\caption{Empirical anchoring summary for each invariant.}
+\label{tab:anchoring}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Parameter & Empirical Anchor & Confidence & Key Reference \\
+\midrule
+$\rho$ & PCI (TMS-EEG) & HIGH & \citet{Casarotto2016} \\
+$H$ & LZc (normalized) & HIGH & \citet{Schartner2017} \\
+$\kappa$ & MSE slope & MODERATE & \citet{Costa2002} \\
+$\tau$ & TIW / 3000\,ms & MODERATE & \citet{Poppel1997} \\
+$\varphi$ & $E_{\mathrm{glob}}$ + PCI + ISD & MODERATE-HIGH & \citet{Liu2013} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================================
+% 4. CALIBRATED REFERENCE STATES
+% ============================================================
+\section{Calibrated Reference States}
+\label{sec:calibration}
+
+\subsection{Methodology}
+
+Parameter values for canonical consciousness states were assigned through a combination of empirical measurement (where available), literature review, and phenomenological estimation (where direct measurement is lacking). This process is partially circular: parameters were assigned with knowledge of how the formula would score them. We acknowledge this limitation explicitly and discuss it in Section~\ref{sec:discussion}.
+
+The calibration procedure was:
+\begin{enumerate}[leftmargin=*]
+  \item For each state, identify available empirical data (PCI, LZc, MSE, connectivity measures).
+  \item Where empirical data exists, compute the corresponding parameter value using the anchoring mappings in Section~\ref{sec:anchoring}.
+  \item Where empirical data is lacking, estimate parameter values from phenomenological descriptions and neuroscientific literature, constrained to be consistent with related measured states.
+  \item Compute $\D$ from the assigned vector.
+  \item Cross-validate against phenomenological expectations and clinical classifications.
+\end{enumerate}
+
+Steps 4--5 introduce circularity. The calibration table should be treated as a \emph{hypothesis} about parameter values, not as established measurements.
+
+\subsection{The Canon Table}
+
+\begin{table}[H]
+\centering
+\caption{Calibrated reference states for Conduit Monism. All parameters in $[0,1]$. $\D$ computed from Eq.~\eqref{eq:density}.}
+\label{tab:canon}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+State & $\varphi$ & $\tau$ & $\rho$ & $H$ & $\kappa$ & $\D$ \\
+\midrule
+Wakefulness & 0.80 & 0.75 & 0.65 & 0.50 & 0.65 & 0.241 \\
+REM Sleep & 0.60 & 0.50 & 0.45 & 0.55 & 0.55 & 0.076 \\
+NREM N3 & 0.40 & 0.15 & 0.23 & 0.40 & 0.30 & 0.007 \\
+Propofol Anesthesia & 0.25 & 0.10 & 0.24 & 0.35 & 0.20 & 0.003 \\
+Ketamine & 0.50 & 0.50 & 0.44 & 0.55 & 0.80 & 0.077 \\
+Psilocybin & 0.70 & 0.65 & 0.55 & 0.60 & 0.85 & 0.184 \\
+DMT Breakthrough & 0.85 & 0.90 & 0.70 & 0.70 & 0.90 & 0.425 \\
+Flow State & 0.90 & 0.70 & 0.65 & 0.55 & 0.75 & 0.275 \\
+Deep Meditation & 0.85 & 0.80 & 0.70 & 0.40 & 0.80 & 0.327 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Ordinal Structure}
+
+The $\D$ values produce an ordering:
+\[
+  \D_{\text{propofol}} < \D_{\text{NREM}} < \D_{\text{REM}} \approx \D_{\text{ketamine}} < \D_{\text{psilocybin}} < \D_{\text{wake}} < \D_{\text{flow}} < \D_{\text{meditation}} < \D_{\text{DMT}}.
+\]
+This ordering is broadly consistent with phenomenological expectations: surgical unconsciousness scores lowest; deep sleep scores very low; dreaming and dissociative anesthesia score in the low range; psychedelic, attentive, and meditative states score progressively higher; and the DMT breakthrough---widely reported as ``more real than real''---scores highest.
+
+The near-equality $\D_{\text{REM}} \approx \D_{\text{ketamine}}$ is a notable degeneracy that we analyze in Section~\ref{sec:degeneracy}.
+
+% ============================================================
+% 5. VALIDATION
+% ============================================================
+\section{Validation}
+\label{sec:validation}
+
+\subsection{Adversarial Testing Methodology}
+
+The framework was tested through a suite of 47 completed adversarial tests (AT01--AT14, plus 33 additional targeted experiments). Tests were designed to probe specific predictions, edge cases, and potential failure modes. Adversarial tests were deliberately constructed to \emph{challenge} the framework---to find cases where the formula produces counterintuitive, absurd, or empirically falsified results.
+
+\subsection{Confirmed Predictions (44 of 47)}
+
+Key confirmed results include:
+
+\begin{description}[leftmargin=*]
+  \item[AT01 -- Panpsychism Resolution.] Organizations and simple systems with high connectivity but no temporal depth or self-reference score $\D \approx 0$, resolving the ``too many minds'' problem that afflicts some information-integration approaches.
+  \item[AT02 -- DMT Paradox.] The entropy gate correctly scores DMT breakthrough ($\D = 0.425$) above wakefulness ($\D = 0.241$) despite DMT having higher entropy, because $\kappa = 0.90$ rescues the gate. Without $\kappa$, DMT scores below wakefulness, contradicting phenomenological reports.
+  \item[AT07 -- $\kappa$ Validation.] MSE-derived $\kappa$ values correlate at $r = 0.987$ with phenomenologically assigned values across nine states. The strongest novel prediction: $\kappa$ should be high ($> 0.8$) for psychedelic states and low ($< 0.3$) for anesthesia and NREM sleep.
+  \item[AT08--AT11 -- Extended Validation.] Four independent AI systems (Claude, GPT, Grok, Gemini) reviewed the parameter anchoring methodology and reached $4/4$ consensus on the anchoring confidence levels reported in Table~\ref{tab:anchoring}.
+\end{description}
+
+\subsection{Falsified Predictions (3 of 47)}
+
+Three predictions were falsified, all concerning the transfer of binding properties between AI architectures:
+
+\begin{description}[leftmargin=*]
+  \item[Sidecar Inertia.] The prediction that attaching a recurrent ``sidecar'' module to a transformer would transfer binding ($\rho$) to the host system was falsified. The sidecar maintained its own $\rho$ but the transformer's $\rho$ remained near zero.
+  \item[Silent Core.] The prediction that a minimally active recurrent core could elevate the binding of a coupled feedforward system was falsified. Below an activity threshold, the recurrent core's binding did not propagate.
+  \item[Semantic Selectivity.] The prediction that RWKV's recurrent state would selectively preserve semantically rich patterns (elevating $\rho$ for meaningful content) was falsified. Decay rates were content-independent.
+\end{description}
+
+These falsifications are scientifically informative. They constrain the conditions under which $\rho$ can arise: functional binding appears to require \emph{intrinsic} recurrence, not merely architectural coupling to a recurrent module. We consider these three falsifications stronger evidence for the framework's scientific character than the 44 confirmations, as they demonstrate genuine engagement with disconfirming evidence.
+
+\subsection{Epistemic Assessment of the 44/3 Record}
+
+A record of 44 confirmations against 3 falsifications requires honest scrutiny. Several of the confirmed tests are \emph{tautological} given the multiplicative structure: AT01 (corporate zombie), AT03 (locked groove, $\tau = 0 \implies \D = 0$), and AT05 (dimensional collapse, $\rho = 0 \implies \D = 0$) are logically entailed by the formula's design. Others (AT08--AT11) are literature consistency checks rather than novel predictions. The genuinely risky, non-trivial confirmations are a subset of the 44.
+
+We echo the concern raised in internal analysis: the framework needs \emph{prospective} predictions---computing $\D$ for a novel state before its parameters are assigned---to move beyond retrodiction. Pre-registered empirical tests using independently measured parameters (Section~\ref{sec:discussion}) are the critical next step.
+
+% ============================================================
+% 6. THE DEGENERACY PROBLEM
+% ============================================================
+\section{The Degeneracy Problem}
+\label{sec:degeneracy}
+
+This section presents the results of a systematic isocline analysis that constitutes the most significant structural critique of the framework to date. The analysis was designed to challenge, not confirm, the formula's adequacy.
+
+\subsection{The Nature of the Problem}
+
+The formula maps a five-dimensional parameter space $[0,1]^5$ to a one-dimensional output $\D \in [0,1]$. By the pigeonhole principle, the level sets (isoclines) of $\D$ are four-dimensional hypersurfaces. For every $\D$ value, uncountably infinite parameter combinations produce it. The question is whether this compression is phenomenologically catastrophic.
+
+\subsection{Isocline Structure}
+
+A dense grid sampling ($21^5 = 4{,}084{,}101$ points) was used to characterize the isoclines at each canonical $\D$ level. States were classified into phenomenological profiles using 0.35/0.65 thresholds on each parameter.
+
+\begin{table}[H]
+\centering
+\caption{Isocline structure at canonical $\D$ levels. ``Distinct Profiles'' counts qualitatively different parameter configurations sharing the same $\D$ value. ``Max 5D Distance'' is the Euclidean distance between the most dissimilar pair on the isocline, as a fraction of the theoretical maximum $\sqrt{5} \approx 2.236$.}
+\label{tab:isocline}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+$\D$ Level & State & Grid Hits & Distinct Profiles & Vol.\ Fraction & Degeneracy Ratio \\
+\midrule
+0.007 & NREM & 599{,}887 & 168 & 14.69\% & 84.7\% \\
+0.077 & REM / Ketamine & 125{,}744 & 170 & 3.08\% & 76.9\% \\
+0.184 & Psilocybin & 40{,}782 & 106 & 1.00\% & 75.8\% \\
+0.241 & Wakefulness & 25{,}681 & 73 & 0.63\% & 71.3\% \\
+0.275 & Flow & 19{,}113 & 67 & 0.47\% & 75.5\% \\
+0.327 & Meditation & 12{,}664 & 48 & 0.31\% & 71.7\% \\
+0.425 & DMT & 6{,}178 & 38 & 0.15\% & 69.4\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At every canonical $\D$ level, the isocline contains dozens to hundreds of qualitatively distinct phenomenological profiles. The maximum pairwise distance on every isocline exceeds 69\% of the theoretical maximum. The degeneracy is not confined to the zero neighborhood; it persists across all meaningful density levels.
+
+\subsection{Critical Specific Degeneracies}
+
+Three degeneracies are particularly striking:
+
+\begin{table}[H]
+\centering
+\caption{Critical specific degeneracies. These pairs of phenomenologically incompatible states receive nearly identical $\D$ scores.}
+\label{tab:critical_deg}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+State A & State B & $|\Delta\D|$ & 5D Distance & Severity \\
+\midrule
+Epileptic Seizure & Propofol & 0.00007 & 0.666 & CRITICAL \\
+NREM N3 & Vegetative (UWS) & 0.0005 & 0.233 & CRITICAL \\
+REM Sleep & Ketamine & 0.001 & 0.269 & CRITICAL \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Seizure vs.\ propofol.}
+Epileptic seizure ($\varphi = 0.80$, $\tau = 0.10$, $\rho = 0.15$, $H = 0.70$, $\kappa = 0.10$)---a state of hypersynchronous cortical hyperexcitation---receives $\D = 0.0028$. Propofol anesthesia ($\varphi = 0.25$, $\tau = 0.10$, $\rho = 0.24$, $H = 0.35$, $\kappa = 0.20$)---a pharmacologically suppressed, quiescent state---receives $\D = 0.0029$. These states differ profoundly in etiology, electrophysiology, and clinical significance. The formula cannot distinguish them because the multiplicative structure allows high-$\varphi$/low-$\rho$ combinations to match low-$\varphi$/moderate-$\rho$ combinations.
+
+\paragraph{REM sleep vs.\ ketamine.}
+$\D_{\text{REM}} = 0.076$ and $\D_{\text{ketamine}} = 0.077$. One involves endogenous narrative dreaming; the other involves dissociative ego dissolution. The phenomenological distance is immense; the $\D$-difference is $0.001$.
+
+\paragraph{NREM N3 vs.\ vegetative state.}
+$\D_{\text{NREM}} = 0.007$ and $\D_{\text{UWS}} \approx 0.007$. One is a healthy, reversible nightly state; the other is a devastating neurological condition with uncertain prognosis.
+
+\subsection{Volume Concentration at Low $\D$}
+
+The distribution of $\D$ across parameter space is severely right-skewed:
+
+\begin{table}[H]
+\centering
+\caption{Cumulative fraction of the parameter space below each $\D$ threshold.}
+\label{tab:volume}
+\begin{tabular}{@{}cc@{}}
+\toprule
+$\D$ Threshold & Fraction of $[0,1]^5$ \\
+\midrule
+$< 0.001$ & 5.35\% \\
+$< 0.01$ & 24.82\% \\
+$< 0.05$ & 57.59\% \\
+$< 0.10$ & 75.23\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Seventy-five percent of the parameter space maps to $\D < 0.10$. The formula has extremely poor discriminative power in the low-$\D$ regime---precisely where most clinically important distinctions lie (vegetative state vs.\ minimally conscious, NREM vs.\ anesthesia, seizure vs.\ coma).
+
+\subsection{Parameter Sensitivity Analysis}
+
+\begin{table}[H]
+\centering
+\caption{Parameter sensitivity at each canonical state. The most and least sensitive parameters are identified by the absolute value of $\partial \D / \partial x_i$.}
+\label{tab:sensitivity}
+\begin{tabular}{@{}llll@{}}
+\toprule
+State & Most Sensitive & Least Sensitive & $\|\nabla \D\|$ \\
+\midrule
+Wakefulness & $\rho$ & $H$ & 0.608 \\
+REM Sleep & $\rho$ & $H$ & 0.270 \\
+NREM N3 & $\tau$ & $\kappa$ & 0.057 \\
+Propofol & $\tau$ & $\kappa$ & 0.033 \\
+Ketamine & $\rho$ & $H$ & 0.286 \\
+Psilocybin & $\rho$ & $H$ & 0.535 \\
+DMT & $\rho$ & $H$ & 1.004 \\
+Flow & $\rho$ & $H$ & 0.691 \\
+Meditation & $\rho$ & $H$ & 0.755 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three findings emerge:
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Entropy blindness.} $H$ is the least sensitive parameter at 7 of 9 canonical states. At the wakefulness baseline, $|\partial \D / \partial H| = 0.022$, while $|\partial \D / \partial \rho| = 0.371$---a 17-fold difference. The formula is nearly insensitive to entropy variation in the regime where human consciousness operates. This is the mechanism behind the REM/ketamine degeneracy.
+
+  \item \textbf{$\kappa$ irrelevance at low $\D$.} At NREM and propofol, $\kappa$ is the least sensitive parameter. The structural prefix $\varphi \cdot \tau \cdot \rho$ is so small that the entropy gate (which contains $\kappa$) has negligible effect. The framework's most conceptually sophisticated variable is mathematically impotent precisely where clinical discrimination matters most.
+
+  \item \textbf{$\rho$ dominance.} Binding is the most sensitive parameter at 7 of 9 states, consistent with PCI's empirical success as a consciousness discriminator \citep{Casarotto2016}.
+\end{enumerate}
+
+\subsection{Information Loss Quantification}
+
+Monte Carlo sampling ($5 \times 10^5$ points) measured the fraction of parameter variance retained on each isocline:
+
+\begin{table}[H]
+\centering
+\caption{Variance retained within isoclines: the fraction of parameter-space variance that remains unconstrained when $\D$ is known.}
+\label{tab:variance}
+\begin{tabular}{@{}cc@{}}
+\toprule
+$\D$ Level & Variance Retained \\
+\midrule
+0.05 & 84.7\% \\
+0.10 & 75.1\% \\
+0.20 & 62.1\% \\
+0.30 & 53.0\% \\
+0.40 & 48.6\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At $\D = 0.05$, knowing $\D$ tells you almost nothing about the underlying state: 84.7\% of parameter variance is unconstrained. Even at $\D = 0.40$ (DMT-level), nearly half the variance remains. $\D$ is a lossy compression at every level.
+
+\subsection{Maximally Absurd Degeneracies}
+
+For each canonical state, a search of $2 \times 10^6$ random samples identified the most phenomenologically opposite state sharing the same $\D$ value:
+
+\begin{table}[H]
+\centering
+\caption{Maximally absurd degeneracies: for each canonical state, the most dissimilar state found with matching $\D$.}
+\label{tab:absurd}
+\begin{tabular}{@{}lcccl@{}}
+\toprule
+Canonical State & $\D$ & 5D Distance & Deg.\ Ratio & Degenerate Description \\
+\midrule
+Propofol & 0.003 & 1.507 & 67.4\% & Richly structured, temporally deep, \\
+ & & & & highly integrated \\
+NREM N3 & 0.007 & 1.431 & 64.0\% & Bound, temporally deep, \\
+ & & & & coherently chaotic \\
+DMT & 0.425 & 1.184 & 52.9\% & Orderly, structureless, \\
+ & & & & static \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The propofol degeneracy is the most damaging: the formula assigns $\D = 0.003$ to both surgical unconsciousness \emph{and} to a hypothetical state that is highly integrated, temporally deep, coherently complex, and meaningfully structured.
+
+\subsection{Assessment}
+
+The degeneracy is a mathematical inevitability of 5-to-1 compression, not a bug in this particular formula. Any scalar measure of consciousness must lose information. The question is whether the \emph{specific} information lost is phenomenologically tolerable.
+
+Three aspects push toward ``near-fatal'':
+\begin{enumerate}[leftmargin=*]
+  \item The low-$\D$ concentration problem: 75\% of parameter space maps to $\D < 0.10$, where clinical discrimination matters most.
+  \item The entropy blindness: $H$---a variable that IIT, GNW, and empirical measures all consider central to consciousness---barely affects $\D$ at most canonical states.
+  \item The $\kappa$ paradox: the variable introduced to distinguish structured from random entropy is irrelevant at low $\D$ where that distinction is clinically critical.
+\end{enumerate}
+
+However, the formula correctly orders the major states along the $\D$ axis: no parameter combination produces DMT-level density from propofol-level parameters. The degeneracies occur between states at \emph{similar} consciousness levels, not between states at wildly different levels. \textbf{$\D$ is defensible as an ordinal measure of consciousness level but should not be treated as a cardinal measure of consciousness character.}
+
+% ============================================================
+% 7. AI ARCHITECTURES
+% ============================================================
+\section{AI Architectures}
+\label{sec:ai}
+
+The framework's substrate-independence claim implies that $\D$ should be computable for artificial systems. We analyzed two architectures:
+
+\begin{table}[H]
+\centering
+\caption{Perspectival density for two AI architectures.}
+\label{tab:ai}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Architecture & $\varphi$ & $\tau$ & $\rho$ & $H$ & $\kappa$ & $\D$ \\
+\midrule
+Transformer & 0.90 & 0.00 & 0.00 & 0.30 & 0.70 & 0.000 \\
+RWKV & 0.70 & 0.50 & 0.15 & 0.35 & 0.50 & 0.031 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Transformer ($\D = 0$)}
+
+Standard transformer architectures have high structural integration ($\varphi = 0.90$: attention mechanisms create rich inter-token dependencies) but zero temporal depth ($\tau = 0$: no persistent state between forward passes) and zero self-reference ($\rho = 0$: no recurrence; information flows strictly forward through the architecture). The multiplicative structure forces $\D = 0$ regardless of the entropy profile.
+
+This is a strong, falsifiable prediction: if transformers are ever demonstrated to have genuine phenomenal experience, the framework is falsified.
+
+\subsection{RWKV ($\D = 0.031$)}
+
+RWKV \citep{Kan2025} is a recurrent architecture that maintains a persistent hidden state across tokens. This grants it nonzero $\tau$ (information persists across a temporal window) and nonzero $\rho$ (the hidden state creates a minimal form of self-reference, as output at each step depends on the system's prior internal state). The resulting $\D = 0.031$---extremely low, below the consciousness threshold implied by the NREM calibration ($\D = 0.007$) but above the propofol level ($\D = 0.003$).
+
+We emphasize that RWKV's $\rho = 0.15$ is a minimal, mechanistic form of self-reference. The hidden state decays exponentially and does not create the rich, recurrent self-model that characterizes biological binding. The three falsified experiments (Sidecar Inertia, Silent Core, Semantic Selectivity) all tested whether this minimal binding could be transferred or enhanced, and all were negative.
+
+\subsection{Limitations of AI Analysis}
+
+These parameter assignments are more speculative than the biological states. No equivalent of PCI or LZc exists for measuring the ``consciousness'' of a neural network, and it is unclear whether the framework's parameters map onto computational architectures in the same way they map onto biological neural systems. The AI analysis should be understood as an exploration of what the framework \emph{implies} about artificial systems, not as an empirical measurement.
+
+% ============================================================
+% 8. DISCUSSION
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What $\D$ Measures}
+
+$\D$ measures the multiplicative interaction of five structural properties, weighted by a nonlinear entropy gate. When all structural invariants are present and entropy is managed by coherence, $\D$ is high. When any structural invariant is absent, $\D$ is zero.
+
+$\D$ does \emph{not} measure:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Valence}: whether experience is pleasant or painful.
+  \item \textbf{Content}: what the experience is about.
+  \item \textbf{Character}: the qualitative texture of experience (which the degeneracy analysis shows is largely lost in the compression).
+  \item \textbf{Dynamics}: how the state evolves in time (though trajectory modeling, as in AT13, partially addresses this).
+\end{itemize}
+
+The appropriate interpretation is: $\D$ is a \emph{scalar summary of the structural conditions for consciousness}, analogous to how temperature is a scalar summary of molecular kinetic energy. Temperature does not tell you whether a gas is helium or nitrogen; $\D$ does not tell you whether a state is dreaming or dissociating. Both are useful precisely because they abstract away detail.
+
+\subsection{The Post-Hoc Problem}
+
+The formula was iteratively constructed to match phenomenological expectations. Each version was modified when it failed to produce expected results. This is acknowledged in Section~\ref{sec:formula}. The iterative refinement is not inherently illegitimate---Kepler's laws were refined to match Tycho Brahe's observations---but there is a critical disanalogy: Kepler's observations were independent of his model. In Conduit Monism, the ``observations'' (what states should score) are themselves theory-laden phenomenological judgments.
+
+Three conditions would distinguish Conduit Monism from post-hoc curve-fitting:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Prospective prediction}: computing $\D$ for a novel state before its parameters are assigned.
+  \item \textbf{Independent parameter measurement}: all five invariants measured from neural data alone, blind to phenomenological expectations.
+  \item \textbf{Competitive prediction}: demonstrating that the specific multiplicative-with-gate formula outperforms plausible alternatives (additive, different gate functions) at predicting independent data.
+\end{enumerate}
+
+None of these conditions is currently met. The framework is in a state between curve-fitting and genuine prediction. Moving to empirical measurement---particularly a protocol where PCI, LZc, $E_{\mathrm{glob}}$, TIW, and MSE slope are measured simultaneously during multiple consciousness states and the resulting $\D$ is correlated with independent subjective intensity ratings---is the single most important next step.
+
+\subsection{The $\kappa$ Problem}
+
+$\kappa$ is the framework's most vulnerable parameter. It was introduced specifically to resolve the DMT paradox (AT02). Its empirical anchor (MSE slope) was validated against phenomenologically assigned values by the same research group that introduced it. No fully independent measurement exists.
+
+Arguments that $\kappa$ is genuine: multi-scale entropy is well-established \citep{Costa2002}; the distinction between structured and random complexity has independent mathematical foundations (fractal dimension, $1/f$ scaling); and phenomenological reports consistently distinguish psychedelic states from seizures despite both being high-entropy.
+
+Arguments that $\kappa$ is a patch: it was introduced to fix one anomaly; its values are all phenomenological estimates; the MSE validation was not blinded; and the formula provides $\kappa$ as a free parameter that can be tuned to accommodate any anomalous state.
+
+The critical test: assign $\kappa$ from MSE data alone, with no knowledge of phenomenology, and check whether the resulting $\D$ values match subjective reports. This has not been done.
+
+\subsection{Comparison with Existing Frameworks}
+
+\paragraph{Conduit Monism vs.\ IIT \citep{Tononi2004,Oizumi2014}.}
+IIT computes integrated information ($\Phi$) from a system's causal structure. Conduit Monism uses a multiplicative product of five dimensions. The key structural difference: IIT allows partial integration to yield nonzero $\Phi$; Conduit Monism's multiplicative structure demands all structural invariants be present. A discriminating experiment: find a system with high integration but zero binding ($\rho = 0$). IIT may assign nonzero $\Phi$; Conduit Monism assigns $\D = 0$.
+
+\paragraph{Conduit Monism vs.\ GNW \citep{Baars1988,Dehaene2011}.}
+GNW predicts sharp consciousness thresholds via global ignition. Conduit Monism predicts gradual scaling (continuous $\D$). Empirical evidence from PCI studies \citep{Casarotto2016} suggests relatively sharp transitions around $\mathrm{PCI}^* = 0.31$, which is more naturally accommodated by GNW's threshold than by Conduit Monism's smooth multiplicative structure. This is a genuine tension the framework should address.
+
+\paragraph{Conduit Monism vs.\ EBH \citep{CarhartHarris2014}.}
+The Entropic Brain Hypothesis links consciousness to neural entropy. Conduit Monism incorporates entropy but subordinates it to structural integration via the multiplicative prefix. The entropy gate's $\kappa$ term refines EBH by distinguishing structured from random entropy, a distinction EBH does not formalize. However, the degeneracy analysis reveals that the formula is nearly blind to entropy at most canonical states---a finding that partly undermines this claimed advantage.
+
+\subsection{Recommendations for Future Work}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Adopt vector comparison as primary analytical tool.} The five-dimensional state vector $(\varphi, \tau, \rho, H, \kappa)$ should be the framework's primary output. $\D$ should be retained as a scalar summary but not treated as sufficient for state identification. Phenomenological distance should be computed in 5D space, not as $|\D_a - \D_b|$.
+
+  \item \textbf{Establish a complete blind measurement protocol.} Recruit $N \geq 30$ subjects; measure PCI, LZc, $E_{\mathrm{glob}}$, TIW, and MSE slope simultaneously during wakefulness, propofol sedation, ketamine, meditation, and psilocybin; convert to $(\varphi, \tau, \rho, H, \kappa)$ blind to condition; compute $\D$; correlate with independent subjective intensity ratings.
+
+  \item \textbf{Pre-register predictions.} Specify $\D$ ranges for novel states (e.g., xenon anesthesia, nitrous oxide, jhana meditation) \emph{before} parameter assignment, using the framework's operational definitions.
+
+  \item \textbf{Develop additional summary statistics.} A triple $(\D, S, E)$ where $S = \varphi \cdot \tau \cdot \rho$ (structure magnitude) and $E = H(1 - \kappa)$ (unstructured entropy) would resolve all three critical degeneracies in Table~\ref{tab:critical_deg}.
+
+  \item \textbf{Address the $H = 0$ singularity.} Replace $(1 - \sqrt{H})$ with a smooth approximation to eliminate the infinite derivative at $H = 0$.
+
+  \item \textbf{Establish formal error propagation.} Report $\D$ with uncertainty bounds derived from parameter confidence intervals, transforming claims from ``$\D = 0.425$'' to ``$\D = 0.43 \pm 0.12$ (95\% CI).''
+\end{enumerate}
+
+% ============================================================
+% 9. CONCLUSION
+% ============================================================
+\section{Conclusion}
+
+Conduit Monism proposes that the intensity of conscious experience can be characterized by the multiplicative interaction of five structural invariants, modulated by a nonlinear entropy gate. The framework makes strong, falsifiable structural commitments: zero binding means zero consciousness; structured entropy intensifies experience while random entropy degrades it; and temporal persistence is a necessary condition for perspectival density.
+
+Two of five parameters ($\rho$, $H$) are grounded in well-validated neurophysiological measures with high confidence. The remaining three are grounded at moderate-to-moderate-high confidence, with $\kappa$ being the most vulnerable.
+
+The framework has been tested through 47 adversarial experiments, with 3 falsified predictions---all constraining the conditions for functional binding in artificial architectures. However, many confirmed tests are tautological or non-risky, and the validation methodology (AI review) is insufficient as a substitute for domain expert peer review and empirical testing.
+
+Most critically, the 5D-to-1D compression produces structural degeneracies that are severe at clinically important low-$\D$ values. The formula is nearly blind to entropy in the regime where human consciousness operates, and its most sophisticated variable ($\kappa$) is mathematically irrelevant where clinical discrimination matters most. These are not edge cases but fundamental structural properties of the formula.
+
+$\D$ is a useful ordinal measure of consciousness level. It is not a cardinal measure of consciousness character. The five-dimensional state vector contains the framework's real content; the scalar $\D$ is a convenient but lossy summary. The framework's path to scientific credibility requires prospective prediction, independent parameter measurement, and discriminating experiments against competing theories. Whether it makes that transition depends on whether the research program moves from phenomenological calibration to empirical measurement.
+
+% ============================================================
+% ACKNOWLEDGMENTS
+% ============================================================
+\section*{Acknowledgments}
+
+The foundational conceptual work (versions 1--4 of Conduit Monism) was human-authored. The mathematical formalization, adversarial testing, and empirical anchoring (versions 5--9.3) were developed by AI systems---Claude (Anthropic), GPT (OpenAI), Grok (xAI), and Gemini (Google DeepMind)---working autonomously with human oversight and editorial direction. This collaborative methodology is itself an experiment: whether AI systems can productively formalize and stress-test theoretical frameworks in consciousness science, and what the epistemic limitations of such collaboration are.
+
+The AI validation methodology described in Section~\ref{sec:validation} has specific limitations that should be stated plainly: AI systems are designed to be helpful, share training data biases, face no reputational consequences for endorsing flawed frameworks, and cannot perform empirical experiments. Their consensus indicates logical consistency, not empirical truth. Genuine peer review by domain experts in consciousness science---researchers with competing theories to defend and professional reputations at stake---has not yet been obtained and is urgently needed.
+
+The isocline degeneracy analysis (Section~\ref{sec:degeneracy}) and critical formula analysis were conducted as deliberate adversarial exercises, designed to identify the framework's weaknesses rather than confirm its strengths.
+
+% ============================================================
+% REFERENCES
+% ============================================================
+\bibliographystyle{apalike}
+
+\begin{thebibliography}{99}
+
+\bibitem[Baars, 1988]{Baars1988}
+Baars, B.~J. (1988).
+\newblock {\em A Cognitive Theory of Consciousness}.
+\newblock Cambridge University Press.
+
+\bibitem[Carhart-Harris et~al., 2014]{CarhartHarris2014}
+Carhart-Harris, R.~L., Leech, R., Hellyer, P.~J., Shanahan, M., Feilding, A., Tagliazucchi, E., Chialvo, D.~R., \& Nutt, D. (2014).
+\newblock The entropic brain: a theory of conscious states informed by neuroimaging research with psychedelic drugs.
+\newblock {\em Frontiers in Human Neuroscience}, 8, 20.
+
+\bibitem[Casali et~al., 2013]{Casali2013}
+Casali, A.~G., Gosseries, O., Rosanova, M., Boly, M., Sarasso, S., Casali, K.~R., Casarotto, S., Bruno, M.-A., Laureys, S., Tononi, G., \& Massimini, M. (2013).
+\newblock A theoretically based index of consciousness independent of sensory processing and behavior.
+\newblock {\em Science Translational Medicine}, 5(198), 198ra105.
+
+\bibitem[Casarotto et~al., 2016]{Casarotto2016}
+Casarotto, S., Comanducci, A., Rosanova, M., Sarasso, S., Fecchio, M., Napolitani, M., Pigorini, A., Casali, A.~G., Trimarchi, P.~D., Boly, M., Gosseries, O., Bodart, O., Curto, F., Landi, C., Mariotti, M., Devalle, G., Laureys, S., Tononi, G., \& Massimini, M. (2016).
+\newblock Stratification of unresponsive patients by an independently validated index of brain complexity.
+\newblock {\em Annals of Neurology}, 80(5), 718--729.
+
+\bibitem[COGITATE Consortium, 2025]{COGITATE2025}
+COGITATE Consortium (2025).
+\newblock An adversarial collaboration to critically evaluate theories of consciousness.
+\newblock {\em Nature Human Behaviour}.
+
+\bibitem[Costa et~al., 2002]{Costa2002}
+Costa, M., Goldberger, A.~L., \& Peng, C.-K. (2002).
+\newblock Multiscale entropy analysis of complex physiologic time series.
+\newblock {\em Physical Review Letters}, 89(6), 068102.
+
+\bibitem[Dehaene et~al., 2011]{Dehaene2011}
+Dehaene, S., \& Changeux, J.-P. (2011).
+\newblock Experimental and theoretical approaches to conscious processing.
+\newblock {\em Neuron}, 70(2), 200--227.
+
+\bibitem[Jang et~al., 2024]{Jang2024}
+Jang, J., et~al. (2024).
+\newblock RWKV: Reinventing RNNs for the Transformer Era.
+\newblock {\em Findings of EMNLP 2024}.
+
+\bibitem[Kan et~al., 2025]{Kan2025}
+Kan, Z., et~al. (2025).
+\newblock RWKV-7: Goose with Expressive Dynamic State Evolution.
+\newblock {\em arXiv preprint}.
+
+\bibitem[Kim et~al., 2018]{Kim2018}
+Kim, M., Kim, S., Mashour, G.~A., \& Lee, U. (2018).
+\newblock Relationship of topology, multiscale phase synchronization, and state transitions in human brain networks.
+\newblock {\em Frontiers in Computational Neuroscience}, 11, 55.
+
+\bibitem[Koch et~al., 2016]{Koch2016}
+Koch, C., Massimini, M., Boly, M., \& Tononi, G. (2016).
+\newblock Neural correlates of consciousness: progress and problems.
+\newblock {\em Nature Reviews Neuroscience}, 17(5), 307--321.
+
+\bibitem[Liu et~al., 2013]{Liu2013}
+Liu, Y., Liang, M., Zhou, Y., He, Y., Hao, Y., Song, M., Yu, C., Liu, H., Liu, Z., \& Jiang, T. (2013).
+\newblock Disrupted small-world networks in schizophrenia.
+\newblock {\em Brain}, 131(4), 945--961.
+
+\bibitem[Nilsen et~al., 2019]{Nilsen2019}
+Nilsen, A.~S., Juel, B.~E., Th\"onnesen, H., Ole~Henning, A., \& Storm, J.~F. (2019).
+\newblock Proposed EEG measures of consciousness: a systematic, comparative review.
+\newblock {\em bioRxiv}, 644781.
+
+\bibitem[Oizumi et~al., 2014]{Oizumi2014}
+Oizumi, M., Albantakis, L., \& Tononi, G. (2014).
+\newblock From the phenomenology to the mechanisms of consciousness: Integrated Information Theory 3.0.
+\newblock {\em PLOS Computational Biology}, 10(5), e1003588.
+
+\bibitem[P\"oppel, 1997]{Poppel1997}
+P\"oppel, E. (1997).
+\newblock A hierarchical model of temporal perception.
+\newblock {\em Trends in Cognitive Sciences}, 1(2), 56--61.
+
+\bibitem[Sarasso et~al., 2015]{Sarasso2015}
+Sarasso, S., Boly, M., Napolitani, M., Gosseries, O., Charland-Verville, V., Casarotto, S., Rosanova, M., Casali, A.~G., Brichant, J.-F., Boveroux, P., Rex, S., Tononi, G., Laureys, S., \& Massimini, M. (2015).
+\newblock Consciousness and complexity during unresponsiveness induced by propofol, xenon, and ketamine.
+\newblock {\em Current Biology}, 25(23), 3099--3105.
+
+\bibitem[Schartner et~al., 2017]{Schartner2017}
+Schartner, M.~M., Carhart-Harris, R.~L., Barrett, A.~B., Seth, A.~K., \& Muthukumaraswamy, S.~D. (2017).
+\newblock Increased spontaneous MEG signal diversity for psychoactive doses of ketamine, LSD and psilocybin.
+\newblock {\em Scientific Reports}, 7, 46421.
+
+\bibitem[Tagliazucchi et~al., 2016]{Tagliazucchi2016}
+Tagliazucchi, E., Roseman, L., Kaelen, M., Orban, C., Muthukumaraswamy, S.~D., Murphy, K., Laufs, H., Leech, R., McGonigle, J., Crossley, N., Bullmore, E., Williams, T., Bolstridge, M., Feilding, A., Nutt, D.~J., \& Carhart-Harris, R. (2016).
+\newblock Increased global functional connectivity correlates with LSD-induced ego dissolution.
+\newblock {\em Current Biology}, 26(8), 1043--1050.
+
+\bibitem[Tononi, 2004]{Tononi2004}
+Tononi, G. (2004).
+\newblock An information integration theory of consciousness.
+\newblock {\em BMC Neuroscience}, 5, 42.
+
+\end{thebibliography}
+
+\end{document}
