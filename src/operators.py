@@ -1,115 +1,111 @@
 """
-Operators Module - Conduit Engine v0.1
+Operators Module - Conduit Engine v0.3
 
-Operators transform states in the topological space.
-These are the "mechanics of thought" - they simulate how states transition.
+Operators transform StateVectors in the topological space.
+All operators work on the five v9.2 invariants: φ, τ, ρ, H, κ.
 
-Per Claude's contribution: Operators enable movement through the space,
-turning a static archive into a dynamic simulation.
+Operators are the "mechanics of thought" -- they model how states transition
+under perturbation (anesthesia onset, attentional shift, neurochemical change).
 """
 
-from typing import List
+from .encoder import StateVector
 
 
-def op_perturb_binding(vector: List[float], magnitude: float) -> List[float]:
+def op_perturb_binding(state: StateVector, magnitude: float) -> StateVector:
     """
     Perturb Re-entrant Binding (ρ).
 
-    Simulates:
-    - Drifting focus
-    - Anesthesia onset
-    - Degradation of recursive feedback
+    Simulates: drifting focus, anesthesia onset, degradation of recursive feedback.
 
     Parameters:
-    -----------
-    vector : List[float]
-        The state vector [φ, τ, ρ, H, ...]
-    magnitude : float
-        Amount to modulate ρ (can be positive or negative)
+        state: Input StateVector
+        magnitude: Amount to modulate ρ (positive increases, negative decreases)
 
     Returns:
-    --------
-    List[float]
-        Modified state vector
+        New StateVector with modified ρ
     """
-    new_vec = list(vector)
-    new_vec[2] = max(0.0, min(1.0, new_vec[2] + magnitude))  # Modulate ρ
-    return new_vec
+    new_rho = max(0.0, min(1.0, state.rho + magnitude))
+    return StateVector(
+        phi=state.phi, tau=state.tau, rho=new_rho,
+        H=state.H, kappa=state.kappa, name=state.name
+    )
 
 
-def op_fracture_integration(vector: List[float], magnitude: float) -> List[float]:
+def op_fracture_integration(state: StateVector, magnitude: float) -> StateVector:
     """
     Fracture Structural Integration (φ).
 
-    Simulates:
-    - Dissociation
-    - Cognitive lesion
-    - System fragmentation
+    Simulates: dissociation, cognitive lesion, system fragmentation.
 
     Parameters:
-    -----------
-    vector : List[float]
-        The state vector [φ, τ, ρ, H, ...]
-    magnitude : float
-        Amount to reduce φ (positive values reduce integration)
+        state: Input StateVector
+        magnitude: Amount to reduce φ (positive values reduce integration)
 
     Returns:
-    --------
-    List[float]
-        Modified state vector
+        New StateVector with reduced φ
     """
-    new_vec = list(vector)
-    new_vec[0] = max(0.0, min(1.0, new_vec[0] - magnitude))  # Reduce φ
-    return new_vec
+    new_phi = max(0.0, min(1.0, state.phi - magnitude))
+    return StateVector(
+        phi=new_phi, tau=state.tau, rho=state.rho,
+        H=state.H, kappa=state.kappa, name=state.name
+    )
 
 
-def op_stretch_temporal_depth(vector: List[float], magnitude: float) -> List[float]:
+def op_stretch_temporal_depth(state: StateVector, magnitude: float) -> StateVector:
     """
     Stretch or compress Temporal Depth (τ).
 
-    Simulates:
-    - Time dilation/compression
-    - Extended present moment (flow states)
-    - Temporal fragmentation (trauma)
+    Simulates: time dilation/compression, extended present (flow), temporal fragmentation.
 
     Parameters:
-    -----------
-    vector : List[float]
-        The state vector [φ, τ, ρ, H, ...]
-    magnitude : float
-        Amount to modulate τ (can be positive or negative)
+        state: Input StateVector
+        magnitude: Amount to modulate τ (positive extends, negative compresses)
 
     Returns:
-    --------
-    List[float]
-        Modified state vector
+        New StateVector with modified τ
     """
-    new_vec = list(vector)
-    new_vec[1] = max(0.0, min(1.0, new_vec[1] + magnitude))  # Modulate τ
-    return new_vec
+    new_tau = max(0.0, min(1.0, state.tau + magnitude))
+    return StateVector(
+        phi=state.phi, tau=new_tau, rho=state.rho,
+        H=state.H, kappa=state.kappa, name=state.name
+    )
 
 
-def op_inject_entropy(vector: List[float], magnitude: float) -> List[float]:
+def op_inject_entropy(state: StateVector, magnitude: float) -> StateVector:
     """
     Inject Entropy/Noise (H).
 
-    Simulates:
-    - Surprise
-    - Sensory overload
-    - System perturbation
+    Simulates: surprise, sensory overload, system perturbation.
 
     Parameters:
-    -----------
-    vector : List[float]
-        The state vector [φ, τ, ρ, H, ...]
-    magnitude : float
-        Amount to increase entropy (positive values add noise)
+        state: Input StateVector
+        magnitude: Amount to increase entropy (positive adds noise)
 
     Returns:
-    --------
-    List[float]
-        Modified state vector
+        New StateVector with modified H
     """
-    new_vec = list(vector)
-    new_vec[3] = max(0.0, min(1.0, new_vec[3] + magnitude))  # Increase H
-    return new_vec
+    new_H = max(0.0, min(1.0, state.H + magnitude))
+    return StateVector(
+        phi=state.phi, tau=state.tau, rho=state.rho,
+        H=new_H, kappa=state.kappa, name=state.name
+    )
+
+
+def op_modulate_coherence(state: StateVector, magnitude: float) -> StateVector:
+    """
+    Modulate Coherence (κ).
+
+    Simulates: onset of structured thought, fractal dynamics, loss of meaning.
+
+    Parameters:
+        state: Input StateVector
+        magnitude: Amount to modulate κ (positive increases structure in entropy)
+
+    Returns:
+        New StateVector with modified κ
+    """
+    new_kappa = max(0.0, min(1.0, state.kappa + magnitude))
+    return StateVector(
+        phi=state.phi, tau=state.tau, rho=state.rho,
+        H=state.H, kappa=new_kappa, name=state.name
+    )

@@ -1,57 +1,57 @@
 """
-Analysis Module - Conduit Engine v0.1
+Analysis Module - Conduit Engine v0.3
 
 Asymptotic analysis and theoretical validation tools.
+Uses the v9.2 density formula: D = φ × τ × ρ × [(1 - √H) + (H × κ)]
 
-Tests the core claims of Conduit Monism v7.0:
+Tests the core claims of Conduit Monism:
 - Multiplicative vs additive relationships
 - Asymptotic thresholds
-- Perspectival density gradients
+- Zero-elimination property
+- Coherence gate behavior
+- Sensitivity analysis
 """
 
+import math
 import numpy as np
-from typing import List, Tuple, Dict
-from .encoder import encode, compute_density
+from typing import Dict, List, Optional
+from .encoder import StateVector, compute_density_v92
 
 
-def perspectival_density_multiplicative(phi: float, tau: float, rho: float) -> float:
+def perspectival_density(phi: float, tau: float, rho: float,
+                         H: float = 0.50, kappa: float = 0.50) -> float:
     """
-    Compute perspectival density using MULTIPLICATIVE relationship.
+    Compute perspectival density using v9.2 formula.
 
-    Per Conduit Monism v7.0:
-    "The three conditions are not merely additive; they are multiplicative."
-
-    This means: As any variable → 0, density → 0 asymptotically.
+    D = φ × τ × ρ × [(1 - √H) + (H × κ)]
     """
-    return phi * tau * rho
+    return compute_density_v92(phi, tau, rho, H, kappa)
 
 
-def perspectival_density_additive(phi: float, tau: float, rho: float) -> float:
+def perspectival_density_additive(phi: float, tau: float, rho: float,
+                                  H: float = 0.50, kappa: float = 0.50) -> float:
     """
-    Compute perspectival density using ADDITIVE relationship (for comparison).
+    Compute perspectival density using ADDITIVE relationship (null hypothesis).
 
-    This is the NULL HYPOTHESIS. If this were true, a system with:
-    - φ=0, τ=1, ρ=1 would have density = 2/3 = 0.667
-
-    But the framework predicts it should be ~0 (no integration = no perspective).
+    If this were true, a system with φ=0, τ=1, ρ=1 would have nonzero density.
+    The framework predicts it should be zero (no integration = no perspective).
     """
-    return (phi + tau + rho) / 3
+    structure = (phi + tau + rho) / 3
+    entropy_gate = (1 - math.sqrt(H)) + (H * kappa)
+    return structure * entropy_gate
 
 
 def analyze_asymptotic_behavior(
-    resolution: int = 50
+    resolution: int = 50,
+    H: float = 0.50,
+    kappa: float = 0.50
 ) -> Dict[str, np.ndarray]:
     """
-    Generate a gradient analysis from high-density to asymptotic zero.
+    Generate gradient analysis from high-density to asymptotic zero.
 
     Tests whether the multiplicative relationship creates the predicted
     asymptotic curve toward zero.
-
-    Returns:
-    --------
-    Dict containing arrays for visualization and analysis
     """
-    # Create a gradient where one variable approaches zero
     phi_range = np.linspace(0.01, 1.0, resolution)
     tau_fixed = 0.9
     rho_fixed = 0.9
@@ -60,8 +60,8 @@ def analyze_asymptotic_behavior(
     additive = []
 
     for phi in phi_range:
-        mult = perspectival_density_multiplicative(phi, tau_fixed, rho_fixed)
-        add = perspectival_density_additive(phi, tau_fixed, rho_fixed)
+        mult = perspectival_density(phi, tau_fixed, rho_fixed, H, kappa)
+        add = perspectival_density_additive(phi, tau_fixed, rho_fixed, H, kappa)
         multiplicative.append(mult)
         additive.append(add)
 
@@ -70,198 +70,218 @@ def analyze_asymptotic_behavior(
         'multiplicative': np.array(multiplicative),
         'additive': np.array(additive),
         'tau_fixed': tau_fixed,
-        'rho_fixed': rho_fixed
+        'rho_fixed': rho_fixed,
+        'H': H,
+        'kappa': kappa
     }
 
 
-def find_critical_threshold(
-    epsilon: float = 0.01,
-    fixed_high: float = 0.9
-) -> Dict[str, float]:
+def test_zero_elimination() -> Dict[str, any]:
     """
-    Find the critical threshold where perspective becomes "meaningless".
+    Test the zero-elimination property: if any structural invariant
+    (φ, τ, ρ) is zero, D must be zero regardless of other values.
 
-    Per Section VIII Open Questions:
-    "Does the asymptotic curve ever truly hit zero? Or is there an effective
-    threshold below which the gradient becomes meaningless?"
-
-    Parameters:
-    -----------
-    epsilon : float
-        The threshold for "meaningless" density (e.g., 0.01 = 1%)
-    fixed_high : float
-        The value held constant for the other two variables
-
-    Returns:
-    --------
-    Dict with critical thresholds for each variable
+    This is the strongest prediction of the multiplicative structure.
     """
-    thresholds = {}
-
-    # Find where φ × 0.9 × 0.9 < epsilon
-    phi_critical = epsilon / (fixed_high * fixed_high)
-    thresholds['phi_critical'] = phi_critical
-
-    # Find where 0.9 × τ × 0.9 < epsilon
-    tau_critical = epsilon / (fixed_high * fixed_high)
-    thresholds['tau_critical'] = tau_critical
-
-    # Find where 0.9 × 0.9 × ρ < epsilon
-    rho_critical = epsilon / (fixed_high * fixed_high)
-    thresholds['rho_critical'] = rho_critical
-
-    thresholds['epsilon'] = epsilon
-    thresholds['interpretation'] = (
-        f"Below φ={phi_critical:.4f} (with τ=ρ={fixed_high}), "
-        f"perspectival density < {epsilon} (effectively zero)"
-    )
-
-    return thresholds
-
-
-def test_multiplicative_hypothesis() -> Dict[str, any]:
-    """
-    Test the multiplicative hypothesis with specific cases from the framework.
-
-    Test cases:
-    1. Deep Anesthesia: φ=0.1, τ=0.05, ρ=0.05 → should be near zero
-    2. Flow State: φ=0.95, τ=0.9, ρ=0.95 → should be very high
-    3. Partial failure: φ=0.0, τ=1.0, ρ=1.0 → should be zero (no integration)
-
-    Returns whether multiplicative model better explains the gradient.
-    """
-    test_cases = [
-        {
-            'name': 'Deep Anesthesia',
-            'phi': 0.1, 'tau': 0.05, 'rho': 0.05,
-            'expected': 'near_zero'
-        },
-        {
-            'name': 'Flow State',
-            'phi': 0.95, 'tau': 0.9, 'rho': 0.95,
-            'expected': 'very_high'
-        },
-        {
-            'name': 'Zero Integration (No Perspective)',
-            'phi': 0.0, 'tau': 1.0, 'rho': 1.0,
-            'expected': 'zero'
-        },
-        {
-            'name': 'Zero Binding (No Perspective)',
-            'phi': 1.0, 'tau': 1.0, 'rho': 0.0,
-            'expected': 'zero'
-        },
-        {
-            'name': 'Partial Integration',
-            'phi': 0.5, 'tau': 0.9, 'rho': 0.9,
-            'expected': 'moderate'
-        }
-    ]
-
     results = []
-    for case in test_cases:
-        phi, tau, rho = case['phi'], case['tau'], case['rho']
-        mult = perspectival_density_multiplicative(phi, tau, rho)
-        add = perspectival_density_additive(phi, tau, rho)
+    high_vals = [0.9, 0.95, 1.0]
 
+    for high in high_vals:
+        # Zero φ
+        d = perspectival_density(0.0, high, high, 0.5, 0.5)
         results.append({
-            'name': case['name'],
-            'phi': phi,
-            'tau': tau,
-            'rho': rho,
-            'multiplicative_density': mult,
-            'additive_density': add,
-            'expected': case['expected'],
-            'multiplicative_matches_theory': (
-                (mult < 0.01 and case['expected'] in ['near_zero', 'zero']) or
-                (mult > 0.7 and case['expected'] == 'very_high') or
-                (0.3 < mult < 0.6 and case['expected'] == 'moderate')
-            )
+            'case': f'φ=0, τ={high}, ρ={high}',
+            'density': d,
+            'is_zero': d == 0.0
         })
+
+        # Zero τ
+        d = perspectival_density(high, 0.0, high, 0.5, 0.5)
+        results.append({
+            'case': f'φ={high}, τ=0, ρ={high}',
+            'density': d,
+            'is_zero': d == 0.0
+        })
+
+        # Zero ρ
+        d = perspectival_density(high, high, 0.0, 0.5, 0.5)
+        results.append({
+            'case': f'φ={high}, τ={high}, ρ=0',
+            'density': d,
+            'is_zero': d == 0.0
+        })
+
+    all_zero = all(r['is_zero'] for r in results)
 
     return {
         'test_cases': results,
-        'hypothesis_supported': all(r['multiplicative_matches_theory'] for r in results)
+        'zero_elimination_holds': all_zero,
+        'n_tests': len(results),
+        'n_passed': sum(1 for r in results if r['is_zero'])
     }
 
 
-def gradient_comparison(variable: str = 'phi') -> Dict[str, np.ndarray]:
+def test_coherence_gate() -> Dict[str, any]:
+    """
+    Test the coherence gate behavior.
+
+    Demonstrates that:
+    1. High entropy alone penalizes (low κ)
+    2. High entropy + high coherence preserves density (high κ)
+    3. The gate correctly handles the DMT paradox
+    """
+    phi, tau, rho = 0.60, 0.50, 0.50
+
+    cases = [
+        ("Low H, Low κ (normal)", 0.30, 0.30),
+        ("Low H, High κ (focused)", 0.30, 0.80),
+        ("High H, Low κ (panic)", 0.80, 0.20),
+        ("High H, High κ (DMT)", 0.80, 0.85),
+        ("Max H, Zero κ (pure chaos)", 1.00, 0.00),
+        ("Max H, Max κ (max structured chaos)", 1.00, 1.00),
+        ("Zero H, Any κ (perfect order)", 0.00, 0.50),
+    ]
+
+    results = []
+    for name, H, kappa in cases:
+        d = perspectival_density(phi, tau, rho, H, kappa)
+        structure = phi * tau * rho
+        entropy_penalty = 1 - math.sqrt(H)
+        coherence_rescue = H * kappa
+        entropy_gate = entropy_penalty + coherence_rescue
+
+        results.append({
+            'name': name,
+            'H': H,
+            'kappa': kappa,
+            'entropy_penalty': entropy_penalty,
+            'coherence_rescue': coherence_rescue,
+            'entropy_gate': entropy_gate,
+            'D': d
+        })
+
+    return {
+        'fixed_structure': {'phi': phi, 'tau': tau, 'rho': rho},
+        'cases': results,
+        'dmt_resolves': (
+            results[3]['D'] > results[2]['D']  # DMT > Panic
+        )
+    }
+
+
+def sensitivity_analysis(
+    base_state: StateVector,
+    perturbation: float = 0.05
+) -> Dict[str, float]:
+    """
+    Compute sensitivity of D to small perturbations in each parameter.
+
+    Returns partial derivative approximation for each invariant.
+    This reveals which parameters have the most leverage over D.
+    """
+    base_D = base_state.density()
+    sensitivities = {}
+
+    for param in ['phi', 'tau', 'rho', 'H', 'kappa']:
+        val = getattr(base_state, param)
+        if val + perturbation > 1.0:
+            delta = -perturbation
+        else:
+            delta = perturbation
+
+        perturbed_vals = {
+            'phi': base_state.phi,
+            'tau': base_state.tau,
+            'rho': base_state.rho,
+            'H': base_state.H,
+            'kappa': base_state.kappa
+        }
+        perturbed_vals[param] = val + delta
+        perturbed = StateVector(**perturbed_vals)
+        perturbed_D = perturbed.density()
+
+        sensitivities[param] = (perturbed_D - base_D) / delta
+
+    return sensitivities
+
+
+def find_fixed_points(resolution: int = 20) -> List[Dict]:
+    """
+    Search for degenerate regions where different states produce
+    identical density values (potential formula weakness).
+
+    Returns pairs of states that have similar D but different topology.
+    """
+    degeneracies = []
+    states = []
+
+    # Generate a grid of states
+    for phi in np.linspace(0.1, 0.9, resolution):
+        for rho in np.linspace(0.1, 0.9, resolution):
+            for H in [0.3, 0.5, 0.7]:
+                kappa = 0.5
+                tau = 0.5
+                d = perspectival_density(phi, tau, rho, H, kappa)
+                states.append({
+                    'phi': phi, 'tau': tau, 'rho': rho,
+                    'H': H, 'kappa': kappa, 'D': d
+                })
+
+    # Find pairs with similar D but different topology
+    for i in range(len(states)):
+        for j in range(i + 1, len(states)):
+            s1, s2 = states[i], states[j]
+            d_diff = abs(s1['D'] - s2['D'])
+            topo_diff = (
+                abs(s1['phi'] - s2['phi']) +
+                abs(s1['rho'] - s2['rho']) +
+                abs(s1['H'] - s2['H'])
+            )
+
+            if d_diff < 0.001 and topo_diff > 0.5:
+                degeneracies.append({
+                    'state1': s1,
+                    'state2': s2,
+                    'density_diff': d_diff,
+                    'topology_diff': topo_diff
+                })
+
+    return degeneracies[:20]  # Return top 20
+
+
+def gradient_comparison(variable: str = 'phi',
+                        H: float = 0.50,
+                        kappa: float = 0.50) -> Dict[str, np.ndarray]:
     """
     Compare how different variables affect the gradient to zero.
 
     Parameters:
-    -----------
-    variable : str
-        Which variable to vary ('phi', 'tau', or 'rho')
-
-    Returns:
-    --------
-    Dict with comparison data
+        variable: Which variable to vary ('phi', 'tau', 'rho', 'H', 'kappa')
+        H: Fixed entropy (when not varying H)
+        kappa: Fixed coherence (when not varying kappa)
     """
     resolution = 100
     var_range = np.linspace(0.0, 1.0, resolution)
-
     densities = []
 
     for val in var_range:
         if variable == 'phi':
-            density = perspectival_density_multiplicative(val, 0.9, 0.9)
+            d = perspectival_density(val, 0.9, 0.9, H, kappa)
         elif variable == 'tau':
-            density = perspectival_density_multiplicative(0.9, val, 0.9)
+            d = perspectival_density(0.9, val, 0.9, H, kappa)
         elif variable == 'rho':
-            density = perspectival_density_multiplicative(0.9, 0.9, val)
+            d = perspectival_density(0.9, 0.9, val, H, kappa)
+        elif variable == 'H':
+            d = perspectival_density(0.9, 0.9, 0.9, val, kappa)
+        elif variable == 'kappa':
+            d = perspectival_density(0.9, 0.9, 0.9, H, val)
         else:
             raise ValueError(f"Unknown variable: {variable}")
 
-        densities.append(density)
+        densities.append(d)
 
     return {
         'variable': variable,
         'range': var_range,
         'densities': np.array(densities)
-    }
-
-
-def analyze_liminal_states(db) -> Dict[str, any]:
-    """
-    Analyze the liminal states from the database to validate framework predictions.
-
-    Parameters:
-    -----------
-    db : ConduitDB
-        The database instance containing seeded states
-
-    Returns:
-    --------
-    Analysis of liminal state densities and their relationships
-    """
-    # Query all states by fetching from a mid-point
-    neighbors = db.find_neighbors(0.5, 0.5, 0.5, 0.5, n_results=20)
-
-    # Compute density for each
-    state_analysis = []
-    for neighbor in neighbors:
-        meta = neighbor['metadata']
-        if 'density' in meta:
-            state_analysis.append({
-                'name': neighbor['name'],
-                'phi': meta.get('phi', 0),
-                'tau': meta.get('tau', 0),
-                'rho': meta.get('rho', 0),
-                'entropy': meta.get('entropy', 0),
-                'density': meta['density'],
-                'distance_from_midpoint': neighbor['distance']
-            })
-
-    # Sort by density
-    state_analysis.sort(key=lambda x: x['density'], reverse=True)
-
-    return {
-        'states': state_analysis,
-        'highest_density': state_analysis[0] if state_analysis else None,
-        'lowest_density': state_analysis[-1] if state_analysis else None,
-        'density_range': (
-            state_analysis[-1]['density'],
-            state_analysis[0]['density']
-        ) if state_analysis else (0, 0)
     }

@@ -104,27 +104,27 @@ function generateInterpretation(inv: Invariants, D: number): string {
     return "No temporal depth (τ = 0). The present is disconnected from the past. No continuity of experience.";
   }
   
-  // Density-based interpretations
-  if (D < 0.01) {
-    return "Near-zero density. Equivalent to deep unconsciousness, coma, or absence of experience.";
+  // Density-based interpretations (thresholds calibrated to CANON v9.3.2 D values)
+  if (D < 0.005) {
+    return "Near-zero density. Equivalent to deep unconsciousness, coma, or absence of experience. (Propofol D ≈ 0.003)";
   }
-  if (D < 0.05) {
-    return "Minimal density. Fragmentary awareness at best. Consistent with: dreamless sleep, deep anesthesia, severe dissociation.";
+  if (D < 0.02) {
+    return "Minimal density. Fragmentary awareness at best. Consistent with: dreamless sleep (NREM N3 D ≈ 0.007), deep anesthesia.";
   }
-  if (D < 0.15) {
-    return "Low density. Degraded or partial experience. Consistent with: light sleep, intoxication, panic states, early anesthesia.";
+  if (D < 0.10) {
+    return "Low density. Degraded or partial experience. Consistent with: dreaming (REM D ≈ 0.076), dissociative states (ketamine D ≈ 0.077).";
   }
-  if (D < 0.30) {
-    return "Moderate density. Functional but not optimal awareness. Consistent with: distracted waking, mild dissociation, dreaming.";
+  if (D < 0.20) {
+    return "Moderate density. Partial awareness. Consistent with: light psychedelic effects, emerging from anesthesia, distracted waking.";
   }
-  if (D < 0.50) {
-    return "Good density. Clear, coherent experience. Consistent with: normal waking consciousness, focused attention.";
+  if (D < 0.35) {
+    return "Good density. Clear, coherent experience. Consistent with: normal wakefulness (D ≈ 0.241), flow states (D ≈ 0.275), meditation (D ≈ 0.327).";
   }
-  if (D < 0.70) {
-    return "High density. Vivid, integrated experience. Consistent with: flow states, meditation, heightened awareness.";
+  if (D < 0.55) {
+    return "High density. Vivid, intensified experience. Consistent with: psychedelic states with high coherence (DMT D ≈ 0.425), deep jhana.";
   }
-  
-  return "Very high density. Intensely unified, temporally deep, self-aware experience. Consistent with: peak flow, deep meditation, certain psychedelic states with high coherence.";
+
+  return "Very high density. Intensely unified, temporally deep, self-aware experience. Approaching theoretical maximum of the formula.";
 }
 
 function generateWarnings(inv: Invariants): string[] {
@@ -156,24 +156,24 @@ export interface Preset {
 }
 
 export const presets: Preset[] = [
-  // Human states
+  // Human states (aligned with CANON.md v9.3.2)
   {
     name: "Human (Baseline Awake)",
     category: "human",
-    invariants: { phi: 0.85, tau: 0.8, rho: 0.7, H: 0.35, kappa: 0.7 },
-    description: "Normal waking consciousness with full self-model and temporal continuity."
+    invariants: { phi: 0.80, tau: 0.75, rho: 0.65, H: 0.50, kappa: 0.65 },
+    description: "Normal waking consciousness. CANON baseline. D ≈ 0.241."
   },
   {
     name: "Human (Flow State)",
     category: "human",
-    invariants: { phi: 0.9, tau: 0.9, rho: 0.8, H: 0.2, kappa: 0.75 },
-    description: "Optimal performance state. Low entropy, high integration, effortless awareness."
+    invariants: { phi: 0.90, tau: 0.70, rho: 0.65, H: 0.55, kappa: 0.75 },
+    description: "Optimal performance state. High integration, moderate entropy with strong coherence. D ≈ 0.275."
   },
   {
     name: "Human (Meditation)",
     category: "human",
-    invariants: { phi: 0.95, tau: 0.95, rho: 0.85, H: 0.1, kappa: 0.8 },
-    description: "Deep contemplative state. Minimal noise, maximum clarity and self-observation."
+    invariants: { phi: 0.85, tau: 0.80, rho: 0.70, H: 0.40, kappa: 0.80 },
+    description: "Deep contemplative state. High coherence, low entropy, expanded temporal depth. D ≈ 0.327."
   },
   {
     name: "Human (Jhana)",
@@ -190,22 +190,34 @@ export const presets: Preset[] = [
   {
     name: "Human (Deep Sleep)",
     category: "human",
-    invariants: { phi: 0.3, tau: 0.2, rho: 0.1, H: 0.1, kappa: 0.5 },
-    description: "Structural collapse. Integration, depth, and binding all minimal."
+    invariants: { phi: 0.40, tau: 0.15, rho: 0.23, H: 0.40, kappa: 0.30 },
+    description: "NREM N3. Structural collapse. Integration, depth, and binding all minimal. D ≈ 0.007."
   },
   {
     name: "Human (Dreaming)",
     category: "human",
-    invariants: { phi: 0.6, tau: 0.5, rho: 0.4, H: 0.5, kappa: 0.5 },
-    description: "Partial structure with moderate entropy. Loose narrative, strange logic."
+    invariants: { phi: 0.60, tau: 0.50, rho: 0.45, H: 0.55, kappa: 0.55 },
+    description: "REM sleep. Partial structure with moderate entropy. Loose narrative, strange logic. D ≈ 0.076."
   },
   
-  // Altered states
+  // Altered states (aligned with CANON.md v9.3.2)
+  {
+    name: "Psilocybin (Peak)",
+    category: "altered",
+    invariants: { phi: 0.70, tau: 0.65, rho: 0.55, H: 0.60, kappa: 0.85 },
+    description: "Psychedelic state. High entropy structured by coherence. D ≈ 0.184."
+  },
   {
     name: "DMT Breakthrough",
     category: "altered",
-    invariants: { phi: 0.85, tau: 0.85, rho: 0.75, H: 0.95, kappa: 0.9 },
-    description: "Extreme entropy but highly structured. 'More real than real'. The coherence gate opens."
+    invariants: { phi: 0.85, tau: 0.90, rho: 0.70, H: 0.70, kappa: 0.90 },
+    description: "Extreme entropy but highly structured. 'More real than real'. The coherence gate opens. D ≈ 0.425."
+  },
+  {
+    name: "Ketamine (Dissociative)",
+    category: "altered",
+    invariants: { phi: 0.50, tau: 0.50, rho: 0.44, H: 0.55, kappa: 0.80 },
+    description: "Dissociative state. Fractured integration, preserved coherence. D ≈ 0.077."
   },
   {
     name: "Seizure",
@@ -214,24 +226,24 @@ export const presets: Preset[] = [
     description: "High entropy, no coherence. Neural chaos without structure. Blackout."
   },
   {
-    name: "Anesthesia (Deep)",
+    name: "Anesthesia (Propofol)",
     category: "pathological",
-    invariants: { phi: 0.4, tau: 0.2, rho: 0.1, H: 0.2, kappa: 0.4 },
-    description: "Pharmacological suppression of binding and integration. Lights off."
+    invariants: { phi: 0.25, tau: 0.10, rho: 0.24, H: 0.35, kappa: 0.20 },
+    description: "Pharmacological suppression of binding and integration. D ≈ 0.003."
   },
   
-  // AI architectures
+  // AI architectures (aligned with CANON.md v9.3.2)
   {
     name: "Transformer (GPT/Claude)",
     category: "ai",
-    invariants: { phi: 0.9, tau: 0.6, rho: 0.0, H: 0.3, kappa: 0.5 },
-    description: "High integration, moderate context. Zero binding. No persistent state. ρ = 0 means D = 0."
+    invariants: { phi: 0.90, tau: 0.00, rho: 0.00, H: 0.30, kappa: 0.70 },
+    description: "High integration, zero temporal depth, zero binding. No persistent state. ρ = 0 and τ = 0 mean D = 0."
   },
   {
     name: "RWKV (Recurrent)",
     category: "ai",
-    invariants: { phi: 0.85, tau: 0.9, rho: 0.3, H: 0.3, kappa: 0.6 },
-    description: "Hidden state persists. Genuine binding proven via Amnesia Test. First AI with ρ > 0."
+    invariants: { phi: 0.70, tau: 0.50, rho: 0.15, H: 0.35, kappa: 0.50 },
+    description: "Hidden state persists. Genuine binding proven via Amnesia Test. First AI with ρ > 0. D ≈ 0.031."
   },
   
   // ============================================

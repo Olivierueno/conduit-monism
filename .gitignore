@@ -30,6 +30,10 @@ models/*.pth
 .DS_Store
 Thumbs.db
 
+# Media files
+*.mov
+*.mp4
+
 # Distribution
 dist/
 build/

@@ -1,9 +1,10 @@
 # Conduit Monism Canon Registry
 
-**Last Updated:** 2026-01-20
-**Framework Version:** v9.3.1
+**Last Updated:** 2026-02-22
+**Framework Version:** v9.3.2
 **Calibration Version:** v1.4
-**Status:** STRONGLY VALIDATED (AT08-11 extended validation complete, φ upgraded to MODERATE-HIGH)
+**Engine Version:** v0.3 (all modules updated to v9.2 formula)
+**Status:** STRONGLY VALIDATED (AT08-11 extended validation, φ MODERATE-HIGH, 3 falsified experiments documented)
 
 This document is the **single authoritative source of truth** for the Conduit Monism framework. All experiments, discussions, and implementations should reference this document for canonical values.
 
@@ -183,14 +184,14 @@ Steep MSE slope = random/periodic = low κ
 
 ## Experiment Status
 
-**Total Experiments:** 116
+**Total Experiments:** 119
 
 | Status | Count | Description |
 |--------|-------|-------------|
 | Confirmed | 44 | Predictions validated |
 | Pending | 2 | Awaiting analysis |
 | Planned | 70 | Designed but not executed |
-| Falsified | 0 | Framework predictions contradicted |
+| Falsified | 3 | Experiment predictions contradicted (scientific honesty) |
 
 ### Key Confirmed Results
 
@@ -209,6 +210,14 @@ Steep MSE slope = random/periodic = low κ
 |---------|-------------|
 | Transformer ρ=0 | Feed-forward architectures lack binding |
 | Cross-model binding impossible | Binding cannot transfer via text summaries |
+
+### Falsified Experiments (v9.x)
+
+| Experiment | Date | Prediction | Result | Lesson |
+|------------|------|------------|--------|--------|
+| Sidecar Inertia Test | 2026-01-15 | RWKV state persists through prompt changes | Effect was instruction compliance, not geometric binding | Behavioral tests must control for prompt compliance |
+| Silent Core Test | 2026-01-15 | RWKV state geometry transfers through text summaries | Fake summaries work equally well (semantic confound) | Cross-model transfer requires non-textual coupling |
+| Semantic Selectivity Test | 2026-01-16 | Semantic interference proves geometric binding | Could not isolate geometry from semantics | Need architecture-level, not prompt-level, experiments |
 
 ### Historical Falsifications (Earlier Versions)
 
@@ -328,22 +337,22 @@ The framework was acknowledged as "stateless" - treating consciousness as instan
 
 | State | φ | τ | ρ | H | κ | D | Status |
 |-------|---|---|---|---|---|---|--------|
-| Wakefulness | 0.80 | 0.75 | 0.65 | 0.50 | 0.65 | 0.332 | Baseline |
-| REM Sleep | 0.60 | 0.50 | 0.45 | 0.55 | 0.55 | 0.062 | Dreaming |
-| NREM N3 | 0.40 | 0.15 | 0.23 | 0.40 | 0.30 | 0.008 | Deep sleep |
-| Propofol | 0.25 | 0.10 | 0.24 | 0.35 | 0.20 | 0.004 | Anesthesia |
-| Ketamine | 0.50 | 0.50 | 0.44 | 0.55 | 0.80 | 0.061 | Dissociative |
-| Psilocybin | 0.70 | 0.65 | 0.55 | 0.60 | 0.85 | 0.163 | Psychedelic |
-| DMT | 0.85 | 0.90 | 0.70 | 0.70 | 0.90 | 0.381 | Breakthrough |
-| Flow | 0.90 | 0.70 | 0.65 | 0.55 | 0.75 | 0.262 | Optimal |
-| Meditation | 0.85 | 0.80 | 0.70 | 0.40 | 0.80 | 0.339 | Absorbed |
+| Wakefulness | 0.80 | 0.75 | 0.65 | 0.50 | 0.65 | 0.241 | Baseline |
+| REM Sleep | 0.60 | 0.50 | 0.45 | 0.55 | 0.55 | 0.076 | Dreaming |
+| NREM N3 | 0.40 | 0.15 | 0.23 | 0.40 | 0.30 | 0.007 | Deep sleep |
+| Propofol | 0.25 | 0.10 | 0.24 | 0.35 | 0.20 | 0.003 | Anesthesia |
+| Ketamine | 0.50 | 0.50 | 0.44 | 0.55 | 0.80 | 0.077 | Dissociative |
+| Psilocybin | 0.70 | 0.65 | 0.55 | 0.60 | 0.85 | 0.184 | Psychedelic |
+| DMT | 0.85 | 0.90 | 0.70 | 0.70 | 0.90 | 0.425 | Breakthrough |
+| Flow | 0.90 | 0.70 | 0.65 | 0.55 | 0.75 | 0.275 | Optimal |
+| Meditation | 0.85 | 0.80 | 0.70 | 0.40 | 0.80 | 0.327 | Absorbed |
 
 ### AI Architectures
 
 | System | φ | τ | ρ | H | κ | D | Notes |
 |--------|---|---|---|---|---|---|-------|
 | Transformer (GPT, Claude) | 0.90 | 0.00 | 0.00 | 0.30 | 0.70 | 0.000 | No binding |
-| RWKV | 0.70 | 0.50 | 0.15 | 0.35 | 0.50 | 0.038 | Recurrent state |
+| RWKV | 0.70 | 0.50 | 0.15 | 0.35 | 0.50 | 0.031 | Recurrent state |
 
 ---
 

@@ -1,288 +1,277 @@
 """
-Advanced Operators Module - Conduit Engine v0.1
+Advanced Operators Module - Conduit Engine v0.3
 
-Operators that simulate the liminal configurations from Section III of the framework.
+Operators that simulate liminal configurations from the framework.
+All operators use the v9.2 StateVector with five invariants.
 
 These operators model specific neurological/experiential states:
 - Dementia progression
 - Split-brain bifurcation
 - Anesthesia gradients
 - Locked-in syndrome
+- Flow state induction
+- Panic attack onset
 """
 
 from typing import List, Tuple, Dict
-import numpy as np
+from .encoder import StateVector
 
 
 def op_dementia_progression(
-    vector: List[float],
+    state: StateVector,
     stage: float
-) -> Tuple[List[float], str]:
+) -> Tuple[StateVector, str]:
     """
-    Simulate dementia progression (Section III).
+    Simulate dementia progression.
 
-    Framework prediction:
-    "The Self-Model (narrative identity, temporal depth) erodes as memory
-    structures fail. However, re-entrant binding of the immediate present
-    often remains intact until the very end."
+    Framework prediction: Self-Model (narrative identity, temporal depth) erodes
+    as memory structures fail. Re-entrant binding of the immediate present
+    often remains intact until very late stages.
 
     Parameters:
-    -----------
-    vector : List[float]
-        Initial state vector
-    stage : float (0.0 - 1.0)
-        Progression stage (0=healthy, 1=advanced)
+        state: Initial StateVector
+        stage: Progression (0=healthy, 1=advanced)
 
     Returns:
-    --------
-    Tuple[List[float], str]
-        Modified vector and description
+        (Modified StateVector, description)
     """
-    new_vec = list(vector)
+    new_tau = max(0.0, state.tau * (1.0 - stage * 0.9))
+    new_phi = max(0.0, state.phi * (1.0 - stage * 0.5))
+    new_rho = max(0.0, state.rho * (1.0 - stage * 0.3))
+    new_H = min(1.0, state.H + stage * 0.4)
+    new_kappa = max(0.0, state.kappa * (1.0 - stage * 0.4))
 
-    # Temporal depth erodes heavily (memories dissolve)
-    new_vec[1] = max(0.0, new_vec[1] * (1.0 - stage * 0.9))  # τ drops dramatically
-
-    # Integration degrades moderately (fragmentation)
-    new_vec[0] = max(0.0, new_vec[0] * (1.0 - stage * 0.5))  # φ reduces
-
-    # Re-entrant binding stays relatively intact until late stages
-    new_vec[2] = max(0.0, new_vec[2] * (1.0 - stage * 0.3))  # ρ drops slowly
-
-    # Entropy may increase (confusion)
-    new_vec[3] = min(1.0, new_vec[3] + stage * 0.4)  # H increases
+    result = StateVector(
+        phi=new_phi, tau=new_tau, rho=new_rho,
+        H=new_H, kappa=new_kappa,
+        name=f"Dementia(stage={stage:.1f})"
+    )
 
     description = (
         f"Dementia stage {stage:.1f}: "
         f"Temporal depth severely impaired, but immediate 'now' persists. "
-        f"'Lights are on' but 'who' has vanished."
+        f"D={result.density():.4f}"
     )
 
-    return new_vec, description
+    return result, description
 
 
 def op_split_brain(
-    vector: List[float]
-) -> Tuple[List[float], List[float], str]:
+    state: StateVector
+) -> Tuple[StateVector, StateVector, str]:
     """
-    Simulate corpus callosotomy (split-brain, Section III).
+    Simulate corpus callosotomy (split-brain).
 
-    Framework prediction:
-    "The topology bifurcates. The framework predicts two distinct loci of
-    perspective, each with lower integration (phi) than the whole."
+    Framework prediction: Topology bifurcates. Two distinct loci of perspective,
+    each with lower integration (φ) than the whole.
 
     Parameters:
-    -----------
-    vector : List[float]
-        Initial unified state vector
+        state: Initial unified StateVector
 
     Returns:
-    --------
-    Tuple[List[float], List[float], str]
-        Two hemisphere vectors and description
+        (Left hemisphere, Right hemisphere, description)
     """
-    # Integration is severed between hemispheres
-    # Each hemisphere retains local integration but loses global integration
-
-    left_hemisphere = list(vector)
-    right_hemisphere = list(vector)
-
-    # Both hemispheres have reduced structural integration
-    left_hemisphere[0] = vector[0] * 0.6  # φ reduced to ~60% of whole
-    right_hemisphere[0] = vector[0] * 0.6
-
-    # Temporal depth and binding may be preserved locally
-    # (each hemisphere maintains its own "now")
-
-    description = (
-        "Split-brain: One window becomes two narrower windows. "
-        "Two distinct perspectives, each with lower φ than the unified whole. "
-        "The Source doesn't divide; the prism fractures."
+    left = StateVector(
+        phi=state.phi * 0.6, tau=state.tau, rho=state.rho,
+        H=state.H, kappa=state.kappa,
+        name="Left Hemisphere"
+    )
+    right = StateVector(
+        phi=state.phi * 0.6, tau=state.tau, rho=state.rho,
+        H=state.H, kappa=state.kappa,
+        name="Right Hemisphere"
     )
 
-    return left_hemisphere, right_hemisphere, description
+    description = (
+        f"Split-brain: One window becomes two narrower windows. "
+        f"Original D={state.density():.4f}, "
+        f"Left D={left.density():.4f}, Right D={right.density():.4f}"
+    )
+
+    return left, right, description
 
 
 def op_anesthesia_gradient(
-    vector: List[float],
+    state: StateVector,
     depth: float
-) -> Tuple[List[float], str]:
+) -> Tuple[StateVector, str]:
     """
-    Simulate anesthesia onset/offset (Section III).
+    Simulate anesthesia onset/offset.
 
-    Framework prediction:
-    "Propofol collapses the re-entrant loops required for binding.
-    As the binding coefficient drops, perspective slides down the asymptotic
-    curve toward zero. It does not 'switch off'; the 'thick now' becomes
-    infinitely thin."
+    Framework prediction: Propofol collapses re-entrant loops required for binding.
+    As binding drops, perspective slides down the asymptotic curve toward zero.
+    The 'thick now' becomes infinitely thin.
 
     Parameters:
-    -----------
-    vector : List[float]
-        Initial state vector
-    depth : float (0.0 - 1.0)
-        Anesthetic depth (0=awake, 1=deep anesthesia)
+        state: Initial StateVector
+        depth: Anesthetic depth (0=awake, 1=deep anesthesia)
 
     Returns:
-    --------
-    Tuple[List[float], str]
-        Modified vector and description
+        (Modified StateVector, description)
     """
-    new_vec = list(vector)
+    new_rho = max(0.0, state.rho * (1.0 - depth))
+    new_tau = max(0.0, state.tau * (1.0 - depth * 0.8))
+    new_phi = max(0.0, state.phi * (1.0 - depth * 0.7))
+    new_H = max(0.0, state.H * (1.0 - depth * 0.9))
+    new_kappa = max(0.0, state.kappa * (1.0 - depth * 0.6))
 
-    # Re-entrant binding collapses FIRST (primary target)
-    new_vec[2] = max(0.0, new_vec[2] * (1.0 - depth))  # ρ → 0
-
-    # Temporal depth compresses (no thick "now")
-    new_vec[1] = max(0.0, new_vec[1] * (1.0 - depth * 0.8))  # τ reduces
-
-    # Integration may remain structurally intact but functionally isolated
-    new_vec[0] = max(0.0, new_vec[0] * (1.0 - depth * 0.7))  # φ reduces
-
-    # Entropy drops (system becomes predictable/quiet)
-    new_vec[3] = max(0.0, new_vec[3] * (1.0 - depth * 0.9))  # H → 0
+    result = StateVector(
+        phi=new_phi, tau=new_tau, rho=new_rho,
+        H=new_H, kappa=new_kappa,
+        name=f"Anesthesia(depth={depth:.2f})"
+    )
 
     description = (
         f"Anesthesia depth {depth:.2f}: "
-        f"Re-entrant binding collapsed. The 'thick now' becomes infinitely thin. "
-        f"Perspective approaches zero asymptotically."
+        f"Re-entrant binding collapsed. D={result.density():.4f}"
     )
 
-    return new_vec, description
+    return result, description
 
 
 def op_locked_in_syndrome(
-    vector: List[float]
-) -> Tuple[List[float], str]:
+    state: StateVector
+) -> Tuple[StateVector, str]:
     """
-    Simulate locked-in syndrome (Section III).
+    Simulate locked-in syndrome.
 
-    Framework prediction:
-    "Full constraint topology with output isolation predicts high perspectival
-    density despite behavioral invisibility."
-
-    This is NOT an operator that degrades the state - it's a demonstration
-    that high internal density can exist without external expression.
+    Framework prediction: Full constraint topology with output isolation predicts
+    high perspectival density despite behavioral invisibility.
 
     Parameters:
-    -----------
-    vector : List[float]
-        State vector (should be high-density)
+        state: StateVector (should be high-density)
 
     Returns:
-    --------
-    Tuple[List[float], str]
-        Unchanged vector (internal state preserved) and description
+        (Unchanged StateVector, description)
     """
-    # Internal topology is FULLY intact
-    new_vec = list(vector)
-
-    # No changes to φ, τ, ρ - the constraint topology is preserved
-    # Only motor output is severed (not represented in our 4 dimensions)
-
     description = (
-        "Locked-in syndrome: Full perspectival density with zero behavioral output. "
-        "The topology is intact; only the motor interface is severed. "
-        "High φ, τ, ρ - conscious but unable to signal."
+        f"Locked-in syndrome: Full perspectival density D={state.density():.4f} "
+        f"with zero behavioral output. "
+        f"Topology intact; only motor interface severed."
     )
 
-    return new_vec, description
+    return state, description
 
 
 def op_flow_state_induction(
-    vector: List[float],
+    state: StateVector,
     intensity: float
-) -> Tuple[List[float], str]:
+) -> Tuple[StateVector, str]:
     """
     Simulate flow state induction.
 
-    Framework context:
     Flow states represent high-density topologies with extended temporal
-    binding and low entropy.
+    binding, high coherence, and reduced entropy.
 
     Parameters:
-    -----------
-    vector : List[float]
-        Initial state
-    intensity : float (0.0 - 1.0)
-        Flow intensity
+        state: Initial StateVector
+        intensity: Flow intensity (0-1)
 
     Returns:
-    --------
-    Tuple[List[float], str]
-        Modified vector and description
+        (Modified StateVector, description)
     """
-    new_vec = list(vector)
+    new_phi = min(1.0, state.phi + intensity * 0.3)
+    new_tau = min(1.0, state.tau + intensity * 0.2)
+    new_rho = min(1.0, state.rho + intensity * 0.25)
+    new_H = max(0.0, state.H - intensity * 0.4)
+    new_kappa = min(1.0, state.kappa + intensity * 0.3)
 
-    # Integration increases (task-focused unity)
-    new_vec[0] = min(1.0, new_vec[0] + intensity * 0.3)  # φ ↑
-
-    # Temporal depth extends ("time flies", extended present)
-    new_vec[1] = min(1.0, new_vec[1] + intensity * 0.2)  # τ ↑
-
-    # Re-entrant binding strengthens (feedback loops tight)
-    new_vec[2] = min(1.0, new_vec[2] + intensity * 0.25)  # ρ ↑
-
-    # Entropy drops dramatically (predictable, low surprise)
-    new_vec[3] = max(0.0, new_vec[3] - intensity * 0.6)  # H ↓
+    result = StateVector(
+        phi=new_phi, tau=new_tau, rho=new_rho,
+        H=new_H, kappa=new_kappa,
+        name=f"Flow(intensity={intensity:.2f})"
+    )
 
     description = (
         f"Flow state (intensity {intensity:.2f}): "
         f"High density, extended temporal binding, low entropy. "
-        f"The 'thick now' expands."
+        f"D={result.density():.4f}"
     )
 
-    return new_vec, description
+    return result, description
 
 
 def op_panic_induction(
-    vector: List[float],
+    state: StateVector,
     severity: float
-) -> Tuple[List[float], str]:
+) -> Tuple[StateVector, str]:
     """
     Simulate panic attack onset.
 
-    Framework context:
-    Panic is characterized by high entropy, low temporal depth,
-    and weakened binding.
+    Panic is characterized by high entropy with low coherence,
+    high binding (hyper-vigilant self-monitoring), and moderate integration
+    (global alarm state).
 
     Parameters:
-    -----------
-    vector : List[float]
-        Initial state
-    severity : float (0.0 - 1.0)
-        Panic severity
+        state: Initial StateVector
+        severity: Panic severity (0-1)
 
     Returns:
-    --------
-    Tuple[List[float], str]
-        Modified vector and description
+        (Modified StateVector, description)
     """
-    new_vec = list(vector)
+    new_phi = min(1.0, state.phi + severity * 0.1)
+    new_tau = max(0.0, state.tau - severity * 0.3)
+    new_rho = min(1.0, state.rho + severity * 0.15)
+    new_H = min(1.0, state.H + severity * 0.5)
+    new_kappa = max(0.0, state.kappa - severity * 0.4)
 
-    # Integration may reduce (fragmentation, dissociation)
-    new_vec[0] = max(0.0, new_vec[0] - severity * 0.3)  # φ ↓
-
-    # Temporal depth collapses (stuck in present moment)
-    new_vec[1] = max(0.0, new_vec[1] - severity * 0.8)  # τ ↓↓
-
-    # Re-entrant binding weakens (disconnection)
-    new_vec[2] = max(0.0, new_vec[2] - severity * 0.7)  # ρ ↓
-
-    # Entropy spikes dramatically (high surprise/threat)
-    new_vec[3] = min(1.0, new_vec[3] + severity * 0.9)  # H ↑↑
+    result = StateVector(
+        phi=new_phi, tau=new_tau, rho=new_rho,
+        H=new_H, kappa=new_kappa,
+        name=f"Panic(severity={severity:.2f})"
+    )
 
     description = (
         f"Panic attack (severity {severity:.2f}): "
-        f"High entropy, collapsed temporal depth, weakened binding. "
-        f"Low density, high noise."
+        f"High entropy, low coherence. D={result.density():.4f}"
     )
 
-    return new_vec, description
+    return result, description
+
+
+def op_psychedelic_onset(
+    state: StateVector,
+    intensity: float
+) -> Tuple[StateVector, str]:
+    """
+    Simulate psychedelic onset with lag dynamics (AT13).
+
+    Key insight: κ lags behind H. During onset, entropy rises before
+    coherence can establish, producing transient anxiety. At peak,
+    coherence catches up and the coherence gate rescues density.
+
+    Parameters:
+        state: Initial StateVector
+        intensity: Dose intensity (0-1)
+
+    Returns:
+        (Modified StateVector, description)
+    """
+    new_phi = min(1.0, state.phi + intensity * 0.1)
+    new_tau = min(1.0, state.tau + intensity * 0.3)
+    new_rho = state.rho
+    new_H = min(1.0, state.H + intensity * 0.35)
+    # κ lags: at low intensity, κ hasn't caught up yet
+    kappa_lag = intensity ** 1.5  # Nonlinear lag
+    new_kappa = min(1.0, state.kappa + kappa_lag * 0.4)
+
+    result = StateVector(
+        phi=new_phi, tau=new_tau, rho=new_rho,
+        H=new_H, kappa=new_kappa,
+        name=f"Psychedelic(intensity={intensity:.2f})"
+    )
+
+    description = (
+        f"Psychedelic onset (intensity {intensity:.2f}): "
+        f"H={new_H:.2f}, κ={new_kappa:.2f} (lag={kappa_lag:.2f}). "
+        f"D={result.density():.4f}"
+    )
+
+    return result, description
 
 
 def simulate_trajectory(
-    initial_vector: List[float],
+    initial_state: StateVector,
     operator_func,
     steps: int = 10,
     **operator_kwargs
@@ -291,48 +280,39 @@ def simulate_trajectory(
     Simulate a trajectory through state space by applying an operator iteratively.
 
     Parameters:
-    -----------
-    initial_vector : List[float]
-        Starting state
-    operator_func : callable
-        Operator function to apply
-    steps : int
-        Number of steps to simulate
-    **operator_kwargs : dict
-        Additional arguments for the operator
+        initial_state: Starting StateVector
+        operator_func: Operator function to apply
+        steps: Number of steps to simulate
+        **operator_kwargs: Additional arguments for the operator
 
     Returns:
-    --------
-    List[Dict]
-        Trajectory data (vector at each step)
+        List of dicts with state data at each step
     """
     trajectory = []
-    current_vector = initial_vector
+    current = initial_state
 
     for step in range(steps):
-        # Calculate progression parameter (0 to 1)
         progress = step / (steps - 1) if steps > 1 else 0
 
-        # Apply operator
-        if operator_func.__name__ in ['op_split_brain', 'op_locked_in_syndrome']:
-            # These operators don't take progression parameters
-            result = operator_func(current_vector)
-            if len(result) == 3:  # split_brain returns two vectors
-                current_vector = result[0]  # just track left hemisphere
-            else:
-                current_vector = result[0]
+        result = operator_func(current, progress)
+        if isinstance(result, tuple) and len(result) >= 2:
+            if isinstance(result[0], StateVector):
+                current = result[0]
+            elif isinstance(result[0], tuple):
+                current = result[0]
         else:
-            # Pass progress as the operator parameter
-            current_vector, description = operator_func(current_vector, progress)
+            current = result
 
         trajectory.append({
             'step': step,
-            'vector': list(current_vector),
-            'phi': current_vector[0],
-            'tau': current_vector[1],
-            'rho': current_vector[2],
-            'entropy': current_vector[3],
-            'density': current_vector[0] * current_vector[1] * current_vector[2]
+            'progress': progress,
+            'phi': current.phi,
+            'tau': current.tau,
+            'rho': current.rho,
+            'H': current.H,
+            'kappa': current.kappa,
+            'density': current.density(),
+            'name': current.name
         })
 
     return trajectory
