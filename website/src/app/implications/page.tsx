@@ -10,7 +10,7 @@ export default function ImplicationsPage() {
     <main className="min-h-screen py-12 px-6">
       <div className="max-w-5xl mx-auto prose prose-invert prose-neutral">
         <div className="mb-12 not-prose">
-          <h1 className="text-3xl font-mono font-normal mb-4">Implications</h1>
+          <h1 className="text-2xl font-mono mb-4">Implications</h1>
           <p className="text-neutral-500">What the framework means, if it&apos;s true</p>
         </div>
 
