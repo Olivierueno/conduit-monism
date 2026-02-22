@@ -315,6 +315,13 @@ export default function Calculator() {
             </div>
           </div>
 
+        </div>
+
+        {/* Center: Visualization (prominent) */}
+        <div>
+          <h3 className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wide">State Visualization</h3>
+          <StateVisualization invariants={modulatedInvariants} isAnimating={isAnimating} />
+
           {/* Sensitivity legend */}
           <div className="mt-4 p-4 border border-neutral-800 font-mono text-sm">
             <div className="text-xs text-neutral-600 mb-2 uppercase">Sensitivity (∂D/∂param)</div>
@@ -325,12 +332,6 @@ export default function Calculator() {
               <span className="flex items-center gap-1"><span className="w-3 h-1.5 bg-green-700 inline-block"></span> high</span>
             </div>
           </div>
-        </div>
-        
-        {/* Center: Visualization (prominent) */}
-        <div>
-          <h3 className="text-xs font-mono text-neutral-500 mb-4 uppercase tracking-wide">State Visualization</h3>
-          <StateVisualization invariants={modulatedInvariants} isAnimating={isAnimating} />
         </div>
         
         {/* Right: Output & Interpretation */}

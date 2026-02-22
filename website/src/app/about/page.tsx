@@ -33,7 +33,7 @@ export default function AboutPage() {
         <section className="mb-12">
           <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Author</h2>
           <div className="p-4 border border-neutral-800">
-            <div className="font-mono text-neutral-300">Olivier Ueno</div>
+            <div className="font-mono text-neutral-300">O.U.</div>
             <p className="text-sm text-neutral-500 mt-2">
               Independent researcher. No institutional affiliation.
             </p>

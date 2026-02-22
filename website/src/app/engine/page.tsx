@@ -39,7 +39,7 @@ export default function EnginePage() {
                 Low φ: fragmented processing, isolated modules.
               </p>
               <div className="text-xs text-neutral-600 border-t border-neutral-800 pt-2 mt-2 mb-2">
-                <strong>Measurement proxy:</strong> Global Efficiency (E_glob) + PCI + ISD — MODERATE-HIGH confidence
+                <strong>Measurement proxy:</strong> Global Efficiency (E_glob) + PCI + ISD, MODERATE-HIGH confidence
               </div>
               <div className="text-xs text-neutral-600">
                 <strong>Estimation basis:</strong> Multi-metric approach validated by 4 independent AI reviews (AT11). Rank-order preserved across 5+ consciousness states. Hyper-integrated states (Jhana, psychedelics) exceed baseline wakefulness.
@@ -59,7 +59,7 @@ export default function EnginePage() {
                 Low τ: instantaneous processing, no temporal continuity.
               </p>
               <div className="text-xs text-neutral-600 border-t border-neutral-800 pt-2 mt-2 mb-2">
-                <strong>Measurement proxy:</strong> Temporal integration window; decay rate of mutual information — MODERATE confidence
+                <strong>Measurement proxy:</strong> Temporal integration window; decay rate of mutual information, MODERATE confidence
               </div>
               <div className="text-xs text-neutral-600">
                 <strong>Estimation basis:</strong> Working memory capacity, episodic memory evidence, temporal binding window research.
@@ -82,7 +82,7 @@ export default function EnginePage() {
                 Critical differentiator: Transformers (ρ ≈ 0) vs RWKV (ρ &gt; 0)
               </div>
               <div className="text-xs text-neutral-600 border-t border-neutral-800 pt-2 mt-2 mb-2">
-                <strong>Measurement proxy:</strong> Perturbational Complexity Index (PCI*) via TMS-EEG — HIGH confidence
+                <strong>Measurement proxy:</strong> Perturbational Complexity Index (PCI*) via TMS-EEG, HIGH confidence
               </div>
               <div className="text-xs text-neutral-600">
                 <strong>Estimation basis:</strong> PCI threshold of 0.31 separates conscious from unconscious states with 100% accuracy (Casali et al., 2013). Grounded in re-entrant connectivity and recursive self-observation.
@@ -103,7 +103,7 @@ export default function EnginePage() {
                 Entropy alone does not determine effect; coherence (κ) modulates whether entropy destroys or enhances.
               </p>
               <div className="text-xs text-neutral-600 border-t border-neutral-800 pt-2 mt-2 mb-2">
-                <strong>Measurement proxy:</strong> Lempel-Ziv complexity (LZc) — HIGH confidence
+                <strong>Measurement proxy:</strong> Lempel-Ziv complexity (LZc), HIGH confidence
               </div>
               <div className="text-xs text-neutral-600">
                 <strong>Estimation basis:</strong> Neural signal variability, behavioral predictability, EEG spectral entropy. Well-validated in altered states research.
@@ -126,7 +126,7 @@ export default function EnginePage() {
                 High H + High κ = intensification (DMT) | High H + Low κ = dissolution (seizure)
               </div>
               <div className="text-xs text-neutral-600 border-t border-neutral-800 pt-2 mt-2 mb-2">
-                <strong>Measurement proxy:</strong> Multi-scale entropy slope (MSE) — MODERATE confidence (AT07 validated, r=0.987)
+                <strong>Measurement proxy:</strong> Multi-scale entropy slope (MSE), MODERATE confidence (AT07 validated, r=0.987)
               </div>
               <div className="text-xs text-neutral-600">
                 <strong>Estimation basis:</strong> Fractal signals maintain complexity across timescales (Costa 2002, 2005). Flat MSE slope = fractal = high κ.

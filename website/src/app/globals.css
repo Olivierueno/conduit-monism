@@ -63,10 +63,6 @@ body {
 }
 
 /* Prose adjustments */
-.prose {
-  font-family: system-ui, -apple-system, sans-serif;
-}
-
 .prose h1, .prose h2, .prose h3 {
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-weight: 400;

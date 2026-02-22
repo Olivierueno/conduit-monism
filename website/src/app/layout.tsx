@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     "RWKV",
     "phenomenology",
   ],
-  authors: [{ name: "Olivier Ueno" }],
-  creator: "Olivier Ueno",
+  authors: [{ name: "O.U." }],
+  creator: "O.U.",
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",

@@ -81,15 +81,15 @@ export default function CalibrationPage() {
             <div className="grid md:grid-cols-2 gap-3 text-xs">
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
                 <div className="text-neutral-400">Wakefulness</div>
-                <div className="font-mono text-green-400">PCI: 0.44-0.67 → ρ = 0.56</div>
+                <div className="font-mono text-green-400">PCI: 0.44-0.67 → ρ = 0.65</div>
               </div>
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
                 <div className="text-neutral-400">Propofol Anesthesia</div>
-                <div className="font-mono text-red-400">PCI: 0.12-0.31 → ρ = 0.22</div>
+                <div className="font-mono text-red-400">PCI: 0.12-0.31 → ρ = 0.24</div>
               </div>
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
                 <div className="text-neutral-400">Ketamine</div>
-                <div className="font-mono text-yellow-400">PCI: 0.35-0.55 → ρ = 0.45</div>
+                <div className="font-mono text-yellow-400">PCI: 0.35-0.55 → ρ = 0.44</div>
               </div>
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
                 <div className="text-neutral-400">PCI* Threshold</div>
@@ -125,8 +125,8 @@ export default function CalibrationPage() {
                 <div className="font-mono text-blue-400">H = 0.35</div>
               </div>
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
-                <div className="text-neutral-400">Psilocybin (+18%)</div>
-                <div className="font-mono text-purple-400">H = 0.59</div>
+                <div className="text-neutral-400">Psilocybin (+20%)</div>
+                <div className="font-mono text-purple-400">H = 0.60</div>
               </div>
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
                 <div className="text-neutral-400">Ketamine (+10%)</div>
@@ -145,7 +145,7 @@ export default function CalibrationPage() {
               <div className="text-xs text-yellow-400">MODERATE CONFIDENCE</div>
             </div>
             <p className="text-neutral-500 text-sm mb-3">
-              Temporal depth maps to the temporal integration window—the duration over which
+              Temporal depth maps to the temporal integration window, the duration over which
               the brain binds information into a unified &quot;now.&quot; The baseline window for waking
               adults is approximately 2-3 seconds (Pöppel 1997).
             </p>
@@ -155,7 +155,7 @@ export default function CalibrationPage() {
             <div className="grid md:grid-cols-2 gap-3 text-xs">
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
                 <div className="text-neutral-400">Normal waking</div>
-                <div className="font-mono text-neutral-300">τ = 0.50 (baseline)</div>
+                <div className="font-mono text-neutral-300">τ = 0.75 (baseline)</div>
               </div>
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
                 <div className="text-neutral-400">Anesthesia (collapsed)</div>
@@ -234,7 +234,7 @@ export default function CalibrationPage() {
             <div className="grid md:grid-cols-2 gap-3 text-xs">
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
                 <div className="text-neutral-400">Baseline waking</div>
-                <div className="font-mono text-neutral-300">κ = 0.50 (moderate slope)</div>
+                <div className="font-mono text-neutral-300">κ = 0.65 (moderate slope)</div>
               </div>
               <div className="p-2 bg-neutral-900/50 border border-neutral-800">
                 <div className="text-neutral-400">Seizure (non-fractal)</div>
@@ -300,63 +300,63 @@ export default function CalibrationPage() {
               </thead>
               <tbody className="text-neutral-400">
                 <tr className="border-b border-neutral-800/50">
-                  <td className="p-2 font-mono">DMT Breakthrough</td>
-                  <td className="p-2 text-center">0.96</td>
-                  <td className="p-2 text-center">0.90</td>
-                  <td className="p-2 text-center">0.70</td>
-                  <td className="p-2 text-center">0.70</td>
-                  <td className="p-2 text-center">0.90</td>
-                  <td className="p-2 text-center text-purple-400 font-mono">0.480</td>
-                  <td className="p-2 text-orange-400">LOW</td>
-                </tr>
-                <tr className="border-b border-neutral-800/50">
-                  <td className="p-2 font-mono">Deep Meditation</td>
-                  <td className="p-2 text-center">0.88</td>
-                  <td className="p-2 text-center">0.80</td>
-                  <td className="p-2 text-center">0.65</td>
-                  <td className="p-2 text-center">0.43</td>
-                  <td className="p-2 text-center">0.75</td>
-                  <td className="p-2 text-center text-green-400 font-mono">0.305</td>
-                  <td className="p-2 text-orange-400">LOW</td>
-                </tr>
-                <tr className="border-b border-neutral-800/50">
-                  <td className="p-2 font-mono">Flow State</td>
-                  <td className="p-2 text-center">0.92</td>
-                  <td className="p-2 text-center">0.70</td>
-                  <td className="p-2 text-center">0.70</td>
-                  <td className="p-2 text-center">0.45</td>
-                  <td className="p-2 text-center">0.75</td>
-                  <td className="p-2 text-center text-green-400 font-mono">0.301</td>
-                  <td className="p-2 text-orange-400">LOW</td>
-                </tr>
-                <tr className="border-b border-neutral-800/50">
-                  <td className="p-2 font-mono">Psilocybin</td>
-                  <td className="p-2 text-center">0.88</td>
-                  <td className="p-2 text-center">0.70</td>
-                  <td className="p-2 text-center">0.60</td>
-                  <td className="p-2 text-center">0.59</td>
+                  <td className="p-2 font-mono">DMT</td>
                   <td className="p-2 text-center">0.85</td>
-                  <td className="p-2 text-center text-purple-400 font-mono">0.271</td>
+                  <td className="p-2 text-center">0.90</td>
+                  <td className="p-2 text-center">0.70</td>
+                  <td className="p-2 text-center">0.70</td>
+                  <td className="p-2 text-center">0.90</td>
+                  <td className="p-2 text-center text-purple-400 font-mono">0.425</td>
+                  <td className="p-2 text-orange-400">LOW</td>
+                </tr>
+                <tr className="border-b border-neutral-800/50">
+                  <td className="p-2 font-mono">Meditation</td>
+                  <td className="p-2 text-center">0.85</td>
+                  <td className="p-2 text-center">0.80</td>
+                  <td className="p-2 text-center">0.70</td>
+                  <td className="p-2 text-center">0.40</td>
+                  <td className="p-2 text-center">0.80</td>
+                  <td className="p-2 text-center text-green-400 font-mono">0.327</td>
+                  <td className="p-2 text-orange-400">LOW</td>
+                </tr>
+                <tr className="border-b border-neutral-800/50">
+                  <td className="p-2 font-mono">Flow</td>
+                  <td className="p-2 text-center">0.90</td>
+                  <td className="p-2 text-center">0.70</td>
+                  <td className="p-2 text-center">0.65</td>
+                  <td className="p-2 text-center">0.55</td>
+                  <td className="p-2 text-center">0.75</td>
+                  <td className="p-2 text-center text-green-400 font-mono">0.275</td>
                   <td className="p-2 text-orange-400">LOW</td>
                 </tr>
                 <tr className="border-b border-neutral-800/50 bg-neutral-900/30">
                   <td className="p-2 font-mono">Wakefulness</td>
                   <td className="p-2 text-center">0.80</td>
+                  <td className="p-2 text-center">0.75</td>
+                  <td className="p-2 text-center">0.65</td>
                   <td className="p-2 text-center">0.50</td>
-                  <td className="p-2 text-center">0.56</td>
-                  <td className="p-2 text-center">0.50</td>
-                  <td className="p-2 text-center">0.50</td>
-                  <td className="p-2 text-center text-neutral-300 font-mono">0.121</td>
+                  <td className="p-2 text-center">0.65</td>
+                  <td className="p-2 text-center text-neutral-300 font-mono">0.241</td>
                   <td className="p-2 text-orange-400">LOW</td>
                 </tr>
                 <tr className="border-b border-neutral-800/50">
-                  <td className="p-2 font-mono">Panic Attack</td>
-                  <td className="p-2 text-center">0.88</td>
-                  <td className="p-2 text-center">0.50</td>
+                  <td className="p-2 font-mono">Psilocybin</td>
                   <td className="p-2 text-center">0.70</td>
-                  <td className="p-2 text-center">0.68</td>
-                  <td className="p-2 text-center">0.20</td>
-                  <td className="p-2 text-center text-yellow-400 font-mono">0.097</td>
+                  <td className="p-2 text-center">0.65</td>
+                  <td className="p-2 text-center">0.55</td>
+                  <td className="p-2 text-center">0.60</td>
+                  <td className="p-2 text-center">0.85</td>
+                  <td className="p-2 text-center text-purple-400 font-mono">0.184</td>
+                  <td className="p-2 text-orange-400">LOW</td>
+                </tr>
+                <tr className="border-b border-neutral-800/50">
+                  <td className="p-2 font-mono">Ketamine</td>
+                  <td className="p-2 text-center">0.50</td>
+                  <td className="p-2 text-center">0.50</td>
+                  <td className="p-2 text-center">0.44</td>
+                  <td className="p-2 text-center">0.55</td>
+                  <td className="p-2 text-center">0.80</td>
+                  <td className="p-2 text-center text-yellow-400 font-mono">0.077</td>
                   <td className="p-2 text-orange-400">LOW</td>
                 </tr>
                 <tr className="border-b border-neutral-800/50">
@@ -364,56 +364,36 @@ export default function CalibrationPage() {
                   <td className="p-2 text-center">0.60</td>
                   <td className="p-2 text-center">0.50</td>
                   <td className="p-2 text-center">0.45</td>
-                  <td className="p-2 text-center">0.48</td>
-                  <td className="p-2 text-center">0.50</td>
-                  <td className="p-2 text-center text-blue-400 font-mono">0.073</td>
-                  <td className="p-2 text-orange-400">LOW</td>
-                </tr>
-                <tr className="border-b border-neutral-800/50">
-                  <td className="p-2 font-mono">Ketamine</td>
-                  <td className="p-2 text-center">0.48</td>
-                  <td className="p-2 text-center">0.25</td>
-                  <td className="p-2 text-center">0.45</td>
                   <td className="p-2 text-center">0.55</td>
-                  <td className="p-2 text-center">0.50</td>
-                  <td className="p-2 text-center text-yellow-400 font-mono">0.029</td>
+                  <td className="p-2 text-center">0.55</td>
+                  <td className="p-2 text-center text-blue-400 font-mono">0.076</td>
                   <td className="p-2 text-orange-400">LOW</td>
                 </tr>
                 <tr className="border-b border-neutral-800/50">
-                  <td className="p-2 font-mono">NREM Sleep (N3)</td>
+                  <td className="p-2 font-mono">NREM N3</td>
                   <td className="p-2 text-center">0.40</td>
-                  <td className="p-2 text-center">0.35</td>
+                  <td className="p-2 text-center">0.15</td>
                   <td className="p-2 text-center">0.23</td>
                   <td className="p-2 text-center">0.40</td>
                   <td className="p-2 text-center">0.30</td>
-                  <td className="p-2 text-center text-blue-400 font-mono">0.016</td>
-                  <td className="p-2 text-orange-400">LOW</td>
-                </tr>
-                <tr className="border-b border-neutral-800/50">
-                  <td className="p-2 font-mono">Propofol</td>
-                  <td className="p-2 text-center">0.20</td>
-                  <td className="p-2 text-center">0.10</td>
-                  <td className="p-2 text-center">0.22</td>
-                  <td className="p-2 text-center">0.35</td>
-                  <td className="p-2 text-center">0.20</td>
-                  <td className="p-2 text-center text-red-400 font-mono">0.002</td>
+                  <td className="p-2 text-center text-blue-400 font-mono">0.007</td>
                   <td className="p-2 text-orange-400">LOW</td>
                 </tr>
                 <tr>
-                  <td className="p-2 font-mono">Xenon</td>
-                  <td className="p-2 text-center">0.16</td>
+                  <td className="p-2 font-mono">Propofol</td>
+                  <td className="p-2 text-center">0.25</td>
                   <td className="p-2 text-center">0.10</td>
-                  <td className="p-2 text-center">0.17</td>
-                  <td className="p-2 text-center">0.33</td>
+                  <td className="p-2 text-center">0.24</td>
+                  <td className="p-2 text-center">0.35</td>
                   <td className="p-2 text-center">0.20</td>
-                  <td className="p-2 text-center text-red-400 font-mono">0.001</td>
+                  <td className="p-2 text-center text-red-400 font-mono">0.003</td>
                   <td className="p-2 text-orange-400">LOW</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="text-xs text-neutral-600 mt-3">
-            <strong>Note:</strong> Confidence is limited by the least-confident parameter. With κ upgraded to MODERATE (v9.3),
+            <strong>Note:</strong> Confidence is limited by the least-confident parameter. With κ upgraded to MODERATE (v9.3.2),
             φ is now the primary limiting factor for most states.
           </p>
         </section>
@@ -434,7 +414,7 @@ export default function CalibrationPage() {
               <div className="font-mono text-neutral-300 mb-2">2. Coherence Rescues Structured Entropy</div>
               <p className="text-sm text-neutral-500">
                 DMT&apos;s high entropy (H = 0.70) is &quot;rescued&quot; by high coherence (κ = 0.90), yielding
-                D = 0.480. Panic&apos;s identical entropy with low coherence (κ = 0.20) yields D = 0.097.
+                D = 0.425. Seizure&apos;s high entropy with low coherence (κ = 0.15) yields D near zero.
                 The formula correctly distinguishes structured from random chaos.
               </p>
             </div>
@@ -449,7 +429,7 @@ export default function CalibrationPage() {
             <div className="p-4 border border-neutral-800">
               <div className="font-mono text-neutral-300 mb-2">4. Ketamine Paradox</div>
               <p className="text-sm text-neutral-500">
-                Ketamine maintains near-waking PCI (ρ = 0.45) despite producing unresponsiveness.
+                Ketamine maintains near-waking PCI (ρ = 0.44) despite producing unresponsiveness.
                 This explains &quot;dissociative&quot; anesthesia: the binding is preserved (subjective
                 experiences occur) even though behavior is absent.
               </p>
@@ -466,8 +446,8 @@ export default function CalibrationPage() {
               <li>Psychedelic state values are extrapolated from limited psilocybin/ketamine data</li>
               <li>Animal and AI values remain theoretical (no PCI measurements possible)</li>
               <li>Within-state variability is significant but not captured</li>
-              <li className="text-green-500/80">φ (Integration) now multi-metric anchored (AT11, 4/4 AI support) — upgraded to MODERATE-HIGH</li>
-              <li className="text-green-500/80">κ (Coherence) validated via MSE (AT07, r = 0.987) — MODERATE</li>
+              <li className="text-green-500/80">φ (Integration) now multi-metric anchored (AT11, 4/4 AI support), upgraded to MODERATE-HIGH</li>
+              <li className="text-green-500/80">κ (Coherence) validated via MSE (AT07, r = 0.987), MODERATE</li>
             </ul>
           </div>
         </section>

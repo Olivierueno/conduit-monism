@@ -6,7 +6,7 @@ export default function Home() {
       {/* Hero */}
       <section className="py-24 px-6 border-b border-neutral-800">
         <div className="max-w-5xl mx-auto">
-          <p className="text-neutral-500 text-sm mb-4 font-mono">v9.3.1 / January 2026 — Extended Validation Complete</p>
+          <p className="text-neutral-500 text-sm mb-4 font-mono">v9.3.2 / February 2026</p>
           <h1 className="text-4xl md:text-5xl font-mono font-normal mb-8 leading-tight">
             Conduit Monism
           </h1>
@@ -54,11 +54,11 @@ export default function Home() {
           <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Five Invariants</h2>
           <div className="space-y-4">
             {[
-              { symbol: 'φ', name: 'Integration', desc: 'Information unified across the system', human: 'The Whole — is it one thing or many?' },
-              { symbol: 'τ', name: 'Temporal Depth', desc: 'Past states constrain present states', human: 'The Thick Now — does the moment contain history?' },
-              { symbol: 'ρ', name: 'Binding', desc: 'System observes its own states (recursion)', human: 'The Mirror — does it know that it knows?' },
-              { symbol: 'H', name: 'Entropy', desc: 'Noise in system dynamics', human: 'The Noise — how chaotic is the signal?' },
-              { symbol: 'κ', name: 'Coherence', desc: 'Structure within entropy', human: 'The Pattern — is the chaos meaningful?' },
+              { symbol: 'φ', name: 'Integration', desc: 'Information unified across the system', human: 'The Whole: is it one thing or many?' },
+              { symbol: 'τ', name: 'Temporal Depth', desc: 'Past states constrain present states', human: 'The Thick Now: does the moment contain history?' },
+              { symbol: 'ρ', name: 'Binding', desc: 'System observes its own states (recursion)', human: 'The Mirror: does it know that it knows?' },
+              { symbol: 'H', name: 'Entropy', desc: 'Noise in system dynamics', human: 'The Noise: how chaotic is the signal?' },
+              { symbol: 'κ', name: 'Coherence', desc: 'Structure within entropy', human: 'The Pattern: is the chaos meaningful?' },
             ].map((inv) => (
               <div key={inv.symbol} className="py-3 border-b border-neutral-900">
                 <div className="flex items-baseline gap-4">
@@ -126,7 +126,7 @@ export default function Home() {
                 </div>
                 <p className="text-neutral-500 text-sm">
                   High entropy with high coherence produces intensification, not dissolution.
-                  DMT (H=0.70, κ=0.90) → D=0.48. Seizure (H=0.85, κ=0.15) → D=0.006. κ validated via Multi-Scale Entropy (r=0.987).
+                  DMT (H=0.70, κ=0.90) produces D=0.425. Seizure (H=0.85, κ=0.15) produces D near zero. κ validated via Multi-Scale Entropy (r=0.987).
                 </p>
               </div>
               <div className="p-4 border border-green-900/50 bg-green-950/10">
@@ -156,7 +156,7 @@ export default function Home() {
           <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Contents</h2>
           <div className="grid md:grid-cols-2 gap-4">
             {[
-              { href: '/framework', title: 'Framework', desc: 'Full theoretical document (v9.3)' },
+              { href: '/framework', title: 'Framework', desc: 'Full theoretical document (v9.3.2)' },
               { href: '/engine', title: 'Engine', desc: 'Interactive density calculator' },
               { href: '/calibration', title: 'Calibration', desc: 'Empirical anchors and confidence levels' },
               { href: '/validation', title: 'Validation', desc: 'Experiments and falsification attempts' },
@@ -179,7 +179,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-neutral-800 text-center">
         <p className="text-neutral-600 text-xs font-mono">
-          Olivier Ueno / 2026 / 
+          O.U. / 2026 /
           <a href="https://github.com/Olivierueno/conduit-monism" className="hover:text-neutral-400 ml-1">GitHub</a>
         </p>
       </footer>

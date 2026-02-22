@@ -3,10 +3,10 @@ export default function FrameworkPage() {
     <main className="min-h-screen py-12 px-6">
       <div className="max-w-5xl mx-auto prose prose-invert prose-neutral">
         <div className="mb-12 not-prose">
-          <p className="text-neutral-500 text-sm mb-2 font-mono">v9.3 / January 2026</p>
+          <p className="text-neutral-500 text-sm mb-2 font-mono">v9.3.2 / February 2026</p>
           <h1 className="text-3xl font-mono font-normal mb-4">Conduit Monism</h1>
           <p className="text-neutral-500">A Theory of Consciousness</p>
-          <p className="text-neutral-600 text-sm mt-2">Olivier Ueno</p>
+          <p className="text-neutral-600 text-sm mt-2">O.U.</p>
           <p className="text-neutral-700 text-xs mt-1">Developed through dialogue with AI systems (Claude, Gemini, ChatGPT, Grok)</p>
         </div>
         
@@ -60,13 +60,13 @@ export default function FrameworkPage() {
           <h3 className="text-sm font-mono text-neutral-400 mb-3 mt-6">The Conduit</h3>
           <p className="text-neutral-500 leading-relaxed mb-4">
             Biological organisms of sufficient complexity act as <strong className="text-neutral-400">conduits</strong> 
-            — constraint topologies that shape undifferentiated experiential capacity into bounded perspective. 
+            , constraint topologies that shape undifferentiated experiential capacity into bounded perspective.
             The result is conscious experience: the subjective witnessing of reality from a localised perspective.
           </p>
           <p className="text-neutral-500 leading-relaxed mb-4">
             The Source is like light. The conduit is like a prism. The prism does not create the light, 
             but it determines the spectrum and direction. Nothing "enters" the prism from outside 
-            — the light is already everywhere. The prism <em>constrains</em> it into specific wavelengths 
+            . The light is already everywhere. The prism <em>constrains</em> it into specific wavelengths
             and directions. Your body is the prism. The light constrained through it becomes <em>your</em> experience.
           </p>
           

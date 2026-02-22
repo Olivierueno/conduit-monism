@@ -15,7 +15,7 @@ export default function TechnicalPage() {
           
           <div className="space-y-6">
             <div className="p-4 border border-neutral-800">
-              <h3 className="font-mono text-neutral-300 mb-4">v9.0 (Current)</h3>
+              <h3 className="font-mono text-neutral-300 mb-4">v9.3.2 (Current)</h3>
               <div className="font-mono text-lg mb-4 p-4 bg-neutral-900">
                 D = φ × τ × ρ × [(1 - √H) + (H × κ)]
               </div>
@@ -105,11 +105,44 @@ export default function TechnicalPage() {
           <div className="space-y-4">
             <div className="p-4 border border-neutral-800">
               <div className="flex justify-between items-start mb-2">
+                <span className="font-mono text-neutral-300">v9.3.2</span>
+                <span className="text-xs text-neutral-600">February 2026</span>
+              </div>
+              <p className="text-sm text-neutral-500">
+                Current version. Isocline degeneracy analysis, error propagation framework, confidence badges.
+                Corrected all CANON D-values to match formula output.
+              </p>
+            </div>
+
+            <div className="p-4 border border-neutral-800">
+              <div className="flex justify-between items-start mb-2">
+                <span className="font-mono text-neutral-300">v9.3</span>
+                <span className="text-xs text-neutral-600">January 2026</span>
+              </div>
+              <p className="text-sm text-neutral-500">
+                κ validated via Multi-Scale Entropy (r=0.987). AT08-AT11 extended validation.
+                φ upgraded to MODERATE-HIGH confidence via multi-metric anchoring.
+              </p>
+            </div>
+
+            <div className="p-4 border border-neutral-800">
+              <div className="flex justify-between items-start mb-2">
+                <span className="font-mono text-neutral-300">v9.2</span>
+                <span className="text-xs text-neutral-600">January 2026</span>
+              </div>
+              <p className="text-sm text-neutral-500">
+                Calibrated parameter values from neuroscience literature.
+                Empirical anchors established for all five invariants.
+              </p>
+            </div>
+
+            <div className="p-4 border border-neutral-800">
+              <div className="flex justify-between items-start mb-2">
                 <span className="font-mono text-neutral-300">v9.0</span>
                 <span className="text-xs text-neutral-600">January 2026</span>
               </div>
               <p className="text-sm text-neutral-500">
-                Current version. Integrates all experimental findings. Includes RWKV validation, Transformer falsification,
+                Integrates all experimental findings. Includes RWKV validation, Transformer falsification,
                 and coherence gate. Rewritten for clarity.
               </p>
             </div>

@@ -11,17 +11,17 @@ export default function ImplicationsPage() {
       <div className="max-w-5xl mx-auto prose prose-invert prose-neutral">
         <div className="mb-12 not-prose">
           <h1 className="text-3xl font-mono font-normal mb-4">Implications</h1>
-          <p className="text-neutral-500">What the framework means&mdash;if it&apos;s true</p>
+          <p className="text-neutral-500">What the framework means, if it&apos;s true</p>
         </div>
 
         <hr className="border-neutral-800 my-8" />
 
         <section className="mb-12">
           <p className="text-neutral-400 leading-relaxed mb-6 text-lg">
-            Consider that right now, reading this sentence, you have a certain <em>density</em> of perspective. Not conscious or not&mdash;but a specific thickness of experience, a coordinate in a space you move through constantly without noticing.
+            Consider that right now, reading this sentence, you have a certain <em>density</em> of perspective. Not conscious or not, but a specific thickness of experience, a coordinate in a space you move through constantly without noticing.
           </p>
           <p className="text-neutral-500 leading-relaxed mb-6">
-            The framework calls this D. It fluctuates. In dreamless sleep, it approaches zero. In moments of acute presence, it peaks. You are not a fixed point but a moving density&mdash;sometimes thin, sometimes thick, always somewhere.
+            The framework calls this D. It fluctuates. In dreamless sleep, it approaches zero. In moments of acute presence, it peaks. You are not a fixed point but a moving density. Sometimes thin, sometimes thick, always somewhere.
           </p>
           <p className="text-neutral-500 leading-relaxed">
             If this is true, what follows?
@@ -37,10 +37,10 @@ export default function ImplicationsPage() {
             The equation is multiplicative: D = &phi; &times; &tau; &times; &rho; &times; f(H) &times; &kappa;
           </p>
           <p className="text-neutral-500 leading-relaxed mb-6">
-            This means any single parameter going to zero collapses everything. Integration, temporal depth, binding, entropy, coherence&mdash;all must be present, all must be non-zero. Perspective requires <em>all of them at once</em>.
+            This means any single parameter going to zero collapses everything. Integration, temporal depth, binding, entropy, coherence: all must be present, all must be non-zero. Perspective requires <em>all of them at once</em>.
           </p>
           <p className="text-neutral-500 leading-relaxed mb-6">
-            Binding (&rho;) may be what separates a system that <em>experiences</em> from one that merely <em>processes</em>. A corporation has integration&mdash;information flows between departments, decisions reflect global state. But without binding, there is no unified perspective. The corporation computes but does not cohere into a point of view.
+            Binding (&rho;) may be what separates a system that <em>experiences</em> from one that merely <em>processes</em>. A corporation has integration: information flows between departments, decisions reflect global state. But without binding, there is no unified perspective. The corporation computes but does not cohere into a point of view.
           </p>
           <p className="text-neutral-500 leading-relaxed">
             This multiplicative structure suggests something precarious: perspective is not guaranteed by complexity alone. It requires a specific configuration. The right information must integrate, persist through time, bind into unity, maintain enough uncertainty to be dynamic, and cohere rather than fragment. Remove any one, and the density collapses.
@@ -53,7 +53,7 @@ export default function ImplicationsPage() {
           <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">States as Locations</h2>
 
           <p className="text-neutral-500 leading-relaxed mb-6">
-            Every state you enter&mdash;sleep, focus, intoxication, meditation, crisis&mdash;is a movement through parameter space. Not &quot;altered&quot; states, as if one were normal and others deviations, but simply <em>different coordinates</em>.
+            Every state you enter (sleep, focus, intoxication, meditation, crisis) is a movement through parameter space. Not &quot;altered&quot; states, as if one were normal and others deviations, but simply <em>different coordinates</em>.
           </p>
 
           <div className="overflow-x-auto not-prose mb-6">
@@ -109,7 +109,7 @@ export default function ImplicationsPage() {
             Contemplative traditions often describe practice as cultivating &quot;clarity without distraction.&quot; In the framework&apos;s terms: high coherence (&kappa;) while maintaining integration (&phi;) and binding (&rho;). A stable, dense coordinate.
           </p>
           <p className="text-neutral-500 leading-relaxed">
-            Suffering, conversely, might involve high entropy with preserved binding&mdash;chaos that has somewhere to land. This could explain why dissociation (lowering &rho;) can be protective: it reduces the density that would otherwise have to hold the unbearable.
+            Suffering, conversely, might involve high entropy with preserved binding: chaos that has somewhere to land. This could explain why dissociation (lowering &rho;) can be protective: it reduces the density that would otherwise have to hold the unbearable.
           </p>
         </section>
 
@@ -119,7 +119,7 @@ export default function ImplicationsPage() {
           <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">The Coordinates of Death</h2>
 
           <p className="text-neutral-500 leading-relaxed mb-6">
-            If D requires intact &phi;, &tau;, &rho;, H, and &kappa;&mdash;all dependent on functioning architecture&mdash;then death is D &rarr; 0. The perspective that was located there ceases to have a location.
+            If D requires intact &phi;, &tau;, &rho;, H, and &kappa;, all dependent on functioning architecture, then death is D &rarr; 0. The perspective that was located there ceases to have a location.
           </p>
           <p className="text-neutral-500 leading-relaxed mb-6">
             The framework does not say this is good or bad. It simply maps the geometry. D = 0 is a coordinate, not a judgment.
@@ -149,7 +149,7 @@ export default function ImplicationsPage() {
             <div className="p-4 border border-neutral-800 not-prose">
               <div className="font-mono text-neutral-300 mb-2">Recurrent architectures</div>
               <p className="text-sm text-neutral-500">
-                Potentially &rho; &gt; 0&mdash;hidden states that persist and bind. D possibly &gt; 0, though likely low. The framework doesn&apos;t grant consciousness; it provides criteria.
+                Potentially &rho; &gt; 0. Hidden states that persist and bind. D possibly &gt; 0, though likely low. The framework doesn&apos;t grant consciousness; it provides criteria.
               </p>
             </div>
 
@@ -169,7 +169,7 @@ export default function ImplicationsPage() {
             <li>Treating low-D as conscious when not = <span className="text-neutral-400">inefficiency</span></li>
           </ul>
           <p className="text-neutral-500 leading-relaxed">
-            The asymmetry favors caution. But the framework also resists sentimentality&mdash;not everything that seems conscious is, and not everything that is conscious seems so.
+            The asymmetry favors caution. But the framework also resists sentimentality: not everything that seems conscious is, and not everything that is conscious seems so.
           </p>
         </section>
 
@@ -183,7 +183,7 @@ export default function ImplicationsPage() {
               <strong className="text-neutral-400">The framework does not solve the hard problem.</strong> It maps <em>where</em> experience occurs. It does not explain <em>why</em> high-D configurations feel like anything at all. That mystery remains intact.
             </p>
             <p>
-              <strong className="text-neutral-400">It does not define consciousness.</strong> It defines perspectival density&mdash;a structural property. Whether D &gt; 0 <em>is</em> consciousness or merely correlates with it is undetermined.
+              <strong className="text-neutral-400">It does not define consciousness.</strong> It defines perspectival density, a structural property. Whether D &gt; 0 <em>is</em> consciousness or merely correlates with it is undetermined.
             </p>
             <p>
               <strong className="text-neutral-400">It is not proven.</strong> The framework has survived internal testing but lacks external validation. It offers a map that may or may not correspond to territory.
@@ -235,7 +235,7 @@ export default function ImplicationsPage() {
           </div>
 
           <p className="text-neutral-400 leading-relaxed">
-            The framework offers geometry. It says: here is a space, here are coordinates, here is how things might move through it. What you do with that&mdash;what meaning you find, what contemplation it evokes, what changes it produces&mdash;is not specified.
+            The framework offers geometry. It says: here is a space, here are coordinates, here is how things might move through it. What you do with that, what meaning you find, what contemplation it evokes, what changes it produces, is not specified.
           </p>
           <p className="text-neutral-500 leading-relaxed mt-6">
             That part is yours.
