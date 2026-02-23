@@ -70,7 +70,7 @@ export default function Home() {
                   <span className="text-neutral-500 text-sm">{inv.human}</span>
                 </div>
                 <div className="mt-1 text-xs text-neutral-600">
-                  <span className="font-mono">{inv.symbol}</span> &mdash; {inv.desc}
+                  <span className="font-mono">{inv.symbol}</span> / {inv.desc}
                 </div>
               </div>
             ))}
