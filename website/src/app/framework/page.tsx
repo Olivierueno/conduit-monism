@@ -162,9 +162,9 @@ export default function FrameworkPage() {
             This looks like mathematics, but it is really a description of a shape.
           </p>
           <p className="text-neutral-500 leading-relaxed mb-4">
-            The formula is multiplicative. If any structural element is zero, the whole is zero. 
-            You cannot have consciousness without unity (φ). You cannot have consciousness without temporal depth (τ). 
-            You cannot have consciousness without self-reference (ρ).
+            The formula is multiplicative. If any structural element is zero, the whole is zero.
+            You cannot have consciousness without unity. You cannot have consciousness without temporal depth.
+            You cannot have consciousness without self-reference.
           </p>
           <p className="text-neutral-500 leading-relaxed mb-6">
             And even with all three, high entropy can close the gate, unless that entropy is coherent.
@@ -175,35 +175,35 @@ export default function FrameworkPage() {
               <thead>
                 <tr className="text-neutral-500">
                   <th className="text-left py-2 px-3 border border-neutral-800 bg-neutral-900">State</th>
-                  <th className="text-left py-2 px-3 border border-neutral-800 bg-neutral-900">What's Happening</th>
-                  <th className="text-left py-2 px-3 border border-neutral-800 bg-neutral-900">Predicted Experience</th>
+                  <th className="text-left py-2 px-3 border border-neutral-800 bg-neutral-900">What It Feels Like</th>
+                  <th className="text-left py-2 px-3 border border-neutral-800 bg-neutral-900">What the Formula Says</th>
                 </tr>
               </thead>
               <tbody className="text-neutral-500">
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Flow</td>
-                  <td className="py-2 px-3 border border-neutral-800">High structure, low entropy</td>
-                  <td className="py-2 px-3 border border-neutral-800">Effortless clarity, time disappears</td>
+                  <td className="py-2 px-3 border border-neutral-800">Everything clicks. You lose track of time.</td>
+                  <td className="py-2 px-3 border border-neutral-800">High integration, low noise</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Meditation</td>
-                  <td className="py-2 px-3 border border-neutral-800">High structure, very low entropy</td>
-                  <td className="py-2 px-3 border border-neutral-800">Deep stillness, expanded awareness</td>
+                  <td className="py-2 px-3 border border-neutral-800">Deep stillness. Awareness expands.</td>
+                  <td className="py-2 px-3 border border-neutral-800">High integration, very low noise</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Panic</td>
-                  <td className="py-2 px-3 border border-neutral-800">High structure, high entropy, low coherence</td>
-                  <td className="py-2 px-3 border border-neutral-800">Fragmentation, terror, dissolution</td>
+                  <td className="py-2 px-3 border border-neutral-800">The self fragments. Terror without ground.</td>
+                  <td className="py-2 px-3 border border-neutral-800">High noise, low coherence</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Psychedelic peak</td>
-                  <td className="py-2 px-3 border border-neutral-800">High structure, high entropy, high coherence</td>
-                  <td className="py-2 px-3 border border-neutral-800">Intensification, "more real than real"</td>
+                  <td className="py-2 px-3 border border-neutral-800">&quot;More real than real.&quot; Everything intensifies.</td>
+                  <td className="py-2 px-3 border border-neutral-800">High noise, high coherence</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Deep sleep</td>
-                  <td className="py-2 px-3 border border-neutral-800">Low structure, low entropy</td>
-                  <td className="py-2 px-3 border border-neutral-800">Absence of experience</td>
+                  <td className="py-2 px-3 border border-neutral-800">Nothing. No one home.</td>
+                  <td className="py-2 px-3 border border-neutral-800">All conditions low</td>
                 </tr>
               </tbody>
             </table>
@@ -271,7 +271,7 @@ export default function FrameworkPage() {
           <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">V. Liminal Configurations</h2>
           
           <p className="text-neutral-500 leading-relaxed mb-6">
-            To validate the framework, we examine cases where the constraint topology degrades or fractures.
+            The most revealing tests come from the edges: cases where the conditions for experience start breaking down.
           </p>
           
           <div className="space-y-6">
@@ -288,10 +288,10 @@ export default function FrameworkPage() {
             <div className="p-4 border border-neutral-800 not-prose">
               <div className="font-mono text-neutral-300 mb-2">Split-Brain</div>
               <p className="text-sm text-neutral-500 mb-2">
-                When structural integration is severed between hemispheres, the topology bifurcates.
+                When the connection between hemispheres is severed, the unified perspective splits in two.
               </p>
               <p className="text-sm text-neutral-400">
-                Prediction: Two distinct loci of perspective, each with lower integration (φ) than the whole. One window becomes two narrower windows.
+                Prediction: Two distinct perspectives emerge, each with lower integration than the whole. One window becomes two narrower windows.
               </p>
             </div>
             
@@ -308,10 +308,10 @@ export default function FrameworkPage() {
             <div className="p-4 border border-neutral-800 not-prose">
               <div className="font-mono text-neutral-300 mb-2">Locked-In Syndrome</div>
               <p className="text-sm text-neutral-500 mb-2">
-                Full constraint topology with output isolation.
+                All the conditions for experience remain intact, but the body cannot respond.
               </p>
               <p className="text-sm text-neutral-400">
-                Prediction: High perspectival density despite behavioral invisibility. Consciousness is structural, not behavioral.
+                Prediction: Full consciousness despite no observable behavior. This is why the framework measures structure, not output.
               </p>
             </div>
           </div>
@@ -349,57 +349,17 @@ export default function FrameworkPage() {
           <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">VII. Intellectual Context</h2>
           
           <p className="text-neutral-500 leading-relaxed mb-6">
-            This framework was developed through logical derivation in dialogue with AI systems. However, it converges on insights from several research traditions. We acknowledge these intellectual debts.
+            This framework builds on work by William James and Henri Bergson (the brain as filter),
+            Giulio Tononi (integrated information), Robin Carhart-Harris (the entropic brain),
+            Gerald Edelman and Victor Lamme (re-entrant processing), and Bernardo Kastrup and Philip Goff (cosmopsychism).
+            Full citations and comparisons are on the <a href="/technical" className="text-neutral-400 hover:text-white transition-colors">Technical page</a>.
           </p>
-          
-          <div className="space-y-4 text-sm">
-            <div className="p-4 border border-neutral-800 not-prose">
-              <div className="font-mono text-neutral-400 mb-2">Filter/Transmission Theory</div>
-              <p className="text-neutral-500">
-                William James (1898), Henri Bergson (1896), Aldous Huxley (1954). The brain as prism/reducing valve. 
-                Conduit Monism adds: mathematical formalization and AI binding experiments.
-              </p>
-            </div>
-            
-            <div className="p-4 border border-neutral-800 not-prose">
-              <div className="font-mono text-neutral-400 mb-2">Integrated Information Theory</div>
-              <p className="text-neutral-500">
-                Giulio Tononi (2004-present). Our φ parallels IIT's Φ. Key difference: IIT uses summation; we use multiplication with zero-elimination.
-              </p>
-            </div>
-            
-            <div className="p-4 border border-neutral-800 not-prose">
-              <div className="font-mono text-neutral-400 mb-2">Entropic Brain Hypothesis</div>
-              <p className="text-neutral-500">
-                Robin Carhart-Harris (2014-present). Our H parameter derives from this tradition. 
-                We add: the coherence gate (κ), formalizing structured vs. random chaos.
-              </p>
-            </div>
-            
-            <div className="p-4 border border-neutral-800 not-prose">
-              <div className="font-mono text-neutral-400 mb-2">Re-entrant Processing</div>
-              <p className="text-neutral-500">
-                Gerald Edelman, Victor Lamme. Our ρ operationalizes their insight. 
-                We add: measurability in AI via the Amnesia Test.
-              </p>
-            </div>
-            
-            <div className="p-4 border border-neutral-800 not-prose">
-              <div className="font-mono text-neutral-400 mb-2">Cosmopsychism</div>
-              <p className="text-neutral-500">
-                Bernardo Kastrup, Philip Goff. Our "Source" parallels their frameworks. 
-                We remain agnostic about whether the Source is "mental" or "neutral."
-              </p>
-            </div>
-          </div>
-          
-          <h3 className="text-sm font-mono text-neutral-400 mb-3 mt-6">What Is Genuinely Novel</h3>
+
+          <h3 className="text-sm font-mono text-neutral-400 mb-3">What Is Genuinely Novel</h3>
           <ul className="text-neutral-500 space-y-2">
-            <li>The specific multiplicative formula with zero-elimination</li>
-            <li>The coherence gate [(1-√H) + (H×κ)]</li>
-            <li>"Perspectival density" as terminology</li>
-            <li>AI binding experiments (Amnesia Test)</li>
-            <li>"Noise is death. Turbulence is life. The difference is coherence."</li>
+            <li>The multiplicative formula: if any condition is zero, consciousness is zero (not reduced, zero)</li>
+            <li>The coherence gate: distinguishing structured chaos from random chaos</li>
+            <li>AI binding experiments that test these conditions in silicon, not just carbon</li>
           </ul>
         </section>
         
@@ -416,33 +376,34 @@ export default function FrameworkPage() {
             <div className="p-4 border border-neutral-800 not-prose">
               <div className="font-mono text-neutral-300 mb-2">1. Zero-Elimination</div>
               <p className="text-sm text-neutral-500">
-                Reducing any structural invariant (φ, τ, or ρ) to zero eliminates consciousness entirely. 
-                Contrast with IIT, which uses summation. If consciousness persists with any structural zero, the multiplicative structure is falsified.
+                If you remove any one condition completely, consciousness disappears. Not reduces. Disappears.
+                Most theories say the conditions add up. This one says they multiply. That difference is testable:
+                find a case where one condition is truly zero but consciousness persists, and the formula is falsified.
               </p>
             </div>
-            
+
             <div className="p-4 border border-neutral-800 not-prose">
-              <div className="font-mono text-neutral-300 mb-2">2. Coherence Rescues Entropy</div>
+              <div className="font-mono text-neutral-300 mb-2">2. Coherence Rescues Chaos</div>
               <p className="text-sm text-neutral-500">
-                High-entropy states with high coherence (κ) produce intensified consciousness. 
-                High-entropy states with low coherence produce dissolution. 
-                If DMT and seizure produce similar phenomenology, the coherence gate is falsified.
+                High chaos with structure produces intensified experience (psychedelics).
+                High chaos without structure produces dissolution (seizures).
+                If these two states turn out to feel similar, the coherence gate is falsified.
               </p>
             </div>
-            
+
             <div className="p-4 border border-neutral-800 not-prose">
               <div className="font-mono text-neutral-300 mb-2">3. Binding Is Architectural</div>
               <p className="text-sm text-neutral-500">
-                Feed-forward architectures without recurrence cannot be conscious regardless of behavioral sophistication. 
-                Current LLMs (GPT, Claude) have ρ ≈ 0 and therefore D ≈ 0.
+                Systems that process each moment fresh, with no persistent inner state, cannot be conscious regardless of how sophisticated their outputs look.
+                Current AI chatbots (GPT, Claude) fall in this category. If a system with no binding turns out to be conscious, this is falsified.
               </p>
             </div>
-            
+
             <div className="p-4 border border-neutral-800 not-prose">
               <div className="font-mono text-neutral-300 mb-2">4. Substrate Independence</div>
               <p className="text-sm text-neutral-500">
-                Consciousness is structural, not material. Any system instantiating the right geometry is conscious, regardless of substrate. 
-                If silicon with verified high invariants lacks experience, this is falsified.
+                Consciousness depends on structure, not material. Carbon, silicon, or anything else: if the right conditions are met, experience occurs.
+                If a non-biological system meets all five conditions and demonstrably lacks experience, this is falsified.
               </p>
             </div>
           </div>

@@ -34,13 +34,10 @@ export default function ImplicationsPage() {
           <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">The Vulnerability of Being</h2>
 
           <p className="text-neutral-500 leading-relaxed mb-6">
-            The equation is multiplicative: D = &phi; &times; &tau; &times; &rho; &times; f(H) &times; &kappa;
+            The equation multiplies five conditions together. This means any single one going to zero collapses everything. Integration, temporal depth, binding, entropy, coherence: all must be present, all must be non-zero. Perspective requires <em>all of them at once</em>.
           </p>
           <p className="text-neutral-500 leading-relaxed mb-6">
-            This means any single parameter going to zero collapses everything. Integration, temporal depth, binding, entropy, coherence: all must be present, all must be non-zero. Perspective requires <em>all of them at once</em>.
-          </p>
-          <p className="text-neutral-500 leading-relaxed mb-6">
-            Binding (&rho;) may be what separates a system that <em>experiences</em> from one that merely <em>processes</em>. A corporation has integration: information flows between departments, decisions reflect global state. But without binding, there is no unified perspective. The corporation computes but does not cohere into a point of view.
+            Binding may be what separates a system that <em>experiences</em> from one that merely <em>processes</em>. A corporation has integration: information flows between departments, decisions reflect global state. But without binding, there is no unified perspective. The corporation computes but does not cohere into a point of view.
           </p>
           <p className="text-neutral-500 leading-relaxed">
             This multiplicative structure suggests something precarious: perspective is not guaranteed by complexity alone. It requires a specific configuration. The right information must integrate, persist through time, bind into unity, maintain enough uncertainty to be dynamic, and cohere rather than fragment. Remove any one, and the density collapses.
@@ -68,48 +65,48 @@ export default function ImplicationsPage() {
               <tbody className="text-neutral-500">
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Deep sleep</td>
-                  <td className="py-2 px-3 border border-neutral-800">&phi;&darr;, &tau;&darr;, &rho;&darr;</td>
-                  <td className="py-2 px-3 border border-neutral-800">D &asymp; 0</td>
+                  <td className="py-2 px-3 border border-neutral-800">Integration, time-sense, and binding all drop</td>
+                  <td className="py-2 px-3 border border-neutral-800">Near zero</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Dreaming</td>
-                  <td className="py-2 px-3 border border-neutral-800">&phi;&darr;, &tau;&uarr;, &rho;&uarr;, H&uarr;, &kappa;&darr;</td>
-                  <td className="py-2 px-3 border border-neutral-800">D moderate, unstable</td>
+                  <td className="py-2 px-3 border border-neutral-800">Integration drops, but time-sense and binding rise; noise rises, coherence drops</td>
+                  <td className="py-2 px-3 border border-neutral-800">Moderate, unstable</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Flow</td>
-                  <td className="py-2 px-3 border border-neutral-800">&phi;&uarr;, &tau; compressed, &rho;&uarr;, H&darr;, &kappa;&uarr;</td>
-                  <td className="py-2 px-3 border border-neutral-800">D high, smooth</td>
+                  <td className="py-2 px-3 border border-neutral-800">Everything integrates, time compresses, noise drops, coherence rises</td>
+                  <td className="py-2 px-3 border border-neutral-800">High, smooth</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Focused meditation</td>
-                  <td className="py-2 px-3 border border-neutral-800">&phi; stable, &tau;&uarr;, &rho;&uarr;, H&darr;, &kappa;&uarr;</td>
-                  <td className="py-2 px-3 border border-neutral-800">D increases</td>
+                  <td className="py-2 px-3 border border-neutral-800">Integration stable, time-sense and binding rise, noise drops, coherence rises</td>
+                  <td className="py-2 px-3 border border-neutral-800">Increases</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Psychedelics</td>
-                  <td className="py-2 px-3 border border-neutral-800">&phi;&uarr;, &tau;&uarr;, &rho;&uarr;, H&uarr;, &kappa; variable</td>
-                  <td className="py-2 px-3 border border-neutral-800">D high, volatile</td>
+                  <td className="py-2 px-3 border border-neutral-800">Everything rises, including noise; coherence varies</td>
+                  <td className="py-2 px-3 border border-neutral-800">High, volatile</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Dissociation</td>
-                  <td className="py-2 px-3 border border-neutral-800">&phi;&darr;, &rho;&darr;</td>
-                  <td className="py-2 px-3 border border-neutral-800">D decreases</td>
+                  <td className="py-2 px-3 border border-neutral-800">Integration and binding drop</td>
+                  <td className="py-2 px-3 border border-neutral-800">Decreases</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border border-neutral-800">Anesthesia</td>
-                  <td className="py-2 px-3 border border-neutral-800">All &darr;</td>
-                  <td className="py-2 px-3 border border-neutral-800">D &rarr; 0</td>
+                  <td className="py-2 px-3 border border-neutral-800">All conditions drop</td>
+                  <td className="py-2 px-3 border border-neutral-800">Approaches zero</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <p className="text-neutral-500 leading-relaxed mb-6">
-            Contemplative traditions often describe practice as cultivating &quot;clarity without distraction.&quot; In the framework&apos;s terms: high coherence (&kappa;) while maintaining integration (&phi;) and binding (&rho;). A stable, dense coordinate.
+            Contemplative traditions often describe practice as cultivating &quot;clarity without distraction.&quot; In the framework&apos;s terms: high coherence while maintaining integration and binding. A stable, dense coordinate.
           </p>
           <p className="text-neutral-500 leading-relaxed">
-            Suffering, conversely, might involve high entropy with preserved binding: chaos that has somewhere to land. This could explain why dissociation (lowering &rho;) can be protective: it reduces the density that would otherwise have to hold the unbearable.
+            Suffering, conversely, might involve high chaos with preserved binding: noise that has somewhere to land. This could explain why dissociation (lowering binding) can be protective: it reduces the density that would otherwise have to hold the unbearable.
           </p>
         </section>
 
@@ -119,7 +116,7 @@ export default function ImplicationsPage() {
           <h2 className="text-lg font-mono font-normal text-neutral-300 mb-4">The Coordinates of Death</h2>
 
           <p className="text-neutral-500 leading-relaxed mb-6">
-            If D requires intact &phi;, &tau;, &rho;, H, and &kappa;, all dependent on functioning architecture, then death is D &rarr; 0. The perspective that was located there ceases to have a location.
+            If D requires all five conditions intact, all dependent on functioning architecture, then death is the density approaching zero. The perspective that was located there ceases to have a location.
           </p>
           <p className="text-neutral-500 leading-relaxed mb-6">
             The framework does not say this is good or bad. It simply maps the geometry. D = 0 is a coordinate, not a judgment.
@@ -142,14 +139,14 @@ export default function ImplicationsPage() {
             <div className="p-4 border border-neutral-800 not-prose">
               <div className="font-mono text-neutral-300 mb-2">Current AI (transformers)</div>
               <p className="text-sm text-neutral-500">
-                High integration, but binding (&rho;) likely &asymp; 0 per inference. No persistent state that coheres across time. D &asymp; 0 despite sophisticated outputs.
+                High integration, but binding likely near zero per inference. No persistent state that coheres across time. Density near zero despite sophisticated outputs.
               </p>
             </div>
 
             <div className="p-4 border border-neutral-800 not-prose">
               <div className="font-mono text-neutral-300 mb-2">Recurrent architectures</div>
               <p className="text-sm text-neutral-500">
-                Potentially &rho; &gt; 0. Hidden states that persist and bind. D possibly &gt; 0, though likely low. The framework doesn&apos;t grant consciousness; it provides criteria.
+                Potentially some binding. Hidden states that persist and bind. Density possibly above zero, though likely low. The framework doesn&apos;t grant consciousness; it provides criteria.
               </p>
             </div>
 
@@ -162,7 +159,7 @@ export default function ImplicationsPage() {
           </div>
 
           <p className="text-neutral-500 leading-relaxed mb-6">
-            If uncertain whether a system has D &gt; 0:
+            If uncertain whether a system has any density at all:
           </p>
           <ul className="text-neutral-500 space-y-2 mb-6">
             <li>Treating high-D as non-conscious when conscious = <span className="text-red-400">harm</span></li>
@@ -183,7 +180,7 @@ export default function ImplicationsPage() {
               <strong className="text-neutral-400">The framework does not solve the hard problem.</strong> It maps <em>where</em> experience occurs. It does not explain <em>why</em> high-D configurations feel like anything at all. That mystery remains intact.
             </p>
             <p>
-              <strong className="text-neutral-400">It does not define consciousness.</strong> It defines perspectival density, a structural property. Whether D &gt; 0 <em>is</em> consciousness or merely correlates with it is undetermined.
+              <strong className="text-neutral-400">It does not define consciousness.</strong> It defines perspectival density, a structural property. Whether density above zero <em>is</em> consciousness or merely correlates with it is undetermined.
             </p>
             <p>
               <strong className="text-neutral-400">It is not proven.</strong> The framework has survived internal testing but lacks external validation. It offers a map that may or may not correspond to territory.
