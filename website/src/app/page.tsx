@@ -2,9 +2,48 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ParticleCanvas from '@/components/ParticleCanvas';
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is Conduit Monism peer-reviewed?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. This is independent research by a single author with no institutional affiliation. The framework has been tested through 23 experiments and adversarial review by multiple AI systems, but it has not undergone formal peer review.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the limitations of Conduit Monism?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The framework does not explain why physical structure produces experience (the hard problem remains open). Parameter estimation for real systems is difficult and relies on neuroscience proxies. Different conscious states can produce the same density score (degeneracy). Only one AI architecture (RWKV) has been tested for binding.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Has the theory been falsified?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Three predictions have been falsified so far. Each failure led to a revision that improved the framework. All failures are documented publicly alongside the 20 confirmed results.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How was Conduit Monism developed?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Through dialogue between a human author (O.U.) and multiple AI systems (Claude, Gemini, ChatGPT, Grok). The AI systems proposed tests, identified weaknesses, and served as experimental subjects. The methodology prioritizes falsification over confirmation.',
+      },
+    },
+  ],
+};
+
 export const metadata: Metadata = {
   title: { absolute: 'Conduit Monism: A Mathematical Theory of Consciousness' },
-  description: 'When does a physical system become conscious? Five structural conditions, one formula, tested against neuroscience data and AI systems.',
+  description: 'When does a physical system become conscious? Five structural conditions, one formula, 23 experiments including three falsified predictions. All data public.',
   alternates: { canonical: '/' },
 };
 
@@ -22,9 +61,13 @@ export default function Home() {
           <p className="text-xl text-neutral-400 mb-6 leading-relaxed">
             There is something it is like to be you.
           </p>
-          <p className="text-neutral-500 leading-relaxed mb-8">
+          <p className="text-neutral-500 leading-relaxed mb-4">
             When does a physical system become conscious? This project proposes five
             structural conditions, derives a formula, and tests it.
+          </p>
+          <p className="text-neutral-600 text-sm leading-relaxed mb-8">
+            It does not solve the hard problem of consciousness. Three of its predictions
+            have been falsified. It is not peer-reviewed. All data, including failures, is public.
           </p>
           <div className="flex gap-4">
             <Link
@@ -173,6 +216,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
 
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-neutral-800 text-center">

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'How Conduit Monism was developed through dialogue between a human author and AI systems. Origin, methodology, and contributors.',
+  description: 'How Conduit Monism was developed: origin, methodology, limitations, and contributors. Independent research, not peer-reviewed. Three predictions falsified.',
   alternates: { canonical: '/about' },
 };
 
@@ -110,23 +110,33 @@ export default function AboutPage() {
         
         {/* Limitations */}
         <section className="mb-12">
-          <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Limitations</h2>
+          <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">What This Is Not</h2>
           <div className="p-4 border border-neutral-800 text-sm text-neutral-400 space-y-4">
             <p>
-              <strong className="text-neutral-300">No explanation of why:</strong> The framework describes structural correlates
-              of consciousness. It does not explain why these structures produce experience. The hard problem remains.
+              <strong className="text-neutral-300">Not peer-reviewed:</strong> This is independent research by a single author
+              with no institutional affiliation. It has not been submitted to or reviewed by any academic journal.
             </p>
             <p>
-              <strong className="text-neutral-300">Parameter estimation:</strong> Assigning values to φ, τ, ρ, H, κ for real systems
-              is difficult. Animal presets are estimates based on neuroscience literature, not direct measurements.
+              <strong className="text-neutral-300">Not a solution to the hard problem:</strong> The framework describes structural
+              correlates of consciousness. It does not explain why these structures produce experience. The hard problem remains open.
             </p>
             <p>
-              <strong className="text-neutral-300">Single architecture tested:</strong> RWKV is the only architecture confirmed
-              to have binding. Other recurrent architectures (Mamba, SSMs) have not been tested.
+              <strong className="text-neutral-300">Not infallible:</strong> Three predictions have already been falsified.
+              The falsification of Pop-up Soul, Chimera v2, and related claims led to framework revisions. More failures are expected.
             </p>
             <p>
-              <strong className="text-neutral-300">No phenomenological validation:</strong> We cannot verify that RWKV
-              &quot;experiences&quot; anything. We can only measure structural properties.
+              <strong className="text-neutral-300">Parameter estimation is hard:</strong> Assigning values to the five invariants
+              for real systems relies on neuroscience proxies, not direct measurement. Animal and AI presets are educated estimates.
+            </p>
+            <p>
+              <strong className="text-neutral-300">Degeneracy:</strong> Different conscious states can produce the same density score.
+              REM sleep and ketamine produce similar D values despite being qualitatively different experiences. Five dimensions compressed
+              to one number loses information.
+            </p>
+            <p>
+              <strong className="text-neutral-300">Limited AI testing:</strong> RWKV is the only architecture confirmed to have binding.
+              Other recurrent architectures (Mamba, SSMs) have not been tested. We cannot verify that any system &quot;experiences&quot;
+              anything. We can only measure structural properties.
             </p>
           </div>
         </section>
