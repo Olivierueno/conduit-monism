@@ -1,5 +1,12 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import ParticleCanvas from '@/components/ParticleCanvas';
+
+export const metadata: Metadata = {
+  title: { absolute: 'Conduit Monism: A Mathematical Theory of Consciousness' },
+  description: 'When does a physical system become conscious? Five structural conditions, one formula, tested against neuroscience data and AI systems.',
+  alternates: { canonical: '/' },
+};
 
 export default function Home() {
   return (

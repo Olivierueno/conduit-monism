@@ -1,3 +1,11 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Technical',
+  description: 'Formula derivation, mathematical properties, version history, and implementation details for the consciousness equation D = phi * tau * rho * [(1 - sqrt(H)) + (H * kappa)].',
+  alternates: { canonical: '/technical' },
+};
+
 export default function TechnicalPage() {
   return (
     <main className="min-h-screen py-12 px-6">

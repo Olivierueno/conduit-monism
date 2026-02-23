@@ -1,3 +1,11 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Framework',
+  description: 'The complete theory: five invariants that determine whether a system is conscious, derived from first principles and tested experimentally.',
+  alternates: { canonical: '/framework' },
+};
+
 export default function FrameworkPage() {
   return (
     <main className="min-h-screen py-12 px-6">

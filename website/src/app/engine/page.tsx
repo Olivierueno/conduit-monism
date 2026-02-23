@@ -1,5 +1,12 @@
+import type { Metadata } from 'next';
 import Calculator from '@/components/Calculator';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Engine',
+  description: 'Interactive consciousness calculator. Adjust five invariants and see how perspectival density changes across humans, animals, AI systems, and altered states.',
+  alternates: { canonical: '/engine' },
+};
 
 export default function EnginePage() {
   return (

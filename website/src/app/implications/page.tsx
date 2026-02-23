@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Implications',
   description: 'What Conduit Monism means for ethics, AI consciousness, personal experience, and how we live. Exploring the moral and philosophical consequences of perspectival density.',
+  alternates: { canonical: '/implications' },
 };
 
 export default function ImplicationsPage() {

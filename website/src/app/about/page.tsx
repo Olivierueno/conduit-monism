@@ -1,3 +1,11 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'How Conduit Monism was developed through dialogue between a human author and AI systems. Origin, methodology, and contributors.',
+  alternates: { canonical: '/about' },
+};
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen py-12 px-6">

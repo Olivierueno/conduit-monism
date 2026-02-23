@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Empirical Calibration',
   description: 'Grounding the five invariants in measurable neuroscience. How each framework variable maps to empirical measurements from consciousness research.',
+  alternates: { canonical: '/calibration' },
   keywords: [
     'PCI',
     'perturbational complexity index',
