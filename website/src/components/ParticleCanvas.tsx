@@ -49,8 +49,8 @@ function createSoul(w: number, h: number): Soul {
     age: 0,
     lifespan: 300 + Math.random() * 300,
     birthLen: kappa > 0.5 ? 60 : 15,
-    r: 2 + D * 14,
-    baseOpacity: 0.03 + D * 0.15,
+    r: 4 + D * 20,
+    baseOpacity: 0.08 + D * 0.25,
     turnTimer: 0,
   };
 }

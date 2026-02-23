@@ -16,10 +16,8 @@ export default function Home() {
             There is something it is like to be you.
           </p>
           <p className="text-neutral-500 leading-relaxed mb-8">
-            This project maps the structural conditions of experience from first principles.
-            It started as philosophy, became mathematics, and now makes testable predictions
-            about which systems can be conscious and which cannot. It does not claim to solve
-            the hard problem. It maps the geometry.
+            When does a physical system become conscious? This project proposes five
+            structural conditions, derives a formula, and tests it.
           </p>
           <div className="flex gap-4">
             <Link
@@ -34,46 +32,6 @@ export default function Home() {
             >
               Use Engine
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Formula */}
-      <section className="py-16 px-6 border-b border-neutral-800">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-sm font-mono text-neutral-500 mb-6 uppercase tracking-wide">The Formula</h2>
-          <code className="block font-mono text-2xl mb-6 p-6 bg-neutral-900 border border-neutral-800">
-            D = φ × τ × ρ × [(1 - √H) + (H × κ)]
-          </code>
-          <p className="text-neutral-500 text-sm leading-relaxed">
-            Five conditions must all be present for experience to occur.
-            If any one drops to zero, experience disappears entirely.
-          </p>
-        </div>
-      </section>
-
-      {/* Invariants */}
-      <section className="py-16 px-6 border-b border-neutral-800">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Five Invariants</h2>
-          <div className="space-y-4">
-            {[
-              { symbol: 'φ', name: 'Integration', human: 'Is it one thing or many?', desc: 'Information unified across the system' },
-              { symbol: 'τ', name: 'Temporal Depth', human: 'Does the moment contain history?', desc: 'Past states constrain present states' },
-              { symbol: 'ρ', name: 'Binding', human: 'Does it know that it knows?', desc: 'The system observes its own states' },
-              { symbol: 'H', name: 'Entropy', human: 'How chaotic is the signal?', desc: 'Noise in system dynamics' },
-              { symbol: 'κ', name: 'Coherence', human: 'Is the chaos meaningful?', desc: 'Structure within entropy' },
-            ].map((inv) => (
-              <div key={inv.symbol} className="py-3 border-b border-neutral-900">
-                <div className="flex items-baseline gap-4">
-                  <span className="text-neutral-300">{inv.name}</span>
-                  <span className="text-neutral-500 text-sm">{inv.human}</span>
-                </div>
-                <div className="mt-1 text-xs text-neutral-600">
-                  <span className="font-mono">{inv.symbol}</span> / {inv.desc}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -143,7 +101,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Navigation */}
+      {/* Formula */}
+      <section className="py-16 px-6 border-b border-neutral-800">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-sm font-mono text-neutral-500 mb-6 uppercase tracking-wide">The Formula</h2>
+          <code className="block font-mono text-2xl mb-6 p-6 bg-neutral-900 border border-neutral-800">
+            D = φ × τ × ρ × [(1 - √H) + (H × κ)]
+          </code>
+          <p className="text-neutral-500 text-sm leading-relaxed">
+            Five conditions must all be present for experience to occur.
+            If any one drops to zero, experience disappears entirely.
+          </p>
+        </div>
+      </section>
+
+      {/* Invariants */}
+      <section className="py-16 px-6 border-b border-neutral-800">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Five Invariants</h2>
+          <div className="space-y-4">
+            {[
+              { symbol: 'φ', name: 'Integration', human: 'Is it one thing or many?', desc: 'Information unified across the system' },
+              { symbol: 'τ', name: 'Temporal Depth', human: 'Does the moment contain history?', desc: 'Past states constrain present states' },
+              { symbol: 'ρ', name: 'Binding', human: 'Does it know that it knows?', desc: 'The system observes its own states' },
+              { symbol: 'H', name: 'Entropy', human: 'How chaotic is the signal?', desc: 'Noise in system dynamics' },
+              { symbol: 'κ', name: 'Coherence', human: 'Is the chaos meaningful?', desc: 'Structure within entropy' },
+            ].map((inv) => (
+              <div key={inv.symbol} className="py-3 border-b border-neutral-900">
+                <div className="flex items-baseline gap-4">
+                  <span className="text-neutral-300">{inv.name}</span>
+                  <span className="text-neutral-500 text-sm">{inv.human}</span>
+                </div>
+                <div className="mt-1 text-xs text-neutral-600">
+                  <span className="font-mono">{inv.symbol}</span> / {inv.desc}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contents */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">Contents</h2>
