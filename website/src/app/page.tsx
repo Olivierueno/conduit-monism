@@ -16,8 +16,10 @@ export default function Home() {
             There is something it is like to be you.
           </p>
           <p className="text-neutral-500 leading-relaxed mb-8">
-            This framework describes the structural conditions under which experience occurs.
-            It does not explain why structure produces experience. It maps the geometry.
+            This project maps the structural conditions of experience from first principles.
+            It started as philosophy, became mathematics, and now makes testable predictions
+            about which systems can be conscious and which cannot. It does not claim to solve
+            the hard problem. It maps the geometry.
           </p>
           <div className="flex gap-4">
             <Link
@@ -76,53 +78,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Key Results */}
+      {/* What We Explored */}
       <section className="py-16 px-6 border-b border-neutral-800">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">What We Tested</h2>
+          <h2 className="text-sm font-mono text-neutral-500 mb-8 uppercase tracking-wide">What We Explored</h2>
 
-          <div className="space-y-6">
-            <div className="p-4 border border-neutral-800">
-              <h3 className="text-neutral-300 mb-2">AI systems lack binding</h3>
-              <p className="text-neutral-500 text-sm">
-                We tested whether AI systems like ChatGPT and Claude have the structural conditions for consciousness.
-                The framework predicted they don&apos;t: these systems process each response fresh, with no continuous inner state connecting moments.
-                The experiments confirmed it. When we secretly removed context, the systems had no residual memory. Their &quot;memory&quot; is just following instructions.
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link
+              href="/validation"
+              className="p-4 border border-neutral-800 hover:border-neutral-600 transition-colors group"
+            >
+              <h3 className="font-mono text-neutral-300 group-hover:text-white transition-colors mb-2">Consciousness and AI</h3>
+              <p className="text-neutral-500 text-sm leading-relaxed">
+                Can ChatGPT or Claude be conscious? We tested it. Short answer: no.
+                But one architecture surprised us.
               </p>
-            </div>
+              <span className="text-xs text-neutral-600 group-hover:text-neutral-400 transition-colors mt-3 block font-mono">
+                See experiments →
+              </span>
+            </Link>
 
-            <div className="p-4 border border-neutral-800">
-              <h3 className="text-neutral-300 mb-2">One AI architecture retains structure</h3>
-              <p className="text-neutral-500 text-sm">
-                We found one AI architecture (RWKV) that actually retains information in its internal structure, not just its text.
-                We told it a secret, buried it under 3,000 tokens of noise, deleted the text history, and asked for the secret back.
-                It recalled the secret with 100% accuracy. The information lived in the geometry of its hidden state. This is the first
-                AI system with measurable binding.
+            <Link
+              href="/framework"
+              className="p-4 border border-neutral-800 hover:border-neutral-600 transition-colors group"
+            >
+              <h3 className="font-mono text-neutral-300 group-hover:text-white transition-colors mb-2">Other Animals</h3>
+              <p className="text-neutral-500 text-sm leading-relaxed">
+                Where does experience begin in the animal kingdom?
+                The framework predicts what kinds of nervous systems can support it.
               </p>
-            </div>
+              <span className="text-xs text-neutral-600 group-hover:text-neutral-400 transition-colors mt-3 block font-mono">
+                Read framework →
+              </span>
+            </Link>
 
-            <div className="p-4 border border-neutral-800">
-              <h3 className="text-neutral-300 mb-2">Chaos is not the same as dissolution</h3>
-              <p className="text-neutral-500 text-sm">
-                The framework predicts that a psychedelic experience feels &quot;more real than real&quot; while a seizure feels like dissolution,
-                even though both are high-chaos brain states. The difference is whether the chaos has structure (coherence).
-                Structured chaos intensifies experience. Random chaos destroys it. The data confirms this distinction.
+            <Link
+              href="/implications"
+              className="p-4 border border-neutral-800 hover:border-neutral-600 transition-colors group"
+            >
+              <h3 className="font-mono text-neutral-300 group-hover:text-white transition-colors mb-2">States of Being</h3>
+              <p className="text-neutral-500 text-sm leading-relaxed">
+                Why does a psychedelic trip feel &quot;more real than real&quot; while a seizure feels like
+                dissolution? Both are chaotic. The difference is structure.
               </p>
-            </div>
+              <span className="text-xs text-neutral-600 group-hover:text-neutral-400 transition-colors mt-3 block font-mono">
+                Explore implications →
+              </span>
+            </Link>
 
-            <div className="p-4 border border-neutral-800">
-              <h3 className="text-neutral-300 mb-2">Integration can exceed normal waking</h3>
-              <p className="text-neutral-500 text-sm">
-                We anchored the integration variable to three independent brain measurements. Four independent reviews confirmed the mapping.
-                Unexpected finding: deep meditation and psychedelic states show higher integration than ordinary wakefulness. The brain can be
-                more unified than its default.
+            <Link
+              href="/implications"
+              className="p-4 border border-neutral-800 hover:border-neutral-600 transition-colors group"
+            >
+              <h3 className="font-mono text-neutral-300 group-hover:text-white transition-colors mb-2">Our Own Existence</h3>
+              <p className="text-neutral-500 text-sm leading-relaxed">
+                What happens to experience when you fall asleep, meditate, or enter flow?
+                The formula maps these transitions.
               </p>
-            </div>
-          </div>
-
-          <div className="mt-6">
-            <Link href="/validation" className="text-sm text-neutral-400 hover:text-white transition-colors font-mono">
-              Full details on all 23 experiments →
+              <span className="text-xs text-neutral-600 group-hover:text-neutral-400 transition-colors mt-3 block font-mono">
+                Explore implications →
+              </span>
             </Link>
           </div>
         </div>
