@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
+import CopyOnClick from "@/components/CopyOnClick";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -63,7 +64,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased min-h-screen">
         <Navigation />
-        {children}
+        <CopyOnClick>{children}</CopyOnClick>
         <Analytics />
       </body>
     </html>
