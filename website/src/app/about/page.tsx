@@ -146,8 +146,19 @@ export default function AboutPage() {
           <h2 className="text-sm font-mono text-neutral-500 mb-4 uppercase tracking-wide">Links</h2>
           <div className="p-4 border border-neutral-800 space-y-2">
             <div>
-              <a 
-                href="https://github.com/Olivierueno/conduit-monism" 
+              <a
+                href="/papers/Conduit_Monism.pdf"
+                className="font-mono text-neutral-300 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Pre-print Paper (PDF)
+              </a>
+              <p className="text-sm text-neutral-600 mt-1">Submitted to PhilSci-Archive, March 2026</p>
+            </div>
+            <div>
+              <a
+                href="https://github.com/Olivierueno/conduit-monism"
                 className="font-mono text-neutral-300 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"

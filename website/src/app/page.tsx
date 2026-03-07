@@ -69,7 +69,7 @@ export default function Home() {
             It does not solve the hard problem of consciousness. Three of its predictions
             have been falsified. It is not peer-reviewed. All data, including failures, is public.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <Link
               href="/framework"
               className="px-4 py-2 bg-white text-black text-sm font-mono hover:bg-neutral-200 transition-colors"
@@ -82,6 +82,14 @@ export default function Home() {
             >
               Use Engine
             </Link>
+            <a
+              href="/papers/Conduit_Monism.pdf"
+              className="px-4 py-2 border border-neutral-700 text-sm font-mono hover:border-neutral-500 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read Paper (PDF)
+            </a>
           </div>
         </div>
       </section>
@@ -203,6 +211,7 @@ export default function Home() {
               { href: '/validation', title: 'Validation', desc: 'Every experiment, including the failures' },
               { href: '/technical', title: 'Technical', desc: 'Formula derivation and version history' },
               { href: '/about', title: 'About', desc: 'Methodology and contributors' },
+              { href: '/papers/Conduit_Monism.pdf', title: 'Paper', desc: 'Pre-print: formula, degeneracy analysis, 47 tests' },
             ].map((item) => (
               <Link
                 key={item.href}
