@@ -154,7 +154,7 @@ export default function AboutPage() {
               >
                 Pre-print Paper (PDF)
               </a>
-              <p className="text-sm text-neutral-600 mt-1">Submitted to PhilSci-Archive, March 2026</p>
+              <p className="text-sm text-neutral-600 mt-1">Pre-print, March 2026</p>
             </div>
             <div>
               <a

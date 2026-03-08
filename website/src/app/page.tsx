@@ -11,7 +11,7 @@ const faqJsonLd = {
       name: 'Is Conduit Monism peer-reviewed?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. This is independent research by a single author with no institutional affiliation. The framework has been tested through 23 experiments and adversarial review by multiple AI systems, but it has not undergone formal peer review.',
+        text: 'No. This is independent research by a single author with no institutional affiliation. The framework has been tested through 47 experiments (44 confirmed, 3 falsified) and adversarial review by multiple AI systems, but it has not undergone formal peer review.',
       },
     },
     {
@@ -27,7 +27,7 @@ const faqJsonLd = {
       name: 'Has the theory been falsified?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Three predictions have been falsified so far. Each failure led to a revision that improved the framework. All failures are documented publicly alongside the 20 confirmed results.',
+        text: 'Three predictions have been falsified so far. Each failure led to a revision that improved the framework. All failures are documented publicly alongside the 44 confirmed results.',
       },
     },
     {
@@ -43,7 +43,7 @@ const faqJsonLd = {
 
 export const metadata: Metadata = {
   title: { absolute: 'Conduit Monism: A Mathematical Theory of Consciousness' },
-  description: 'When does a physical system become conscious? Five structural conditions, one formula, 23 experiments including three falsified predictions. All data public.',
+  description: 'When does a physical system become conscious? Five structural conditions, one formula, 47 experiments including three falsified predictions. All data public.',
   alternates: { canonical: '/' },
 };
 
